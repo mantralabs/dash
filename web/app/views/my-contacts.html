@@ -1,0 +1,18 @@
+<!-- mycontacts.html -->
+
+<div id="my-contacts">
+	<div class="mycontacts-header clearfix">
+		<h2>My Contacts <span class="number">{{Contact.list.length}}</span></h2>
+			<div class="pagination">
+				<a href="javascript:"><img src="images/left-arrow.png" class="pagination-left" alt="add-contacts" /></a>
+				<a href="javascript:"><img src="images/right-arrow.png" class="pagination-right" alt="add-contacts"/></a>
+			</div><!--end pagination-->
+	</div><!--end my contacts-header-->
+
+	<div class="profile-pics clearfix">
+
+		<ul class="clearfix">
+			<li ng-repeat="contact in Contact.list"><a href="#/profile1/{{contact.id}}"><img src="images/img-{{contact.id}}.png" alt="profile-pic"></a></li>
+		</ul>
+	</div><!--end profile pics-->  
+</div>

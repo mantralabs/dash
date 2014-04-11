@@ -1,0 +1,24 @@
+<section id="signup-page" ng-controller = "SignupCtrl">
+    <h1>Sign Up</h1>
+    <p class="top-p">Already have an account? <a href="#/">Sign In</a></p>
+
+    <div id="signin-box">
+        <div class="input-container">
+            <form action="" novalidate class ="css-form">
+                <div class="part">
+                    <input type="text" id="name" placeholder="Name" class="common" ng-model="name" ng-minlength = "3"required />
+                </div>
+                <div class="part">
+                    <input  type="email" id="email" placeholder="E-mail" class="common" ng-model="email" required />
+                </div>
+                <div class="part">
+                    <input  type="password" id="password" placeholder="Password" class="common" ng-model="password" ng-minlength="6" required />
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" ng-model="terms" required><p class="i-agree"><span > I agree to the</span> <a href="javascript:">terms and conditions </a></p>
+                </div>
+                    <button class="signup-btn btn" type="submit" ng-click="signup()">Sign Up</button>
+                </form>
+        </div><!--end of input-container-->
+    </div><!--end signin box-->
+</section><!--end login page-->

@@ -1,0 +1,22 @@
+<section id="login-page" ng-controller = "LoginCtrl">
+	<h1>Sign In</h1>
+	<p class="top-p">Don't have account yet? <a href="#/signup">Join now</a></p>
+
+	<div id="signin-box">
+		<div class="input-container">
+			<div style = "color:red"> {{error}}</div>
+				<form action="" method="post" novalidate class="css-form">
+				<div class="part">
+				<input class="common" type="email" id="email" placeholder="Username" ng-model="username" required><br>
+				</div>
+				<div class="part">
+				<input class="common" type="password" id=" password" placeholder="Password" ng-model="passowrd" required>
+				</div>
+				<div class="checkbox clearfix"> 
+				<p class="i-agree forgot-password"><a href="#">Forgot password?</a></p>
+				</div>
+				<button class="signup-btn btn" type="submit" ng-click="login()">Sign In</button>
+				</form>
+				</div><!--end input container-->
+</div><!--end signin box-->
+</section><!--end login page-->

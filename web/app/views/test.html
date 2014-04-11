@@ -1,0 +1,25 @@
+<!-- test.html -->
+
+<div ng-controller="TestCtrl">
+	{{testData}}<br/>
+
+My contacts 5
+
+</div>
+
+
+<section ng-controller = "myName" id="myName">
+	Hello My name is {{firstName}} {{secondName}}
+</section>
+
+<section ng-controller = "myAdd" id="myAdd" >
+	I stay Here in {{address}}
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js" type="text/javascript"></script>
+<script src="app.js" type="text/javascript"></script>
+<script type="text/javascript">
+angular.bootstrap(document.getElementById('myName'), ['myFirstApp']);
+angular.bootstrap(document.getElementById('myAdd'), ['mySecondApp']);
+</script>
+

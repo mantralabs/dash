@@ -1,0 +1,88 @@
+<div id="wrapper">
+
+<!--   <div id="fixed">
+    <div class = "logo">
+      <h1></h1>
+    </div>
+    <div class = "header-links">
+      <ul>
+        <li><a href="javascript:"><img src="images/chat-icon.png" alt="chat-icon"></a></li>
+        <li><a href="javascript:"><img src="images/notification.png" alt="notification"></a></li>
+        <li><a href="javascript:"><img src="images/user-icon.png" alt="user-icon"></a></li>  
+        <li><a href="javascript:"><img src="images/search-icon.png" alt="search-icon"></a></li>
+      </ul>
+    </div>--><!--end header links-->
+  <!-- </div>--><!-- end fixed -->
+
+  <div class="empty-div">
+
+  </div>
+  <div id="content">
+
+    <sidebar></sidebar>
+
+    <section id="container" class="clearfix">
+    
+      <div id="left">
+
+        <my-contacts></my-contacts><!-- my-contacts is a directive -->
+
+        <my-projects></my-projects>
+
+        <div id="tasks">
+          <my-tasks></my-tasks>
+        </div><!--end tasks-->
+
+        <div id="events">
+          <my-events></my-events>
+        </div><!--end events-->
+      </div><!--end left-->
+
+      <div id="right" class="clearfix">
+
+        <div id="update" class="clearfix">
+
+          <h2 >Update an Activity</h2>
+
+          <form action="javascript:" method="post">
+            <input type="text">
+      
+            <div class="update-footer">
+              <div class="update-footer-icons">
+                <ul>
+                  <li class="icons"><a href="javascript:"><img src="images/attach-files.png" alt="attach-files" height="18" width="10"></a></li>
+                  <li class="icons"><a href="javascript:"><img src="images/camera-icon.png" alt="share-links"></a></li>
+                  <li class="icons"><a href="javascript:"><img src="images/link-icon.png" alt="share-files" ></a></li>
+                </ul>
+              </div><!--end update footer icons-->
+            
+              <div class="dropdown update-dropdown">
+                <ul class="parent-ul"> 
+                  <li class="parent-li">
+                    <a href="javascript:">Employee Network <img src="images/arrow-down.png" alt="arrow-down"></a>
+                      <ul class="child-ul">
+                      <li class="child-li"><a href="javascript:">Emenu</a></li>
+                      <li class="child-li"><a href="javascript:">Chess</a></li>
+                      <li class="child-li"><a href="javascript:">Watch In</a></li>
+                      <li class="child-li"><a href="javascript:">anivid</a></li>
+                      </ul>
+                  </li>
+                </ul>
+              </div><!--end dropdown-->
+              
+            </div><!--end update footer-->
+          
+            <div class="update-footer-btn">
+              <button type="submit" class="update-btn btn">Update</button>
+            </div>
+          </form>
+        </div><!--end update-->
+
+        <div id="activities">
+          <activities></activities>
+        </div><!--end activities-->
+
+      </div><!--end right-->
+    </section><!-- end container-->
+  </div><!--end content-->
+</div><!--end wrapper-->

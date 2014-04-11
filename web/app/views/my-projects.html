@@ -1,0 +1,18 @@
+<!-- my-projects.html -->
+<div id="my-projects">
+	<h2>My Projects <span class="number">{{Project.list.length}}</span></h2>
+
+	<div id="project-1" ng-repeat = "project in Project.list"> 
+		<p class="left-column"><a href="#/project/{{project.id}}">{{project.name}}</a></p>
+		<p class="right-column">{{project.members}} members</p>
+	</div><!--end project-1-->
+</div>
+<!-- <div id="project-2">
+	<p class="left-column"><a href="javascript:">Emenu</a></p>
+	<p class="right-column">2 members</p>
+</div><!--end project-2-->
+
+<!-- <div id="project-3">
+	<p class="left-column"><a href="javascript:">Chess</a></p>
+	<p class="right-column">3 members</p>
+</div> --><!--end project-3-->
