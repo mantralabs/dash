@@ -9,10 +9,11 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use User\Controller\AbstractRestfulController;
+use Zend\View\Model\JsonModel;
 
-class IndexController extends AbstractActionController
+
+class IndexController extends AbstractRestfulController
 {
     public function indexAction()
     {

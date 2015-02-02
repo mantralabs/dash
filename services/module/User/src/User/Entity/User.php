@@ -1,6 +1,9 @@
 <?php
-namespace Application\Entity;
+namespace User\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use User\Entity\Base;
+
+use Zend\InputFilter\InputFilter;
 
 /** @ORM\Entity */
 class User
@@ -12,16 +15,18 @@ class User
     */
     protected $id;
 
-    /** @ORM\Column(type="string") */
+    /** 
+     * @ORM\Column(type="string", length=50)
+     */
     protected $username; 
     
     /** 
-     * @ORM\Column(type="string") 
+     * @ORM\Column(type="string", length=50)
      */
     protected $password;    
     
     /** 
-     * @ORM\Column(type="string") 
+     * @ORM\Column(type="string", length=20) 
      */
     protected $role;
     
