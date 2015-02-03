@@ -31,6 +31,11 @@ class User  extends Base
      */
     protected $role;
     
+    /** 
+     * @ORM\Column(type="string", length=100) 
+     */
+    protected $email;    
+    
     /**
      * Convert the object to an array.
      *
