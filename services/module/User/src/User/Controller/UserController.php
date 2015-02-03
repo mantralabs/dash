@@ -27,7 +27,23 @@ class UserController extends AbstractRestfulJsonController{
     }
     
     public function loginAction(){
-        echo "Login Action";        exit();
+        $data['email'] = 'steffi@mantralabsglobal.com';
+        $data['password'] = md5('123456');
+        $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+        $adapter = $authService->getAdapter();
+        $adapter->setIdentityValue($data['email']);
+        $adapter->setCredentialValue($data['password']);
+        $authResult = $authService->authenticate();
+        if ($authResult->isValid()) {
+            $identity = $authResult->getIdentity();
+            $authService->getStorage()->write($identity);
+            $identity = $authResult->getIdentity();
+            $logged_in_user_details = $identity->toArray();
+             return new JsonModel(array('status'=>'success','data'=>$logged_in_user_details));
+        } else {
+            return new JsonModel(array('status'=>'error','data'=>array('message'=>'Invalid details')));
+        }
+        die;
     }
     
     public function getList(){   

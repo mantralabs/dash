@@ -6,6 +6,10 @@ use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\View\Model\JsonModel;
 
+use Zend\Authentication\Adapter\DbTable as DbAuthAdapter;
+use Zend\Authentication\AuthenticationService;
+use Zend\Session\Container;
+
 class Module
 {
     public function onBootstrap(MvcEvent $e)
@@ -87,6 +91,25 @@ class Module
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
+            ),
+        );
+    }
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'AuthService' => function ($serviceManager) {
+                    $adapter = $serviceManager->get('Zend\Db\Adapter\Adapter');
+                    $dbAuthAdapter = new DbAuthAdapter ( $adapter, 'User', 'email', 'password' );
+                    	
+                    $auth = new AuthenticationService();
+                    $auth->setAdapter ( $dbAuthAdapter );
+                    return $auth;
+                },
+                'Zend\Authentication\AuthenticationService' => function($serviceManager) {
+                    // If you are using DoctrineORMModule:
+                    return $serviceManager->get('doctrine.authenticationservice.orm_default');
+                }
             ),
         );
     }

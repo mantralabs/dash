@@ -59,6 +59,9 @@ class User  extends Base
     public function getAddress(){
         return $this->address;
     }
+    public function getPassword(){
+        return $this->password;
+    }
 
     public function getInputFilter($em){
         if (!$this->inputFilter) {
