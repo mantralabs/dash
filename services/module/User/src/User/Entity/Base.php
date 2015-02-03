@@ -91,6 +91,38 @@ class Base
         }else
             return true;
     }
+    
+    /* author : Steffi*/
+    public function validateLogin($em = null, $throwException = true){
+        $errorMessages = array();
+        $vars = get_object_vars($this);
+        foreach($vars as $key =>$val){
+            if(is_object($val) && method_exists($this->$key, "validate")){
+                $entity = $this->$key;
+                $result = $entity->validate($em, false);
+                if($result !== true){
+                    array_push($errorMessages, $result[0]);
+                }
+                    
+            }
+        }
+
+        $this->getLoginInputFilter($em);
+        $this->inputFilter->setData($this->toArray());
+        if(!$this->inputFilter->isValid()){
+            $cls = str_ireplace("DoctrineORMModule\\Proxy\\__CG__\\", "", get_class($this));
+            array_push($errorMessages, array($cls=>$this->inputFilter->getMessages()));
+        }
+            
+        
+        if(count($errorMessages) > 0){
+            if($throwException)
+                throw new \User\Exception\DataValidationException($errorMessages);
+            else
+                return $errorMessages;
+        }else
+            return true;
+    }
 
     public function set($data){
         $this->rawdata = $data;        

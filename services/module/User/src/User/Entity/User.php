@@ -155,4 +155,46 @@ class User  extends Base
  
         return $this->inputFilter;
     }
+    
+    public function getLoginInputFilter($em){
+        if (!$this->inputFilter) {
+            $inputFilter = new InputFilter();
+            
+            $inputFilter->add(array(
+                'name'     => 'password',
+                'required' => true,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 6,
+                            'max'      => 50,
+                        ),
+                    ),
+                ),
+            ));
+
+            $inputFilter->add(array(
+                'name'     => 'email',
+                'required' => true,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'EmailAddress',
+                    ),
+                ),
+            ));
+            $this->inputFilter = $inputFilter;
+        }
+ 
+        return $this->inputFilter;
+    }
 }
