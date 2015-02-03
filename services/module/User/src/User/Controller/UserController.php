@@ -4,6 +4,8 @@ namespace User\Controller;
 use User\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
 
+use Zend\Mail;
+
 class UserController extends AbstractRestfulJsonController{
 
     protected $em;
@@ -22,6 +24,10 @@ class UserController extends AbstractRestfulJsonController{
             return $user->toArray();
         }, $users);
         return new JsonModel($users);
+    }
+    
+    public function loginAction(){
+        echo "Login Action";        exit();
     }
     
     public function getList(){   
@@ -45,18 +51,29 @@ class UserController extends AbstractRestfulJsonController{
         return $this->getList();
     }
 
-    public function create($data){
-        // print_r($data);
-        $this->getEntityManager();
-        // print_r($data);
+    public function create($data){  
+        $this->getEntityManager();                   
+        $hash_string = $data['email'].date('Y-m-d H:i:s');
+        $hash = md5($hash_string);
+        $data['hash'] = $hash;
+        
         $user = new \User\Entity\User($data);
-        // print_r($user);
-        // $user->validate($this->em);
         
-        $this->getEntityManager()->persist($user);
-        $this->getEntityManager()->flush();
-        
-        return new JsonModel($user->toArray());
+        if($user->validate($this->em)){
+            $this->getEntityManager()->persist($user);
+            $this->getEntityManager()->flush();
+            
+            $content = '<p>Dear '.$data['username'].'</p>';
+            $content .= '<p>You have successfully registered with DASH.</p>';
+            $content .= '<p>Please click on the link to set a password for your account.</p>';
+            $content .= '<p></p>';
+            $content .= '<p><a href="'.$data['return_url'].'reset-password?hash='.$hash.'">Set Password</a></p>';
+            $content .= '<p></p>';
+            $content .= '<p>Thank you</p>';
+            $plugin = $this->SendEmailPlugin();
+            $plugin->sendemail($content, 'donotreply@dash.com', $data['email'], 'DASH : Email Verification', true);
+            return new JsonModel(array('status'=>'success','data'=>array()));
+        } 
     }
 
     public function update($id, $data){

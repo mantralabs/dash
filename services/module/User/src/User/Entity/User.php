@@ -22,7 +22,7 @@ class User  extends Base
     protected $username; 
     
     /** 
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50,nullable=true)
      */
     protected $password;    
     
@@ -34,7 +34,13 @@ class User  extends Base
     /** 
      * @ORM\Column(type="string", length=100) 
      */
-    protected $email;    
+    protected $email;  
+    
+    /** 
+     * @ORM\Column(type="string",nullable=true) 
+     */
+    protected $hash;
+    
     
     /**
      * Convert the object to an array.
@@ -59,7 +65,7 @@ class User  extends Base
             $inputFilter = new InputFilter();
  
             $inputFilter->add(array(
-                'name'     => 'fname',
+                'name'     => 'username',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
@@ -70,32 +76,13 @@ class User  extends Base
                         'name'    => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min'      => 5,
-                            'max'      => 100,
+                            'min'      => 6,
+                            'max'      => 50,
                         ),
                     ),
                 ),
-            ));
- 
-            $inputFilter->add(array(
-                'name'     => 'lname',
-                'required' => true,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array(
-                        'name'    => 'StringLength',
-                        'options' => array(
-                            'encoding' => 'UTF-8',
-                            'min'      => 1,
-                            'max'      => 100,
-                        ),
-                    ),
-                ),
-            ));
- 
+            )); 
+            
             $inputFilter->add(array(
                 'name'     => 'password',
                 'required' => true,
@@ -108,8 +95,8 @@ class User  extends Base
                         'name'    => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min'      => 1,
-                            'max'      => 100,
+                            'min'      => 6,
+                            'max'      => 50,
                         ),
                     ),
                 ),
@@ -139,6 +126,26 @@ class User  extends Base
                     )
                 ),
             ));
+            
+            $inputFilter->add(array(
+                'name'     => 'role',
+                'required' => true,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 20,
+                        ),
+                    ),
+                ),
+            ));
+
  
             $this->inputFilter = $inputFilter;
         }

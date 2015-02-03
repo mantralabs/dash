@@ -25,6 +25,17 @@ return array(
                     ),
                 ),
             ),
+            'login' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user/login',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'login',
+                    )
+                ),
+            ),
         ),
     ),
     'controllers' => array(
@@ -50,5 +61,10 @@ return array(
                 )
             )
         ),
+    ),
+    'controller_plugins' => array(
+        'invokables' => array(
+            'SendEmailPlugin' => 'User\Controller\Plugin\SendEmailPlugin',
+        )
     ),
 );
