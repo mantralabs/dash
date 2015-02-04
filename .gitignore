@@ -1,0 +1,6 @@
+nbproject/*
+*.local.php
+services/config/autoload/doctrine-local.php
+services/data/cache/*
+client/data/cache/*
+vendor/*
