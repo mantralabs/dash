@@ -3,4 +3,3 @@ nbproject/*
 services/config/autoload/doctrine-local.php
 services/data/cache/*
 client/data/cache/*
-vendor/*
