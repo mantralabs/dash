@@ -26,9 +26,33 @@ class UserController extends AbstractRestfulJsonController{
         return new JsonModel($users);
     }
     
+    // public function loginAction(){
+    //     $data['email'] = 'steffi@mantralabsglobal.com';
+    //     $data['password'] = md5('123456');
+    //     $user = new \User\Entity\User($data);
+    //     if($user->validateLogin($this->em)){
+    //         $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+    //         $adapter = $authService->getAdapter();
+    //         $adapter->setIdentityValue($data['email']);
+    //         $adapter->setCredentialValue($data['password']);
+    //         $authResult = $authService->authenticate();
+    //         if ($authResult->isValid()) {
+    //             $identity = $authResult->getIdentity();
+    //             $authService->getStorage()->write($identity);
+    //             $identity = $authResult->getIdentity();
+    //             $logged_in_user_details = $identity->toArray();
+    //              return new JsonModel(array('status'=>'success','data'=>$logged_in_user_details));
+    //         } else {
+    //             return new JsonModel(array('status'=>'error','data'=>array('message'=>'Invalid details')));
+    //         }
+    //     } 
+    // }
     public function loginAction(){
-        $data['email'] = 'steffi@mantralabsglobal.com';
-        $data['password'] = md5('123456');
+        $data = $this->getRequest()->getContent();
+        $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
+       // print_r($data); exit();
+       // $data['email'] = 'neetha@gmail.com';
+        //$data['password'] = md5('neetha');
         $user = new \User\Entity\User($data);
         if($user->validateLogin($this->em)){
             $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
@@ -46,6 +70,14 @@ class UserController extends AbstractRestfulJsonController{
                 return new JsonModel(array('status'=>'error','data'=>array('message'=>'Invalid details')));
             }
         } 
+    }
+
+    public function logoutAction(){
+      $session = new Container('User');
+      $session->getManager()->destroy();
+      $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+      $authService->clearIdentity();
+      return new JsonModel(array('status'=>'success'));
     }
     
     public function getList(){   
@@ -70,6 +102,7 @@ class UserController extends AbstractRestfulJsonController{
     }
 
     public function create($data){  
+        //print_r($data); exit();
         $this->getEntityManager();                   
         $hash_string = $data['email'].date('Y-m-d H:i:s');
         $hash = md5($hash_string);
@@ -81,16 +114,18 @@ class UserController extends AbstractRestfulJsonController{
             $this->getEntityManager()->persist($user);
             $this->getEntityManager()->flush();
             
-            $content = '<p>Dear '.$data['username'].'</p>';
-            $content .= '<p>You have successfully registered with DASH.</p>';
-            $content .= '<p>Please click on the link to set a password for your account.</p>';
-            $content .= '<p></p>';
-            $content .= '<p><a href="'.$data['return_url'].'reset-password?hash='.$hash.'">Set Password</a></p>';
-            $content .= '<p></p>';
-            $content .= '<p>Thank you</p>';
-            $plugin = $this->SendEmailPlugin();
-            $plugin->sendemail($content, 'donotreply@dash.com', $data['email'], 'DASH : Email Verification', true);
-            return new JsonModel(array('status'=>'success','data'=>array()));
+            // $content = '<p>Dear '.$data['username'].'</p>';
+            // $content .= '<p>You have successfully registered with DASH.</p>';
+            // $content .= '<p>Please click on the link to set a password for your account.</p>';
+            // $content .= '<p></p>';
+            // $content .= '<p><a href="'.$data['return_url'].'reset-password?hash='.$hash.'">Set Password</a></p>';
+            // $content .= '<p></p>';
+            // $content .= '<p>Thank you</p>';
+            // $plugin = $this->SendEmailPlugin();
+            // $plugin->sendemail($content, 'donotreply@dash.com', $data['email'], 'DASH : Email Verification', true);
+           return new JsonModel(array('status'=>'success','data'=>array()));
+           $this->redirect('http://localhost/pmtool/dash/web/app/index.html#/');
+            //return $this->redirect()->toRoute('login.html');
         } 
     }
 

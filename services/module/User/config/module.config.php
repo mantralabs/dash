@@ -36,6 +36,18 @@ return array(
                     )
                 ),
             ),
+
+            'logout' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user/logout',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'logout',
+                    )
+                ),
+            ),
         ),
     ),
     'controllers' => array(

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <!-- <link rel="stylesheet" href="styles/main-yo.css"> -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" href="styles/css/main.css">
     <!-- <link rel="stylesheet" href="styles/css/normalize.css"> -->
     <link rel="stylesheet" href="styles/css/validation.css"> <!-- for angular form validations -->
@@ -26,7 +27,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container" ng-view="">
+        
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -56,13 +59,14 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/vendor/main.js"></script>
+
         <script src="scripts/app.js"></script>
         <!-- controllers -->
         <script src="scripts/controllers/main.js"></script>
         <!-- directives -->
         <script src="scripts/directives/mycontacts.js"></script>
         <script src="scripts/directives/myprojects.js"></script>
-        <script src="scripts/directives/myactivities.js"></script>
+      
         <!-- services -->
         <script src="scripts/services/contact.js"></script>
         <script src="scripts/services/project.js"></script>
@@ -70,6 +74,7 @@
         <script src="scripts/controllers/test.js"></script>
         <script src="scripts/controllers/homepage.js"></script>
         <script src="scripts/controllers/userprofile.js"></script>
+        <script src="scripts/controllers/searchResults.js"></script>
         <script src="scripts/directives/mytasks.js"></script>
         <script src="scripts/directives/myevents.js"></script>
         <script src="scripts/directives/activities.js"></script>
@@ -80,6 +85,23 @@
         <script src="scripts/services/activity.js"></script>
         <script src="scripts/directives/sidebar.js"></script>
         <script src="scripts/directives/headernavigation.js"></script>
+        <script src="scripts/directives/userProfileDd.js"></script>
+        <!-- <script src="test/spec/controllers/userprofile.js"></script> -->
+        <!-- // <script src="scripts/controllers/navigationCtrl.js"></script> --> 
         <!-- endbuild -->
+
+
+        <script>
+            // $(document).ready(function(){
+            //    // var windowH = $(window).height();
+            //     $('.content').height($(window).height());
+            // });
+                // var windowH = $(window).height();
+                // console.log(windowH);
+                // var wrapperH = $('.common-div').height();
+                // if(windowH > wrapperH) {                            
+                //     $('.common-div').css({'height':($(window).height())+'px'});
+                // }
+        </script>
 </body>
 </html>
