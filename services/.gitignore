@@ -7,4 +7,7 @@ nbproject
 .project
 .settings
 composer.lock
-vendor/bin
+vendor/*
+composer.phar
+config/autoload/*.local.php
+vendor
