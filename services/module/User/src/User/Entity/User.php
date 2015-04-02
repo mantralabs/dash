@@ -19,17 +19,35 @@ class User  extends Base
     /** 
      * @ORM\Column(type="string", length=50)
      */
-    protected $username; 
+    public $username; 
     
     /** 
      * @ORM\Column(type="string", length=50,nullable=true)
      */
+    protected $fullname; 
+    
+    /** 
+     * @ORM\Column(type="string", length=50,nullable=true)
+     */
+     
+    protected $phone; 
+    
+    /** 
+     * @ORM\Column(type="string", length=50,nullable=true)
+     */
+     
+    protected $photo; 
+    
+    /** 
+     * @ORM\Column(type="string", length=50,nullable=true)
+     */
+      
     protected $password;    
     
     /** 
      * @ORM\Column(type="string", length=20) 
      */
-    protected $role;
+    public $role;
     
     /** 
      * @ORM\Column(type="string", length=100) 
@@ -47,6 +65,7 @@ class User  extends Base
      *
      * @return array
      */
+   
     
     public function __construct($data){
         parent::__construct($data);
@@ -132,7 +151,7 @@ class User  extends Base
             
             $inputFilter->add(array(
                 'name'     => 'role',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
@@ -196,5 +215,12 @@ class User  extends Base
         }
  
         return $this->inputFilter;
+    }
+    
+     public function exchangeArray($data = array()){
+        foreach($data as $key => $value){
+            $this->$key = $value;
+        }
+        return $this;
     }
 }

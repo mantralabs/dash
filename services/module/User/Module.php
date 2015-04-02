@@ -20,6 +20,75 @@ class Module
 
         $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, array($this, 'onDispatchError'), 0);
         $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, array($this, 'onRenderError'), 0);
+        
+//        $this -> initAcl($e);
+//        $e->getApplication() -> getEventManager() -> attach('route', array($this, 'checkAcl'));
+    }
+    
+     public function initAcl(MvcEvent $e) {
+ 
+        $acl = new \Zend\Permissions\Acl\Acl();
+        $roles = include __DIR__ . '/config/module.acl.roles.php';
+        $allResources = array();
+        foreach ($roles as $role => $resources) {
+
+            $role = new \Zend\Permissions\Acl\Role\GenericRole($role);
+            $acl -> addRole($role);
+
+            //$allResources = array_merge($resources, $allResources);
+
+            //adding resources
+            foreach ($resources as $resource) {
+                 // Edit 4
+                 if(!$acl ->hasResource($resource))
+                    $acl -> addResource(new \Zend\Permissions\Acl\Resource\GenericResource($resource));
+            }
+            //adding restrictions
+            foreach ($resources as $resource) {
+                $acl -> allow($role, $resource);
+            }
+        }
+
+        //setting to view
+        $e -> getViewModel() -> acl = $acl;
+
+    }
+
+    public function checkAcl(MvcEvent $e) {
+        $request = $e->getRequest();
+        $route = $e -> getRouteMatch() -> getMatchedRouteName();
+        $controller = $e->getRouteMatch ()->getParam ( 'controller' );
+        $action = $e->getRouteMatch ()->getParam ( 'action' );
+        if($action == '') {
+            if($request->isPost()) {
+                $action = 'create';
+            }else if($request->isGet()) {
+                 $action = 'get';
+            }
+            else if($request->isPut()) {
+                 $action = 'update';
+            }
+            else if($request->isDelete()) {
+                 $action = 'delete';
+            }
+        }
+        
+        $requestedResourse = $controller . "-" . $action;
+               
+        $serviceManager = $e->getApplication()->getServiceManager();
+        $authService = $serviceManager->get('doctrine.authenticationservice.orm_default');
+        $loggedInUser = $authService->getIdentity();
+        //you set your role
+        $userRole = ($loggedInUser && $loggedInUser->role) ? $loggedInUser->role : '0';
+
+        if ((!($e -> getViewModel() -> acl ->hasResource($requestedResourse)) || !$e -> getViewModel() -> acl -> isAllowed($userRole, $requestedResourse))) {
+            $url = 'invalidAccess';       
+            $response = $e -> getResponse();
+            $response->setHeaders ( $response->getHeaders ()->addHeaderLine ( 'Location', $url ) );
+            $response->setStatusCode ( 401 );
+            $response->sendHeaders ();
+            exit ();
+        }
     }
 
     public function onDispatchError($e)

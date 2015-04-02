@@ -25,6 +25,7 @@ return array(
                     ),
                 ),
             ),
+            
             'login' => array(
                 'type' => 'Segment',
                 'options' => array(
@@ -36,7 +37,7 @@ return array(
                     )
                 ),
             ),
-
+            
             'logout' => array(
                 'type' => 'Segment',
                 'options' => array(
@@ -45,6 +46,60 @@ return array(
                         '__NAMESPACE__' => 'User\Controller',
                         'controller'    => 'User',
                         'action'        => 'logout',
+                    )
+                ),
+            ),
+            
+                 'invalidAccess' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/invalidAccess',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'invalidAccess',
+                    )
+                ),
+            ),
+            
+             'resetpassword' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user/resetpassword',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'resetpassword',
+                    )
+                ),
+            ),
+            
+               'forgotpassword' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user/forgotpassword',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'forgotpassword',
+                    )
+                ),
+            ),
+            
+         
+             'suggest' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    //'route' => '/user[/][:status]',
+                     'route' => '/user/suggest',
+                         'constraints' => array(
+                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                         'username'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                     ),
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'suggest',
                     )
                 ),
             ),

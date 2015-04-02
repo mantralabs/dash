@@ -71,6 +71,6 @@ class MessageController extends AbstractRestfulJsonController{
         
         return new JsonModel($user->toArray());
     }
-
-
+    
+   
 }
