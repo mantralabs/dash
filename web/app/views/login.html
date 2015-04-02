@@ -4,30 +4,32 @@
 
 	<div id="signin-box">
 		<div class="input-container" ng-app="app">
+			
 			<div style = "color:red"> {{error}}</div>
-				<form action="" method="post" class="css-form" name="myForm" novalidate>
+			
+			<form action="" method="post" class="css-form" name="myForm" novalidate>
 				<div class="part">
-				<input class="common" type="email" id="email" name="email" placeholder="Email address" ng-model="email" required>
-				<div style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-      <!--     <div ng-show="myForm.email.$error.required">Email is required.</div> -->
-          <!-- <div ng-show="myForm.email.$error.email">Invalid email address.</div><br> -->
+					<input class="common" type="email" id="email" name="email" placeholder="Email address" ng-model="email" required>
+					<div style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+						Entered Email is not Valid
+					</div>
+      				<!--<div ng-show="myForm.email.$error.required">Email is required.</div> -->
+          			<!--<div ng-show="myForm.email.$error.email">Invalid email address.</div><br> -->
 				</div>
 				<div class="part">
-				<input class="common" type="password" name="password" id="password" placeholder="Password" ng-model="password" ng-minlength="6" required>
-				 <!-- <div style="color:red" ng-show="myForm.password.$error.minlength">Password is too short.</div>
-				
-					<div style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid"> -->
-    <!--       <div ng-show="myForm.password.$error.required">Password is required.</div>  -->
+					<input class="common" type="password" name="password" id="password" placeholder="Password" ng-model="password" ng-minlength="6" required>
+			 		<div style="color:red" ng-show="myForm.password.$error.minlength">
+			 			Password is too short.
+			 		</div>
+			 		<div style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid"></div>
+					<!--<div ng-show="myForm.password.$error.required">Password is required.</div>  -->
 				</div>
 				<div class="checkbox clearfix"> 
-				<p class="i-agree forgot-password"><a href="#">Forgot password?</a></p>
+					<p class="i-agree forgot-password"><a href="#">Forgot password?</a></p>
 				</div>
 				<!-- <button class="signup-btn btn" type="submit" ng-click="login()">Sign In</button> -->
-
-        <button class="signup-btn btn" type="submit" ng-click="login()" ng-disabled="myForm.user.$pristine && myForm.user.$invalid || myForm.email.$pristine && myForm.email.$invalid">Sign In</button>
-
-				</form>
-				</div><!--end input container-->
-</div><!--end signin box-->
+    			<button class="signup-btn btn" type="submit" ng-click="login()" ng-disabled="myForm.user.$pristine && myForm.user.$invalid || myForm.email.$pristine && myForm.email.$invalid">Sign In</button>
+			</form>			
+		</div><!--end input container-->
+	</div><!--end signin box-->
 </section><!--end login page-->
-
