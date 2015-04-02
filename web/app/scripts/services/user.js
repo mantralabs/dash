@@ -3,9 +3,11 @@
 angular.module('pmtoolApp')
   .service('Userservice', function Userservice($q, $http, $resource) {
   	// console.log(data);
-  	this.signupNewUser = function (userInfo) {
+
+    this.signupNewUser = function (userInfo) {
   		return $http({
-  			url : 'http://local.api.dash.com/user',
+  			// url : 'http://local.api.dash.com/user',
+        url : baseUrl+'user/',
   			method : 'POST',
   			dataType : 'json',
     		contentType : 'application/json',
@@ -15,9 +17,10 @@ angular.module('pmtoolApp')
 	  this.signin = function (userInfo) {
   		// var defer = $q.defer();
   		// console.log(defer);
-  		console.log(userInfo);
+  		// console.log(userInfo);
   		return $http({
-  			url : 'http://local.api.dash.com/user/login',
+  			// url : 'http://local.api.dash.com/user/login',
+        url :  baseUrl+'user/login',
   			method : 'POST',
   			dataType : 'json',
     		contentType : 'application/json',
@@ -33,5 +36,10 @@ angular.module('pmtoolApp')
         method : 'POST',
       });
     };
+
+    this.forgotPassword = function(){
+      console.log('forgot-password');
+      
+    }
 
   });

@@ -505,7 +505,7 @@ ul#menu li:hover ul.sub-menu {
   text-align: left;
   border-radius: 5px;
   -moz-border-radius:5px;
-  -webkit-border border-radius: 5px;
+  -webkit-border-radius: 5px;
   background-color: #fff;
 }
  .dropdown li:hover li{
@@ -874,7 +874,7 @@ ul#menu li:hover ul.sub-menu {
     top: 20px;
     right: 10px;
     height: 30px;
-    width: 150px;S
+    width: 150px;
 }
 
 
@@ -1473,7 +1473,7 @@ ul#menu li:hover ul.sub-menu {
     color:#949494;
     line-height: 40px;
     padding-left: 30px;
-    list-style-image: 
+    /*list-style-image: */
 }
 .getting-started-sub-container span{
     color:#656565;

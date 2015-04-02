@@ -3,22 +3,21 @@
  
 angular.module('pmtoolApp')
 .controller('LoginCtrl', function ($scope, $location,Userservice) {	
-		$scope.login = function(){
-			var loginDetails = {
-				email:$scope.email,
-				password:$scope.password
-			};
-			Userservice.signin(loginDetails )
-				.then(function(res){
-					console.log(res);
-					console.log('userres'+res.data.data.email);
-					$location.path('/home/'+res.data.data.username);
-				},function(error){
-					console.log('Error==>',error);
-					// console.log(data);
-				});
+	$scope.login = function(){
+		// console.log('in');
+		var loginDetails = {
+			email:$scope.email,
+			password:$scope.password
 		};
-
+		Userservice.signin(loginDetails )
+			.then(function(res){
+				console.log(res);
+				$location.path('/home/'+res.data.data.username);
+			},function(error){
+				console.log('Error==>',error);
+				// console.log(data);
+		});
+	};
 })
 
 .controller('SignupCtrl', function($scope, $location, Userservice){
@@ -32,7 +31,7 @@ angular.module('pmtoolApp')
 		};
 		Userservice.signupNewUser(loginDetails)
 			.then(function(res){
-					console.log('in controller ',res);
+				console.log(res);
 			},function(error){
 				console.log('Error==>',error);
 		});  
@@ -55,20 +54,22 @@ angular.module('pmtoolApp')
      // document.getElementByClassName("user-profile-dd")[0].style.['display']="block";
    };
    	$scope.logout = function(){
-			console.log('signing out.....');
-			Userservice.signout()
-				.then(function(data){
-					$location.path('/');
-				},function(error){
-					console.log('Error==>',error);
-					
-				});
-		};
+		console.log('signing out.....');
+		Userservice.signout()
+			.then(function(data){
+				$location.path('/');
+			},function(error){
+				console.log('Error==>',error);
+				
+			});
+	};
 	$scope.dropdownchat = function(){
 		$(".chat-box").slideToggle();
-    $(".user-profile-dd").hide();
-   };
+    	$(".user-profile-dd").hide();
+    };
  })
+
+
 .controller('taskPageCtrl', function($scope,$location){
 	
 
