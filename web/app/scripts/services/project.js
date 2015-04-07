@@ -7,9 +7,9 @@ angular.module('pmtoolApp')
 
 	Project.fetch = function(){
 		if(!Project.list){
-			$http.get('http://localhost/responses/project.php').success(function(data){
-				Project.list = data;
-			});
+			// $http.get('http://localhost/responses/project.php').success(function(data){
+			// 	Project.list = data;
+			// });
 		}
 		return Project;
   	};

@@ -7,17 +7,23 @@ angular
     'ngSanitize',
     'ngRoute'
   ])
-  .config(function ($routeProvider) {
+  .config([ '$routeProvider','$locationProvider',
+    function($routeProvider,$locationProvider) {
     $routeProvider
       
       .when('/', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
-
-      .when('/home/:user',{
+      
+      .when('/home',{
         templateUrl :'views/home-page.html',
-        controller:'LoginCtrl'
+        controller:'homePageCtrl'
+      })      
+
+      .when('/profilepage',{
+        templateUrl :'views/profilePage.html',
+        controller:'userProfileCtrl'
       })
 
       .when('/signup',{
@@ -25,10 +31,10 @@ angular
         controller:'SignupCtrl'
       })
 
-      .when('/test',{
-        templateUrl:'views/test.html',
-        controller:'TestCtrl'
-      })
+      // .when('/test',{
+      //   templateUrl:'views/test.html',
+      //   controller:'TestCtrl'
+      // })
 
       .when('/profile1/:id',{
         templateUrl:'views/user-profile.html',
@@ -66,10 +72,6 @@ angular
         templateUrl:'views/contact-support.html',
         controller:'contactSupportCtrl'
       })
-      .when('/profilepage',{
-        templateUrl:'views/profilepage.html',
-        controller:'profilePageCtrl'
-      })
       .when('/account-settings',{
         templateUrl:'views/account-settings.html',
         controller:'accountSettingsCtrl'
@@ -90,10 +92,10 @@ angular
         templateUrl:'views/task-page.html',
         controller:'taskPageCtrl'
       })
-       .when('/home', {
-        templateUrl: 'views/home-page.html',
-        controller: 'homePageCtrl'
-      })
+      //  .when('/home', {
+      //   templateUrl: 'views/home-page.html',
+      //   controller: 'homePageCtrl'
+      // })
        .when('/editprofile',{
         templateUrl:'views/edit-profile.html',
         controller:'editProfileCtrl'
@@ -114,4 +116,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);

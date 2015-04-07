@@ -9,10 +9,11 @@ angular.module('pmtoolApp')
 			email:$scope.email,
 			password:$scope.password
 		};
-		Userservice.signin(loginDetails )
+		Userservice.signin(loginDetails)
 			.then(function(res){
 				console.log(res);
-				$location.path('/home/'+res.data.data.username);
+				localStorage.setItem('UserDetails',JSON.stringify(res.data.data));
+				$location.path('/home');
 			},function(error){
 				console.log('Error==>',error);
 				// console.log(data);
@@ -115,10 +116,5 @@ angular.module('pmtoolApp')
 
 })
 .controller('contactsPageCtrl', function($scope,$location){
-	
-
-})
-.controller('homePageCtrl', function($scope,$location){
-	
 
 })

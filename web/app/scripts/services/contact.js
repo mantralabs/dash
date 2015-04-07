@@ -7,10 +7,10 @@ angular.module('pmtoolApp')
 
 	Contact.fetch = function(){
 		if(!Contact.list){
-			$http.get('http://localhost/responses/contact.php').success(function(data){
-				Contact.list = data;
+			// $http.get('http://localhost/responses/contact.php').success(function(data){
+				// Contact.list = data;
 				// console.log(Contact.list.length);
-			});
+			// });
 		}
 		return Contact;
   	};

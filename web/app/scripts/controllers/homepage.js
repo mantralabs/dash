@@ -1,8 +1,9 @@
-// 'use strict';
+'use strict';
 
-// angular.module('pmtoolApp')
-//   .controller('HomepageCtrl', function ($scope) {
-//     // $scope.listOfContacts = ['HTML5 Boilerplate'];
-//     // $scope.responseData = {};
-   
-// });
+angular.module('pmtoolApp')
+  .controller('homePageCtrl', function ($scope) {
+	// $scope.responseData = {};
+	$scope.info = JSON.parse(localStorage.getItem('UserDetails'));
+	console.log($scope.info);
+
+});

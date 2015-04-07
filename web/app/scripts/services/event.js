@@ -7,10 +7,10 @@ angular.module('pmtoolApp')
   	Event.list = null;
 	Event.fetch = function(){  	
 	  	if(!Event.list){
-	  		$http.get('http://localhost/responses/event.php').success(function(data){
-	  			Event.list = data;
-	  			console.log(Event.list);
-	  		});
+	  		// $http.get('http://localhost/responses/event.php').success(function(data){
+	  		// 	Event.list = data;
+	  		// 	console.log(Event.list);
+	  		// });
 	  	}
 		return Event;
 	}

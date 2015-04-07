@@ -7,6 +7,7 @@ angular.module('pmtoolApp')
       restrict: 'E',
       link: function(scope, element, attrs) {
         // element.text('this is the user-profile-dd directive');
+        console.log(JSON.parse(localStorage.getItem('UserDetails')));
       } 
     };
   });

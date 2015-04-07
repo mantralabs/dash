@@ -5,9 +5,14 @@ angular.module('pmtoolApp')
     return {
       templateUrl: 'views/header-navigation.html',
       restrict: 'E',
+      scope: {
+        userinfo: "=userdata",
+      },
       link: function(scope, element, attrs) {
       	// scope.header = header.fetch();
         // element.text('this is the headerNavigation directive');
+        // console.log(JSON.parse(localStorage.getItem('UserDetails')));
+        // console.log(scope.userinfo.email);
       }
     };
   }); 
