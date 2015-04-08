@@ -9,7 +9,7 @@
 			
 			<form action="" method="post" class="css-form" name="myForm" novalidate>
 				<div class="part">
-					<input class="common" type="email" id="email" name="email" placeholder="Email address" ng-model="email" required>
+					<input class="common" type="email" id="email" name="email" placeholder="Email address" ng-model="user.email" required>
 					<div style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
 						Email is not Valid
 					</div>
@@ -17,7 +17,7 @@
           			<!--<div ng-show="myForm.email.$error.email">Invalid email address.</div><br> -->
 				</div>
 				<div class="part">
-					<input class="common" type="password" name="password" id="password" placeholder="Password" ng-model="password" ng-minlength="6" required>
+					<input class="common" type="password" name="password" id="password" placeholder="Password" ng-model="user.password" ng-minlength="6" required>
 			 		<div style="color:red" ng-show="myForm.password.$error.minlength">
 			 			Password is too short.
 			 		</div>
@@ -28,7 +28,7 @@
 					<p class="i-agree forgot-password"><a href="#">Forgot password?</a></p>
 				</div>
 				<!-- <button class="signup-btn btn" type="submit" ng-click="login()">Sign In</button> -->
-    			<button class="signup-btn btn" type="submit" ng-click="login()" ng-disabled="myForm.user.$pristine && myForm.user.$invalid || myForm.email.$pristine && myForm.email.$invalid">Sign In</button>
+    			<button class="signup-btn btn" type="submit" ng-click="login(user)" ng-disabled="myForm.email.$pristine && myForm.email.$invalid || myForm.password.$pristine && myForm.password.$invalid">Sign In</button>
 			</form>			
 		</div><!--end input container-->
 	</div><!--end signin box-->

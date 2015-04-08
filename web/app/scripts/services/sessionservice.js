@@ -8,18 +8,20 @@
  * Factory in the pmtoolApp.
  */
 angular.module('pmtoolApp')
-  .factory('sessionService', function () {
+  .service('sessionService', function ($cookies,$http) {
    
     // Public API here
-    return{
-      set:function(key, value){
+
+      this.setItem = function(key, value){
+          console.log(key +' '+ value);
+          console.log('session');
+          // return $cookies.put(key, value);
           return localStorage.setItem(key, value);
       },
-      get:function(){
-          return localStorage.getItem(key);
+      this.get = function(key){
+          return $cookies.get(key);
       },
-      destroy:function(){
-          return localStorage.removeItem(key);
+      this.destroy = function(key){
+          return $cookies.remove(key);
       }
-    };
   });
