@@ -1,5 +1,21 @@
 'use strict';
 
+var resolve = {
+    data:function($rootScope, $q, $http, $location,  $cookieStore){
+        var deferred = $q.defer();
+        var currentUser = $cookieStore.get('current_user');
+        if(currentUser){
+          console.log('Hi User',currentUser);
+          // $rootScope.isLoggedIn = true;
+          deferred.resolve(currentUser);
+        } else{
+          // $rootScope.isLoggedIn = false;
+          deferred.reject();
+          $location.path('/');
+        }
+    }
+};
+
 angular
   .module('pmtoolApp', [
     'ngCookies',
@@ -18,12 +34,14 @@ angular
       
       .when('/home',{
         templateUrl :'views/home-page.html',
-        controller:'homePageCtrl'
+        controller:'homePageCtrl',
+        resolve : resolve
       })      
 
       .when('/profilepage',{
-        templateUrl :'views/profilePage.html',
-        controller:'userProfileCtrl'
+        templateUrl :'views/profile-page.html',
+        controller:'userProfileCtrl',
+        resolve : resolve
       })
 
       .when('/signup',{
@@ -78,7 +96,8 @@ angular
       
       .when('/accountsettings',{
         templateUrl:'views/account-settings.html',
-        controller:'accountSettingsCtrl'
+        controller:'accountSettingsCtrl',
+        resolve : resolve
       })
       
       .when('/privacy',{
