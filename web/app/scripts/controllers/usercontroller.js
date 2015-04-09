@@ -2,28 +2,52 @@
 
  
 angular.module('pmtoolApp')
-.controller('LoginCtrl',function ($scope, $location, UserService){
-	
+.controller('LoginCtrl',function ($scope, $rootScope, $location, UserService, $cookieStore){
+
+	$scope.user = $cookieStore.get('current_user');
+	// console.log($scope.user);
+
 	$scope.login = function(user){
-		// var loginDetails = {
-		// 	email:$scope.email,
-		// 	password:$scope.password
-		// };
-		
 		if(user.email && user.password){
-			UserService.postLogin(user ,function(error, userData){
+			UserService.postLogin(user ,function(error, userDataResp){
 				if(error){
+					$scope.error = error.data.message;
 					console.log('Error while logging in');
 					$location.path('/');
 				} else {
-					$scope.userData = userData;
-					console.log($scope.userData);
+					$scope.userDataResp = userDataResp;
+					$cookieStore.put('current_user',userDataResp);
 					$location.path('/home');
+					// $cookies = $scope.userDataResp;
+					console.log($cookieStore);
 				}
 			});
 		}
 	};
+
+	$scope.logout = function(){
+		console.log('signing out.....');
+		// UserService.signout()
+		// 	.then(function(data){
+		// 		$location.path('/');
+		// 	},function(error){
+		// 		console.log('Error==>',error);
+				
+		// 	});
+	
+		if($cookieStore.get('current_user')){
+			// var isSignedOut = UserService.signout(function(err, data){
+			// console.log('is session destroyed? :', data);
+			// on successful removal of session, delete the cookie ( make current user null )
+			$cookieStore.remove('current_user');
+			// $rootScope.isLoggedIn = false;
+			$location.path('/');
+			// });
+		}
+	};
 })
+
+
 
 .controller('SignupCtrl', function($scope, $location, UserService){
 
@@ -43,6 +67,13 @@ angular.module('pmtoolApp')
 	};
 })
 
+
+.controller('accountSettingsCtrl', function($scope,$location){
+	console.log('accountSetting Control inside');	
+
+})
+
+
 .controller('navigationCtrl', function($scope, $location, UserService){
 	$scope.dropdownprofile = function(){
 		$(".user-profile-dd").slideToggle();
@@ -50,16 +81,7 @@ angular.module('pmtoolApp')
 
      // document.getElementByClassName("user-profile-dd")[0].style.['display']="block";
    };
-   	$scope.logout = function(){
-		console.log('signing out.....');
-		UserService.signout()
-			.then(function(data){
-				$location.path('/');
-			},function(error){
-				console.log('Error==>',error);
-				
-			});
-	};
+
 	$scope.dropdownchat = function(){
 		$(".chat-box").slideToggle();
     	$(".user-profile-dd").hide();
@@ -75,9 +97,11 @@ angular.module('pmtoolApp')
 
 // })
 
-.controller('userProfileCtrl', function ($scope,$routeParams) {
+.controller('userProfileCtrl', function ($scope, $routeParams, $cookieStore) {
 	// $scope.id = $routeParams.id;
 	// console.log($scope.id);
+	$scope.user = $cookieStore.get('current_user');
+	console.log($scope.user);
 })
 
 .controller('taskPageCtrl', function($scope,$location){
@@ -120,10 +144,7 @@ angular.module('pmtoolApp')
 	
 
 })
-.controller('accountSettingsCtrl', function($scope,$location){
-	
 
-})
 .controller('contactsPageCtrl', function($scope,$location){
 
 })

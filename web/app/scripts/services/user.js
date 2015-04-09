@@ -15,14 +15,14 @@ angular.module('pmtoolApp')
     	});
     };
 
-	  this.postLogin = function (userData, callback) {
-	    $http.post(baseUrl+'user/login', userData)
-      .success(function(data){
+	  this.postLogin = function (user, callback) {
+	    $http.post(baseUrl+'user/login', user)
+      .success(function(response){
         //API References the status message, on that we are operating for error or success
-        if(data.status === "error"){
-          callback(data, null)
-        } else if(data.status === "success"){
-          callback(null, data);
+        if(response.status === "error"){
+          callback(response, null)
+        } else if(response.status === "success"){
+          callback(null, response);
         }
       });
 
@@ -37,11 +37,14 @@ angular.module('pmtoolApp')
 	// this.users = $resource('http://localhost/responses/index.php',{},{'signup':{'method':'post'}});
      this.signout = function() {
       console.log('signout function is executed');
-      return $http({
-        url : 'http://local.api.dash.com/user/logout',
-        method : 'POST',
-      });
+      
+      // return $http({
+      //   url : 'http://local.api.dash.com/user/logout',
+      //   method : 'POST',
+      // });
     };
+
+
 
     this.forgotPassword = function(){
       console.log('forgot-password');
