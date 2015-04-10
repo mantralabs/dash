@@ -68,7 +68,7 @@ angular.module('pmtoolApp')
 })
 
 
-.controller('accountSettingsCtrl', function($scope,$location){
+.controller('accountSettingsCtrl', function($scope,$location,UserService){
 	console.log('accountSetting Control inside');	
 
 })
