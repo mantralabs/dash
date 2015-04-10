@@ -26,12 +26,23 @@ angular.module('pmtoolApp')
         }
       });
 
-      // enabale this error function later - When APT return type is changed.
-      // .error(function(data){
-      //   console.log(data);
-      //   callback(data, null)
-      // });
-    };
+    //   this.editProfile = function (user, callback) {
+    //   $http.post(baseUrl+'user', user)
+    //   .success(function(response){
+    //     //API References the status message, on that we are operating for error or success
+    //     if(response.status === "error"){
+    //       callback(response, null)
+    //     } else if(response.status === "success"){
+    //       callback(null, response);
+    //     }
+    //   });
+
+    //   // enabale this error function later - When APT return type is changed.
+    //   // .error(function(data){
+    //   //   console.log(data);
+    //   //   callback(data, null)
+    //   // });
+    // };
 	
   // this.users = $resource('http://localhost/responses/index.php',{},{'login':{'method':'get'}});
 	// this.users = $resource('http://localhost/responses/index.php',{},{'signup':{'method':'post'}});

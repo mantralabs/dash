@@ -7,7 +7,7 @@
     <div class="profile">
   <div class="profile-head">
     <span class="profile-text">My Profile</span>
-    <button>Save</button>
+    <button ng-click="save(user)">Save</button>
     <button>Cancel</button>
     <div class="clear"></div>
   </div>
@@ -31,8 +31,8 @@
           <li>Web</li>
         </div>
         <div class="contact-grey-right">
-          <li>sudhakar@mantralabsglobal.com</li>
-          <li><input type="text" value="9790923827"></li>
+          <li>{{user.data.email}}</li>
+          <li><input type="text" value="{{user.data.phone}}"></li>
           <li><input type="text" value="sudhakar.ponnusamy41"></li>
           <li><input type="text" value="https://www.behance.net/sudhakar"></li>
         </div>
@@ -41,7 +41,7 @@
     </div>
     <div class="clear"></div>
   </div>
-  <div>
+ <!--  <div>
     <span class="profile-text head-info">About Me</span>
     <textarea class="description">
       <p>I'm a UX/UI Designer that believes in crafting thoughtful user experiences for web and mobile platforms. I'm a 26 year old technology enthusiast living in slovenia, Ljublijana. I currently work at Enki, where I spend most of the time creating and working on awesome projects (if I'm not killing myself with Red Bull)
@@ -49,7 +49,7 @@
       <p>I'm a UX/UI Designer that believes in crafting thoughtful user experiences for web and mobile platforms. I'm a 26 year old technology enthusiast living in slovenia, Ljublijana. I currently work at Enki, where I spend most of the time creating and working on awesome projects (if I'm not killing myself with Red Bull)
       </p>
     </textarea>
-  </div>
+  </div> -->
   </div>
   </div>
 </div>
