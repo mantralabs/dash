@@ -38,6 +38,18 @@ return array(
                 ),
             ),
             
+            'register' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user/register',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'register',
+                    )
+                ),
+            ),
+           
             'logout' => array(
                 'type' => 'Segment',
                 'options' => array(
@@ -50,7 +62,7 @@ return array(
                 ),
             ),
             
-                 'invalidAccess' => array(
+                'invalidAccess' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/invalidAccess',

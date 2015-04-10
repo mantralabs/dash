@@ -31,8 +31,6 @@ class UserController extends AbstractRestfulJsonController{
         return new JsonModel($users);
     }
     
-
-    
      public function getSessionStorage() {
         if (! $this->storage) {
             $this->storage = $this->getServiceLocator()
@@ -42,7 +40,7 @@ class UserController extends AbstractRestfulJsonController{
         return $this->storage;
     }
     
-    public function loginAction(){
+    public function loginAction(){                    
         $data = $this->getRequest()->getContent();
         $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
         $user = new \User\Entity\User($data);
@@ -86,13 +84,14 @@ class UserController extends AbstractRestfulJsonController{
         return $this->getList();
     }
 
-    public function create(){
+    public function registerAction(){
         $data = $this->getRequest()->getContent();
         $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
         $this->getEntityManager();                   
         $hash_string = $data['email'].date('Y-m-d H:i:s');
         $hash = md5($hash_string);
         $data['hash'] = $hash;
+        $data['role'] = 'user';
         //$image= $_FILES['photo']['name'];
         //$image_tmp_name= $_FILES['photo']['tmp_name'];
         //move_uploaded_file ($image_tmp_name,"photos/$image");
@@ -122,8 +121,10 @@ class UserController extends AbstractRestfulJsonController{
     }
     
      
-    public function update($id, $data){
+    public function update($id){
         // Action used for PUT requests
+        $data = $this->getRequest()->getContent();
+        $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
         $user = $this->getEntityManager()->getRepository('User\Entity\User')->find($id);
         $user->set($data);
         $user->validate($this->em);        
