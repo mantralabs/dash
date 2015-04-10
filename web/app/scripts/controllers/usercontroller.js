@@ -46,23 +46,6 @@ angular.module('pmtoolApp')
 		}
 	};
 
-	// $scope.save = function(user){
-	// 	if(user.email && user.password){
-	// 		UserService.postLogin(user ,function(error, userDataResp){
-	// 			if(error){
-	// 				$scope.error = error.data.message;
-	// 				console.log('Error while logging in');
-	// 				$location.path('/');
-	// 			} else {
-	// 				$scope.userDataResp = userDataResp;
-	// 				$cookieStore.put('current_user',userDataResp);
-	// 				$location.path('/home');
-	// 				// $cookies = $scope.userDataResp;
-	// 				console.log($cookieStore);
-	// 			}
-	// 		});
-	// 	}
-	// };
 })
 
 
@@ -126,6 +109,24 @@ angular.module('pmtoolApp')
 	// console.log($scope.id);
 	$scope.user = $cookieStore.get('current_user');
 	// console.log($scope.user);
+
+	// $scope.save = function(user){
+	// 	if(user.phone && user.password){
+	// 		UserService.postLogin(user ,function(error, userDataResp){
+	// 			if(error){
+	// 				$scope.error = error.data.message;
+	// 				console.log('Error while logging in');
+	// 				$location.path('/');
+	// 			} else {
+	// 				$scope.userDataResp = userDataResp;
+	// 				$cookieStore.put('current_user',userDataResp);
+	// 				$location.path('/home');
+	// 				// $cookies = $scope.userDataResp;
+	// 				console.log($cookieStore);
+	// 			}
+	// 		});
+	// 	}
+	// };
 })
 
 .controller('taskPageCtrl', function($scope,$location){
