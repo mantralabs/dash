@@ -16,8 +16,8 @@ angular.module('pmtoolApp')
 					console.log('Error while logging in');
 					$location.path('/');
 				} else {
-					$scope.userDataResp = userDataResp;
-					$cookieStore.put('current_user',userDataResp);
+					$scope.userData = userDataResp.data;
+					$cookieStore.put('current_user',$scope.userData);
 					$location.path('/home');
 					// $cookies = $scope.userDataResp;
 					console.log($cookieStore);
@@ -73,8 +73,6 @@ angular.module('pmtoolApp')
 	// console.log($scope.id);
 	$scope.user = $cookieStore.get('current_user');
 	// console.log($scope.user);
-
-	console.log('editProfileCtrl');
 	$scope.updateUser = function(user){
 		if(user.phone){
 			UpdateService.updateProfile(user ,function(error, userDataResp){
@@ -82,9 +80,9 @@ angular.module('pmtoolApp')
 					$scope.error = error.message;
 					console.log('Error while updating');
 				} else {
-					$scope.user = userDataResp;
-					 console.log($scope.user);
-					$cookieStore.put('current_user',userDataResp);
+					$scope.userData = userDataResp;
+					 // console.log($scope.user);
+					$cookieStore.put('current_user',$scope.userData);
 					$location.path('/profilepage');
 				}
 			});

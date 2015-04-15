@@ -5,7 +5,7 @@ var resolve = {
         var deferred = $q.defer();
         var currentUser = $cookieStore.get('current_user');
         if(currentUser){
-          console.log('Hi User',currentUser);
+          // console.log('Hi User',currentUser);
           // $rootScope.isLoggedIn = true;
           deferred.resolve(currentUser);
         } else{
