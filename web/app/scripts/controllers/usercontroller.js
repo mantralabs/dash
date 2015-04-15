@@ -8,6 +8,7 @@ angular.module('pmtoolApp')
 	// console.log($scope.user);
 
 	$scope.login = function(user){
+		// console.log('in');
 		if(user.email && user.password){
 			UserService.postLogin(user ,function(error, userDataResp){
 				if(error){
@@ -15,8 +16,8 @@ angular.module('pmtoolApp')
 					console.log('Error while logging in');
 					$location.path('/');
 				} else {
-					$scope.userData = userDataResp.data;
-					$cookieStore.put('current_user',userData);
+					$scope.userDataResp = userDataResp;
+					$cookieStore.put('current_user',userDataResp);
 					$location.path('/home');
 					// $cookies = $scope.userDataResp;
 					console.log($cookieStore);
@@ -45,7 +46,6 @@ angular.module('pmtoolApp')
 			// });
 		}
 	};
-
 })
 
 
@@ -68,6 +68,31 @@ angular.module('pmtoolApp')
 	};
 })
 
+.controller('editProfileCtrl', function ($scope,$location, $routeParams, $cookieStore,UpdateService) {
+	// $scope.id = $routeParams.id;
+	// console.log($scope.id);
+	$scope.user = $cookieStore.get('current_user');
+	// console.log($scope.user);
+
+	console.log('editProfileCtrl');
+	$scope.updateUser = function(user){
+		if(user.phone){
+			UpdateService.updateProfile(user ,function(error, userDataResp){
+				if(error){
+					$scope.error = error.message;
+					console.log('Error while updating');
+				} else {
+					$scope.user = userDataResp;
+					 console.log($scope.user);
+					$cookieStore.put('current_user',userDataResp);
+					$location.path('/profilepage');
+				}
+			});
+		} else{
+			console.log("phone number not there");
+		}
+	};
+})
 
 .controller('accountSettingsCtrl', function($scope,$location,UserService){
 	console.log('accountSetting Control inside');	
@@ -102,31 +127,7 @@ angular.module('pmtoolApp')
 	// $scope.id = $routeParams.id;
 	// console.log($scope.id);
 	$scope.user = $cookieStore.get('current_user');
-	// console.log($scope.user);
-})
-.controller('editProfileCtrl', function ($scope,$location, $routeParams, $cookieStore,UpdateService) {
-	// $scope.id = $routeParams.id;
-	// console.log($scope.id);
-	$scope.user = $cookieStore.get('current_user');
-	// console.log($scope.user);
-
-	$scope.updateUser = function(user){
-		if(user.phone){
-			UpdateService.updateProfile(user ,function(error, userDataResp){
-				if(error){
-					$scope.error = error.message;
-					console.log('Error while updating');
-				} else {
-					$scope.user = userDataResp;
-					 console.log($scope.user);
-					$cookieStore.put('current_user',userDataResp);
-					$location.path('/profilepage');
-				}
-			});
-		} else{
-			console.log("phone number not there");
-		}
-	};
+	console.log($scope.user);
 })
 
 .controller('taskPageCtrl', function($scope,$location){

@@ -102,27 +102,32 @@ angular
       
       .when('/privacy',{
         templateUrl:'views/privacy-settings.html',
-        controller:'privacyCtrl'
+        controller:'privacyCtrl',
+        resolve : resolve
       })
       
       .when('/notificationsettings',{
         templateUrl:'views/notification-settings.html',
-        controller:'notificationSettingsCtrl'
+        controller:'notificationSettingsCtrl',
+        resolve : resolve
       })
       
       .when('/contacts',{
         templateUrl:'views/home-page3.html',
-        controller:'contactsPageCtrl'
+        controller:'contactsPageCtrl',
+        resolve : resolve
       })
       
       .when('/taskpage',{
         templateUrl:'views/task-page.html',
-        controller:'taskPageCtrl'
+        controller:'taskPageCtrl',
+        resolve : resolve
       })
 
       .when('/editprofile',{
         templateUrl:'views/edit-profile.html',
-        controller:'editProfileCtrl'
+        controller:'editProfileCtrl',
+        resolve : resolve
       })
       
       // .when('/settings',{

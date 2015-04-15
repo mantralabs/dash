@@ -45,10 +45,25 @@ angular.module('pmtoolApp')
     };
 
 
+    this.updateProfile = function (userData, cb) {
+
+      console.log('user service in');
+    
+      var userId = userData.id;
+      
+      $http.put(baseUrl+'user/'+ userId,userData)
+      .success(function(data){
+        console.log('INFO: After update ', data);
+        cb(null, data);
+      })
+      .error(function(data){
+        cb(data, null);
+      });
+    };
 
     this.forgotPassword = function(){
       console.log('forgot-password');
       
-    }
+    };
 
   });
