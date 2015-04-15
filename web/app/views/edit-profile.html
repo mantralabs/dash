@@ -1,13 +1,14 @@
 <div class="empty-div"> 
   <headernavigation></headernavigation>
 </div>
+<form action="">
   <div class="content">
     <sidebar></sidebar>
     <div class="common-div">
     <div class="profile">
   <div class="profile-head">
     <span class="profile-text">My Profile</span>
-    <button ng-click="save(user)">Save</button>
+    <button ng-click="updateUser(user)" type="submit">Save</button>
     <button>Cancel</button>
     <div class="clear"></div>
   </div>
@@ -15,7 +16,7 @@
     <div class="bio">
       <img class="pro-pic" src="img/img-6.png">
       <div class="info">
-        <span class="designation" class="profile-text"><input type="text" value="Sudhakar Ponnusamy"></span>
+        <span class="designation" class="profile-text"><input type="text" value="{{user.fullname}}"></span>
         <span class="designation" class="profile-text"><input type="text" value="UI Designer"></span>
       </div>
       <div class="clear">
@@ -31,8 +32,8 @@
           <li>Web</li>
         </div>
         <div class="contact-grey-right">
-          <li>{{user.data.email}}</li>
-          <li><input type="text" value="{{user.data.phone}}"></li>
+          <li>{{user.email}}</li>
+          <li><input type="text" placeholder="{{user.phone}}" ng-model="user.phone"></li>
           <li><input type="text" value="sudhakar.ponnusamy41"></li>
           <li><input type="text" value="https://www.behance.net/sudhakar"></li>
         </div>
@@ -52,4 +53,5 @@
   </div> -->
   </div>
   </div>
+</form>
 </div>
