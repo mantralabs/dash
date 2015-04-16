@@ -68,14 +68,14 @@ angular.module('pmtoolApp')
 	};
 })
 
-.controller('editProfileCtrl', function ($scope,$location, $routeParams, $cookieStore,UpdateService) {
+.controller('editProfileCtrl', function ($scope,$location, $routeParams, $cookieStore,UserService) {
 	// $scope.id = $routeParams.id;
 	// console.log($scope.id);
 	$scope.user = $cookieStore.get('current_user');
 	// console.log($scope.user);
 	$scope.updateUser = function(user){
 		if(user.phone){
-			UpdateService.updateProfile(user ,function(error, userDataResp){
+			UserService.updateProfile(user ,function(error, userDataResp){
 				if(error){
 					$scope.error = error.message;
 					console.log('Error while updating');

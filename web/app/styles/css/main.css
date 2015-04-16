@@ -1114,7 +1114,7 @@ ul#menu li:hover ul.sub-menu {
    ========================================================================== */
 #account-settings-nav{
     border-bottom: solid 1px #d4d4d4;
-    margin:10px 0px 10px 0px;
+    /*margin:10px 0px 10px 0px;*/
 }
 #account-settings-password{
     float:left;
@@ -1157,13 +1157,13 @@ ul#menu li:hover ul.sub-menu {
     border-bottom:solid #2d7fc1 2px;
     padding:10px 10px 10px 10px;
     display: inline-block;
-    margin:0px 10px 0px 0px;
+    /*margin:0px 10px 0px 0px;*/
 }
 .account-settings-hover{
     display: inline-block;
     padding: 10px 10px 10px 10px;
     color:#949494;
-    margin:0px 10px 0px 10px;
+    /*margin:0px 10px 0px 10px;*/
 }
 .account-settings-hover:hover{
     color:#2d7fc1;
@@ -1602,7 +1602,7 @@ ul#menu li:hover ul.sub-menu {
     display: inline-block;
     padding: 10px 10px 10px 10px;
     color:#949494;
-    margin:0px 10px 0px 10px;
+    /*margin:0px 10px 0px 10px;*/
 }
 .notifications-settings-hover:hover{
     color:#2d7fc1;
@@ -1613,7 +1613,7 @@ ul#menu li:hover ul.sub-menu {
     border-bottom:solid #2d7fc1 2px;
     padding:10px 10px 10px 10px;
     display: inline-block;
-    margin:0px 10px 0px 0px;
+    /*margin:0px 10px 0px 0px;*/
 }
 #notifications-checkboxes{
     padding:30px 0px 0px 20px;
@@ -1686,7 +1686,7 @@ ul#menu li:hover ul.sub-menu {
     display: inline-block;
     padding: 10px 10px 10px 10px;
     color:#949494;
-    margin:0px 10px 0px 10px;
+    /*margin:0px 10px 0px 10px;*/
 }
 .privacy-settings-hover:hover{
     color:#2d7fc1;
@@ -1697,7 +1697,7 @@ ul#menu li:hover ul.sub-menu {
     border-bottom:solid #2d7fc1 2px;
     padding:10px 10px 10px 10px;
     display: inline-block;
-    margin:0px 10px 0px 10px;
+    /*margin:0px 10px 0px 10px;*/
 }
 #privacy-settings-head{
     color:#656565;

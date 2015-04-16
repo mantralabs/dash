@@ -61,7 +61,8 @@ angular
       
       .when('/createtask',{
         templateUrl:'views/create-task.html',
-        controller:'createTaskCtrl'
+        controller:'createTaskCtrl',
+        resolve : resolve
       })
       
       .when('/search',{
@@ -76,12 +77,14 @@ angular
       
       .when('/privacy',{
         templateUrl:'views/privacy-settings.html',
-        controller:'privacySettingsCtrl'
+        controller:'privacySettingsCtrl',
+        resolve : resolve
       })
       
       .when('/notification',{
         templateUrl:'views/notification-settings.html',
-        controller:'notificationSettingsCtrl'
+        controller:'notificationSettingsCtrl',
+        resolve : resolve
       })
       
       .when('/info',{
@@ -94,7 +97,7 @@ angular
         controller:'contactSupportCtrl'
       })
       
-      .when('/accountsettings',{
+      .when('/account-settings',{
         templateUrl:'views/account-settings.html',
         controller:'accountSettingsCtrl',
         resolve : resolve
@@ -106,7 +109,7 @@ angular
         resolve : resolve
       })
       
-      .when('/notificationsettings',{
+      .when('/notification-settings',{
         templateUrl:'views/notification-settings.html',
         controller:'notificationSettingsCtrl',
         resolve : resolve
@@ -118,7 +121,7 @@ angular
         resolve : resolve
       })
       
-      .when('/taskpage',{
+      .when('/task-page',{
         templateUrl:'views/task-page.html',
         controller:'taskPageCtrl',
         resolve : resolve
@@ -130,10 +133,11 @@ angular
         resolve : resolve
       })
       
-      // .when('/settings',{
-      //   templateUrl:'views/account-settings.html'
-      //   controller:'accountSettingsCtrl'
-      // })
+      .when('/workspaceadd',{
+        templateUrl:'views/workspace-add.html',
+        controller:'addWorkspace',
+        resolve : resolve
+      })
       // .when('/addcontacts',{
       //   templateUrl:'views/add-more-contacts2.html'
       //   controller:'addContactsCtrl'

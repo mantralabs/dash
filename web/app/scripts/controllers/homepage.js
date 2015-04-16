@@ -6,6 +6,10 @@ angular.module('pmtoolApp')
 	$scope.info = JSON.parse(localStorage.getItem('UserDetails'));
 	// console.log($scope.info);
 
+
+	$scope.user = $cookieStore.get('current_user');
+	console.log($scope.user);
+
 	console.log('Home Page controller');
 	//current user
 	 // $cookieStore = $scope.user;

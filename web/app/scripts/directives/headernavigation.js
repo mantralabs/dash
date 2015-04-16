@@ -8,7 +8,7 @@ angular.module('pmtoolApp')
       scope: {
         userinfo: "=userdata",
       },
-      link: function(scope, element, attrs) {
+      link: function(scope, element, attrs, $cookieStore) {
       	// scope.header = header.fetch();
         // element.text('this is the headerNavigation directive');
         // console.log(JSON.parse(localStorage.getItem('UserDetails')));
