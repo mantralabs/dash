@@ -1,5 +1,6 @@
 // Generated on 2014-04-05 using generator-angular 0.8.0
 'use strict';
+var modRewrite = require('connect-modrewrite');
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -12,18 +13,21 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
+  var appConfig = {
+      app: require('./bower.json').appPath || 'app',
+      dist: 'dist'
+  }
 
   // Define the configuration for all the tasks
   grunt.initConfig({
 
     // Project settings
-    yeoman: {
-      // configurable paths
-      app: require('./bower.json').appPath || 'app',
-      dist: 'dist'
-    },
+    yeoman: appConfig,
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -64,14 +68,45 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        // port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
         livereload: 35729
       },
+      server: {
+       options: {
+         middleware: function (connect, options) {
+           return [proxySnippet];
+         }
+       },
+       proxies: [
+         {
+           context: '/api/',
+           host: 'localhost',
+           https: false,
+           port: 80,
+           rewrite: {
+             '^/api': '/dash/services/public'
+           },
+           ws: true
+         }
+       ],
+     },
       livereload: {
         options: {
           open: true,
+           middleware: function (connect) {
+            return [
+              modRewrite(['!/api|\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg$ /index.html [L]']),
+              proxySnippet,
+              connect.static('.tmp'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect.static(appConfig.app)
+            ];
+          },
           base: [
             '.tmp',
             '<%= yeoman.app %>'
@@ -341,6 +376,8 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -349,6 +386,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'configureProxies:server',
       'bowerInstall',
       'concurrent:server',
       'autoprefixer',

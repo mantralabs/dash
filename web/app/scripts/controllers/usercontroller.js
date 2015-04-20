@@ -8,7 +8,8 @@ angular.module('pmtoolApp')
 	// console.log($scope.user);
 
 	$scope.login = function(user){
-		// console.log('in');
+		console.log('in');
+		console.log(user);
 		if(user.email && user.password){
 			UserService.postLogin(user ,function(error, userDataResp){
 				if(error){
