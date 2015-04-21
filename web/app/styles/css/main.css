@@ -20,6 +20,7 @@
 body{
     margin:0 auto;
     padding:0;
+    font-size: 16px;
 }
 
 html,
@@ -95,7 +96,9 @@ textarea {
 }
 a{
     cursor:pointer;
+    text-decoration: none !important;
 }
+p{}
 /* ==========================================================================
    Browse Happy prompt
    ========================================================================== */
@@ -263,6 +266,7 @@ li{
     position: fixed;
     z-index: 9;
     background-color: #fff;
+    padding-top: 16px;
 }
 
 .empty-div{
