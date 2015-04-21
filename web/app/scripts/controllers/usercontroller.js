@@ -55,17 +55,18 @@ angular.module('pmtoolApp')
 
 	$scope.signup = function(){
 		var loginDetails = {
-			username:$scope.name,
-			email:$scope.email,
-			password:$scope.password,
-			role:'1'
+			username: $scope.name,
+			email: $scope.email,
+			password: $scope.password
 		};
-		UserService.signupNewUser(loginDetails)
-			.then(function(res){
-				console.log(res);
-			},function(error){
-				console.log('Error==>',error);
-		});  
+
+		UserService.signup(loginDetails, function(error, data){
+			if (!error) {
+				$location.path('/');
+			} else {
+				console(error);
+			}
+		})
 	};
 })
 
