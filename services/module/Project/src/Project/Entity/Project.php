@@ -25,6 +25,7 @@ class Project
      */
     protected $description; 
     
+    
     /**
      * @ORM\ManyToOne(targetEntity="User\Entity\User",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
@@ -48,7 +49,17 @@ class Project
     }
       public function toArray() {
         $vars = get_object_vars($this);
-        unset($vars['em']);
+         unset(
+            $vars['rawdata'], 
+            $vars['inputFilter'],
+            $vars['__initializer__'], 
+            $vars['__cloner__'], 
+            $vars['__isInitialized__']
+        );
+           foreach($vars as $key =>$val){
+            if(is_object($val))
+                $vars[$key] = $val->toArray();
+        }
         return $vars;
     }
     
@@ -100,5 +111,28 @@ class Project
  
         return $this->inputFilter;
     }
+
+     public function set($data){
+        $this->rawdata = $data;        
+        if(!empty($data)){
+            $vars = get_class_vars(get_class($this));
+            foreach($data as $key => $val){
+                if(is_array($val) && array_key_exists($key, $vars)){
+                    if(empty($this->$key)){
+                        $className = __NAMESPACE__."\\".$key;
+                        $val = new $className($val);
+                    }else{
+                        $obj = $this->$key;
+                        $obj->set($val);
+                        $val = $obj;
+                    }
+                    
+                }
+                $this->$key = $val;
+            }
+        } 
+    }
+
+
        
 }
