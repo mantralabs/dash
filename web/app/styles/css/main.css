@@ -402,6 +402,9 @@ ul#menu li:hover ul.sub-menu {
 .task-icon{
     float: right;
     padding-right: 5px;
+    font-size: 24px;
+    line-height: 20px;
+    cursor: pointer;
 }
 #left #events{
     margin-bottom: 30px;
