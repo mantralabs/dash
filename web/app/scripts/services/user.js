@@ -2,25 +2,26 @@
 
 angular.module('pmtoolApp')
   .service('UserService', function UserService($q, $http, $resource) {
-  	// console.log(data);
-
-    this.signupNewUser = function (userData) {
-  		return $http({
-  			// url : 'http://local.api.dash.com/user',
-        url : baseUrl+'user/',
-  			method : 'POST',
-  			dataType : 'json',
-    		contentType : 'application/json',
-    		data : JSON.stringify(userData)
-    	});
+    
+    this.signup = function (userData, callback) {
+      return $http.post('/api/user/register', userData)
+      .success(function(data){
+        callback(null, data);
+      })
+      .error(function(err){
+        callback(err);
+      })
     };
 
-	  this.postLogin = function (user, callback) {
-	    $http.post(baseUrl+'user/login', user)
+	  this.postLogin = function (user, callback) {   
+	    $http.post('/api/user/login', user)
+      // $http.post(baseUrl+'user/login', user)
       .success(function(response){
+        console.log(response);
+
         //API References the status message, on that we are operating for error or success
         if(response.status === "error"){
-          callback(response, null)
+          callback(response);
         } else if(response.status === "success"){
           callback(null, response);
         }

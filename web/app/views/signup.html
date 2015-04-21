@@ -31,7 +31,7 @@
                <div class="checkbox">
                     <input type="checkbox" ng-model="terms" ng-value-true="1" required><p class="i-agree"><span > I agree to the</span> <a href="javascript:">terms and conditions </a></p>
                 </div>
-                    <button class="signup-btn btn" type="submit" ng-click="signup()">Sign Up</button>
+                    <button class="signup-btn btn" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign Up</button>
                 </form>
         </div><!--end of input-container-->
     </div><!--end signin box-->
