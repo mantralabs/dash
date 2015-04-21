@@ -55,18 +55,23 @@ class TaskController extends AbstractRestfulJsonController{
     
     public function taskCreateAction(){
       
-       $data = $this->getRequest()->getContent(); 
-       $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
+        $data = $this->getRequest()->getContent();
+
+        $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
+
         $taskto=$data['task_to'];
         $taskdetail=$data['task_detail'];
+
         $em = $this->getEntityManager();
         $queryBuilder = $em->createQueryBuilder();
         $queryBuilder->select('o.projectname,o.description,o.id,IDENTITY(o.user) as user_id')->from('Project\Entity\Project', 'o')
                  ->where('o.user = :task_to')
                  ->setParameter('task_to', $taskto);
-         $result = $queryBuilder->getQuery();
-         $getdata=$result->getResult();
-         $projectuserID=$getdata[0]['user_id'];
+        //$result = $queryBuilder->getQuery();
+        //$getdata=$result->getResult();
+      //  $projectuserID=$getdata[0]['user_id'];
+        //print_r($projectuserID);
+    
         $logged_in_user_details = array();
         $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
         if($authService->hasIdentity()){
@@ -90,14 +95,17 @@ class TaskController extends AbstractRestfulJsonController{
          return new JsonModel(array('status'=>'ok'));
     }
     
-    public function update($id, $data){
+    public function update($id){
         // Action used for PUT requests
+         $data = $this->getRequest()->getContent();
+
+        $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
         $user = $this->getEntityManager()->getRepository('Task\Entity\Task')->find($id);
         //print_r($user); exit();
         $user->set($data);
-        $user->validate($this->em);        
+        //$user->validate($this->em);        
         $this->getEntityManager()->flush();        
-        return new JsonModel($user->toArray());
+      return new JsonModel($user->toArray());
     }
     
     public function taskCompletedAction(){   

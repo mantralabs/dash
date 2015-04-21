@@ -185,9 +185,7 @@ class UserController extends AbstractRestfulJsonController{
          return new JsonModel(array('status'=> '401','data'=>'invalid access'));
     }
 
-
-    
-     public function resetPasswordAction(){
+    public function resetPasswordAction(){
          $data = $this->getRequest()->getContent();
          $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
             if(!empty($data['new_password']) && !empty($data['confirm_password'])){
