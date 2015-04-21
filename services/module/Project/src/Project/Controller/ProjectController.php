@@ -27,6 +27,8 @@ class ProjectController extends AbstractRestfulJsonController{
           $project = array_map(function($message){
             return $message->toArray();
         }, $project);
+
+       // print_r($project);
         return new JsonModel($project);
      }
      
@@ -62,28 +64,31 @@ class ProjectController extends AbstractRestfulJsonController{
     } 
     
     public function create(){        
-       $logged_in_user_details = array();
+         $logged_in_user_details = array();
         $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
         if($authService->hasIdentity()){
             $user = $authService->getIdentity();
             $logged_in_user_details = $user->toArray();            
         }
         $id=$logged_in_user_details['id'];
-        
         $data = $this->getRequest()->getContent();
         $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
         $workspceID=$data['workspace_id'];
         //print_r($workspceID); exit();
+      
         $user = $this->getEntityManager()->getRepository('User\Entity\User')->find($id);
         $workspace = $this->getEntityManager()->getRepository('Workspace\Entity\Workspace')->find($workspceID);
-        //print_r($workspace); exit();
+        if($user == "" || $workspace == ""){
+             return new JsonModel(array('status'=>'Please create workspace for this project'));
+        }
         $createmsg = new \Project\Entity\Project($data); 
         $data['user'] = $user;
-        $data['workspace_id']= $workspace;
-        $projectEntity = $createmsg->exchangeArray($data);
+        $data['workspace_id'] = $workspace;
+    $projectEntity = $createmsg->exchangeArray($data);
         $this->getEntityManager()->persist($projectEntity);
         $this->getEntityManager()->flush(); 
          return new JsonModel(array('status'=>'ok'));
+        
     }
     
   
@@ -147,22 +152,27 @@ class ProjectController extends AbstractRestfulJsonController{
         //print_r($data);
         $project = $this->getEntityManager()->getRepository('Project\Entity\Project')->find($id);
         $project->set($data);
-        $project->validate($this->em);
-        
+        // $project->validate($this->em);
         $this->getEntityManager()->flush();
-        
+       
         return new JsonModel($project->toArray());
     }
 
     public function delete($id){
         // Action used for DELETE requests
+        $workspace = $this->getEntityManager()->getRepository('Workspace\Entity\Workspace')->find($id);
+        if(!empty($workspace)){
+        $this->getEntityManager()->remove($workspace);
+        $this->getEntityManager()->flush();
+        }
         $project = $this->getEntityManager()->getRepository('Project\Entity\Project')->find($id);
+        
         $this->getEntityManager()->remove($project);
         
         $this->getEntityManager()->flush();
         
         return new JsonModel($project->toArray());
+        
     }
-
 
 }
