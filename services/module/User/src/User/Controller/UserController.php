@@ -84,7 +84,7 @@ class UserController extends AbstractRestfulJsonController{
         return $this->getList();
     }
 
-    public function registerAction(){
+    public function create($data){
         $data = $this->getRequest()->getContent();
         $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
         $path = 'public/img/apple.png';
@@ -101,8 +101,8 @@ class UserController extends AbstractRestfulJsonController{
         if (strpos($image,'png') !== false) 
             $extention = "png";
         
-        if (strpos($image,'base64,') !== false) {
-        $image = substr($image, strpos($image, "base64,") );  
+        if (strpos($image,'base64,') !== false) 
+      /*  $image = substr($image, strpos($image, "base64,") );  
         $image = str_replace('base64,', '', $image);
         $image = str_replace(' ', '+', $image); 
         $image = base64_decode($image);
@@ -150,8 +150,8 @@ class UserController extends AbstractRestfulJsonController{
             $this->getEntityManager()->persist($user);
             $this->getEntityManager()->flush();  
         $em = $this->getEntityManager();
-         $queryBuilder = $em->createQueryBuilder();
-         $queryBuilder->select('o.id')->from('User\Entity\User', 'o')
+        $queryBuilder = $em->createQueryBuilder();
+        $queryBuilder->select('o.id')->from('User\Entity\User', 'o')
                  ->where('o.email = :emailaddress')
                  ->setParameter('emailaddress', $data['email']);
          $result = $queryBuilder->getQuery();
