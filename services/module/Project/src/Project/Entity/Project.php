@@ -25,7 +25,6 @@ class Project
      */
     protected $description; 
     
-    
     /**
      * @ORM\ManyToOne(targetEntity="User\Entity\User",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
@@ -133,6 +132,5 @@ class Project
         } 
     }
 
-
-       
+  
 }

@@ -16,15 +16,11 @@ class User  extends Base
     */
     protected $id;
 
+   
     /** 
      * @ORM\Column(type="string", length=50)
      */
-    public $username; 
-    
-    /** 
-     * @ORM\Column(type="string", length=50,nullable=true)
-     */
-    protected $fullname; 
+    protected $name; 
     
     /** 
      * @ORM\Column(type="string", length=50,nullable=true)
@@ -45,7 +41,7 @@ class User  extends Base
     protected $password;    
     
     /** 
-     * @ORM\Column(type="string", length=20) 
+     * @ORM\Column(type="string", length=20,nullable=true) 
      */
     public $role;
     
@@ -87,7 +83,7 @@ class User  extends Base
             $inputFilter = new InputFilter();
  
             $inputFilter->add(array(
-                'name'     => 'username',
+                'name'     => 'name',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
@@ -107,7 +103,7 @@ class User  extends Base
             
             $inputFilter->add(array(
                 'name'     => 'password',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
@@ -181,7 +177,7 @@ class User  extends Base
             
             $inputFilter->add(array(
                 'name'     => 'password',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),

@@ -38,7 +38,18 @@ return array(
                     )
                 ),
             ),
-            
+
+            'uploaddocument' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/project/uploaddocument',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Project\Controller',
+                        'controller'    => 'Project',
+                        'action'        => 'uploaddocument',
+                    )
+                ),
+            ),
                          
         ),
     ),

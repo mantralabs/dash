@@ -84,7 +84,7 @@ class ProjectController extends AbstractRestfulJsonController{
         $createmsg = new \Project\Entity\Project($data); 
         $data['user'] = $user;
         $data['workspace_id'] = $workspace;
-    $projectEntity = $createmsg->exchangeArray($data);
+        $projectEntity = $createmsg->exchangeArray($data);
         $this->getEntityManager()->persist($projectEntity);
         $this->getEntityManager()->flush(); 
          return new JsonModel(array('status'=>'ok'));
@@ -173,6 +173,23 @@ class ProjectController extends AbstractRestfulJsonController{
         
         return new JsonModel($project->toArray());
         
+    }
+    public function uploaddocumentAction(){
+    
+     $allowedExts = array("pdf", "doc", "link");
+     $uploaddir = 'public/document/'; // Relative path under public
+     if(in_array('pdf', $allowedExts)||!in_array('doc', $allowedExts)||in_array('link', $allowedExts)){
+     $uploadfile = $uploaddir . basename($_FILES['doc']['name']);
+     if (move_uploaded_file($_FILES['doc']['tmp_name'], $uploadfile)) {
+     return new JsonModel(array('status'=>'success'));
+      } else {
+     return new JsonModel(array('status'=>$_FILES["doc"]["error"]));
+     }
+ }else{
+  return new JsonModel(array('status'=>'please upload pdf or doc or link file'));
+ }
+
+
     }
 
 }

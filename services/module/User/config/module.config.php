@@ -98,6 +98,17 @@ return array(
                 ),
             ),
             
+              'updateProfile' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user/updateProfile',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'User',
+                        'action'        => 'updateProfile',
+                    )
+                ),
+            ),
          
              'suggest' => array(
                 'type' => 'Segment',
