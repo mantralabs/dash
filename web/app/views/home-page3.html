@@ -7,14 +7,40 @@
     <div class="home-page3">
 <div class="home-page3-head">
 <span>Sort by</span>
-<select class="home-page3-sort">
-<option>Recently Added</option>
-<option>Size</option>
-<option>Name</option>
-<option>Kind</option>
-</select>
-<img src="img/search.png">
+	<select class="home-page3-sort">
+		<option>Recently Added</option>
+		<option>Size</option>
+		<option>Name</option>
+		<option>Kind</option>
+	</select>
+	<button class="green-btn pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button>
+	<img src="img/search.png">
+
+	<div class="modal fade" id="contacts-modal">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title">New Contact</h4>
+	        </div>
+	        <div class="modal-body">
+	          <div class="project-title border-bottom-grey">
+	            <input class="modal-input" type="text" placeholder="Contact Name">
+	          </div>
+
+	          <div class="project-title border-bottom-grey">
+	            <input class="modal-input" type="text" placeholder="e-mail" >
+	          </div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-primary">Add Contact</button>
+	        </div>
+	      </div><!-- /.modal-content -->
+	    </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 </div>
+
 <div class="home-page3-profile">
 <input class="checks" id="check11" type="checkbox"><span class="home-page3-select">Select All</span><br>
 <div class="home-page3-left">
