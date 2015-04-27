@@ -141,6 +141,11 @@ angular
         controller:'addWorkspace',
         resolve : resolve
       })
+      .when('/workspace',{
+        templateUrl:'views/workspace-home.html',
+        controller:'workspaceCtrl',
+        resolve : resolve
+      })
       // .when('/addcontacts',{
       //   templateUrl:'views/add-more-contacts2.html'
       //   controller:'addContactsCtrl'
