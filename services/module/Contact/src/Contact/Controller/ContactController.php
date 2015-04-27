@@ -43,12 +43,15 @@ class ContactController extends AbstractRestfulJsonController{
         $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
         $userid=$data['user_id'];
         $workspaceid=$data['workspace_id'];
+        $name = $data['name'];
+        $email = $data['email'];
+        
         //print_r($workspaceid); exit();
         $createmsg = new \Contact\Entity\Contact();
         $user = $this->getEntityManager()->getRepository('User\Entity\User')->find($userid);
         $workspace = $this->getEntityManager()->getRepository('Workspace\Entity\Workspace')->find($workspaceid);
        // print_r($workspace); exit();
-        $candidateEntity = $createmsg->exchangeArray(array('user_id'=>$user, 'workspace_id'=>$workspace));
+        $candidateEntity = $createmsg->exchangeArray(array('name'=>$name,'email'=>$email,'user_id'=>$user, 'workspace_id'=>$workspace));
         $this->getEntityManager()->persist($candidateEntity);
         $this->getEntityManager()->flush(); 
          return new JsonModel(array('status'=>'success'));

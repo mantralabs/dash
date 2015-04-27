@@ -36,8 +36,11 @@ class SendEmailPlugin extends AbstractPlugin
                         ->setConnectionClass('login')
                         ->setName('smtp.gmail.com')
                         ->setConnectionConfig(array(
-                                           'username' => 'steffi@mantralabsglobal.com',
+                                          /* 'username' => 'steffi@mantralabsglobal.com',
                                            'password' => 'Steffi1234',
+                                           'ssl' => 'tls',*/
+                                             'username' => 'razakballa@gmail.com',
+                                           'password' => 'ilikeuandmeandall',
                                            'ssl' => 'tls',
                                          )
                                      );
