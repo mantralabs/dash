@@ -5,11 +5,8 @@ var resolve = {
         var deferred = $q.defer();
         var currentUser = $cookieStore.get('current_user');
         if(currentUser){
-          // console.log('Hi User',currentUser);
-          // $rootScope.isLoggedIn = true;
           deferred.resolve(currentUser);
         } else{
-          // $rootScope.isLoggedIn = false;
           deferred.reject();
           $location.path('/');
         }
@@ -36,11 +33,53 @@ angular
         templateUrl :'views/home-page.html',
         controller:'homePageCtrl',
         resolve : resolve
-      })      
+      })  
+
+      .when('/project/:id', {
+        templateUrl: 'views/project.html',
+        controller:'projectController',
+        resolve: resolve
+      })
 
       .when('/profilepage',{
-        templateUrl :'views/profile-page.html',
+        templateUrl:'views/profile-page.html',
         controller:'userProfileCtrl',
+        resolve: resolve
+      })
+
+      .when('/editprofile',{
+        templateUrl:'views/edit-profile.html',
+        controller:'editProfileCtrl',
+        resolve : resolve
+      })
+
+      .when('/task-page',{
+        templateUrl:'views/task-page.html',
+        // controller:'taskPageCtrl',
+        resolve : resolve
+      })
+
+      .when('/account-settings',{
+        templateUrl:'views/account-settings.html',
+        // controller:'accountSettingsCtrl',
+        resolve : resolve
+      })
+
+      .when('/privacy',{
+        templateUrl:'views/privacy-settings.html',
+        // controller:'privacyCtrl',
+        resolve : resolve
+      })
+      
+      .when('/notification-settings',{
+        templateUrl:'views/notification-settings.html',
+        // controller:'notificationSettingsCtrl',
+        resolve : resolve
+      })
+
+      .when('/contacts',{
+        templateUrl:'views/home-page3.html',
+        // controller:'contactsPageCtrl',
         resolve : resolve
       })
 
@@ -95,42 +134,6 @@ angular
       .when('/contactsupport',{
         templateUrl:'views/contact-support.html',
         controller:'contactSupportCtrl'
-      })
-      
-      .when('/account-settings',{
-        templateUrl:'views/account-settings.html',
-        controller:'accountSettingsCtrl',
-        resolve : resolve
-      })
-      
-      .when('/privacy',{
-        templateUrl:'views/privacy-settings.html',
-        controller:'privacyCtrl',
-        resolve : resolve
-      })
-      
-      .when('/notification-settings',{
-        templateUrl:'views/notification-settings.html',
-        controller:'notificationSettingsCtrl',
-        resolve : resolve
-      })
-      
-      .when('/contacts',{
-        templateUrl:'views/home-page3.html',
-        controller:'contactsPageCtrl',
-        resolve : resolve
-      })
-      
-      .when('/task-page',{
-        templateUrl:'views/task-page.html',
-        controller:'taskPageCtrl',
-        resolve : resolve
-      })
-
-      .when('/editprofile',{
-        templateUrl:'views/edit-profile.html',
-        controller:'editProfileCtrl',
-        resolve : resolve
       })
       
       .when('/workspaceadd',{
