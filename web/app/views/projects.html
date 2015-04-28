@@ -1,0 +1,47 @@
+<div class="empty-div"> 
+  <headernavigation></headernavigation>
+</div>
+<div class="content">
+    <sidebar></sidebar>
+    <div class="common-div">
+	    <div class="home-page3">
+			<div class="home-page3-head">
+				<span>List of Projects</span>
+				<button class="btn-green pull-right" data-toggle="modal" data-target="#project-modal">Create Project</button>
+				<img src="img/search.png">
+			</div>
+
+			<div class="home-page3-profile clearfix">
+				<p ng-repeat = "project in projects.list">
+					<a href="#/project/{{project.id}}">{{project.projectname}}</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="project-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">New Project</h4>
+        </div>
+        <div class="modal-body">
+          <div class="project-title border-bottom-grey">
+            <input class="modal-input" type="text" placeholder="Project Title" ng-model='project.projectname'>
+          </div>
+
+          <div class="project-desc border-bottom-grey">
+            <textarea name="" id="" placeholder="describe your project here.." ng-model='project.description'></textarea>
+          </div>
+
+          <div class="border-bottom-grey">
+            Add people
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-green" ng-click='addNewProject()'>Create Project</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

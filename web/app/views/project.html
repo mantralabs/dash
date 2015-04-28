@@ -1,1 +1,56 @@
-<p>Project Page</p>
+<div id="wrapper">
+	<div class="empty-div"> 
+ 		<headernavigation userdata="info"></headernavigation>
+ 	</div>
+ 	<div class="content">
+ 		<sidebar></sidebar>
+
+    	<section id="container" class="clearfix">
+    		
+			<div class="project-list">
+    			<div class="project-dropdown">
+    				<select>
+				    	<option value="">Select Project</option>
+				    	<option id ="workspace-{{workSpace.id}}" value="{{project.id}}" ng-repeat="project in projects">{{project.projectname}}</option>
+					</select>
+				</div>
+				<!-- <workspace><workspace/> -->
+			</div>
+    		
+    		<div id="left">
+    			<div id="my-contacts">
+					<div class="mycontacts-header clearfix">
+						<h2>Project members<span class="number">{{projects.list.length}}</span></span></h2>
+						<div id="project-1" ng-repeat = "project in projects.list | limitTo : 3"> 
+							<p class="left-column">
+							<a href="#/project/{{project.id}}">{{project.projectname}}</a>
+							</p>
+
+							<p class="right-column">{{project.user.length}} members</p>
+						</div>
+
+						
+					</div><!--end my contacts-header-->
+
+					<div class="profile-pics clearfix">
+
+						<ul class="clearfix">
+						<li ng-repeat="contact in Contact.list"><a href="#/profile1{{contact.id}}"><img src="img/img-1.png" alt="profile-pic"></a></li>
+						</ul>
+					</div><!--end profile pics-->  
+				</div>
+    		
+    		</div>
+	  		<div id="right" class="clearfix">
+
+	        	<updateactivity></updateactivity>
+
+		        <div id="activities">
+		          <activities></activities>
+		        </div><!--end activities-->
+
+      		</div>
+        
+      	</section>
+ 	</div>
+</div>
