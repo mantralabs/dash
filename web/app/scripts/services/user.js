@@ -17,7 +17,7 @@ angular.module('pmtoolApp')
 	    $http.post('/api/user/login', user)
       // $http.post(baseUrl+'user/login', user)
       .success(function(response){
-        console.log(response);
+        // console.log(response);
 
         //API References the status message, on that we are operating for error or success
         if(response.status === "error"){
