@@ -79,7 +79,7 @@ angular
 
       .when('/contacts',{
         templateUrl:'views/home-page3.html',
-        // controller:'contactsPageCtrl',
+        controller:'contactController',
         resolve : resolve
       })
 

@@ -15,18 +15,18 @@ angular.module('pmtoolApp')
 		return Project;
   	};
 
-  	Project.add = function(data, cb){
-  		console.log(data);
-  		data.workspace_id = 1;
-  		if(!Project.list){
-  			Project.list = [];
-  			// Project.list.push(data);
-  		}
+	Project.add = function(data, cb){
+		console.log(data);
+		data.workspace_id = 1;
+		if(!Project.list){
+			Project.list = [];
+			// Project.list.push(data);
+		}
 
-  		$http.post('/api/project', data)
-  		.success(function(){
+		$http.post('/api/project', data)
+		.success(function(){
 			Project.list.push(data);
 		});
-  	}
-  	return Project;
+	}
+	return Project;
 });
