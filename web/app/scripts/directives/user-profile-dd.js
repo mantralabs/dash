@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .directive('userProfileDd', function (Userservice,$routeParams) {
+  .directive('userProfileDd', function (Userservice, $routeParams) {
     return {
       templateUrl: 'views/user-profile-dd.html',
       restrict: 'E',

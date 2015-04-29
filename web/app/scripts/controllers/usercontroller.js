@@ -64,7 +64,7 @@ angular.module('pmtoolApp')
 			if (!error) {
 				$location.path('/');
 			} else {
-				console(error);
+				console.log(error);
 			}
 		})
 	};
