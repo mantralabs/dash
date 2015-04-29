@@ -10,8 +10,9 @@ angular.module('pmtoolApp')
 	$scope.user = $cookieStore.get('current_user');
 	console.log($scope.user);
 
-	console.log('Home Page controller');
+	$scope.projects = Project.fetch();
 
+	console.log('Home Page controller');
 	$scope.addNewProject = function(){
 		console.log($scope.project);
 		Project.add($scope.project, function(err, project){

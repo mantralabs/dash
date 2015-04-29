@@ -43,7 +43,7 @@ angular
 
       .when('/projects', {
         templateUrl: 'views/projects.html',
-        controller:'projectController',
+        controller:'homePageCtrl',
         resolve: resolve
       })
 
