@@ -2,15 +2,17 @@
 
 angular.module('pmtoolApp')
   .controller('contactController', function ($scope, Contact) {
-	console.log('in');
 	$scope.contacts = Contact.fetch();
-	console.log($scope.contacts);
 	$scope.addNewContact = function(){
-		ContactService.add($scope.contact, function(err, contact){
+		var data = {
+			email : $scope.email
+		}
+		Contact.add(data, function(err, contact){
 			console.log(contact);
 			console.log(err);
 		})
 	}
+
 	$scope.selection=[];
 
 	$scope.toggleSelection = function(id){
@@ -24,6 +26,4 @@ angular.module('pmtoolApp')
 
 		console.log($scope.selection);
 	}
-
-	// $scope.
 });
