@@ -36,7 +36,7 @@ class User extends \User\Entity\User implements \Doctrine\ORM\Proxy\Proxy
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array('username' => NULL, 'role' => NULL);
+    public static $lazyPropertiesDefaults = array('role' => NULL);
 
 
 
@@ -46,7 +46,7 @@ class User extends \User\Entity\User implements \Doctrine\ORM\Proxy\Proxy
      */
     public function __construct($initializer = null, $cloner = null)
     {
-        unset($this->username, $this->role);
+        unset($this->role);
 
         $this->__initializer__ = $initializer;
         $this->__cloner__      = $cloner;
@@ -108,10 +108,10 @@ class User extends \User\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'username', 'fullname', 'phone', 'photo', 'password', 'role', 'email', 'hash', 'inputFilter', 'rawdata');
+            return array('__isInitialized__', 'id', 'name', 'phone', 'photo', 'password', 'role', 'email', 'hash', 'inputFilter', 'rawdata');
         }
 
-        return array('__isInitialized__', 'id', 'fullname', 'phone', 'photo', 'password', 'email', 'hash', 'inputFilter', 'rawdata');
+        return array('__isInitialized__', 'id', 'name', 'phone', 'photo', 'password', 'email', 'hash', 'inputFilter', 'rawdata');
     }
 
     /**
@@ -133,7 +133,7 @@ class User extends \User\Entity\User implements \Doctrine\ORM\Proxy\Proxy
                 }
             };
 
-            unset($this->username, $this->role);
+            unset($this->role);
         }
     }
 

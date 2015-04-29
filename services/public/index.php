@@ -12,6 +12,10 @@ if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['RE
 
 // Setup autoloading
 require 'init_autoloader.php';
-
+set_include_path(implode(PATH_SEPARATOR, array(          
+    realpath('../library'), // Make sure this is the correct path to your library folder
+    get_include_path(),
+)));
+	
 // Run the application!
 Zend\Mvc\Application::init(require 'config/application.config.php')->run();

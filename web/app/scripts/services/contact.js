@@ -19,8 +19,8 @@ angular.module('pmtoolApp')
   	Contact.add = function(data, callback){
   		if(!Contact.list){
   			Contact.list = [];
-  		}
-
+  		} 
+  		console.log(data);
   		$http.post('/api/user', data)
   		.success(function(user){
 			Contact.list.push(data);

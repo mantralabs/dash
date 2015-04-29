@@ -70,6 +70,7 @@ class ProjectController extends AbstractRestfulJsonController{
             $user = $authService->getIdentity();
             $logged_in_user_details = $user->toArray();            
         }
+       
         $id=$logged_in_user_details['id'];
         $data = $this->getRequest()->getContent();
         $data = (!empty($data))? get_object_vars(json_decode($data)) : '';
