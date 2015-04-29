@@ -18,7 +18,7 @@ class User  extends Base
 
    
     /** 
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50,nullable=true)
      */
     protected $name; 
     
@@ -90,7 +90,7 @@ class User  extends Base
  
             $inputFilter->add(array(
                 'name'     => 'name',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
