@@ -33,6 +33,12 @@ class User  extends Base
      */
      
     protected $photo; 
+
+    /** 
+     * @ORM\Column(type="string", length=50,nullable=true)
+     */
+     
+    protected $designation; 
     
     /** 
      * @ORM\Column(type="string", length=50,nullable=true)
