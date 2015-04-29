@@ -41,6 +41,18 @@ angular
         resolve: resolve
       })
 
+      .when('/projects', {
+        templateUrl: 'views/projects.html',
+        controller:'projectController',
+        resolve: resolve
+      })
+
+      // .when('/projects/:id', {
+      //   templateUrl: 'views/project.html',
+      //   controller:'projectController',
+      //   resolve: resolve
+      // })
+
       .when('/profilepage',{
         templateUrl:'views/profile-page.html',
         controller:'userProfileCtrl',
@@ -139,6 +151,11 @@ angular
       .when('/workspaceadd',{
         templateUrl:'views/workspace-add.html',
         controller:'addWorkspace',
+        resolve : resolve
+      })
+      .when('/workspace',{
+        templateUrl:'views/workspace-home.html',
+        controller:'workspaceCtrl',
         resolve : resolve
       })
       // .when('/addcontacts',{

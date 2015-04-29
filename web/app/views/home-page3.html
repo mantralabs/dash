@@ -1,65 +1,47 @@
 <div class="empty-div"> 
-  <headernavigation></headernavigation>
+	<headernavigation></headernavigation>
 </div>
-  <div class="content">
+<div class="content">
     <sidebar></sidebar>
     <div class="common-div">
-    <div class="home-page3">
-<div class="home-page3-head">
-<span>Sort by</span>
-	<select class="home-page3-sort">
-		<option>Recently Added</option>
-		<!-- <option>Size</option> -->
-		<option>Name</option>
-		<!-- <option>Kind</option> -->
-	</select>
-	<button class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button>
-	<img src="img/search.png">
+	    <div class="home-page3">
+			<div class="home-page3-head">
+				<span>Sort by</span>
+				<select class="home-page3-sort">
+					<option>Recently Added</option>
+					<!-- <option>Size</option> -->
+					<option>Name</option>
+					<!-- <option>Kind</option> -->
+				</select>
+				<button class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button>
+				<img src="img/search.png">
 
-	<div class="modal fade" id="contacts-modal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">New Contact</h4>
-				</div>
+			</div>
 
-				<div class="modal-body">
-					<div class="project-title border-bottom-grey">
-						<input class="modal-input" type="text" placeholder="e-mail" >
+			<div class="home-page3-profile">
+				<input class="checks" id="check11" type="checkbox"><span class="home-page3-select">Select All</span><br>
+				<div ng-repeat="contact in contacts.list">
+					<div class="home-page3-left">
+						<div class="home-page3-check">
+							<input class="checks" id="check12" type="checkbox" ng-checked="selection.indexOf(contact.id) > -1" ng-click="toggleSelection(contact.id)" >
+						</div> 
+						<!-- <p>{{contact.photo ? contact.photo : "img/img-6.png"}}</p> -->
+						<img class="cont-pic" src="img/img-6.png">
 					</div>
+					<div class="home-page3-right">
+						<span class="home-page3-name">{{contact.name}}</span><br>
+						<span class="home-page3-designation">{{contact.designation}}</span><br>
+						<!-- <li>
+							<img src="img/assign.png">Assign Task
+						</li>
+						<li>
+							<img src="img/mail.png">Message
+						</li> -->
+					</div>
+					<div class="clear"></div>
 				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn-green">Invite</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-
-</div>
-
-<div class="home-page3-profile">
-	<input class="checks" id="check11" type="checkbox"><span class="home-page3-select">Select All</span><br>
-	<div ng-repeat="contact in contacts.list">
-		<div class="home-page3-left">
-			<div class="home-page3-check">
-				<input class="checks" id="check12" type="checkbox" ng-checked="selection.indexOf(contact.id) > -1" ng-click="toggleSelection(contact.id)" >
-			</div> 
-			<!-- <p>{{contact.photo ? contact.photo : "img/img-6.png"}}</p> -->
-			<img class="cont-pic" src="img/img-6.png">
+			</div>
 		</div>
-		<div class="home-page3-right">
-			<span class="home-page3-name">{{contact.name}}</span><br>
-			<span class="home-page3-designation">{{contact.designation}}</span><br>
-			<!-- <li>
-				<img src="img/assign.png">Assign Task
-			</li>
-			<li>
-				<img src="img/mail.png">Message
-			</li> -->
-		</div>
-		<div class="clear"></div>
 	</div>
 </div>
 
@@ -80,4 +62,5 @@
 <div class="clear"></div>
 </div>
 </div>
+<<<<<<< HEAD
 </div> -->

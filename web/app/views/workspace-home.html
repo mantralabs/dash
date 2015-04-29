@@ -7,11 +7,11 @@
 
     	<section id="container" class="clearfix">
     		
-			<div class="project-list">
-    			<div class="project-dropdown">
+			<div class="workspacelist" ng-controller="workspaceCtrl">
+    			<div class="workspacedropdown">
     				<select>
-				    	<option value="">Select Project</option>
-				    	<option id ="workspace-{{workSpace.id}}" value="{{project.id}}" ng-repeat="project in projects">{{project.projectname}}</option>
+				    	<option value="">Select Workspace</option>
+				    	<option id ="workspace-{{workSpace.id}}" value="{{workSpace.id}}" ng-repeat="workSpace in workSpaces">{{workSpace.workspace_name}}</option>
 					</select>
 				</div>
 				<!-- <workspace><workspace/> -->
@@ -20,7 +20,7 @@
     		<div id="left">
     			<div id="my-contacts">
 					<div class="mycontacts-header clearfix">
-						<h2>Project members<span class="number">{{projects.list.length}}</span></span></h2>
+						<h2>Projects <span class="number">{{projects.list.length}}</span></span></h2>
 						<div id="project-1" ng-repeat = "project in projects.list | limitTo : 3"> 
 							<p class="left-column">
 							<a href="#/project/{{project.id}}">{{project.projectname}}</a>
@@ -50,7 +50,9 @@
 		        </div><!--end activities-->
 
       		</div>
-        
+  
+    
+      
       	</section>
  	</div>
 </div>
