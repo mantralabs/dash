@@ -6,13 +6,10 @@ angular.module('pmtoolApp')
 	$scope.info = JSON.parse(localStorage.getItem('UserDetails'));
 	// console.log($scope.info);
 
-
 	$scope.user = $cookieStore.get('current_user');
-	console.log($scope.user);
 
 	$scope.projects = Project.fetch();
 
-	console.log('Home Page controller');
 	$scope.addNewProject = function(data){
 		console.log(data);
 		console.log('addNewProject()');

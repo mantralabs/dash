@@ -18,12 +18,11 @@ angular.module('pmtoolApp')
 	})
 
 	$scope.deleteWorkspace = function(workspaceId){
-		console.log(workspaceId);
-		console.log('deleteWorkspace()');
-		WorkSpace.delete(workspaceId, function(err, projects){
-			console.log(projects);
-			console.log(err);
-			$scope.workSpaces = projects
+		console.log('WorkSpace ID -' +workspaceId);
+		WorkSpace.delete(workspaceId, function(err, workSpaces){
+			console.log(workSpaces);
+			// console.log(err);
+			// $scope.workSpaces = workSpaces;
 		})
 	}
 

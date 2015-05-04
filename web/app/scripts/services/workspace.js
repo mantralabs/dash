@@ -34,7 +34,6 @@ angular.module('pmtoolApp')
       return WorkSpace;
     }
 
-
     this.fetch = function () {
   		return $http({
         url : '/api/workspace',
@@ -46,17 +45,14 @@ angular.module('pmtoolApp')
 
     this.delete = function(workspaceId, callback){
       if(!WorkSpace.list){
-        var workspaceId = WorkSpace.id;
-        console.log('inside delete service');
-        console.log(workSpace.list);
-        $http.delete('/api/workspace', workspaceId)
-        .success(function(workspace){
-          var index = WorkSpace.list.map(function(e) { return e.id; }).indexOf(workspaceId);
-          delete WorkSpace.list[index];
-        callback(null, "sucess");
-      })
-      .error(function(error){
-        WorkSpace(error);
+        $http.delete('/api/workspace/'+workspaceId)
+          .success(function(workspace){
+            var index = WorkSpace.list.map(function(e) { return e.id; }).indexOf(workspaceId);
+            delete WorkSpace.list[index];
+            callback(null, "sucess");
+          })
+        .error(function(error){
+        // WorkSpace(error);
       })
       }
     }
