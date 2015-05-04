@@ -23,7 +23,7 @@
 						<h2>Project members<span class="number">{{projects.list.length}}</span></span></h2>
 						<div id="project-1" ng-repeat = "project in projects.list | limitTo : 3"> 
 							<p class="left-column">
-							<a href="#/project/{{project.id}}">{{project.projectname}}</a>
+							<a href="#/project/{{project.id}}">{{project.name}}</a>
 							</p>
 
 							<p class="right-column">{{project.user.length}} members</p>

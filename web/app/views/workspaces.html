@@ -1,0 +1,23 @@
+<div class="empty-div"> 
+  <headernavigation></headernavigation>
+</div>
+<div class="content">
+    <sidebar></sidebar>
+    <div class="common-div">
+	    <div class="home-page3">
+			<div class="home-page3-head">
+				<span>List of Workspaces</span>
+				<button class="btn-green pull-right" data-toggle="modal" data-target="#workspace-modal">Create Workspce</button>
+				<img src="img/search.png">
+			</div>
+
+			<div class="home-page3-profile clearfix" >
+				<p class="project-name" ng-repeat = "workSpace in workSpaces">
+					<button class="close-btn" title="delete this workspace" ng-click="deleteWorkspace()">x</button>
+					<a href="#/workspaces/{{workSpace.id}}">{{workSpace.name}}</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include="'views/modals.html'"></div>

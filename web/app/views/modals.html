@@ -1,0 +1,89 @@
+<!-- create new project modal --> -->
+<div class="modal fade" id="project-modal" ng-controller="workspaceCtrl">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">New Project</h4>
+        </div>
+        <form action="">
+          <div class="modal-body">
+            <div class="project-title border-bottom-grey">
+              <input class="modal-input" type="text" placeholder="Project Title" ng-model='project.name'>
+            </div>
+
+            <div class="project-desc border-bottom-grey">
+              <textarea name="" id="" placeholder="describe your project here.." ng-model='project.description'></textarea>
+            </div>
+            
+            <div class="clearfix border-bottom-grey">
+              <span>select workspace : </span>
+            <select ng-model="project.workspace">
+                <!-- <option value="">Select Workspace</option> -->
+                <option ng-repeat="workSpace in workSpaces" id ="{{workSpace.id}}">{{workSpace.name}}</option>
+            </select>
+            </div>
+
+            <div class="border-bottom-grey">
+              Add people
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn-green" ng-click='addNewProject(project)'>Create Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+<!-- add new contact modal -->
+<div class="modal fade" id="contacts-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">New Contact</h4>
+			</div>
+
+			<div class="modal-body">
+				<!-- <div class="project-title border-bottom-grey">
+					<input class="modal-input" type="text" placeholder="Contact Name">
+				</div> -->
+
+				<div class="project-title border-bottom-grey">
+					<input class="modal-input" type="text" placeholder="e-mail" ng-model='email'>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn-green" ng-click="addNewContact()">Add Contact</button>
+			</div>
+		</div>
+	</div>
+</div><!-- /.modal -->
+
+<!-- create new workspace -->
+<div class="modal fade" id="workspace-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Workspace</h4>
+      </div>
+
+      <div class="modal-body">
+        <!-- <div class="project-title border-bottom-grey">
+          <input class="modal-input" type="text" placeholder="Contact Name">
+        </div> -->
+
+        <div class="project-title border-bottom-grey">
+          <input class="modal-input" type="text" placeholder="Enter Workspace Name" ng-model='workspace.name'>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-green" ng-click="addNewWorkspace(workspace)">create Workspace</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /.modal

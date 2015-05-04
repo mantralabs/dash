@@ -108,10 +108,10 @@ class User extends \User\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'phone', 'photo', 'password', 'role', 'email', 'hash', 'inputFilter', 'rawdata');
+            return array('__isInitialized__', 'id', 'name', 'phone', 'photo', 'designation', 'password', 'role', 'email', 'hash', 'inputFilter', 'rawdata');
         }
 
-        return array('__isInitialized__', 'id', 'name', 'phone', 'photo', 'password', 'email', 'hash', 'inputFilter', 'rawdata');
+        return array('__isInitialized__', 'id', 'name', 'phone', 'photo', 'designation', 'password', 'email', 'hash', 'inputFilter', 'rawdata');
     }
 
     /**

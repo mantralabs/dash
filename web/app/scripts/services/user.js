@@ -1,37 +1,33 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .service('UserService', function UserService($q, $http, $resource) {
+  .service('UserService', function ($q, $http, $resource) {
     
-    this.signup = function (userData, callback) {
-      return $http.post('/api/user/register', userData)
+    this.signup = function (userData) {
+      var deferred = $q.defer();
+      
+      $http.post('/api/user', userData)
       .success(function(data){
-        callback(null, data);
+        deferred.resolve(data);
       })
       .error(function(err){
-        callback(err);
-      })
-    };
-
-	  this.postLogin = function (user, callback) {   
-	    $http.post('/api/user/login', user)
-      // $http.post(baseUrl+'user/login', user)
-      .success(function(response){
-        // console.log(response);
-
-        //API References the status message, on that we are operating for error or success
-        if(response.status === "error"){
-          callback(response);
-        } else if(response.status === "success"){
-          callback(null, response);
-        }
+        deferred.reject(err);
       });
 
-      // enabale this error function later - When APT return type is changed.
-      // .error(function(data){
-      //   console.log(data);
-      //   callback(data, null)
-      // });
+      return deferred.promise;
+    };
+
+	  this.postLogin = function (user) { 
+      var deferred = $q.defer();  
+	    $http.post('/api/user/login', user)
+      .success(function(response){
+        deferred.resolve(response);
+      })
+      .error(function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
     };
 	
   // this.users = $resource('http://localhost/responses/index.php',{},{'login':{'method':'get'}});
@@ -52,7 +48,7 @@ angular.module('pmtoolApp')
     
       var userId = userData.id;
       
-      $http.put(baseUrl+'user/'+ userId,userData)
+      $http.put('http://localhost:1337/user'+ userId,userData)
       .success(function(data){
         console.log('INFO: After update ', data);
         cb(null, data);

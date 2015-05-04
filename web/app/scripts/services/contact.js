@@ -7,7 +7,8 @@ angular.module('pmtoolApp')
 
 	Contact.fetch = function(){
 		if(!Contact.list){
-			$http.get('/api/user')
+			Contact.list = []
+			$http.get('http://localhost:1337/user')
 			.success(function(data){
 				Contact.list = data;
 			});
@@ -21,7 +22,7 @@ angular.module('pmtoolApp')
   			Contact.list = [];
   		} 
   		console.log(data);
-  		$http.post('/api/user', data)
+  		$http.post('http://localhost:1337/user', data)
   		.success(function(user){
 			Contact.list.push(data);
 			callback(null, Contact);
@@ -34,9 +35,9 @@ angular.module('pmtoolApp')
 
   	Contact.delete = function(userId, callback){
   		if(!Contact.list){
-  			$http.delete('/api/user', userId)
+  			$http.delete('http://localhost:1337/user', userId)
 	  		.success(function(user){
-	  			var index = Contact.list.map(function(e) { return e.id; }).indexOf(4);
+	  			var index = Contact.list.map(function(e) { return e.id; }).indexOf(userId);
   				delete Contact.list[index];
 				callback(null, "sucess");
 			})

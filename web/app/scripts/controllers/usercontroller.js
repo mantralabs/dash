@@ -8,21 +8,15 @@ angular.module('pmtoolApp')
 	// console.log($scope.user);
 
 	$scope.login = function(user){
-		console.log('in');
-		console.log(user);
 		if(user.email && user.password){
-			UserService.postLogin(user ,function(error, userDataResp){
-				if(error){
-					$scope.error = error.data.message;
-					console.log('Error while logging in');
-					$location.path('/');
-				} else {
-					$scope.userData = userDataResp.data;
-					$cookieStore.put('current_user',$scope.userData);
-					$location.path('/home');
-					// $cookies = $scope.userDataResp;
-					console.log($cookieStore);
-				}
+			UserService.postLogin(user)
+			.then(function(userDataResp){
+				$scope.userData = userDataResp;
+				$cookieStore.put('current_user',$scope.userData);
+				$location.path('/home');
+			}).catch(function(err){
+				$scope.error = err.message;
+				$location.path('/');
 			});
 		}
 	};

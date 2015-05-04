@@ -95,10 +95,10 @@ angular
         resolve : resolve
       })
 
-      .when('/signup',{
-        templateUrl:'views/signup.html',
-        controller:'SignupCtrl'
-      })
+      // .when('/signup',{
+      //   templateUrl:'views/signup.html',
+      //   controller:'SignupCtrl'
+      // })
 
       .when('/userprofile/:id',{
         templateUrl:'views/user-profile.html',
@@ -148,12 +148,13 @@ angular
         controller:'contactSupportCtrl'
       })
       
-      .when('/workspaceadd',{
-        templateUrl:'views/workspace-add.html',
-        controller:'addWorkspace',
+      .when('/workspaces',{
+        templateUrl:'views/workspaces.html',
+        controller:'workspaceCtrl',
         resolve : resolve
       })
-      .when('/workspace',{
+
+      .when('/workspaces/:id',{
         templateUrl:'views/workspace-home.html',
         controller:'workspaceCtrl',
         resolve : resolve

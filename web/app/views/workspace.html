@@ -1,18 +1,6 @@
-<div class="dropdown update-dropdown" ng-controller="workspaceCtrl">
-	<!-- <ul class="parent-ul"> 
-	  <li class="parent-li">
-	    <a href="javascript:">Employee Network <img src="../img/arrow-down.png" alt="arrow-down"></a>
-	      <ul class="child-ul">
-	        <li class="child-li"><a href="javascript:">Emenu</a></li>
-	        <li class="child-li"><a href="javascript:">Chess</a></li>
-	        <li class="child-li"><a href="javascript:">Watch In</a></li>
-	        <li class="child-li"><a href="javascript:">anivid</a></li>
-	      </ul>
-	  </li>
-	</ul> -->
-
+<div class="dropdown update-dropdown">
 	<select>
-    	<option value="">Select Account</option>
-    	<option id ="workspace-{{workSpace.id}}" value="{{workSpace.id}}" ng-repeat="workSpace in workSpaces">{{workSpace.workspace_name}}</option>
+    	<!-- <option value="">Select Account</option> -->
+    	<option id ="workspace-{{workSpace.id}}" value="{{workSpace.id}}" ng-repeat="workSpace in workSpaces">{{workSpace.name}}</option>
 	</select>
 </div>

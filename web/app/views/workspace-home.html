@@ -7,14 +7,14 @@
 
     	<section id="container" class="clearfix">
     		
-			<div class="workspacelist" ng-controller="workspaceCtrl">
+			<div class="workspacelist clearfix">
     			<div class="workspacedropdown">
     				<select>
-				    	<option value="">Select Workspace</option>
-				    	<option id ="workspace-{{workSpace.id}}" value="{{workSpace.id}}" ng-repeat="workSpace in workSpaces">{{workSpace.workspace_name}}</option>
+				    	<!-- <option value="">Select Workspace</option> -->
+				    	<option ng-repeat="workSpace in workSpaces" id ="workspace-{{workSpace.id}}" value="{{workSpace.id}}" >{{workSpace.name}}</option>
 					</select>
+					<!-- <button class="btn-green pull-right" data-toggle="modal" data-target="#workspace-modal">Create Workspace</button> -->
 				</div>
-				<!-- <workspace><workspace/> -->
 			</div>
     		
     		<div id="left">
@@ -56,3 +56,4 @@
       	</section>
  	</div>
 </div>
+<div ng-include="'views/modals.html'"></div>

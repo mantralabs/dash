@@ -81,12 +81,12 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
        },
        proxies: [
          {
-           context: '/api/',
+           context: '/api',
            host: 'localhost',
            https: false,
-           port: 80,
+           port: 1337,
            rewrite: {
-             '^/api': '/dash/services/public'
+             '^/api': ''
            },
            ws: true
          }

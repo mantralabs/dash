@@ -13,9 +13,11 @@ angular.module('pmtoolApp')
 	$scope.projects = Project.fetch();
 
 	console.log('Home Page controller');
-	$scope.addNewProject = function(){
+	$scope.addNewProject = function(data){
+		console.log(data);
+		console.log('addNewProject()');
 		console.log($scope.project);
-		Project.add($scope.project, function(err, project){
+		Project.add(data, function(err, project){
 			console.log(project);
 			console.log(err);
 		})
