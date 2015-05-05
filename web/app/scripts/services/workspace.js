@@ -27,7 +27,6 @@ angular.module('pmtoolApp')
       $http.post('/api/workspace', data)
       .success(function(workspace){
         $('#workspace-modal').modal('hide');
-        // WorkSpace.list.push(workspace);
         cb(null, workspace)
       });
       return WorkSpace;

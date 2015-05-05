@@ -1,34 +1,34 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .service('Project', function($http) {
-	var Project = {};
-	Project.list = null;
+  .service('Project', function ($http, $q, $resource) {
 
-	Project.fetch = function(){
-		if(!Project.list){
-			$http.get('/api/project')
-			.success(function(data){
-				Project.list = data;
-			});
-		}
-		return Project;
-  	};
-
-	Project.add = function(data, cb){
-		console.log(data);
-		// console.log(Project.list);
-		// data.workspace = 1;
-		if(!Project.list){
-			console.log('in project service');
-			Project.list = [];
-			// Project.list.push(data);
-		}
-		$http.post('/api/project', data)
-		.success(function(){
-      		$('#project-modal').modal('hide');
-			Project.list.push(data);
+	this.fetch = function(){
+		var deferred = $q.defer();
+		
+		$http.get('/api/project')
+		.success(function(data){
+			deferred.resolve(data);
+		})
+		.error(function(err){
+			deferred.reject(err);
 		});
+		
+		return deferred.promise;
+  	}
+
+	this.add = function(data){
+		var deferred = $q.defer();
+		
+		$http.post('/api/project', data)
+		.success(function(project){
+      		$('#project-modal').modal('hide');
+			deferred.resolve(project);
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+
+		return deferred.promise;
 	}
-	return Project;
 });

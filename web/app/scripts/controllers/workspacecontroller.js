@@ -6,8 +6,7 @@ angular.module('pmtoolApp')
 	$scope.addNewWorkspace = function(data){
 		WorkSpace.add(data, function(err, workSpace){
 			$scope.workSpaces.push(workSpace)
-			console.log(workSpaces);
-
+			console.log($scope.workSpaces);
 			console.log(err);
 			// $scope.workSpaces = projects
 			// $scope.workSpaces = WorkSpace.fetch();
