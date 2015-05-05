@@ -12,9 +12,9 @@
 			</div>
 
 			<div class="home-page3-profile clearfix" >
-				<p class="project-name" ng-repeat = "workSpace in workSpaces">
-					<button class="close-btn" title="delete this workspace" ng-click="deleteWorkspace(workSpace.id)">x</button>
-					<a href="#/workspaces/{{workSpace.id}}">{{workSpace.name}}</a>
+				<p class="project-name" ng-repeat = "workspace in workspaces track by $index">
+					<button class="close-btn" title="delete this workspace" ng-click="deleteWorkspace(workspace.id)">x</button>
+					<a href="#/workspaces/{{workspace.id}}">{{workspace.name}}</a>
 				</p>
 			</div>
 		</div>

@@ -31,4 +31,18 @@ angular.module('pmtoolApp')
 
 		return deferred.promise;
 	}
+
+	this.delete = function(id){
+      var deferred = $q.defer();
+      
+      $http.delete('/api/project/'+id)
+      .success(function(response){
+        deferred.resolve(response);
+      })
+      .error(function(err){
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    }
 });

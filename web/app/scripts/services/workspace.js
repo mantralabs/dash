@@ -1,59 +1,48 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .service('WorkSpace', function ($q,$http,$resource) {
-    var WorkSpace = {};
-    WorkSpace.list = null;
+  .service('Workspace', function ($q, $http, $resource) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-
-    // this.add = function (workspace) {
-    //   var deferred = $q.defer();
+    
+    this.fetch = function(){
+      var deferred = $q.defer();
       
-    //   $http.post('/api/workspace', workspace)
-    //   .success(function(response){
-    //     deferred.resolve(response);
-    //   })
-    //   .error(function(err){
-    //     deferred.reject(err);
-    //   });
+      $http.get('/api/workspace')
+      .success(function(data){
+        deferred.resolve(data);
+      })
+      .error(function(err){
+        deferred.reject(err);
+      });
+    
+      return deferred.promise;
+    }
 
-    //   return deferred.promise;
-    // };
-
-    this.add = function(data, cb){
-      if(!WorkSpace.list){
-        WorkSpace.list = [];
-      }
+    this.add = function(data){
+      var deferred = $q.defer();
+      
       $http.post('/api/workspace', data)
       .success(function(workspace){
-        $('#workspace-modal').modal('hide');
-        cb(null, workspace)
-      });
-      return WorkSpace;
-    }
-
-    this.fetch = function () {
-  		return $http({
-        url : '/api/workspace',
-  			method : 'Get',
-  			dataType : 'json',
-    		contentType : 'application/json',
-    	});
-    }
-
-    this.delete = function(workspaceId, callback){
-      if(!WorkSpace.list){
-        console.log(workspaceId);
-        $http.delete('/api/workspace/'+workspaceId)
-          .success(function(workspace){
-            var index = WorkSpace.list.map(function(ele) { return ele.id; }).indexOf(workspaceId);
-            delete WorkSpace.list[index];
-            callback(null, "sucess");
-          })
-        .error(function(error){
-        // WorkSpace(error);
+        deferred.resolve(workspace);
       })
-      }
+      .error(function(err){
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
     }
 
+    this.delete = function(id){
+      var deferred = $q.defer();
+      
+      $http.delete('/api/workspace/'+id)
+      .success(function(workspace){
+        deferred.resolve(workspace);
+      })
+      .error(function(err){
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    }
   });

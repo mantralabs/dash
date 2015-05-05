@@ -17,4 +17,17 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		});
 	}
+
+	$scope.deleteProject = function(id){
+		Project.delete(id).then(function(response){
+			//fetch updated project list
+			Project.fetch().then(function(response){
+				$scope.projects = response;
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}).catch(function(err){
+			$scope.error = err.message;
+		})
+	}
 });

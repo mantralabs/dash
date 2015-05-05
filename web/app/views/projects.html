@@ -13,6 +13,7 @@
 
 			<div class="home-page3-profile clearfix" >
 				<p class="project-name" ng-repeat = "project in projects">
+					<button class="close-btn" title="delete this Project" ng-click="deleteProject(project.id)">x</button>
 					<a href="#/project/{{project.id}}">{{project.name}}</a>
 				</p>
 			</div>

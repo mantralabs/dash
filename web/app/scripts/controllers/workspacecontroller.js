@@ -1,29 +1,34 @@
 'use strict';
 
 angular.module('pmtoolApp')
-.controller('workspaceCtrl',function ($scope, WorkSpace) {
+.controller('workspaceCtrl',function ($scope, Workspace) {
+
+	Workspace.fetch().then(function(response){
+		$scope.workspaces = response;
+	}).catch(function(err){
+		$scope.error = err.message;
+	});
 
 	$scope.addNewWorkspace = function(data){
-		WorkSpace.add(data, function(err, workSpace){
-			$scope.workSpaces.push(workSpace)
-			console.log($scope.workSpaces);
-			console.log(err);
-			// $scope.workSpaces = projects
-			// $scope.workSpaces = WorkSpace.fetch();
-		})
+		Workspace.add(data).then(function(response){
+			$scope.workspaces.push(response);
+			$('#workspace-modal').modal('hide');
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
 	}
 
-	WorkSpace.fetch().then(function (list){
-		$scope.workSpaces = list.data;
-	})
-
 	$scope.deleteWorkspace = function(workspaceId){
-		console.log('WorkSpace ID -' +workspaceId);
-		WorkSpace.delete(workspaceId, function(err, workSpaces){
-			console.log(workSpaces);
-			// console.log(err);
-			// $scope.workSpaces = workSpaces;
-		})
+		Workspace.delete(workspaceId).then(function(response){
+			console.log(response);
+			Workspace.fetch().then(function(response){
+				$scope.workspaces = response;
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
 	}
 
 })

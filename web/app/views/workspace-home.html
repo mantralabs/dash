@@ -11,7 +11,7 @@
     			<div class="workspacedropdown">
     				<select>
 				    	<!-- <option value="">Select Workspace</option> -->
-				    	<option ng-repeat="workSpace in workSpaces" id ="workspace-{{workSpace.id}}" value="{{workSpace.id}}" >{{workSpace.name}}</option>
+				    	<option ng-repeat="workspace in workspaces" id ="workspace-{{workspace.id}}" value="{{workspace.id}}" >{{workspace.name}}</option>
 					</select>
 					<!-- <button class="btn-green pull-right" data-toggle="modal" data-target="#workspace-modal">Create Workspace</button> -->
 				</div>
@@ -20,10 +20,10 @@
     		<div id="left">
     			<div id="my-contacts">
 					<div class="mycontacts-header clearfix">
-						<h2>Projects <span class="number">{{projects.list.length}}</span></span></h2>
+						<h2>Projects <span class="number">{{projects.length}}</span></span></h2>
 						<div id="project-1" ng-repeat = "project in projects.list | limitTo : 3"> 
 							<p class="left-column">
-							<a href="#/project/{{project.id}}">{{project.projectname}}</a>
+							<a href="#/project/{{project.id}}">{{project.name}}</a>
 							</p>
 
 							<p class="right-column">{{project.user.length}} members</p>
