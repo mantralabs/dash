@@ -4,10 +4,8 @@ angular.module('pmtoolApp')
 .controller('workspaceCtrl',function ($scope, WorkSpace) {
 
 	$scope.addNewWorkspace = function(data){
-		console.log(data);
-		console.log('addNewWorkspace()');
-		WorkSpace.add(data, function(err, projects){
-			console.log(projects);
+		WorkSpace.add(data, function(err, workSpaces){
+			console.log(workSpaces);
 			console.log(err);
 			// $scope.workSpaces = projects
 		})

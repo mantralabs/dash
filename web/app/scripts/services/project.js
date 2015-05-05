@@ -16,18 +16,17 @@ angular.module('pmtoolApp')
   	};
 
 	Project.add = function(data, cb){
-		console.log(Project.list);
+		console.log(data);
+		// console.log(Project.list);
 		// data.workspace = 1;
 		if(!Project.list){
-						console.log('in project service');
-
+			console.log('in project service');
 			Project.list = [];
 			// Project.list.push(data);
 		}
-
 		$http.post('/api/project', data)
 		.success(function(){
-      $('#project-modal').modal('hide');
+      		$('#project-modal').modal('hide');
 			Project.list.push(data);
 		});
 	}

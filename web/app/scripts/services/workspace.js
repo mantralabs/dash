@@ -21,9 +21,8 @@ angular.module('pmtoolApp')
     // };
 
     this.add = function(data, cb){
-      console.log(WorkSpace.list);
-        if(!WorkSpace.list){
-          WorkSpace.list = [];
+      if(!WorkSpace.list){
+        WorkSpace.list = [];
       }
       $http.post('/api/workspace', data)
       .success(function(workspace){

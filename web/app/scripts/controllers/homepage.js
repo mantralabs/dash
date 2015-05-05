@@ -12,8 +12,8 @@ angular.module('pmtoolApp')
 
 	$scope.addNewProject = function(data){
 		console.log(data);
-		console.log('addNewProject()');
-		console.log($scope.project);
+		// console.log('addNewProject()');
+		console.log($scope.projects);
 		Project.add(data, function(err, project){
 			console.log(project);
 			console.log(err);
