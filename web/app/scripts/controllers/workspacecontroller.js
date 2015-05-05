@@ -8,6 +8,7 @@ angular.module('pmtoolApp')
 			console.log(workSpaces);
 			console.log(err);
 			// $scope.workSpaces = projects
+			$scope.workSpaces = WorkSpace.fetch();
 		})
 	}
 
