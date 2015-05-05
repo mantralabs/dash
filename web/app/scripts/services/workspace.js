@@ -27,8 +27,8 @@ angular.module('pmtoolApp')
       $http.post('/api/workspace', data)
       .success(function(workspace){
         $('#workspace-modal').modal('hide');
-        WorkSpace.list.push(workspace);
-        cb(null, WorkSpace.list)
+        // WorkSpace.list.push(workspace);
+        cb(null, workspace)
       });
       return WorkSpace;
     }
@@ -44,9 +44,10 @@ angular.module('pmtoolApp')
 
     this.delete = function(workspaceId, callback){
       if(!WorkSpace.list){
+        console.log(workspaceId);
         $http.delete('/api/workspace/'+workspaceId)
           .success(function(workspace){
-            var index = WorkSpace.list.map(function(e) { return e.id; }).indexOf(workspaceId);
+            var index = WorkSpace.list.map(function(ele) { return ele.id; }).indexOf(workspaceId);
             delete WorkSpace.list[index];
             callback(null, "sucess");
           })

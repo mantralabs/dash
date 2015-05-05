@@ -48,7 +48,7 @@ angular.module('pmtoolApp')
     
       var userId = userData.id;
       
-      $http.put('http://localhost:1337/user'+ userId,userData)
+      $http.put('/api/user/'+userId,userData)
       .success(function(data){
         console.log('INFO: After update ', data);
         cb(null, data);
