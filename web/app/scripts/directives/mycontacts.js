@@ -5,9 +5,8 @@ angular.module('pmtoolApp')
     return {
       templateUrl: 'views/my-contacts.html',
       restrict: 'E',
+
       link: function(scope, element, attrs) {
-        console.log(Contact);
-        // scope.Contact = Contact.fetch();
         Contact.fetch().then(function(response){
           scope.contacts = response;
         }).catch(function(err){

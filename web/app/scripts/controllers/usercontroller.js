@@ -2,7 +2,7 @@
 
  
 angular.module('pmtoolApp')
-.controller('LoginCtrl',function ($scope, $rootScope, $location, UserService, $cookieStore){
+.controller('LoginCtrl',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
 	$rootScope.user = $cookieStore.get('current_user');
 	$scope.user = $rootScope.user;	
@@ -23,27 +23,13 @@ angular.module('pmtoolApp')
 
 	$scope.logout = function(){
 		console.log('signing out.....');
-		// UserService.signout()
-		// 	.then(function(data){
-		// 		$location.path('/');
-		// 	},function(error){
-		// 		console.log('Error==>',error);
-				
-		// 	});
-	
+
 		if($cookieStore.get('current_user')){
-			// var isSignedOut = UserService.signout(function(err, data){
-			// console.log('is session destroyed? :', data);
-			// on successful removal of session, delete the cookie ( make current user null )
 			$cookieStore.remove('current_user');
-			// $rootScope.isLoggedIn = false;
 			$location.path('/');
-			// });
 		}
 	};
 })
-
-
 
 .controller('SignupCtrl', function ($scope, $location, UserService){
 
@@ -65,24 +51,11 @@ angular.module('pmtoolApp')
 })
 
 .controller('editProfileCtrl', function ($scope,$location, $routeParams, $rootScope, $cookieStore,UserService) {
-	// $scope.id = $routeParams.id;
-	// console.log($scope.id);
+	
 	$scope.user = $cookieStore.get('current_user');
-	// console.log($scope.user);
+	
 	$scope.updateUser = function(user){
-		
-		// UserService.updateProfile(user ,function(error, userDataResp){
-		// 	if(error){
-		// 		$scope.error = error.message;
-		// 		console.log('Error while updating');
-		// 	} else {
-		// 		$scope.userData = userDataResp;
-		// 		 // console.log($scope.user);
-		// 		$cookieStore.put('current_user',$scope.userData);
-		// 		$location.path('/profile');
-		// 	}
-		// });
-		UserService.updateProfile(user)
+				UserService.updateProfile(user)
 		.then(function(userDataResp){
 			$scope.userData = userDataResp;
 			$cookieStore.put('current_user',$scope.user);
@@ -100,35 +73,10 @@ angular.module('pmtoolApp')
 
 })
 
-
-// .controller('navigationCtrl', function($scope, $location, UserService){
-// 	$scope.dropdownprofile = function(){
-// 		console.log('in');
-// 		$(".user-profile-dd").slideToggle();
-// 		$(".chat-box").hide();
-
-//      // document.getElementByClassName("user-profile-dd")[0].style.['display']="block";
-//    };
-
-// 	$scope.dropdownchat = function(){
-// 		$(".chat-box").slideToggle();
-//     	$(".user-profile-dd").hide();
-//     };
-//  })
-
-//homepage controller
-// .controller('homePageCtrl', function ($scope) {
-// 	// $scope.responseData = {};
-// 	console.log('home page ctrl');
-// 	$scope.info = JSON.parse(localStorage.getItem('UserDetails'));
-// 	console.log($scope.info);
-
-// })
-
 .controller('userProfileCtrl', function ($scope, $routeParams, $cookieStore) {
-	// $scope.id = $routeParams.id;
-	// console.log($scope.id);
 	$scope.user = $cookieStore.get('current_user');
+	$scope.userId = $routeParams.id;
+
 })
 
 .controller('taskPageCtrl', function($scope,$location){

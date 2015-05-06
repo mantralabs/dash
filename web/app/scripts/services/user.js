@@ -30,31 +30,14 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 	
-  // this.users = $resource('http://localhost/responses/index.php',{},{'login':{'method':'get'}});
-	// this.users = $resource('http://localhost/responses/index.php',{},{'signup':{'method':'post'}});
-     this.signout = function() {
+    this.signout = function() {
       console.log('signout function is executed');
-      
-      // return $http({
-      //   url : 'http://local.api.dash.com/user/logout',
-      //   method : 'POST',
-      // });
     };
-
 
     this.updateProfile = function (userData) {
 
       var userId = userData.id;
 
-      // $http.put('/api/user/'+userId,userData)
-      // .success(function(data){
-      //   console.log('INFO: After update ', data);
-      //   cb(null, data);
-      // })
-      // .error(function(data){
-      //   cb(data, null);
-      // });
-      
       var deferred = $q.defer();  
       
       $http.put('/api/user/'+userId, userData)
@@ -70,7 +53,6 @@ angular.module('pmtoolApp')
 
     this.forgotPassword = function(){
       console.log('forgot-password');
-      
     };
 
   });

@@ -46,7 +46,19 @@ angular.module('pmtoolApp')
       return deferred.promise;
     }
 
-
+    this.fetchOther = function(id){
+		var deferred = $q.defer();
+		
+		$http.get('/api/user/'+id)
+		.success(function(data){
+			deferred.resolve(data);
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+		
+		return deferred.promise;
+  	}
   	// Contact.update = function(userId, callback){
   	// 	if(!Contact.list){
   	// 		$http.put('/api/user', userId)
