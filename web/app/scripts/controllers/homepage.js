@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('homePageCtrl', function ($scope, $cookieStore, Project) {
+  .controller('homePageCtrl', function ($scope, $cookieStore, $rootScope, Project) {
 
-	$scope.user = $cookieStore.get('current_user');
-
+	$rootScope.user = $cookieStore.get('current_user');
+	// console.log($rootScope.user);
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('projectController', function ($scope, Project) {
+  .controller('projectController', function ($scope, Project, $rootScope) {
 	
 	Project.fetch().then(function(response){
 		$scope.projects = response;

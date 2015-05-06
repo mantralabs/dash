@@ -4,8 +4,8 @@
 angular.module('pmtoolApp')
 .controller('LoginCtrl',function ($scope, $rootScope, $location, UserService, $cookieStore){
 
-	$scope.user = $cookieStore.get('current_user');
-	// console.log($scope.user);
+	$rootScope.user = $cookieStore.get('current_user');
+	// console.log($rootScope.user);
 
 	$scope.login = function(user){
 		if(user.email && user.password){
@@ -94,19 +94,20 @@ angular.module('pmtoolApp')
 })
 
 
-.controller('navigationCtrl', function($scope, $location, UserService){
-	$scope.dropdownprofile = function(){
-		$(".user-profile-dd").slideToggle();
-		$(".chat-box").hide();
+// .controller('navigationCtrl', function($scope, $location, UserService){
+// 	$scope.dropdownprofile = function(){
+// 		console.log('in');
+// 		$(".user-profile-dd").slideToggle();
+// 		$(".chat-box").hide();
 
-     // document.getElementByClassName("user-profile-dd")[0].style.['display']="block";
-   };
+//      // document.getElementByClassName("user-profile-dd")[0].style.['display']="block";
+//    };
 
-	$scope.dropdownchat = function(){
-		$(".chat-box").slideToggle();
-    	$(".user-profile-dd").hide();
-    };
- })
+// 	$scope.dropdownchat = function(){
+// 		$(".chat-box").slideToggle();
+//     	$(".user-profile-dd").hide();
+//     };
+//  })
 
 //homepage controller
 // .controller('homePageCtrl', function ($scope) {
