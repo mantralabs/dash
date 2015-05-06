@@ -21,16 +21,16 @@
 			<div class="home-page3-profile">
 				<!-- <input class="checks" id="check11" type="checkbox"> -->
 				<!-- <span class="home-page3-select">Select All</span><br> -->
-				<div ng-repeat="contact in contacts.list">
+				<div ng-repeat="contact in contacts" class="clearfix">
 					<div class="home-page3-left">
-						<div class="home-page3-check">
+						<div class="home-page3-check align-middle">
 							<!-- <input class="checks" id="check12" type="checkbox" ng-checked="selection.indexOf(contact.id) > -1" ng-click="toggleSelection(contact.id)" > -->
 							<button class="close-btn" title="delete this contact">x</button>
 						</div> 
 						<!-- <p>{{contact.photo ? contact.photo : "img/img-6.png"}}</p> -->
-						<img class="cont-pic" src="img/img-6.png">
+						<img class="cont-pic align-middle" src="img/img-6.png">
 					</div>
-					<div class="home-page3-right">
+					<div class="home-page3-right align-middle">
 						<span class="home-page3-name">{{contact.name}}</span><br>
 						<span class="home-page3-designation">{{contact.designation}}</span><br>
 						<!-- <li>
@@ -40,7 +40,6 @@
 							<img src="img/mail.png">Message
 						</li> -->
 					</div>
-					<div class="clear"></div>
 				</div>
 			</div>
 		</div>

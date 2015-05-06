@@ -53,8 +53,14 @@ angular
       //   resolve: resolve
       // })
 
-      .when('/profilepage',{
+      .when('/profile',{
         templateUrl:'views/profile-page.html',
+        controller:'userProfileCtrl',
+        resolve: resolve
+      })
+
+      .when('/profile/:id',{
+        templateUrl:'views/contacts-profile.html',
         controller:'userProfileCtrl',
         resolve: resolve
       })
@@ -90,7 +96,7 @@ angular
       })
 
       .when('/contacts',{
-        templateUrl:'views/home-page3.html',
+        templateUrl:'views/contacts.html',
         controller:'contactController',
         resolve : resolve
       })
