@@ -42,20 +42,30 @@ angular.module('pmtoolApp')
     };
 
 
-    this.updateProfile = function (userData, cb) {
+    this.updateProfile = function (userData) {
 
-      console.log('user service in');
-    
       var userId = userData.id;
+
+      // $http.put('/api/user/'+userId,userData)
+      // .success(function(data){
+      //   console.log('INFO: After update ', data);
+      //   cb(null, data);
+      // })
+      // .error(function(data){
+      //   cb(data, null);
+      // });
       
-      $http.put('/api/user/'+userId,userData)
-      .success(function(data){
-        console.log('INFO: After update ', data);
-        cb(null, data);
+      var deferred = $q.defer();  
+      
+      $http.put('/api/user/'+userId, userData)
+      .success(function(response){
+        deferred.resolve(response);
       })
-      .error(function(data){
-        cb(data, null);
+      .error(function(err) {
+        deferred.reject(err);
       });
+
+      return deferred.promise;
     };
 
     this.forgotPassword = function(){

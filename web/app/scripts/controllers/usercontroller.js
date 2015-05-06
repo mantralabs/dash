@@ -5,7 +5,7 @@ angular.module('pmtoolApp')
 .controller('LoginCtrl',function ($scope, $rootScope, $location, UserService, $cookieStore){
 
 	$rootScope.user = $cookieStore.get('current_user');
-	// console.log($rootScope.user);
+	$scope.user = $rootScope.user;	
 
 	$scope.login = function(user){
 		if(user.email && user.password){
@@ -45,7 +45,7 @@ angular.module('pmtoolApp')
 
 
 
-.controller('SignupCtrl', function($scope, $location, UserService){
+.controller('SignupCtrl', function ($scope, $location, UserService){
 
 	$scope.signup = function(){
 		var loginDetails = {
@@ -64,31 +64,38 @@ angular.module('pmtoolApp')
 	};
 })
 
-.controller('editProfileCtrl', function ($scope,$location, $routeParams, $cookieStore,UserService) {
+.controller('editProfileCtrl', function ($scope,$location, $routeParams, $rootScope, $cookieStore,UserService) {
 	// $scope.id = $routeParams.id;
 	// console.log($scope.id);
 	$scope.user = $cookieStore.get('current_user');
 	// console.log($scope.user);
 	$scope.updateUser = function(user){
-		if(user.phone){
-			UserService.updateProfile(user ,function(error, userDataResp){
-				if(error){
-					$scope.error = error.message;
-					console.log('Error while updating');
-				} else {
-					$scope.userData = userDataResp;
-					 // console.log($scope.user);
-					$cookieStore.put('current_user',$scope.userData);
-					$location.path('/profilepage');
-				}
-			});
-		} else{
-			console.log("phone number not there");
-		}
+		
+		// UserService.updateProfile(user ,function(error, userDataResp){
+		// 	if(error){
+		// 		$scope.error = error.message;
+		// 		console.log('Error while updating');
+		// 	} else {
+		// 		$scope.userData = userDataResp;
+		// 		 // console.log($scope.user);
+		// 		$cookieStore.put('current_user',$scope.userData);
+		// 		$location.path('/profile');
+		// 	}
+		// });
+		UserService.updateProfile(user)
+		.then(function(userDataResp){
+			$scope.userData = userDataResp;
+			$cookieStore.put('current_user',$scope.user);
+			$location.path('/profile');
+		}).catch(function(err){
+			$scope.error = err.message;
+			console.log($scope.error);
+			$location.path('/profile');
+		});
 	};
 })
 
-.controller('accountSettingsCtrl', function($scope,$location,UserService){
+.controller('accountSettingsCtrl', function ($scope,$location,UserService){
 	console.log('accountSetting Control inside');	
 
 })
@@ -122,7 +129,6 @@ angular.module('pmtoolApp')
 	// $scope.id = $routeParams.id;
 	// console.log($scope.id);
 	$scope.user = $cookieStore.get('current_user');
-	console.log($scope.user);
 })
 
 .controller('taskPageCtrl', function($scope,$location){

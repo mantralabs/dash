@@ -4,6 +4,7 @@ angular.module('pmtoolApp')
 	.controller('navigationCtrl', function ($scope, $location, $rootScope, $cookieStore, UserService){
 
 		//get the 
+		$rootScope.user = $cookieStore.get('current_user');
 		$scope.user = $rootScope.user;
 		
 		$scope.dropdownprofile = function(){

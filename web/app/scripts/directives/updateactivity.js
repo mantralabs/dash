@@ -6,7 +6,6 @@ angular.module('pmtoolApp')
       templateUrl: 'views/updateactivity.html',
       restrict: 'E',
       link: function(scope, element, attrs) {
-        // element.text('this is the sidebar directive');
       }
     };
   });
