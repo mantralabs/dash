@@ -2,21 +2,7 @@
 
 angular.module('pmtoolApp')
   .service('Contact', function($http,$q) {
-	// var Contact = {};
-	// Contact.list = null;
-
-	// Contact.fetch = function(){
-	// 	if(!Contact.list){
-	// 		Contact.list = []
-	// 		$http.get('http://localhost:1337/user')
-	// 		.success(function(data){
-	// 			Contact.list = data;
-	// 		});
-	// 	}
-		
-	// 	return Contact;
- //  	};
-
+	
  	this.fetch = function(){
 		var deferred = $q.defer();
 		
@@ -31,35 +17,35 @@ angular.module('pmtoolApp')
 		return deferred.promise;
   	}
 
-  // 	Contact.add = function(data, callback){
-  // 		if(!Contact.list){
-  // 			Contact.list = [];
-  // 		} 
-  // 		console.log(data);
-  // 		$http.post('http://localhost:1337/user', data)
-  // 		.success(function(user){
-		// 	Contact.list.push(data);
-		// 	callback(null, Contact);
-		// })
-		// .error(function(error){
-		// 	Contact(error);
-		// })
+  	this.add = function(data){
+		var deferred = $q.defer();
+		
+		$http.post('/api/user', data)
+		.success(function(email){
+      		$('#contacts-modal').modal('hide');
+			deferred.resolve(email);
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
 
-  // 	}
+		return deferred.promise;
+	}
+  	
+  	this.delete = function(id){
+      var deferred = $q.defer();
+      
+      $http.delete('/api/user/'+id)
+      .success(function(response){
+        deferred.resolve(response);
+      })
+      .error(function(err){
+        deferred.reject(err);
+      });
 
-  	// Contact.delete = function(userId, callback){
-  	// 	if(!Contact.list){
-  	// 		$http.delete('http://localhost:1337/user', userId)
-	  // 		.success(function(user){
-	  // 			var index = Contact.list.map(function(e) { return e.id; }).indexOf(userId);
-  	// 			delete Contact.list[index];
-			// 	callback(null, "sucess");
-			// })
-			// .error(function(error){
-			// 	Contact(error);
-			// })
-  	// 	}
-  	// }
+      return deferred.promise;
+    }
+
 
   	// Contact.update = function(userId, callback){
   	// 	if(!Contact.list){

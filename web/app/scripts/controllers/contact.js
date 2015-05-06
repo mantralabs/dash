@@ -10,15 +10,28 @@ angular.module('pmtoolApp')
 		$scope.error = err.message;
 	});
 
-	$scope.addNewContact = function(){
-		var data = {
-			email : $scope.email
-		}
-		Contact.add(data, function(err, contact){
-			console.log(contact);
-			console.log(err);
+	$scope.addNewContact = function(data){
+
+		Contact.add(data).then(function(response){
+			$scope.contacts.push(response);
+			console.log(response);
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
+
+	$scope.deleteContact = function(id){
+		Contact.delete(id).then(function(response){
+			Contact.fetch().then(function(response){
+				$scope.contacts = response;
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}).catch(function(err){
+			$scope.error = err.message;
 		})
 	}
+
 
 	$scope.selection=[];
 
