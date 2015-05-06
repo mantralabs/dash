@@ -7,8 +7,12 @@ angular.module('pmtoolApp')
       restrict: 'E',
       link: function(scope, element, attrs) {
         console.log(Contact);
-        scope.Contact = Contact.fetch();
-        // console.log(scope.Contlength);
+        // scope.Contact = Contact.fetch();
+        Contact.fetch().then(function(response){
+          scope.contacts = response;
+        }).catch(function(err){
+          scope.error = err.message;
+        });
       }
     };
   });

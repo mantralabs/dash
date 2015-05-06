@@ -2,7 +2,14 @@
 
 angular.module('pmtoolApp')
   .controller('contactController', function ($scope, Contact) {
-	$scope.contacts = Contact.fetch();
+	// $scope.contacts = Contact.fetch();
+
+	Contact.fetch().then(function(response){
+		$scope.contacts = response;
+	}).catch(function(err){
+		$scope.error = err.message;
+	});
+
 	$scope.addNewContact = function(){
 		var data = {
 			email : $scope.email

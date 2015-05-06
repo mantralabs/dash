@@ -19,16 +19,18 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.deleteWorkspace = function(workspaceId){
-		Workspace.delete(workspaceId).then(function(response){
-			console.log(response);
-			Workspace.fetch().then(function(response){
-				$scope.workspaces = response;
+		// if (window.confirm('Delete!! Are You Sure?')){
+			Workspace.delete(workspaceId).then(function(response){
+				console.log(response);
+				Workspace.fetch().then(function(response){
+					$scope.workspaces = response;
+				}).catch(function(err){
+					$scope.error = err.message;
+				});
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
+		// }
 	}
 
 })
