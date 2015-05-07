@@ -29,6 +29,7 @@ angular.module('pmtoolApp')
 			$location.path('/');
 		}
 	};
+	
 })
 
 .controller('SignupCtrl', function ($scope, $location, UserService){
