@@ -3,7 +3,7 @@
 angular.module('pmtoolApp')
   	.directive('updateactivity', function ($rootScope, Project, Contact, UserService, $cookieStore, Activity) {
 
-		var userId= $cookieStore.get('current_user').id;
+		var user= $cookieStore.get('current_user').id;
 	    
 	    return {
 	      	templateUrl: 'views/updateactivity.html',
@@ -36,8 +36,8 @@ angular.module('pmtoolApp')
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};
 
-	      		scope.selectedProject = function(activity,projectId){
-	      			var activityData = {activity,projectId,userId}
+	      		scope.selectedProject = function(description,project){
+	      			var activityData = {description,project,user}
 	      			console.log(activityData);
 	      			Activity.addActivity(activityData).then(function(response){
 	      				console.log(response);
