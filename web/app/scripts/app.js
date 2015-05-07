@@ -29,6 +29,11 @@ angular
         controller: 'LoginCtrl'
       })
       
+      .when('/setpassword', {
+        templateUrl: 'views/setpassword.html',
+        // controller: 'LoginCtrl'
+      })
+
       .when('/home',{
         templateUrl :'views/home-page.html',
         controller:'homePageCtrl',
