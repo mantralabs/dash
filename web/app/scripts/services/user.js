@@ -55,4 +55,19 @@ angular.module('pmtoolApp')
       console.log('forgot-password');
     };
 
-  });
+    this.fetch = function(){
+
+      var deferred = $q.defer();
+
+      $http.get('api/user')
+      .success(function(response){
+        deferred.resolve(response);
+      }).error(function(err) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    };
+
+  }
+);

@@ -19,12 +19,12 @@
             <div class="clearfix border-bottom-grey">
               <span>select workspace : </span>
             <select ng-model="project.workspace">
-                <!-- <option value="">Select Workspace</option> -->
+                <option value="">Select Workspace</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}">{{workspace.name}}</option>
             </select>
             </div>
 
-            <div class="border-bottom-grey">
+            <div class="border-bottom-grey hide">
               Add people
             </div>
           </div>

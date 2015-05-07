@@ -1,31 +1,51 @@
 <div id="update" class="clearfix">
 
-  	<h2 >Update an Activity</h2>
+	<h2 >Update an Activity</h2>
 
-  	<form action="javascript:" method="post">
-    	<input type="text">
-  
-        <div class="update-footer">
-          <div class="update-footer-icons">
-            <ul>
-              <li class="icons"><a href="javascript:"><img src="../img/attach-files.png" alt="attach-files" height="18" width="10"></a></li>
-              <li class="icons"><a href="javascript:"><img src="../img/camera-icon.png" alt="share-links"></a></li>
-              <li class="icons"><a href="javascript:"><img src="../img/link-icon.png" alt="share-files" ></a></li>
-            </ul>
-          </div><!--end update footer icons-->
-          <!--<div class="projectlist">
-      			<div class="workspacedropdown">
-              <select>
-                <option value="">Select Project</option>
-                <option  value="{{project.id}}" ng-repeat = "project in projects.list">{{project.name}}</option>
-              </select>
-  				  </div>
-				    <workspace><workspace/>
-		      </div>-->
-       	</div><!--end update footer-->
-      
-        <div class="update-footer-btn">
-          <button type="submit" id="home-page-btn"class="update-btn btn">Update</button>
+	<form action="javascript:" method="">
+  	
+    <input type="text" ng-model="activity.input">
+
+    <div class="update-footer">
+      <div class="update-footer-icons">
+        <ul>
+          <li class="icons">
+            <a href="javascript:">
+              <img src="../img/attach-files.png" alt="attach-files">
+            </a>
+          </li>
+          <li class="icons">
+            <a href="javascript:">
+              <img src="../img/camera-icon.png" alt="share-links">
+            </a>
+          </li>
+          <li class="icons">
+            <a href="javascript:">
+              <img src="../img/link-icon.png" alt="share-files" >
+            </a>
+          </li>
+        </ul>
+      </div><!--end update footer icons-->
+
+      <div class="update-footer-btn">
+        <button type="submit" id="home-page-btn" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
+        <div class="list-projects hide">
+          <ul>
+            <li ng-repeat = "project in projects" ng-click="selectedProject(activity, project.id)">{{project.name}}</li>
+            <!-- <li ng-click="selectedProject(activity)">Mantra</li>
+            <li ng-click="selectedProject()">Dash</li> -->
+          </ul>
         </div>
-  	</form>
+      </div>
+      <!--<div class="projectlist">
+  			<div class="workspacedropdown">
+          <select>
+            <option value="">Select Project</option>
+            <option  value="{{project.id}}" ng-repeat = "project in projects.list">{{project.name}}</option>
+          </select>
+			  </div>
+		    <workspace><workspace/>
+      </div>-->
+   	</div><!--end update footer-->
+	</form>
 </div><!--end update-->

@@ -1,4 +1,13 @@
+
 //Helper classes
+
+.hide{
+	display: none;
+}
+
+.show{
+	display: block;
+}
 .btn-green{
   color: #ecf8f3;
   background: #2cbe8f;
@@ -11,6 +20,7 @@
 .border-bottom-grey{
 	border-bottom: 1px solid #eee;
 }
+
 .modal-input{
 	border: none;
 	padding: 5px;
@@ -69,5 +79,55 @@
 .home-page3-profile{
 	.project-name{
 		border-bottom: 1px solid #eee;
+	}
+}
+
+
+//update Activity Styles
+
+#update{
+	.update-footer{
+		overflow: hidden;
+		padding: 20px 10px;
+		.update-footer-icons{
+			float: left;
+			.icons{
+				display: inline-block;
+  				vertical-align: middle;
+  				padding: 0px 5px;
+				// margin: 20px 20px 20px 0;
+			}
+		}
+
+		.update-footer-btn{
+			float: right;
+			.update-btn{
+				width: 100px;
+				margin-right: 10px;
+				padding: 5px;
+			}
+			.list-projects{
+				border-radius: 5px;
+				background-color: #fff;
+				border: 1px solid #B4B9BE;
+				position: absolute;
+				width: 10%;
+				right:33px;
+				text-align: left;
+				ul{
+					padding: 0px;
+					margin: 0;
+					li{
+						color: #4b9ff2;
+						padding: 5px;
+						border-bottom: 1px solid #B4B9BE;
+						cursor: pointer;
+						&:last-child{
+							border-bottom: none;
+						}
+					}
+				}
+			}
+		}
 	}
 }
