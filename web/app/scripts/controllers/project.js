@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('projectController', function ($scope, Project, $rootScope) {
+  .controller('projectController', function ($scope, Project, $rootScope, $routeParams) {
 	
 	Project.fetch().then(function(response){
 		$scope.projects = response;
@@ -30,4 +30,19 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		})
 	}
-});
+
+	// $scope.getProjectDetails = function(id){
+		
+		
+})
+.controller('getprojectController', function ($scope, Project, $rootScope, $routeParams) {
+
+	Project.fetchProject($routeParams.id).then(function(response){
+			$scope.project = response;
+		}).catch(function(err){
+			console.log(err);
+			$scope.error = err.message;
+		});
+
+
+})

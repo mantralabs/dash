@@ -40,28 +40,34 @@ angular
         resolve : resolve
       })  
 
-      .when('/project/:id', {
-        templateUrl: 'views/project.html',
-        controller:'projectController',
-        resolve: resolve
-      })
-
       .when('/projects', {
         templateUrl: 'views/projects.html',
         controller:'projectController',
         resolve: resolve
       })
 
-      // .when('/projects/:id', {
-      //   templateUrl: 'views/project.html',
-      //   controller:'projectController',
-      //   resolve: resolve
-      // })
+      .when('/project/:id', {
+        templateUrl: 'views/project.html',
+        controller:'getprojectController',
+        resolve: resolve
+      })
 
       .when('/profile',{
         templateUrl:'views/profile-page.html',
         controller:'userProfileCtrl',
         resolve: resolve
+      })
+
+      .when('/workspaces',{
+        templateUrl:'views/workspaces.html',
+        controller:'workspaceCtrl',
+        resolve : resolve
+      })
+
+      .when('/workspaces/:id',{
+        templateUrl:'views/workspace-home.html',
+        controller:'getWorkspaceController',
+        resolve : resolve
       })
 
       .when('/profile/:id',{
@@ -159,17 +165,6 @@ angular
         controller:'contactSupportCtrl'
       })
       
-      .when('/workspaces',{
-        templateUrl:'views/workspaces.html',
-        controller:'workspaceCtrl',
-        resolve : resolve
-      })
-
-      .when('/workspaces/:id',{
-        templateUrl:'views/workspace-home.html',
-        controller:'workspaceCtrl',
-        resolve : resolve
-      })
       // .when('/addcontacts',{
       //   templateUrl:'views/add-more-contacts2.html'
       //   controller:'addContactsCtrl'

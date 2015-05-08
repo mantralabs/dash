@@ -8,25 +8,23 @@
     	<section id="container" class="clearfix">
     		
 			<div class="project-list">
-    			<div class="project-dropdown">
+				<h4>{{project[0].name}}</h4>
+    			<!-- <div class="project-dropdown">
     				<select>
 				    	<option value="">Select Project</option>
 				    	<option id ="workspace-{{workspace.id}}" value="{{project.id}}" ng-repeat="project in projects">{{project.name}}</option>
 					</select>
-				</div>
-				<!-- <workspace><workspace/> -->
+				</div> -->
 			</div>
     		
     		<div id="left">
     			<div id="my-contacts">
 					<div class="mycontacts-header clearfix">
-						<h2>Project members<span class="number">{{projects.length}}</span></span></h2>
-						<div id="project-1" ng-repeat = "project in projects | limitTo : 3"> 
+						<h2>Project members<span class="number">{{project[0].users.length}}</span></span></h2>
+						<div id="project-1" ng-repeat = "member in project[0].users | limitTo : 3"> 
 							<p class="left-column">
-							<a href="#/project/{{project.id}}">{{project.name}}</a>
+								{{member.name}}
 							</p>
-
-							<p class="right-column">{{project.user.length}} members</p>
 						</div>
 
 						

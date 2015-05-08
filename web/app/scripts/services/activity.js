@@ -5,12 +5,10 @@ angular.module('pmtoolApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
   
   	this.addActivity = function(activityData){
-  		console.log(activityData);
   		var deferred = $q.defer();
 		
 		$http.post('/api/activity', activityData)
 		.success(function(activity){
-			console.log(activity);
 			deferred.resolve(activity);
 		})
 		.error(function(err){

@@ -45,4 +45,19 @@ angular.module('pmtoolApp')
 
       return deferred.promise;
     }
+
+    this.fetchWorkspace = function(id){
+    var deferred = $q.defer();
+    
+    $http.get('/api/workspace/'+id)
+    .success(function(data){
+      deferred.resolve(data);
+    })
+    .error(function(err){
+      deferred.reject(err);
+    });
+    
+    return deferred.promise;
+    }
+    
   });

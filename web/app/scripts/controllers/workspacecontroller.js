@@ -34,3 +34,19 @@ angular.module('pmtoolApp')
 	}
 
 })
+
+.controller('getWorkspaceController', function ($scope, Workspace, $rootScope, $routeParams) {
+
+	Workspace.fetchWorkspace($routeParams.id).then(function(response){
+		console.log('getWorkspaceController');
+		console.log('getworkspace',response);
+		console.log('getWorkspaceController',response);
+			$scope.workspace = response;
+			$scope.projects = response[0].projects;
+		}).catch(function(err){
+			console.log(err);
+			$scope.error = err.message;
+		});
+
+
+})

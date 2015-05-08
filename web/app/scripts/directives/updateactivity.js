@@ -38,7 +38,6 @@ angular.module('pmtoolApp')
 
 	      		scope.selectedProject = function(description,project){
 	      			var activityData = {description,project,user}
-	      			console.log(activityData);
 	      			Activity.addActivity(activityData).then(function(response){
 	      				console.log(response);
 	      			}).catch(function(err){
