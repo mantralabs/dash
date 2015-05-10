@@ -526,6 +526,7 @@ ul#menu li:hover ul.sub-menu {
     height: 641px;
     background-color: #fff;
     border-radius: 2px;
+    overflow: scroll;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;  
 }

@@ -69,5 +69,19 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    this.setPassword = function(){
+
+      var deferred = $q.defer();
+
+      $http.put('api/user'+userId,password)
+      .success(function(response){
+        deferred.resolve(response);
+      }).error(function(err) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    };
+
   }
 );

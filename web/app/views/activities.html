@@ -3,12 +3,12 @@
 
 <h2>Activities</h2>
 <div id="acts">
-	<div class="acts-sub clearfix">
+	<div class="acts-sub clearfix" ng-repeat="activity in activities">
 		<div class="acts-img">
 			<img src="img/img-5.png" alt="profile-pic">
 		</div>
-		<div class="acts-discription">
-			<p><a href="javascript:"><span>Sudhakar </span></a>added <a href="javascript:"><span>Sudakar</span></a> to the employee network</p>
+		<div class="acts-discription" >
+			<p><a href="javascript:"><span>{{activity.user.name}} </span></a>added coment : <a href="javascript:"><span></span></a> {{activity.description}} in <span>{{activity.project.name}}</span></p>
 			<ul>
 				<li class="like-comment timer">2 days ago</li>
 				<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
@@ -16,32 +16,32 @@
 				<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
 				<li class="like-comment">5</li>
 			</ul>
-	</div><!--end acts-discription-->
+		</div><!--end acts-discription-->
 	</div><!--end acts-sub-->
 
-	<div class="clearfix acts-reply">
+	<!-- <div class="clearfix acts-reply">
 		<div class="acts-img">
 			<img src="img/img-4.png" alt="profile-pic">
 		</div>
 	
-	<div class="acts-discription">
-		<p><a href="javascript:"><span>Sudhakar </span></a>I got the task <a href="javascript:"><span>Sudagar</span></a></p>
-		<ul>
-			<li class="timer like-comment">2 days ago</li>
-			<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-			<li class="like-comment">3</li>
-		</ul>
-	</div><!--end acts-discription-->
-	</div><!--end acts-reply-->
+		<div class="acts-discription">
+			<p><a href="javascript:"><span>Sudhakar </span></a>I got the task <a href="javascript:"><span>Sudagar</span></a></p>
+			<ul>
+				<li class="timer like-comment">2 days ago</li>
+				<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
+				<li class="like-comment">3</li>
+			</ul>
+		</div>
+	</div> -->
 
-	<div id="comment-box" class="clearfix">
+	<!-- <div id="comment-box" class="clearfix">
 		<form action="javascript:" method="post">
 			<input type="text">
 			
 			<div id="doc">
 				<img src="img/doc-icon.png" alt="doc icon"><span>example.doc</span>
 				<img class="close-icon" src="img/close-icon.png" alt="close-icon">
-			</div><!--end doc-->
+			</div>
 	
 			<div class="comment-box-footer">
 				<ul class="comment-box-ul">
@@ -52,6 +52,6 @@
 				<button type="submit" class="add-comment-btn btn">Add Comment</button>
 			</div>
 		</form>
-	</div><!--end comment-box-->
+	</div> -->
 
 </div><!--end acts-->	

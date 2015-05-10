@@ -27,7 +27,7 @@ angular.module('pmtoolApp')
 				//get list of users
 				UserService.fetch().then(function(response){
 					scope.users = response;
-					console.log(response);
+					// console.log(response);
 				}).catch(function(err){
 					scope.error = err.message;
 				});

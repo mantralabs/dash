@@ -29,6 +29,17 @@ angular.module('pmtoolApp')
 			$location.path('/');
 		}
 	};
+
+	$scope.setPassword = function(){
+		console.log('signing out.....');
+		UserService.setPassword(password)
+		.then(function(){
+			$location.path('/');
+		}).catch(function(err){
+			$scope.error = err.message;
+		})
+	};
+
 	
 })
 

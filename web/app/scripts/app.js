@@ -31,7 +31,7 @@ angular
       
       .when('/setpassword', {
         templateUrl: 'views/setpassword.html',
-        // controller: 'LoginCtrl'
+        controller: 'LoginCtrl'
       })
 
       .when('/home',{
