@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('projectController', function ($scope, Project, $rootScope, $routeParams) {
+  .controller('projectController', function ($scope, $cookieStore, Project, $rootScope, $routeParams) {
 	
+	$rootScope.user = $cookieStore.get('current_user');
+	$scope.user = $rootScope.user;
+
 	Project.fetch().then(function(response){
 		$scope.projects = response;
 	}).catch(function(err){
@@ -19,16 +22,18 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.deleteProject = function(id){
-		Project.delete(id).then(function(response){
-			//fetch updated project list
-			Project.fetch().then(function(response){
-				$scope.projects = response;
+		if (window.confirm('Delete!! Are You Sure?')){
+			Project.delete(id).then(function(response){
+				//fetch updated project list
+				Project.fetch().then(function(response){
+					$scope.projects = response;
+				}).catch(function(err){
+					$scope.error = err.message;
+				});
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
-		}).catch(function(err){
-			$scope.error = err.message;
-		})
+		}
 	}
 
 	// $scope.getProjectDetails = function(id){

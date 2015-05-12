@@ -7,13 +7,13 @@
 	    <div class="home-page3">
 			<div class="home-page3-head">
 				<span>List of Projects</span>
-				<button class="btn-green pull-right" data-toggle="modal" data-target="#project-modal">Create Project</button>
+				<button ng-if="user.role == 'admin'" class="btn-green pull-right" data-toggle="modal" data-target="#project-modal">Create Project</button>
 				<img src="img/search.png">
 			</div>
 
 			<div class="home-page3-profile clearfix" >
 				<p class="project-name" ng-repeat = "project in projects">
-					<button class="close-btn" title="delete this Project" ng-click="deleteProject(project.id)">x</button>
+					<button ng-if="user.role == 'admin'" class="close-btn" title="delete this Project" ng-click="deleteProject(project.id)">x</button>
 					<a href="#/project/{{project.id}}">{{project.name}}</a>
 				</p>
 			</div>

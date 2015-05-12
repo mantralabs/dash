@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('pmtoolApp')
-.controller('workspaceCtrl',function ($scope, Workspace) {
+.controller('workspaceCtrl',function ($scope, Workspace, $rootScope, $routeParams, $location, UserService, $cookieStore) {
+
+	$rootScope.user = $cookieStore.get('current_user');
+	$scope.user = $rootScope.user;
+
+	console.log($scope.user);
 
 	Workspace.fetch().then(function(response){
 		$scope.workspaces = response;
@@ -19,7 +24,7 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.deleteWorkspace = function(workspaceId){
-		// if (window.confirm('Delete!! Are You Sure?')){
+		if (window.confirm('Delete!! Are You Sure?')){
 			Workspace.delete(workspaceId).then(function(response){
 				console.log(response);
 				Workspace.fetch().then(function(response){
@@ -30,7 +35,7 @@ angular.module('pmtoolApp')
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
-		// }
+		}
 	}
 
 })
@@ -47,6 +52,5 @@ angular.module('pmtoolApp')
 			console.log(err);
 			$scope.error = err.message;
 		});
-
-
-})
+	}
+)

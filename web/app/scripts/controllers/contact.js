@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('contactController', function ($scope, Contact) {
+  .controller('contactController', function ($scope, $rootScope, $routeParams, $cookieStore, Contact) {
 	// $scope.contacts = Contact.fetch();
+
+	$rootScope.user = $cookieStore.get('current_user');
+	$scope.user = $rootScope.user;
 
 	Contact.fetch().then(function(response){
 		$scope.contacts = response;

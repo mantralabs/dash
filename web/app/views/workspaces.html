@@ -7,13 +7,13 @@
 	    <div class="home-page3">
 			<div class="home-page3-head">
 				<span>List of Workspaces</span>
-				<button class="btn-green pull-right" data-toggle="modal" data-target="#workspace-modal">Create Workspce</button>
+				<button ng-if="user.role == 'admin'" class="btn-green pull-right" data-toggle="modal" data-target="#workspace-modal">Create Workspce</button>
 				<img src="img/search.png">
 			</div>
 
 			<div class="home-page3-profile clearfix" >
 				<p class="project-name" ng-repeat = "workspace in workspaces track by $index">
-					<button class="close-btn" title="delete this workspace" ng-click="deleteWorkspace(workspace.id)">x</button>
+					<button ng-if="user.role == 'admin'" class="close-btn" title="delete this workspace" ng-click="deleteWorkspace(workspace.id)">x</button>
 					<a href="#/workspaces/{{workspace.id}}">{{workspace.name}}</a>
 				</p>
 			</div>
