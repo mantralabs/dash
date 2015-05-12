@@ -29,7 +29,7 @@ angular
         controller: 'LoginCtrl'
       })
       
-      .when('/setpassword', {
+      .when('/setpassword/:id', {
         templateUrl: 'views/setpassword.html',
         controller: 'LoginCtrl'
       })

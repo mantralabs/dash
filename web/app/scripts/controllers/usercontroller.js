@@ -30,10 +30,12 @@ angular.module('pmtoolApp')
 		}
 	};
 
-	$scope.setPassword = function(){
-		console.log('signing out.....');
-		UserService.setPassword(password)
-		.then(function(){
+	$scope.setPassword = function(password){
+		var id = $routeParams.id;
+		// var data = {id, password}
+
+		UserService.setPassword(id,password)
+		.then(function(response){
 			$location.path('/');
 		}).catch(function(err){
 			$scope.error = err.message;

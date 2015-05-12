@@ -69,15 +69,18 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
-    this.setPassword = function(){
-
+    this.setPassword = function(id,password){
+      
+      //accept the password as parameter and send as Object to API
+      var password = {password : password};
+      
       var deferred = $q.defer();
-
-      $http.put('api/user'+userId,password)
+      
+      $http.put('api/user/'+id, password)
       .success(function(response){
         deferred.resolve(response);
       }).error(function(err) {
-        deferred.reject(response);
+        deferred.reject(err);
       });
 
       return deferred.promise;

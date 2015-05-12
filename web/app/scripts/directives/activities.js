@@ -8,10 +8,10 @@ angular.module('pmtoolApp')
       link: function(scope, element, attrs) {
         
         Activity.fetch().then(function(response){
-			scope.activities = response;
-		}).catch(function(err){
-			scope.error = err.message;
-		});
+          scope.activities = response;
+		    }).catch(function(err){
+		      scope.error = err.message;
+		    });
       }
     };
   });
