@@ -10,7 +10,7 @@
 		<div class="acts-discription" >
 			<p><a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>updated an activity: <a href="javascript:"><span></span></a> {{activity.description}} in <a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a></p>
 			<ul>
-				<li class="like-comment timer">2 days ago</li>
+				<li class="like-comment timer">{{activity.createdAt | date}}</li>
 				<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
 				<li class="like-comment">3</li>
 				<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
