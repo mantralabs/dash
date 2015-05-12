@@ -21,7 +21,7 @@
     		<div id="left">
     			<div id="my-contacts">
 					<div class="mycontacts-header clearfix">
-						<h2>Projects <span class="number">{{workspace[0].projects.length}}</span></span></h2>
+						<h2>Projects <span class="number">{{workspace[0].projects.length}}</span></h2>
 						<div id="project-1" ng-repeat = "project in workspace[0].projects| limitTo : 3">
 							<p class="left-column">
 							<a href="#/project/{{project.id}}">{{project.name}}</a>
