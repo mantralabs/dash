@@ -29,6 +29,7 @@
 
       <div class="update-footer-btn">
         <button type="submit" id="home-page-btn" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
+        <button type="submit" id="project-page-btn" class="btn update-btn updateBtn" ng-click="update(activity.description)">Update</button>
         <div class="list-projects hide">
           <ul>
             <li ng-repeat = "project in projects" ng-click="selectedProject(activity.description, project.id)">{{project.name}}</li>

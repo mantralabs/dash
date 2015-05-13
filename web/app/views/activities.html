@@ -2,12 +2,13 @@
 
 
 <h2>Activities</h2>
-<div id="acts">
+<div id="acts" ng-if="path.indexOf('home')>0">
 	<div class="acts-sub clearfix" ng-repeat="activity in activities">
 		<div class="acts-img">
 			<img src="img/img-5.png" alt="profile-pic">
 		</div>
 		<div class="acts-discription" >
+			<p></p>
 			<p><a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>updated an activity: <a href="javascript:"><span></span></a> {{activity.description}} in <a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a></p>
 			<ul>
 				<li class="like-comment timer">{{activity.createdAt | date}}</li>
@@ -53,5 +54,24 @@
 			</div>
 		</form>
 	</div> -->
+
+</div><!--end acts-->
+
+<div id="acts" ng-if="path.indexOf('project')>0">
+	<div class="acts-sub clearfix" ng-repeat="activity in project[0].activity">
+		<div class="acts-img">
+			<img src="img/img-5.png" alt="profile-pic">
+		</div>
+		<div class="acts-discription">
+			<p><a href="#/profile/{{activity.user.id}}"><span>{{activity.user}} </span></a>updated an activity: {{activity.description}}</p>
+			<ul>
+				<li class="like-comment timer">{{activity.createdAt | date}}</li>
+				<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
+				<li class="like-comment">3</li>
+				<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
+				<li class="like-comment">5</li>
+			</ul>
+		</div><!--end acts-discription-->
+	</div><!--end acts-sub-->
 
 </div><!--end acts-->	

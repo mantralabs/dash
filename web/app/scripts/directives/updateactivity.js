@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  	.directive('updateactivity', function ($rootScope, Project, Contact, UserService, $cookieStore, Activity) {
+  	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
 
 		var user= $cookieStore.get('current_user').id;
 	    
@@ -31,10 +31,12 @@ angular.module('pmtoolApp')
 				}).catch(function(err){
 					scope.error = err.message;
 				});
+
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};
+	      		
 
 	      		scope.selectedProject = function(description,project){
 	      			var activityData = {description,project,user}
@@ -49,7 +51,34 @@ angular.module('pmtoolApp')
       					console.log(err);
 	      			})
 	      		}
+	      		var path = $location.path();
+	      		if (path.indexOf('home')>0){
+	      			$('#project-page-btn').hide();
+	      			$('#home-page-btn').show();
+	      		}
+	      		else if (path.indexOf('project')>0){
+	      			$('#home-page-btn').hide();
+	      			$('#project-page-btn').show();
+	      		}
+	      		
+      			scope.update = function(description){
+	      			console.log('inside update');
+	      			var project = $routeParams.id;
+	      			var activityData = {description,project,user}
+	      			console.log(activityData);
+	      			Activity.addActivity(activityData).then(function(response){
+	      				console.log(response);
+	      				Activity.fetch().then(function(response){
+							scope.activities = response;
+						}).catch(function(err){
+							scope.error = err.message;
+						});
+	      			}).catch(function(err){
+	  					console.log(err);
+	      			})
+	      		}
 	      	}
+
 	    };
 	}
 );
