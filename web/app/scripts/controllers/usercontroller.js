@@ -30,11 +30,11 @@ angular.module('pmtoolApp')
 		}
 	};
 
-	$scope.setPassword = function(password){
+	$scope.setPassword = function(data){
 		var id = $routeParams.id;
 		// var data = {id, password}
 
-		UserService.setPassword(id,password)
+		UserService.setPassword(id,data)
 		.then(function(response){
 			$location.path('/');
 		}).catch(function(err){
@@ -69,7 +69,7 @@ angular.module('pmtoolApp')
 	$scope.user = $cookieStore.get('current_user');
 	
 	$scope.updateUser = function(user){
-				UserService.updateProfile(user)
+		UserService.updateProfile(user)
 		.then(function(userDataResp){
 			$scope.userData = userDataResp;
 			$cookieStore.put('current_user',$scope.user);

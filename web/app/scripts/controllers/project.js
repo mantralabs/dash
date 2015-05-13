@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('projectController', function ($scope, $cookieStore, Project, $rootScope, $routeParams) {
+  .controller('projectController', function ($scope, $cookieStore, Project, Contact, $rootScope, $routeParams) {
 	
 	$rootScope.user = $cookieStore.get('current_user');
 	$scope.user = $rootScope.user;
@@ -35,12 +35,53 @@ angular.module('pmtoolApp')
 			});
 		}
 	}
-
-	// $scope.getProjectDetails = function(id){
-		
-		
 })
-.controller('getprojectController', function ($scope, Project, $rootScope, $routeParams) {
+
+.controller('getprojectController', function ($scope, Project, Contact, $rootScope, $routeParams, $cookieStore) {
+
+	$scope.userIds = [];
+	
+	//if user checked push id into array if uncheck remove from array.
+	$scope.sync = function(bool, item){
+	    if(bool){
+	      // add item
+	      $scope.userIds.push(item.id);
+	    } else {
+	      // remove item
+	      console.log($scope.userIds.length);
+	      for(var i=0 ; i < $scope.userIds.length; i++) {
+	        if($scope.userIds[i] == item.id){
+	          $scope.userIds.splice(i,1);
+	        }
+	      }      
+	    }
+  	};
+
+  	//is checked method is used to send checkbox result true/false on checked for checkbox.
+  	$scope.isChecked = function(id){
+      var match = false;
+      for(var i=0 ; i < $scope.userIds.length; i++) {
+        if($scope.userIds[i].id == id){
+          match = true;
+        }
+      }
+      return match;
+  	};
+
+	$scope.addMemberToProject = function(){
+		// console.log($scope.userIds);
+		$scope.projectId = $routeParams.id;
+		var data = {
+			"users" : $scope.userIds
+		};
+
+		Project.addProjectMember($scope.projectId,data).then(function(response){
+			$scope.contacts.push(response);
+				console.log(response);
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+	};
 
 	Project.fetchProject($routeParams.id).then(function(response){
 			$scope.project = response;
@@ -48,6 +89,5 @@ angular.module('pmtoolApp')
 			console.log(err);
 			$scope.error = err.message;
 		});
+	});
 
-
-})

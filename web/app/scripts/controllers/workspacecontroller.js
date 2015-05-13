@@ -6,8 +6,6 @@ angular.module('pmtoolApp')
 	$rootScope.user = $cookieStore.get('current_user');
 	$scope.user = $rootScope.user;
 
-	console.log($scope.user);
-
 	Workspace.fetch().then(function(response){
 		$scope.workspaces = response;
 	}).catch(function(err){

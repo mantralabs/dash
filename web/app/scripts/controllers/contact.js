@@ -9,6 +9,7 @@ angular.module('pmtoolApp')
 
 	Contact.fetch().then(function(response){
 		$scope.contacts = response;
+		// console.log(response);
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
@@ -24,15 +25,17 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.deleteContact = function(id){
-		Contact.delete(id).then(function(response){
-			Contact.fetch().then(function(response){
-				$scope.contacts = response;
+		if (window.confirm('Delete!! Are You Sure?')){
+			Contact.delete(id).then(function(response){
+				Contact.fetch().then(function(response){
+					$scope.contacts = response;
+				}).catch(function(err){
+					$scope.error = err.message;
+				});
 			}).catch(function(err){
 				$scope.error = err.message;
-			});
-		}).catch(function(err){
-			$scope.error = err.message;
-		})
+			})
+		}
 	}
 
 	// $scope.getOtherUserData = function(otherUserId){

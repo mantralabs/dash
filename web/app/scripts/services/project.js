@@ -59,4 +59,21 @@ angular.module('pmtoolApp')
 		
 		return deferred.promise;
   	}
+
+  	this.addProjectMember = function(projectId,data){
+  		
+  		var deferred = $q.defer();
+		
+		$http.put('/api/project/'+projectId,data)
+		.success(function(response){
+			// console.log(response);
+			deferred.resolve(response);
+		})
+		.error(function(err){
+			deferred.reject(err);
+			// console.log(err);
+		});
+		
+		return deferred.promise;
+  	}
 });

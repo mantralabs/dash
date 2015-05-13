@@ -358,7 +358,7 @@ ul#menu li:hover ul.sub-menu {
     padding: 10px 5px 5px 5px;
     border: 0;
     margin: 0 0 0 5px;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 .pagination{
     float: right;

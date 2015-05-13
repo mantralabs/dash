@@ -86,4 +86,29 @@
       </div>
     </div>
   </div>
-</div><!-- /.modal
+</div><!-- /.modal-->
+
+<!-- Contacts List Modal for adding projects or tasks -->
+<div class="modal fade" id="contact-list-modal" ng-controller="contactController">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Select Contact to Add</h4>
+        </div>
+    
+        <div class="modal-body">
+          <div class="border-bottom-grey" ng-repeat = "contact in contacts " id="{{contact.id}}">
+            <p ng-if="contact.role=='user'" >
+            <input  type="checkbox" value="{{contact.id}}" ng-change="sync(bool, contact)" ng-model="bool" id="{{contact.id}}" ng-checked="isChecked(contact.id)"> {{contact.name}}</p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn-green" ng-click="addMemberToProject()">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div><!-- /.modal-->
