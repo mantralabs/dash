@@ -3,8 +3,8 @@
 angular.module('pmtoolApp')
   	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
 
-		var currentUser = $rootScope.currentUser,
-			userId= currentUser.id;
+		var user = $rootScope.user,
+			userId= user.id;
 
 	    return {
 	      	templateUrl: 'views/updateactivity.html',

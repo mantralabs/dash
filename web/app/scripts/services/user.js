@@ -93,7 +93,7 @@ angular.module('pmtoolApp')
       $http.get('api/status')
       .success(function(result){
         console.log('logged in status', result);
-        $rootScope.currentUser = result;
+        $rootScope.user = result;
         deferred.resolve();
       })
       .error(function(err){
