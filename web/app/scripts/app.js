@@ -1,18 +1,5 @@
 'use strict';
 
-var resolve = {
-    data:function($rootScope, $q, $http, $location,  $cookieStore){
-        var deferred = $q.defer();
-        var currentUser = $cookieStore.get('current_user');
-        if(currentUser){
-          deferred.resolve(currentUser);
-        } else{
-          deferred.reject();
-          $location.path('/');
-        }
-    }
-};
-
 angular
   .module('pmtoolApp', [
     'ngCookies',
@@ -20,8 +7,18 @@ angular
     'ngSanitize',
     'ngRoute'
   ])
-  .config([ '$routeProvider','$locationProvider',
-    function($routeProvider,$locationProvider) {
+  .config([ '$routeProvider', '$locationProvider',
+    function($routeProvider, $locationProvider) {
+    
+    var resolve = {
+      auth: function ($location, UserService) {
+        return UserService.isLoggedIn()
+        .catch(function(err){
+          $location.path('/');
+        });
+      }
+    };
+
     $routeProvider
       
       .when('/', {

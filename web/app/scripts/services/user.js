@@ -87,5 +87,21 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    this.isLoggedIn = function(){
+      var deferred = $q.defer();
+      
+      $http.get('api/status')
+      .success(function(result){
+        console.log('logged in status', result);
+        deferred.resolve();
+      })
+      .error(function(err){
+        console.log('logged out status', err);
+        deferred.reject(err);
+      });
+      
+      return deferred.promise;
+    }
+
   }
 );
