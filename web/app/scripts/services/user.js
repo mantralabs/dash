@@ -37,6 +37,7 @@ angular.module('pmtoolApp')
     this.updateProfile = function (userData) {
 
       var userId = userData.id;
+      console.log(userData);
 
       var deferred = $q.defer();  
       

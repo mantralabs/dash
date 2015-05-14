@@ -61,12 +61,14 @@ angular.module('pmtoolApp')
   	}
 
   	this.addProjectMember = function(projectId,data){
+  		// console.log(projectId,data);
   		
   		var deferred = $q.defer();
 		
 		$http.put('/api/project/'+projectId,data)
 		.success(function(response){
-			// console.log(response);
+			console.log(response);
+      		$('#contact-list-modal').modal('hide');
 			deferred.resolve(response);
 		})
 		.error(function(err){

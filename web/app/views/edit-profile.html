@@ -14,7 +14,13 @@
         </div>
         <div class="basic-profile">
           <div class="bio">
-            <img class="pro-pic" src="img/img-6.png">
+            <!-- <img class="pro-pic" src="img/img-6.png"> -->
+              <span class="upload-btn">Upload Here 
+                <input type="file" onchange="uploadImage(this)" ng-model="user.image" name="uploadImage">
+              </span>
+              <span class="dvPreview">
+                <img class="gallery-image single" src="{{proImage}}">
+              </span>
             <div class="info">
               <span class="designation" class="profile-text">
                 <input type="text" value="{{user.name}}" ng-model="user.name">

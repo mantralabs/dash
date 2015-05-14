@@ -2,7 +2,7 @@
 
 <div id="my-contacts">
 	<div class="mycontacts-header clearfix">
-		<h2><a href="/#/contacts">My Contacts </a><span class="number">{{contacts.length}}</span></h2>
+		<h2><a href="/#/contacts">My Contacts </a><span class="number">{{contacts.length-1}}</span></h2>
 			<!-- <div class="pagination">
 				<a href="javascript:"><img src="img/left-arrow.png" class="pagination-left" alt="add-contacts" /></a>
 				<a href="javascript:"><img src="img/right-arrow.png" class="pagination-right" alt="add-contacts"/></a>
@@ -12,7 +12,11 @@
 	<div class="profile-pics clearfix">
 
 		<ul class="clearfix">
-			<li ng-repeat="contact in contacts | limitTo : 12"><a href="#/profile/{{contact.id}}"><img src="img/img-1.png" alt="profile-pic"></a></li>
+			<li ng-repeat="contact in contacts | limitTo : 12" ng-if="user.id !== contact.id">
+				<a href="#/profile/{{contact.id}}">
+					<img src="img/img-1.png" alt="profile-pic">
+				</a>
+			</li>
 		</ul>
 	</div><!--end profile pics-->  
 </div>

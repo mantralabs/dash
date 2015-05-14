@@ -21,7 +21,7 @@
 			<div class="home-page3-profile">
 				<!-- <input class="checks" id="check11" type="checkbox"> -->
 				<!-- <span class="home-page3-select">Select All</span><br> -->
-				<div ng-repeat="contact in contacts" class="clearfix">
+				<div ng-repeat="contact in contacts" ng-if="user.id !== contact.id" class="clearfix">
 					<div class="home-page3-left">
 						<div class="home-page3-check align-middle">
 							<!-- <input class="checks" id="check12" type="checkbox" ng-checked="selection.indexOf(contact.id) > -1" ng-click="toggleSelection(contact.id)" > -->

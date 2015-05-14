@@ -230,7 +230,7 @@ li{
     margin-right:45px;
 }
 #signin-box input:focus{
-    background-image: url('../../images/arrow.png');
+    background-image: url('../../img/arrow.png');
     background-repeat: no-repeat;
     background-position: 20px 12px; 
 }

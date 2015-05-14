@@ -76,7 +76,6 @@ angular.module('pmtoolApp')
 		};
 
 		Project.addProjectMember($scope.projectId,data).then(function(response){
-			$scope.contacts.push(response);
 				console.log(response);
 			}).catch(function(err){
 				$scope.error = err.message;
