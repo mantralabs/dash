@@ -2,9 +2,9 @@
 
 	<h2 >Update an Activity</h2>
 
-	<form action="javascript:" method="">
+	<form action="javascript:" method="" name="updateForm">
   	
-    <input type="text" ng-model="activity.description">
+    <input type="text" id="activity-description" name="description" ng-model="activity.description" required>
 
     <div class="update-footer">
       <div class="update-footer-icons">
@@ -28,8 +28,8 @@
       </div><!--end update footer icons-->
 
       <div class="update-footer-btn">
-        <button type="submit" id="home-page-btn" ng-if="path.indexOf('home')>0" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
-        <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" class="btn update-btn updateBtn" ng-click="update(activity.description)"> Update</button>
+        <button type="submit" id="home-page-btn" ng-if="path.indexOf('home')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
+        <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="update(activity.description)"> Update</button>
         <div class="list-projects hide">
           <ul>
             <li ng-if="contact.projects.length == 0">There are no Projects</li>
