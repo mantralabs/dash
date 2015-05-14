@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .service('UserService', function ($q, $http, $resource) {
+  .service('UserService', function ($q, $http, $resource, $rootScope) {
     
     this.signup = function (userData) {
       var deferred = $q.defer();
@@ -93,6 +93,7 @@ angular.module('pmtoolApp')
       $http.get('api/status')
       .success(function(result){
         console.log('logged in status', result);
+        $rootScope.currentUser = result;
         deferred.resolve();
       })
       .error(function(err){

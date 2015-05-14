@@ -3,8 +3,8 @@
 angular.module('pmtoolApp')
   	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
 
-		var user= $cookieStore.get('current_user').id;
-	    
+		var currentUser = $rootScope.currentUser;
+
 	    return {
 	      	templateUrl: 'views/updateactivity.html',
 	      	restrict: 'CE',
@@ -51,7 +51,7 @@ angular.module('pmtoolApp')
 	      				console.log(response);
 	      				Activity.fetch().then(function(response){
 							scope.activities = response;
-							$('..list-projects').hide();
+							$('.list-projects').hide();
 						}).catch(function(err){
 							scope.error = err.message;
 						});
@@ -61,6 +61,7 @@ angular.module('pmtoolApp')
 	      		}
 	      		scope.path = $location.path();
 	      		
+
       			scope.update = function(description){
 	      			console.log('inside update');
 	      			var project = $routeParams.id;

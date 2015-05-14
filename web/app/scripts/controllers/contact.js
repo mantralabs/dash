@@ -17,7 +17,7 @@ angular.module('pmtoolApp')
 
 		Contact.add(data).then(function(response){
 			$scope.contacts.push(response);
-			console.log(response);
+			// console.log(response);
 		}).catch(function(err){
 			$scope.error = err.message;
 		});

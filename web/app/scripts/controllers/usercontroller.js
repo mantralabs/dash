@@ -11,8 +11,8 @@ angular.module('pmtoolApp')
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(userDataResp){
-				$scope.userData = userDataResp;
-				$cookieStore.put('current_user',$scope.userData);
+				// $scope.userData = userDataResp;
+				// $cookieStore.put('current_user',$scope.userData);
 				$location.path('/home');
 			}).catch(function(err){
 				$scope.error = err.message;
