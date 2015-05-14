@@ -62,7 +62,7 @@ angular.module('pmtoolApp')
 			}
 		})
 	};
-})
+}) 
 
 .controller('editProfileCtrl', function ($scope,$location, $routeParams, $rootScope, $cookieStore,UserService) {
 	
