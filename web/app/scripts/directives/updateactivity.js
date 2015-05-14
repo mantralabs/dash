@@ -24,6 +24,13 @@ angular.module('pmtoolApp')
 					scope.error = err.message;
 				});
 
+				Contact.fetchOther(user).then(function(response){
+					scope.contact = response;
+					console.log('inside update dir',response);
+						}).catch(function(err){
+							scope.error=err.message;
+						});
+
 				//get list of users
 				UserService.fetch().then(function(response){
 					scope.users = response;
@@ -44,6 +51,7 @@ angular.module('pmtoolApp')
 	      				console.log(response);
 	      				Activity.fetch().then(function(response){
 							scope.activities = response;
+							$('..list-projects').hide();
 						}).catch(function(err){
 							scope.error = err.message;
 						});
@@ -51,15 +59,7 @@ angular.module('pmtoolApp')
       					console.log(err);
 	      			})
 	      		}
-	      		var path = $location.path();
-	      		if (path.indexOf('home')>0){
-	      			$('#project-page-btn').hide();
-	      			$('#home-page-btn').show();
-	      		}
-	      		else if (path.indexOf('project')>0){
-	      			$('#home-page-btn').hide();
-	      			$('#project-page-btn').show();
-	      		}
+	      		scope.path = $location.path();
 	      		
       			scope.update = function(description){
 	      			console.log('inside update');

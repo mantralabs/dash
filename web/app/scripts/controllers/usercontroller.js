@@ -87,16 +87,14 @@ angular.module('pmtoolApp')
 
 })
 
-.controller('userProfileCtrl', function ($scope, $routeParams, $cookieStore,Contact) {
+.controller('userProfileCtrl', function ($scope, $routeParams, $cookieStore, Contact, $location) {
 	$scope.user = $cookieStore.get('current_user');
 	$scope.userId = $routeParams.id;
-
 	Contact.fetchOther($scope.userId).then(function(response){
 		$scope.contact = response;
 	}).catch(function(err){
 		$scope.error=err.message;
 	});
-
 })
 
 .controller('taskPageCtrl', function($scope,$location){

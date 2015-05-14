@@ -14,12 +14,14 @@ angular.module('pmtoolApp')
 		    });
 
         scope.path = $location.path(); 
-        Project.fetchProject($routeParams.id).then(function(response){
-          scope.project = response;
-        }).catch(function(err){
-          console.log(err);
-          scope.error = err.message;
-        }); 
+        if(scope.path.indexOf('project')>0){
+          Project.fetchProject($routeParams.id).then(function(response){
+            scope.project = response;
+          }).catch(function(err){
+            console.log(err);
+            scope.error = err.message;
+          }); 
+        }
       }
     };
   });
