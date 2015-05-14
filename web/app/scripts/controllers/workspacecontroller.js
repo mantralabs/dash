@@ -3,9 +3,8 @@
 angular.module('pmtoolApp')
 .controller('workspaceCtrl',function ($scope, Workspace, $rootScope, $routeParams, $location, UserService, $cookieStore) {
 
-	$rootScope.user = $cookieStore.get('current_user');
 	$scope.user = $rootScope.user;
-
+	
 	Workspace.fetch().then(function(response){
 		$scope.workspaces = response;
 	}).catch(function(err){
