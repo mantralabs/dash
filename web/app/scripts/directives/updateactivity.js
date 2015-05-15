@@ -27,7 +27,6 @@ angular.module('pmtoolApp')
 
 				Contact.fetchOther(userId).then(function(response){
 					scope.contact = response;
-					console.log('inside update dir',response);
 						}).catch(function(err){
 							scope.error=err.message;
 						});

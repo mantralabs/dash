@@ -2,23 +2,11 @@
 
 angular.module('pmtoolApp')
   .service('UserService', function ($q, $http, $resource, $rootScope) {
-    
-    this.signup = function (userData) {
-      var deferred = $q.defer();
-      
-      $http.post('/api/user', userData)
-      .success(function(data){
-        deferred.resolve(data);
-      })
-      .error(function(err){
-        deferred.reject(err);
-      });
-
-      return deferred.promise;
-    };
 
 	  this.postLogin = function (user) { 
+
       var deferred = $q.defer();  
+
 	    $http.post('/api/user/login', user)
       .success(function(response){
         deferred.resolve(response);
@@ -30,17 +18,30 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 	
+    //Sends request to API and User Logs out from the APPLICATION
     this.signout = function() {
-      console.log('signout function is executed');
+    
+      var deferred = $q.defer();  
+      
+      $http.get('/api/user/logout')
+      .success(function(response){
+        deferred.resolve(response);
+      })
+      .error(function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
     };
 
+    // To update the userprofile who is currently logged in
     this.updateProfile = function (userData) {
 
       var userId = userData.id;
-      console.log(userData);
 
       var deferred = $q.defer();  
       
+      console.log(userData);
       $http.put('/api/user/'+userId, userData)
       .success(function(response){
         deferred.resolve(response);
@@ -56,6 +57,7 @@ angular.module('pmtoolApp')
       console.log('forgot-password');
     };
 
+    //To fetch all the user on the App
     this.fetch = function(){
 
       var deferred = $q.defer();
@@ -70,9 +72,10 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    // When User receive invitation in mail, then For the first time user set the Name and Password
     this.setPassword = function(id,data){
-      // console.log(data.name);
-      //accept the password as parameter and send as Object to API
+
+      //accept the name and password as parameter and send as Object to API
       var userData = {name: data.name, password : data.password};
       
       var deferred = $q.defer();
@@ -87,6 +90,7 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    //to get the status of the user logged in
     this.isLoggedIn = function(){
       var deferred = $q.defer();
       
@@ -100,6 +104,22 @@ angular.module('pmtoolApp')
         deferred.reject(err);
       });
       
+      return deferred.promise;
+    }
+
+    this.uploadAvatar = function(data){
+        
+        console.log('in', data);      
+        var deferred = $q.defer();
+        $http.post('api/avatar',data)
+        .success(function(response){
+          deferred.resolve(response);
+          console.log(response);
+        })
+        .error(function(err) {
+          deferred.reject(err);
+        });
+
       return deferred.promise;
     }
 

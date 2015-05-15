@@ -4,15 +4,12 @@
 angular.module('pmtoolApp')
 .controller('LoginCtrl',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
-	$rootScope.user = $cookieStore.get('current_user');
 	$scope.user = $rootScope.user;	
 
 	$scope.login = function(user){
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(userDataResp){
-				// $scope.userData = userDataResp;
-				// $cookieStore.put('current_user',$scope.userData);
 				$location.path('/home');
 			}).catch(function(err){
 				$scope.error = err.message;
@@ -22,12 +19,16 @@ angular.module('pmtoolApp')
 	};
 
 	$scope.logout = function(){
-		console.log('signing out.....');
 
-		if($cookieStore.get('current_user')){
-			$cookieStore.remove('current_user');
+		console.log('in');
+		UserService.signout()
+		.then(function(response){
 			$location.path('/');
-		}
+			console.log(response);
+		}).catch(function(err){
+			$scope.error = err.message;
+		})
+
 	};
 
 	$scope.setPassword = function(data){
@@ -41,8 +42,6 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		})
 	};
-
-	
 })
 
 .controller('SignupCtrl', function ($scope, $location, UserService){
@@ -64,15 +63,15 @@ angular.module('pmtoolApp')
 	};
 }) 
 
-.controller('editProfileCtrl', function ($scope,$location, $routeParams, $rootScope, $cookieStore,UserService) {
-	
-	$scope.user = $cookieStore.get('current_user');
-	
+.controller('editProfileCtrl', function ($scope, $location, $routeParams, $rootScope, $cookieStore,UserService) {
+
 	$scope.updateUser = function(user){
+
+		console.log(user);
 		UserService.updateProfile(user)
-		.then(function(userDataResp){
-			$scope.userData = userDataResp;
-			$cookieStore.put('current_user',$scope.user);
+		.then(function(userDataResponse){
+			$rootScope.user = userDataResponse;
+			// $scope.$apply();
 			$location.path('/profile');
 		}).catch(function(err){
 			$scope.error = err.message;
@@ -80,6 +79,32 @@ angular.module('pmtoolApp')
 			$location.path('/profile');
 		});
 	};
+
+
+	$scope.uploadImage = function (imgElem) {
+	  var el = imgElem;
+	  	if(imgElem.files[0]){
+	   	var imageData = {};
+	   	var photofile = imgElem.files[0];
+	   
+	   	imageData.ext = photofile.type.split("/")[1];
+    	var FR= new FileReader();
+		FR.readAsDataURL(photofile);
+
+	  	   	FR.onload = function (e) {
+		    	imageData.data = e.target.result.split(",")[1];
+		    	imageData.userId = $scope.user.id;
+		    	console.log(imageData);
+
+		    		UserService.uploadAvatar(imageData)
+		     		.then(function(response){
+		      			console.log('in-ctrl', response);
+		     		}).catch(function(err){
+		      			$scope.error = err.message;
+		     		});
+	    	};
+	   }   
+  	};
 })
 
 .controller('accountSettingsCtrl', function ($scope,$location,UserService){
@@ -87,9 +112,9 @@ angular.module('pmtoolApp')
 
 })
 
-.controller('userProfileCtrl', function ($scope, $routeParams, $cookieStore, Contact, $location) {
-	$scope.user = $cookieStore.get('current_user');
-	$scope.userId = $routeParams.id;
+.controller('userProfileCtrl', function ($scope, $routeParams, $rootScope, $cookieStore, Contact, $location) {
+	$scope.user = $rootScope.user;
+	$scope.userId = $scope.user.id;
 	Contact.fetchOther($scope.userId).then(function(response){
 		$scope.contact = response;
 	}).catch(function(err){

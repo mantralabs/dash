@@ -14,8 +14,8 @@ angular.module('pmtoolApp')
 	$scope.addNewWorkspace = function(data){
 		Workspace.add(data).then(function(response){
 			$scope.workspaces.push(response);
-			// $('#workspace-input').val('');
 			$('#workspace-modal').modal('hide');
+			// $('#workspace-input').val('');
 		}).catch(function(err){
 			$scope.error = err.message;
 		});

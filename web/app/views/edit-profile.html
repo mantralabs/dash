@@ -16,7 +16,9 @@
           <div class="bio">
             <!-- <img class="pro-pic" src="img/img-6.png"> -->
               <span class="upload-btn">Upload Here 
-                <input type="file" onchange="uploadImage(this)" ng-model="user.image" name="uploadImage">
+                <!-- <input type="file" onchange="uploadImage(this)" ng-model="user.image" name="uploadImage"> -->
+
+                <input type="file" onchange="angular.element(this).scope().uploadImage(this)" name="uploadImage" class="fileupload" ng-model="user.avatar">
               </span>
               <span class="dvPreview">
                 <img class="gallery-image single" src="{{proImage}}">
@@ -42,7 +44,7 @@
               </div>
               <div class="contact-grey-right">
                 <li>{{user.email}}</li>
-                <li><input type="text" placeholder="{{user.phone}}" ng-model="user.phone"></li>
+                <li><input type="text" placeholder="Enter Mobile Number" name="phone" id="phone" ng-model="user.phone"></li>
                 <li>sudhakar.ponnusamy41</li>
                 <li>https://www.behance.net/sudhakar</li>
               </div>
