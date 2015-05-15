@@ -39,6 +39,7 @@ angular.module('pmtoolApp')
 
 .controller('getprojectController', function ($scope, Project, Contact, $rootScope, $routeParams, $cookieStore) {
 
+	$scope.user = $rootScope.user;
 	$scope.userIds = [];
 	
 	//if user checked push id into array if uncheck remove from array.
