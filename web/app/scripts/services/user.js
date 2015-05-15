@@ -53,6 +53,25 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    //this request will be sent when user loads image in file upload elem.
+    this.uploadAvatar = function(data){
+        
+        console.log('in', data);
+
+        var deferred = $q.defer();
+        
+        $http.post('/api/avatar', data)
+        .success(function(response){
+          deferred.resolve(response);
+        })
+        .error(function(err) {
+          deferred.reject(err);
+        });
+
+      return deferred.promise;
+    };
+
+
     this.forgotPassword = function(){
       console.log('forgot-password');
     };
@@ -62,7 +81,7 @@ angular.module('pmtoolApp')
 
       var deferred = $q.defer();
 
-      $http.get('api/user')
+      $http.get('/api/user')
       .success(function(response){
         deferred.resolve(response);
       }).error(function(err) {
@@ -80,7 +99,7 @@ angular.module('pmtoolApp')
       
       var deferred = $q.defer();
       
-      $http.put('api/user/'+id, userData)
+      $http.put('/api/user/'+id, userData)
       .success(function(response){
         deferred.resolve(response);
       }).error(function(err) {
@@ -94,7 +113,7 @@ angular.module('pmtoolApp')
     this.isLoggedIn = function(){
       var deferred = $q.defer();
       
-      $http.get('api/status')
+      $http.get('/api/status')
       .success(function(result){
         $rootScope.user = result;
         deferred.resolve();
@@ -105,23 +124,6 @@ angular.module('pmtoolApp')
       });
       
       return deferred.promise;
-    }
-
-    this.uploadAvatar = function(data){
-        
-        console.log('in', data);      
-        var deferred = $q.defer();
-        $http.post('api/avatar',data)
-        .success(function(response){
-          deferred.resolve(response);
-          console.log(response);
-        })
-        .error(function(err) {
-          deferred.reject(err);
-        });
-
-      return deferred.promise;
-    }
-
+    };
   }
 );

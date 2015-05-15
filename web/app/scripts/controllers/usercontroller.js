@@ -67,11 +67,12 @@ angular.module('pmtoolApp')
 
 	$scope.updateUser = function(user){
 
-		console.log(user);
+		user.avatar = $scope.avatarImageName;
+
 		UserService.updateProfile(user)
 		.then(function(userDataResponse){
 			$rootScope.user = userDataResponse;
-			// $scope.$apply();
+			console.log($rootScope.user);
 			$location.path('/profile');
 		}).catch(function(err){
 			$scope.error = err.message;
@@ -93,12 +94,13 @@ angular.module('pmtoolApp')
 
 	  	   	FR.onload = function (e) {
 		    	imageData.data = e.target.result.split(",")[1];
-		    	imageData.userId = $scope.user.id;
+		    	imageData.user = $scope.user.id;
 		    	console.log(imageData);
 
 		    		UserService.uploadAvatar(imageData)
 		     		.then(function(response){
-		      			console.log('in-ctrl', response);
+		     			console.log(response);
+		     			$scope.avatarImageName = response.name;
 		     		}).catch(function(err){
 		      			$scope.error = err.message;
 		     		});
