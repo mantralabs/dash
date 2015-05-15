@@ -4,12 +4,13 @@
 angular.module('pmtoolApp')
 .controller('LoginCtrl',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
-	$scope.user = $rootScope.user;	
+	// $scope.user = $rootScope.user;	
 
 	$scope.login = function(user){
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(userDataResp){
+				$scope.user = userDataResp;
 				$location.path('/home');
 			}).catch(function(err){
 				$scope.error = err.message;
@@ -20,7 +21,6 @@ angular.module('pmtoolApp')
 
 	$scope.logout = function(){
 
-		console.log('in');
 		UserService.signout()
 		.then(function(response){
 			$location.path('/');
@@ -28,12 +28,11 @@ angular.module('pmtoolApp')
 		}).catch(function(err){
 			$scope.error = err.message;
 		})
-
 	};
 
 	$scope.setPassword = function(data){
+
 		var id = $routeParams.id;
-		// var data = {id, password}
 
 		UserService.setPassword(id,data)
 		.then(function(response){
@@ -44,35 +43,22 @@ angular.module('pmtoolApp')
 	};
 })
 
-.controller('SignupCtrl', function ($scope, $location, UserService){
+.controller('editProfileCtrl', function ($scope, $location, $routeParams, $cookieStore, UserService, $rootScope) {
 
-	$scope.signup = function(){
-		var loginDetails = {
-			username: $scope.name,
-			email: $scope.email,
-			password: $scope.password
-		};
-
-		UserService.signup(loginDetails, function(error, data){
-			if (!error) {
-				$location.path('/');
-			} else {
-				console.log(error);
-			}
-		})
-	};
-}) 
-
-.controller('editProfileCtrl', function ($scope, $location, $routeParams, $rootScope, $cookieStore,UserService) {
-
+	// $scope.user = $rootScope.user;
+	
+	//edit profile method
 	$scope.updateUser = function(user){
 
 		user.avatar = $scope.avatarImageName;
 
 		UserService.updateProfile(user)
-		.then(function(userDataResponse){
-			$rootScope.user = userDataResponse;
-			console.log($rootScope.user);
+		.then(function(response){
+			console.log(response);
+			$rootScope.user = response[0];
+			$scope.user = response[0];
+			// $rootScope.user = response;
+			// $scope.user = response;
 			$location.path('/profile');
 		}).catch(function(err){
 			$scope.error = err.message;
@@ -81,7 +67,7 @@ angular.module('pmtoolApp')
 		});
 	};
 
-
+	//This method is used convert image to BASE64
 	$scope.uploadImage = function (imgElem) {
 	  var el = imgElem;
 	  	if(imgElem.files[0]){
@@ -114,13 +100,17 @@ angular.module('pmtoolApp')
 
 })
 
-.controller('userProfileCtrl', function ($scope, $routeParams, $rootScope, $cookieStore, Contact, $location) {
+.controller('userProfileCtrl', function ($scope, $routeParams, $rootScope, $cookieStore, UserService, Contact, $location) {
 	$scope.user = $rootScope.user;
-	$scope.userId = $scope.user.id;
-	Contact.fetchOther($scope.userId).then(function(response){
-		$scope.contact = response;
+
+	var id = $scope.user.id;
+	
+	UserService.fetchUser(id)
+	.then(function(response){
+		$scope.user = response;
 	}).catch(function(err){
-		$scope.error=err.message;
+		$scope.error = err.message;
+		$location.path('/profile');
 	});
 })
 

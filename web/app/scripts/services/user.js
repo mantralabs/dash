@@ -37,13 +37,12 @@ angular.module('pmtoolApp')
     // To update the userprofile who is currently logged in
     this.updateProfile = function (userData) {
 
-      var userId = userData.id;
+      var id = userData.id,
+          deferred = $q.defer();
 
-      var deferred = $q.defer();  
-      
-      console.log(userData);
-      $http.put('/api/user/'+userId, userData)
+      $http.put('/api/user/'+id, userData)
       .success(function(response){
+        console.log(response);
         deferred.resolve(response);
       })
       .error(function(err) {
@@ -90,6 +89,21 @@ angular.module('pmtoolApp')
 
       return deferred.promise;
     };
+
+    //Fetch Particular User Logged in
+    this.fetchUser = function(id){
+      var deferred = $q.defer();
+    
+      $http.get('/api/user/'+id)
+      .success(function(data){
+        deferred.resolve(data);
+      })
+      .error(function(err){
+        deferred.reject(err);
+      });
+      
+      return deferred.promise;
+    }
 
     // When User receive invitation in mail, then For the first time user set the Name and Password
     this.setPassword = function(id,data){

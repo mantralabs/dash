@@ -7,14 +7,13 @@
     <div class="profile">
   <div class="profile-head">
     <span class="name">{{user.name}}</span>
-    {{user}}
     <a href="/#/editprofile"><button>Edit</button></a>
     <div class="clear"></div>
   </div>
   <div class="basic-profile">
     <div class="bio">
-
-      <img class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{user.avatar}}" width="50px;">
+      <!-- <img class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{user.avatar}}" width="50px;"> -->
+      <img ng-if="user.avatar != null"class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{user.avatar}}">
       <div class="info">
         <span class="designation" class="profile-text">{{user.designation}}</span>
         <li><pre><img src="img/Assign.png"> Assign Task</pre></li>
