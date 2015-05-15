@@ -66,24 +66,26 @@
 <div class="modal fade" id="workspace-modal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">New Workspace</h4>
-      </div>
-
-      <div class="modal-body">
-        <!-- <div class="project-title border-bottom-grey">
-          <input class="modal-input" type="text" placeholder="Contact Name">
-        </div> -->
-
-        <div class="project-title border-bottom-grey">
-          <input class="modal-input" type="text" placeholder="Enter Workspace Name" ng-model='workspace.name'>
+      <form action="" name="workspaceForm">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">New Workspace</h4>
         </div>
-      </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn-green" ng-click="addNewWorkspace(workspace)">create Workspace</button>
-      </div>
+        <div class="modal-body">
+          <!-- <div class="project-title border-bottom-grey">
+            <input class="modal-input" type="text" placeholder="Contact Name">
+          </div> -->
+
+          <div class="project-title border-bottom-grey">
+            <input class="modal-input" name="workspaceName" id="workspace-input" type="text" placeholder="Enter Workspace Name" ng-model='workspace.name' required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" ng-disabled="workspaceForm.workspaceName.$error.required" class="btn-green" ng-click="addNewWorkspace(workspace)">create Workspace</button>
+        </div>
+      </form>
     </div>
   </div>
 </div><!-- /.modal-->
