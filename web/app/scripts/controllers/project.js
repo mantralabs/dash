@@ -3,7 +3,6 @@
 angular.module('pmtoolApp')
   .controller('projectController', function ($scope, $cookieStore, Project, Contact, $rootScope, $routeParams) {
 	
-	// $rootScope.user = $cookieStore.get('current_user');
 	$scope.user = $rootScope.user;
 
 	Project.fetch().then(function(response){

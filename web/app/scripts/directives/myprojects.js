@@ -11,11 +11,13 @@ angular.module('pmtoolApp')
 		restrict: 'E',
 		link: function(scope, element, attrs) {
 			scope.user=user;
-				// Project.fetch().then(function(response){
-				// 	scope.projects = response;
-				// }).catch(function(err){
-				// 	scope.error = err.message;
-				// });
+				if(user.role == 'admin'){
+				Project.fetch().then(function(response){
+					scope.projects = response;
+				}).catch(function(err){
+					scope.error = err.message;
+				});
+			}
 
 			// Contact.fetchOther(userId).then(function(response){
 			// 	scope.contact = response;

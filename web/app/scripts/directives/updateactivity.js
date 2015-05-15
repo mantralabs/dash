@@ -3,8 +3,8 @@
 angular.module('pmtoolApp')
   	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
 
-		var currentUser = $rootScope.user,
-			userId= currentUser.id;
+		
+		var	user= $rootScope.user.id;
 
 	    return {
 	      	templateUrl: 'views/updateactivity.html',
@@ -25,7 +25,7 @@ angular.module('pmtoolApp')
 					scope.error = err.message;
 				});
 
-				Contact.fetchOther(userId).then(function(response){
+				Contact.fetchOther(user).then(function(response){
 					scope.contact = response;
 						}).catch(function(err){
 							scope.error=err.message;
@@ -46,7 +46,7 @@ angular.module('pmtoolApp')
 	      		
 
 	      		scope.selectedProject = function(description,project){
-	      			var activityData = {description,project,userId}
+	      			var activityData = {description,project,user}
 	      			Activity.addActivity(activityData).then(function(response){
 	      				Activity.fetch().then(function(response){
 							scope.activities = response;
@@ -64,7 +64,7 @@ angular.module('pmtoolApp')
 
       			scope.update = function(description){
 	      			var project = $routeParams.id;
-	      			var activityData = {description,project,userId}
+	      			var activityData = {description,project,user}
 	      			console.log(activityData);
 	      			Activity.addActivity(activityData).then(function(response){
 	      				console.log(response);
