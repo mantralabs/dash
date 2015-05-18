@@ -20,7 +20,6 @@ angular.module('pmtoolApp')
 	      		//to fetch projects list to load into the dropdown
 	      		Project.fetch().then(function(response){
 					scope.projects = response;
-					// console.log(response);
 				}).catch(function(err){
 					scope.error = err.message;
 				});
@@ -67,7 +66,6 @@ angular.module('pmtoolApp')
 	      			var activityData = {description,project,user}
 	      			console.log(activityData);
 	      			Activity.addActivity(activityData).then(function(response){
-	      				console.log(response);
 	      				Activity.fetch().then(function(response){
 							scope.activities = response;
 						}).catch(function(err){

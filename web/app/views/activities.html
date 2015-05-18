@@ -63,7 +63,15 @@
 			<img src="img/img-5.png" alt="profile-pic">
 		</div>
 		<div class="acts-discription">
-			<p><a href="#/profile/{{activity.user.id}}"><span>{{activity.user}} </span></a>updated an activity: {{activity.description}}</p>
+			<p>
+				<a ng-repeat="user in project[0].users | filter : activity.user" href="#/profile/{{user.id}}">
+					<span>{{user.name}}</span>
+					<!-- <span ng-show="(users | filter:activity.user).length==0">Admin</span> -->
+					<!-- <span ng-if="!user">Admin</span> -->
+				</a>
+				<!-- <span ng-show="(users | filter:activity.user).length==0">Admin</span> -->
+				updated an activity: {{activity.description}}
+			</p>
 			<ul>
 				<li class="like-comment timer">{{activity.createdAt | date}}</li>
 				<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
