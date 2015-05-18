@@ -40,15 +40,36 @@ angular.module('pmtoolApp')
 
 .controller('getWorkspaceController', function ($scope, Workspace, $rootScope, $routeParams) {
 
-	Workspace.fetchWorkspace($routeParams.id).then(function(response){
-		console.log('getWorkspaceController');
-		console.log('getworkspace',response);
-		console.log('getWorkspaceController',response);
+	Workspace.fetchWorkspace($routeParams.id)
+		.then(function(response){
 			$scope.workspace = response;
 			$scope.projects = response[0].projects;
-		}).catch(function(err){
+		})
+		.catch(function(err){
 			console.log(err);
 			$scope.error = err.message;
 		});
+
+		$scope.editWorkspace = function(workspaceName){
+			Workspace.edit({"name":workspaceName})
+			.then(function(response){
+				// $scope.workspace = response;
+				// $scope.projects = response[0].projects;
+				Workspace.fetchWorkspace($routeParams.id)
+					.then(function(response){
+						$scope.workspace = response;
+						$scope.projects = response[0].projects;
+					})
+					.catch(function(err){
+						console.log(err);
+						$scope.error = err.message;
+					});
+				$('#edit-workspace-modal').modal('hide');
+			})
+			.catch(function(err){
+				$scope.error = err.message;
+				console.log($scope.error);
+			});
+		};
 	}
 )

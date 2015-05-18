@@ -8,7 +8,9 @@
     	<section id="container" class="clearfix">
     		
 			<div class="workspace-list clearfix">
-				<h4>{{workspace[0].name}}</h4>
+				<h4>{{workspace[0].name}}
+					<button ng-if="user.role == 'admin'" class="btn-green pull-right" title="Edit this workspace" data-toggle="modal" data-target="#edit-workspace-modal">Edit</button>
+				</h4>
     			<!-- <div class="workspacedropdown">
     				<select> -->
 				    	<!-- <option value="">Select Workspace</option> -->

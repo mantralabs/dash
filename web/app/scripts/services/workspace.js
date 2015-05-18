@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .service('Workspace', function ($q, $http, $resource) {
+  .service('Workspace', function ($q, $http, $resource, $routeParams) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     
     this.fetch = function(){
@@ -45,6 +45,21 @@ angular.module('pmtoolApp')
 
       return deferred.promise;
     }
+
+    this.edit = function (userData) {
+      console.log(userData);
+      var   deferred = $q.defer(),
+            id=$routeParams.id;
+      $http.put('/api/workspace/'+id, userData)
+      .success(function(response){
+        deferred.resolve(response);
+      })
+      .error(function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    };
 
     this.fetchWorkspace = function(id){
     var deferred = $q.defer();

@@ -88,5 +88,17 @@ angular.module('pmtoolApp')
 			console.log(err);
 			$scope.error = err.message;
 		});
-	});
+
+	$scope.editProject = function(name,description,workspace){
+		Project.edit({name,description,workspace})
+		.then(function(response){
+			$scope.project = response;
+		})
+		.catch(function(err){
+			$scope.error=err.message;
+		})
+		$('#edit-project-modal').modal('hide');
+	}
+
+});
 

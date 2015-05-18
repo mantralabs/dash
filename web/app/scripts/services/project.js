@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .service('Project', function ($http, $q, $resource) {
+  .service('Project', function ($http, $q, $resource, $routeParams) {
 
 	this.fetch = function(){
 		var deferred = $q.defer();
@@ -59,6 +59,20 @@ angular.module('pmtoolApp')
 		
 		return deferred.promise;
   	}
+
+  	this.edit = function (userData) {
+      	var deferred = $q.defer(),
+            id=$routeParams.id;
+      	$http.put('/api/project/'+id, userData)
+      	.success(function(response){
+        	deferred.resolve(response);
+     	 })
+      	.error(function(err) {
+        	deferred.reject(err);
+      	});
+
+      return deferred.promise;
+    };
 
   	this.addProjectMember = function(projectId,data){
   		// console.log(projectId,data);
