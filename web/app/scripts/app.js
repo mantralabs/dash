@@ -23,12 +23,12 @@ angular
       
       .when('/', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'userController'
       })
       
       .when('/setpassword/:id', {
         templateUrl: 'views/setpassword.html',
-        controller: 'LoginCtrl'
+        controller: 'userController'
       })
 
       .when('/home',{
@@ -51,7 +51,7 @@ angular
 
       .when('/profile',{
         templateUrl:'views/profile-page.html',
-        controller:'userProfileCtrl',
+        controller:'userController',
         resolve: resolve
       })
 
@@ -69,13 +69,13 @@ angular
 
       .when('/profile/:id',{
         templateUrl:'views/contacts-profile.html',
-        controller:'userProfileCtrl',
+        controller:'userController',
         resolve: resolve
       })
 
       .when('/editprofile',{
         templateUrl:'views/edit-profile.html',
-        controller:'editProfileCtrl',
+        controller:'userController',
         resolve : resolve
       })
 
@@ -87,7 +87,7 @@ angular
 
       .when('/account-settings',{
         templateUrl:'views/account-settings.html',
-        // controller:'accountSettingsCtrl',
+        controller:'userController',
         resolve : resolve
       })
 
@@ -162,14 +162,15 @@ angular
         controller:'contactSupportCtrl'
       })
       
-      // .when('/addcontacts',{
-      //   templateUrl:'views/add-more-contacts2.html'
-      //   controller:'addContactsCtrl'
-      // })
-      // .when('/contactsupport',{
-      //   templateUrl:'view/contact-support.html'
-      //   controller:"contactSupportCtrl"
-      // })
+      .when('/resetpasswordintiate',{
+        templateUrl:'views/reset-password-intiate.html',
+        controller:'resetPasswordCtrl'
+      })
+
+      .when('/resetpassword/:hashKey',{
+        templateUrl:'views/reset-password.html',
+        controller:'resetPasswordCtrl'
+      })
 
       .otherwise({
         redirectTo: '/'

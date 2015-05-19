@@ -2,15 +2,17 @@
 
  
 angular.module('pmtoolApp')
-.controller('LoginCtrl',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
+.controller('userController',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
-	// $scope.user = $rootScope.user;	
+	$scope.user = $rootScope.user;
 
+	//User Login Method
 	$scope.login = function(user){
 		if(user.email && user.password){
 			UserService.postLogin(user)
-			.then(function(userDataResp){
-				$scope.user = userDataResp;
+			.then(function(response){
+				console.log(response);
+				$scope.user = response;
 				$location.path('/home');
 			}).catch(function(err){
 				$scope.error = err.message;
@@ -19,50 +21,30 @@ angular.module('pmtoolApp')
 		}
 	};
 
+	//Logout method
 	$scope.logout = function(){
 
 		UserService.signout()
 		.then(function(response){
 			$location.path('/');
-			console.log(response);
 		}).catch(function(err){
 			$scope.error = err.message;
 		})
 	};
 
-	$scope.setPassword = function(data){
-
-		var id = $routeParams.id;
-
-		UserService.setPassword(id,data)
-		.then(function(response){
-			$location.path('/');
-		}).catch(function(err){
-			$scope.error = err.message;
-		})
-	};
-})
-
-.controller('editProfileCtrl', function ($scope, $location, $routeParams, $cookieStore, UserService, $rootScope) {
-
-	// $scope.user = $rootScope.user;
-	
 	//edit profile method
 	$scope.updateUser = function(user){
 
+		//if user uploads the image, get the avatar image file name form the uploadImage method.
 		user.avatar = $scope.avatarImageName;
 
 		UserService.updateProfile(user)
 		.then(function(response){
-			console.log(response);
 			$rootScope.user = response[0];
 			$scope.user = response[0];
-			// $rootScope.user = response;
-			// $scope.user = response;
 			$location.path('/profile');
 		}).catch(function(err){
 			$scope.error = err.message;
-			console.log($scope.error);
 			$location.path('/profile');
 		});
 	};
@@ -81,7 +63,6 @@ angular.module('pmtoolApp')
 	  	   	FR.onload = function (e) {
 		    	imageData.data = e.target.result.split(",")[1];
 		    	imageData.user = $scope.user.id;
-		    	console.log(imageData);
 
 		    		UserService.uploadAvatar(imageData)
 		     		.then(function(response){
@@ -91,27 +72,70 @@ angular.module('pmtoolApp')
 		      			$scope.error = err.message;
 		     		});
 	    	};
-	   }   
+	    }   
   	};
+
+ //  	// Fetch Particular User
+ //  	UserService.fetchUser($scope.user.id)
+	// .then(function(response){
+	// 	$scope.user = response;
+	// }).catch(function(err){
+	// 	$scope.error = err.message;
+	// 	$location.path('/profile');
+	// });
+
+	//First Time Registration Method to set Name and Password.
+	$scope.setPassword = function(data){
+		console.log(data);
+		var token = $routeParams.id;
+		var user = {name : data.name, password : data.password, hashKey : token}
+		
+
+		UserService.setPassword(user)
+		.then(function(response){
+			console.log(response);
+			$location.path('/');
+		}).catch(function(err){
+			$scope.error = err.message;
+		})
+	};
 })
 
-.controller('accountSettingsCtrl', function ($scope,$location,UserService){
-	console.log('accountSetting Control inside');	
+.controller('resetPasswordCtrl', function ($scope, $location, UserService, $routeParams){
 
-})
+	// var hashKey = $routeParams.hashKey;
 
-.controller('userProfileCtrl', function ($scope, $routeParams, $rootScope, $cookieStore, UserService, Contact, $location) {
-	$scope.user = $rootScope.user;
-
-	var id = $scope.user.id;
 	
-	UserService.fetchUser(id)
-	.then(function(response){
-		$scope.user = response;
-	}).catch(function(err){
-		$scope.error = err.message;
-		$location.path('/profile');
-	});
+
+	$scope.resetPassword = function(password){
+	
+		var data = {
+			hashKey : $routeParams.hashKey,
+			password : password
+		}	
+		console.log(data);
+		UserService.resetPassword(data)
+		.then(function(response){
+			$location.path('/');
+		}).catch(function(err){
+			$scope.error = err.message;
+			console.log($scope.error);
+			$location.path('/resetpassword');
+		});
+	};
+
+	$scope.resetPasswordIntiate = function(email){
+		console.log(email);
+		UserService.resetPasswordIntiate(email)
+		.then(function(response){
+			console.log(response);
+			$location.path('/')
+		}).catch(function(err){
+			$scope.error = err.message;
+			console.log(err);
+			$location.path('/');
+		});
+	}
 })
 
 .controller('taskPageCtrl', function($scope,$location){

@@ -1,4 +1,4 @@
-<section id="login-page" ng-controller = "LoginCtrl">
+<section id="login-page" ng-controller = "userController">
 	<h1>Sign In</h1>
 	<!-- <p class="top-p">Don't have account yet? <a href="#/signup">Join now</a></p> -->
 
@@ -24,7 +24,7 @@
 					<!--<div ng-show="myForm.password.$error.required">Password is required.</div>  -->
 				</div>
 				<div class="checkbox clearfix"> 
-					<p class="i-agree forgot-password"><a href="#">Forgot password?</a></p>
+					<p class="i-agree forgot-password" ><a href="#/resetpasswordintiate" >Forgot password?</a></p>
 				</div>
 				<!-- <button class="signup-btn btn" type="submit" ng-click="login()">Sign In</button> -->
     			<button class="signup-btn btn" type="submit" ng-click="login(user)" ng-disabled="myForm.email.$pristine && myForm.email.$invalid || myForm.password.$pristine && myForm.password.$invalid">Sign In</button>

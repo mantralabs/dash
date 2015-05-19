@@ -8,7 +8,6 @@
       <div class="profile">
         <div class="profile-head">
           <span class="profile-text">My Profile</span>
-          {{user}}
           <button ng-click="updateUser(user)" type="submit">Save</button>
           <a href="/#/profile"><button>Cancel</button></a>
           <div class="clear"></div>
@@ -47,7 +46,7 @@
               </div>
               <div class="contact-grey-right">
                 <li>{{user.email}}</li>
-                <li><input type="text" placeholder="Enter Mobile Number" name="phone" id="phone" ng-model="user.phone"></li>
+                <li><input type="text" value="{{user.phone}}" ng-model="user.phone"></li>
                 <li>sudhakar.ponnusamy41</li>
                 <li>https://www.behance.net/sudhakar</li>
               </div>

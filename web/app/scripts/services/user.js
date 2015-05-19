@@ -9,6 +9,7 @@ angular.module('pmtoolApp')
 
 	    $http.post('/api/user/login', user)
       .success(function(response){
+        console.log(response);
         deferred.resolve(response);
       })
       .error(function(err) {
@@ -106,15 +107,17 @@ angular.module('pmtoolApp')
     }
 
     // When User receive invitation in mail, then For the first time user set the Name and Password
-    this.setPassword = function(id,data){
-
+    this.setPassword = function(user){
+      // console.log(user);
       //accept the name and password as parameter and send as Object to API
-      var userData = {name: data.name, password : data.password};
+      // var userData = {name: user.name, password : user.password};
+      console.log(user);
       
       var deferred = $q.defer();
       
-      $http.put('/api/user/'+id, userData)
+      $http.put('/api/user', user)
       .success(function(response){
+        console.log(response);
         deferred.resolve(response);
       }).error(function(err) {
         deferred.reject(err);
@@ -122,6 +125,42 @@ angular.module('pmtoolApp')
 
       return deferred.promise;
     };
+
+    //reset password or forgot password
+    this.resetPasswordIntiate = function(data){
+      console.log(data);
+
+      var deferred = $q.defer();
+      
+      $http.post('api/resetPasswordInitiate', data)
+      .success(function(result){
+        console.log(result);
+        deferred.resolve(result);
+      })
+      .error(function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    };
+
+    //reset password or forgot password
+    this.resetPassword = function(data){
+
+      var deferred = $q.defer();
+      
+      $http.put('api/resetPassword', data)
+      .success(function(result){
+        console.log(result);
+        deferred.resolve(result);
+      })
+      .error(function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+    };
+
 
     //to get the status of the user logged in
     this.isLoggedIn = function(){
