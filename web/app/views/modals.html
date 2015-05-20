@@ -164,7 +164,7 @@
     
         <div class="modal-body">
           <div class="border-bottom-grey" ng-repeat = "contact in contacts " id="{{contact.id}}">
-            <p ng-if="contact.role=='user'" >
+            <p>
             <input  type="checkbox" value="{{contact.id}}" ng-change="sync(bool, contact)" ng-model="bool" id="{{contact.id}}" ng-checked="isChecked(contact.id)"> {{contact.name}}</p>
           </div>
         </div>
