@@ -36,6 +36,12 @@ angular.module('pmtoolApp')
 		}
 	}
 
+	$scope.workspaceRedirect = function(){
+		$('#project-modal').modal('hide');
+		$('div').removeClass('modal-backdrop fade in')
+		$location.path('/workspaces');
+	}
+
 })
 
 .controller('getWorkspaceController', function ($scope, Workspace, $rootScope, $routeParams) {

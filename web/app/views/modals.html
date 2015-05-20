@@ -23,6 +23,9 @@
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
             <p ng-if="workspaces.length==0" style="color:red">Please create a workspace</p>
+            <button ng-if="workspaces.length==0"  ng-click="workspaceRedirect()">
+              Create Workspace
+            </button>
             </div>
           </div>
           <div class="modal-footer">
