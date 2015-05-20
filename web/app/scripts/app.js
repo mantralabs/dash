@@ -26,15 +26,20 @@ angular
         controller: 'userController'
       })
       
-      .when('/setpassword/:id', {
-        templateUrl: 'views/setpassword.html',
-        controller: 'userController'
-      })
+      // .when('/setpassword/:id', {
+      //   templateUrl: 'views/setpassword.html',
+      //   controller: 'userController'
+      // })
 
       .when('/home',{
         templateUrl :'views/home-page.html',
         controller:'homePageCtrl',
         resolve : resolve
+      })  
+
+      .when('/basicInfo/:hashKey',{
+        templateUrl :'views/basic-info.html',
+        controller:'userController'
       })  
 
       .when('/projects', {

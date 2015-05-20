@@ -12,9 +12,6 @@
 					<div style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">Name is Required
 					</div>
 				</div>
-				<!-- <div class="part">
-					<input class="common" type="text" value="{{user.email}}" disabled="disabled">
-				</div> -->
 				<div class="part">
 					<input class="common" type="password" name="password" id="password" placeholder="Password" ng-model="user.password" required>
 					<div style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">Password is Required
@@ -25,7 +22,7 @@
 					<div style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">Confirm Password is Required
 					</div>
 				</div>
-				<button class="signup-btn btn" type="submit" ng-disabled="user.password != user.confirmPassword" ng-click="setPassword(user)">Set Password</button>
+				<button class="signup-btn btn" type="submit" ng-disabled="user.password != user.confirmPassword" ng-click="basicInfo(user)">Set Password</button>
 			</form>			
 		</div><!--end input container-->
 	</div><!--end signin box-->

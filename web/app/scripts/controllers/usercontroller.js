@@ -75,8 +75,8 @@ angular.module('pmtoolApp')
 	    }   
   	};
 
- //  	// Fetch Particular User
- //  	UserService.fetchUser($scope.user.id)
+  	// Fetch Particular User
+  	// UserService.fetchUser($scope.user.id)
 	// .then(function(response){
 	// 	$scope.user = response;
 	// }).catch(function(err){
@@ -85,13 +85,13 @@ angular.module('pmtoolApp')
 	// });
 
 	//First Time Registration Method to set Name and Password.
-	$scope.setPassword = function(data){
-		console.log(data);
-		var token = $routeParams.id;
+	$scope.basicInfo = function(data){
+		var token = $routeParams.hashKey;
 		var user = {name : data.name, password : data.password, hashKey : token}
-		
 
-		UserService.setPassword(user)
+		console.log(user);
+		
+		UserService.basicInfo(user)
 		.then(function(response){
 			console.log(response);
 			$location.path('/');
@@ -102,10 +102,6 @@ angular.module('pmtoolApp')
 })
 
 .controller('resetPasswordCtrl', function ($scope, $location, UserService, $routeParams){
-
-	// var hashKey = $routeParams.hashKey;
-
-	
 
 	$scope.resetPassword = function(password){
 	
