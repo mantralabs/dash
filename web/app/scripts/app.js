@@ -25,11 +25,6 @@ angular
         templateUrl: 'views/login.html',
         controller: 'userController'
       })
-      
-      // .when('/setpassword/:id', {
-      //   templateUrl: 'views/setpassword.html',
-      //   controller: 'userController'
-      // })
 
       .when('/home',{
         templateUrl :'views/home-page.html',

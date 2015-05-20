@@ -109,7 +109,7 @@ angular.module('pmtoolApp')
     // When User receive invitation in mail, then For the first time user set the Name and Password
     this.basicInfo = function(user){
       //accept the name and password as parameter and send as Object to API
-      console.log('service-clnt', user);
+      // console.log(user);
       
       var deferred = $q.defer();
       

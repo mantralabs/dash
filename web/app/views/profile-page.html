@@ -7,7 +7,6 @@
     <div class="profile">
   <div class="profile-head">
     <span class="name">{{user.name}}</span>
-    {{user}}
     <a href="/#/editprofile"><button>Edit</button></a>
     <div class="clear"></div>
   </div>
@@ -35,8 +34,8 @@
         <div class="contact-grey-right">
           <li>{{user.email}}</li>
           <li>{{user.phone}}</li>
-          <li>sudhakar.ponnusamy41</li>
-          <li>https://www.behance.net/sudhakar</li>
+          <li>{{user.skypeId}}</li>
+          <li>{{user.websiteUrl}}</li>
         </div>
         <div class="clear"></div>
       </div>
@@ -46,10 +45,7 @@
   <div>
     <span class="profile-text head-info">About Me</span>
     <div class="description">
-      <p>I'm a UX/UI Designer that believes in crafting thoughtful user experiences for web and mobile platforms. I'm a 26 year old technology enthusiast living in slovenia, Ljublijana. I currently work at Enki, where I spend most of the time creating and working on awesome projects (if I'm not killing myself with Red Bull)
-      </p>
-      <p>I'm a UX/UI Designer that believes in crafting thoughtful user experiences for web and mobile platforms. I'm a 26 year old technology enthusiast living in slovenia, Ljublijana. I currently work at Enki, where I spend most of the time creating and working on awesome projects (if I'm not killing myself with Red Bull)
-      </p>
+      <p>{{user.aboutMe}}</p>
     </div>
   </div>
   </div>

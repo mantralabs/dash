@@ -5,6 +5,7 @@ angular.module('pmtoolApp')
 .controller('userController',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
 	$scope.user = $rootScope.user;
+	console.log($scope.user);
 
 	//User Login Method
 	$scope.login = function(user){
@@ -38,8 +39,11 @@ angular.module('pmtoolApp')
 		//if user uploads the image, get the avatar image file name form the uploadImage method.
 		user.avatar = $scope.avatarImageName;
 
+		console.log("ctrl-usr",user);
+
 		UserService.updateProfile(user)
 		.then(function(response){
+
 			$rootScope.user = response[0];
 			$scope.user = response[0];
 			$location.path('/profile');
@@ -76,13 +80,13 @@ angular.module('pmtoolApp')
   	};
 
   	// Fetch Particular User
-  	// UserService.fetchUser($scope.user.id)
-	// .then(function(response){
-	// 	$scope.user = response;
-	// }).catch(function(err){
-	// 	$scope.error = err.message;
-	// 	$location.path('/profile');
-	// });
+  	UserService.fetchUser($scope.user.id)
+	.then(function(response){
+		$scope.user = response;
+	}).catch(function(err){
+		$scope.error = err.message;
+		$location.path('/profile');
+	});
 
 	//First Time Registration Method to set Name and Password.
 	$scope.basicInfo = function(data){
