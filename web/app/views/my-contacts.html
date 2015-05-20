@@ -14,7 +14,12 @@
 		<ul class="clearfix">
 			<li ng-repeat="contact in contacts | limitTo : 12" ng-if="user.id !== contact.id">
 				<a href="#/profile/{{contact.id}}">
-					<img src="img/img-1.png" alt="profile-pic">
+		      		<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
+
+					<!-- <img src="img/img-1.png" alt="profile-pic"> -->
+					<!-- <img ng-if="contact.avatar != null" class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{contact.avatar}}">-->
+      				<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
+
 				</a>
 			</li>
 		</ul>

@@ -13,6 +13,7 @@ angular.module('pmtoolApp')
 			scope.user=user;
 				if(user.role == 'admin'){
 				Project.fetch().then(function(response){
+					console.log(response);
 					scope.projects = response;
 				}).catch(function(err){
 					scope.error = err.message;

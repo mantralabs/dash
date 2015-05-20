@@ -8,23 +8,26 @@
       <div class="profile">
         <div class="profile-head">
           <span class="profile-text">My Profile</span>
-          <button ng-click="updateUser(user)" type="submit">Save</button>
+          <button ng-click="updateUser(user)" type="submit" ng-disabled="imageUploadStatus">Save</button>
           <a href="/#/profile"><button>Cancel</button></a>
           <div class="clear"></div>
         </div>
         <div class="basic-profile">
           <div class="bio">
 
-            <img ng-if="user.avatar != null"class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{user.avatar}}">
-            <img ng-if="user.avatar === '' || user.avatar === undefined" src="" alt="No Image">
-              <span class="upload-btn">Upload Here 
-                <!-- <input type="file" onchange="uploadImage(this)" ng-model="user.image" name="uploadImage"> -->
+            <img ng-if="user.avatar != null" class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{user.avatar}}">
+            
+            <img ng-if="user.avatar == '' || user.avatar == undefined || user.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
+            
+            <p ng-show="imageUploadStatus">
+              <img src="img/spinner.gif" alt="Spinner Image">
+            </p>
+            
+            <span class="upload-btn">
+              <input type="file" onchange="angular.element(this).scope().uploadImage(this)" name="uploadImage" class="fileupload" ng-model="user.avatar">
+            </span>
+            <!-- <span ng-click="deleteImage(user.avatar)">delete Image</span> -->
 
-                <input type="file" onchange="angular.element(this).scope().uploadImage(this)" name="uploadImage" class="fileupload" ng-model="user.avatar">
-              </span>
-              <span class="dvPreview">
-                <img class="gallery-image single" src="{{proImage}}">
-              </span>
             <div class="info">
               <span class="designation" class="profile-text">
                 <input type="text" value="{{user.name}}" ng-model="user.name">
@@ -35,6 +38,7 @@
             </div>
             <div class="clear"></div>
           </div>
+
           <div class="contact-info">
             <span class="head-info profile-text">Contact Information</span>
             <div class="contact-left-right">

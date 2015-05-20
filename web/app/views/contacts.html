@@ -28,7 +28,12 @@
 							<button ng-if= "user.role == 'admin' " class="close-btn" title="delete this contact" ng-click="deleteContact(contact.id)">x</button>
 						</div> 
 						<!-- <p>{{contact.photo ? contact.photo : "img/img-6.png"}}</p> -->
-						<img class="cont-pic align-middle" src="img/img-6.png">
+						<!-- {{user}} -->
+						<p>      
+							<img ng-if="contact.avatar != null" class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{contact.avatar}}">
+
+      						<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
+      					</p>
 					</div>
 					<div class="home-page3-right align-middle">
 						<a href="#/profile/{{contact.id}}">

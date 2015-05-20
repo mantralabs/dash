@@ -57,6 +57,9 @@ angular.module('pmtoolApp')
 	$scope.uploadImage = function (imgElem) {
 	  var el = imgElem;
 	  	if(imgElem.files[0]){
+
+  		$scope.imageUploadStatus = true;
+	   	
 	   	var imageData = {};
 	   	var photofile = imgElem.files[0];
 	   
@@ -65,19 +68,28 @@ angular.module('pmtoolApp')
 		FR.readAsDataURL(photofile);
 
 	  	   	FR.onload = function (e) {
+	  	   		
 		    	imageData.data = e.target.result.split(",")[1];
 		    	imageData.user = $scope.user.id;
 
 		    		UserService.uploadAvatar(imageData)
 		     		.then(function(response){
-		     			console.log(response);
+	     				if(response){
+	     					console.log(response);	
+			     			$scope.imageUploadStatus = false;
+	     				}
 		     			$scope.avatarImageName = response.name;
 		     		}).catch(function(err){
+						$scope.imageUploadStatus = false;
 		      			$scope.error = err.message;
 		     		});
 	    	};
 	    }   
   	};
+
+  	$scope.deleteImage = function(data){
+  		console.log(data);
+  	}
 
   	// Fetch Particular User
   	UserService.fetchUser($scope.user.id)
