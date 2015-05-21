@@ -30,7 +30,7 @@
 						<!-- <p>{{contact.photo ? contact.photo : "img/img-6.png"}}</p> -->
 						<!-- {{user}} -->
 						<p>      
-							<img ng-if="contact.avatar != null" class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{contact.avatar}}">
+							<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
 
       						<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
       					</p>

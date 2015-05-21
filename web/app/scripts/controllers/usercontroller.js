@@ -5,7 +5,7 @@ angular.module('pmtoolApp')
 .controller('userController',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
 	$scope.user = $rootScope.user;
-	console.log($scope.user);
+	// console.log($scope.user);
 
 	//User Login Method
 	$scope.login = function(user){
@@ -92,13 +92,13 @@ angular.module('pmtoolApp')
   	}
 
   	// Fetch Particular User
-  	UserService.fetchUser($scope.user.id)
-	.then(function(response){
-		$scope.user = response;
-	}).catch(function(err){
-		$scope.error = err.message;
-		$location.path('/profile');
-	});
+ //  	UserService.fetchUser($scope.user.id)
+	// .then(function(response){
+	// 	$scope.user = response;
+	// }).catch(function(err){
+	// 	$scope.error = err.message;
+	// 	$location.path('/profile');
+	// });
 
 	//First Time Registration Method to set Name and Password.
 	$scope.basicInfo = function(data){
