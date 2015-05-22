@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .directive('myProjects', function (Project, $rootScope, $routeParams, $cookieStore, Contact) {
+  .directive('myProjects', function (Project, $rootScope, $routeParams, $cookieStore, Contact, UserService) {
   	
   	var user = $rootScope.user;
 	var	userId= user.id;
@@ -10,25 +10,14 @@ angular.module('pmtoolApp')
 		templateUrl:'views/my-projects.html',
 		restrict: 'E',
 		link: function(scope, element, attrs) {
-			scope.user=user;
-			console.log('myproject dir',user);
-				// if(user.role == 'admin'){
-				// Project.fetch().then(function(response){
-				// 	console.log(response);
-				// 	scope.projects = response;
-				// }).catch(function(err){
-				// 	scope.error = err.message;
-				// });
-			}
-
-			// Contact.fetchOther(userId).then(function(response){
-			// 	scope.contact = response;
-			// }).catch(function(err){
-			// 	scope.error=err.message;
-			// });
-		// }
+			// scope.user=user;
+			UserService.fetchUser(userId)
+			.then(function(response){
+				scope.user = response;
+				console.log('bxv',response);
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}
     };
-  });
-
-
-
+});

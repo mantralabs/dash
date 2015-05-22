@@ -49,12 +49,6 @@ angular
         resolve: resolve
       })
 
-      .when('/profile',{
-        templateUrl:'views/profile-page.html',
-        controller:'userController',
-        resolve: resolve
-      })
-
       .when('/workspaces',{
         templateUrl:'views/workspaces.html',
         controller:'workspaceCtrl',
@@ -63,8 +57,14 @@ angular
 
       .when('/workspaces/:id',{
         templateUrl:'views/workspace-home.html',
-        controller:'workspaceCtrl',
+        controller:'getWorkspaceController',
         resolve : resolve
+      })
+
+      .when('/profile',{
+        templateUrl:'views/profile-page.html',
+        controller:'userController',
+        resolve: resolve
       })
 
       .when('/profile/:id',{
