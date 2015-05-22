@@ -45,7 +45,7 @@ angular
 
       .when('/project/:id', {
         templateUrl: 'views/project.html',
-        controller:'getprojectController',
+        controller:'projectController',
         resolve: resolve
       })
 
@@ -63,7 +63,7 @@ angular
 
       .when('/workspaces/:id',{
         templateUrl:'views/workspace-home.html',
-        controller:'getWorkspaceController',
+        controller:'workspaceCtrl',
         resolve : resolve
       })
 

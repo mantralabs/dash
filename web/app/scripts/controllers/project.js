@@ -34,19 +34,21 @@ angular.module('pmtoolApp')
 			});
 		}
 	}
-})
+// })
 
-.controller('getprojectController', function ($scope, Project, Contact, $rootScope, $routeParams, $cookieStore) {
+// .controller('getprojectController', function ($scope, Project, Contact, $rootScope, $routeParams, $cookieStore) {
 
 	$scope.user = $rootScope.user;
 	$scope.userIds = [];
 
-	Project.fetchProject($routeParams.id).then(function(response){
-			$scope.project = response;
-		}).catch(function(err){
-			console.log(err);
-			$scope.error = err.message;
-		});
+	if($routeParams.id){
+		Project.fetchProject($routeParams.id).then(function(response){
+				$scope.project = response;
+			}).catch(function(err){
+				console.log(err);
+				$scope.error = err.message;
+			});
+	}
 	
 	//if user checked push id into array if uncheck remove from array.
 	$scope.sync = function(bool, item){
