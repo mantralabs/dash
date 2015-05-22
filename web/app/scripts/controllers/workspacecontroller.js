@@ -41,10 +41,12 @@ angular.module('pmtoolApp')
 		$('div').removeClass('modal-backdrop fade in')
 		$location.path('/workspaces');
 	}
+})
 
-	var path= $location.path();
+.controller('getWorkspaceController', function ($scope, Workspace, $rootScope, $routeParams) {
+	// var path= $location.path();
 
-	if($routeParams.id && path.indexOf('workspace')>0 ){
+	// if($routeParams.id && path.indexOf('workspace')>0 ){
 	Workspace.fetchWorkspace($routeParams.id)
 		.then(function(response){
 			$scope.workspace = response;
@@ -54,7 +56,7 @@ angular.module('pmtoolApp')
 			console.log(err);
 			$scope.error = err.message;
 		});
-	}
+	// }
 
 	$scope.editWorkspace = function(workspaceName){
 		Workspace.edit({"name":workspaceName})

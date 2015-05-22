@@ -89,24 +89,25 @@ angular.module('pmtoolApp')
 
   	$scope.deleteImage = function(data){
   		console.log(data);
-  	}
+  	};
 
   	// Fetch Particular User
- //  	UserService.fetchUser($scope.user.id)
-	// .then(function(response){
-	// 	$scope.user = response;
-	// }).catch(function(err){
-	// 	$scope.error = err.message;
-	// 	$location.path('/profile');
-	// });
+  	var path = $location.path();
+  	if((path.indexOf('profile')  > 0) && $routeParams.id){
+	  	UserService.fetchUser($routeParams.id)
+		.then(function(response){
+			$scope.contact = response;
+		}).catch(function(err){
+			$scope.error = err.message;
+			$location.path('/profile');
+		});
+	}
 
 	//First Time Registration Method to set Name and Password.
 	$scope.basicInfo = function(data){
-		var token = $routeParams.hashKey;
-		var user = {name : data.name, password : data.password, hashKey : token}
 
-		console.log(user);
-		
+		var user = {name : data.name, password : data.password, hashKey : $routeParams.hashKey}
+
 		UserService.basicInfo(user)
 		.then(function(response){
 			console.log(response);

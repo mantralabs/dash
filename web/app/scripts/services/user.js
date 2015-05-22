@@ -91,20 +91,20 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
-    //Fetch Particular User Logged in
-    // this.fetchUser = function(id){
-    //   var deferred = $q.defer();
+    // Fetch other User profile on click of avatar
+    this.fetchUser = function(id){
+      var deferred = $q.defer();
     
-    //   $http.get('/api/user/'+id)
-    //   .success(function(data){
-    //     deferred.resolve(data);
-    //   })
-    //   .error(function(err){
-    //     deferred.reject(err);
-    //   });
+      $http.get('/api/user/'+id)
+      .success(function(data){
+        deferred.resolve(data);
+      })
+      .error(function(err){
+        deferred.reject(err);
+      });
       
-    //   return deferred.promise;
-    // }
+      return deferred.promise;
+    }
 
     // When User receive invitation in mail, then For the first time user set the Name and Password
     this.basicInfo = function(user){
