@@ -12,6 +12,7 @@
 				<h4>{{project[0].name}}
 					<button ng-if="user.role == 'admin'" class="btn-green pull-right" title="Edit this workspace" data-toggle="modal" data-target="#edit-project-modal">Edit</button></h4>
 					<p>{{project[0].description}}</p>
+					<p>{{project[0].users}}</p>
     			<!-- <div class="project-dropdown">
     				<select>
 				    	<option value="">Select Project</option>

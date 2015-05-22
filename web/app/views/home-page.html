@@ -29,6 +29,8 @@
 
         <my-projects></my-projects>
 
+        <my-projectsadmin ng-if = "user.role == 'admin'"></my-projectsadmin>
+
         <div id="tasks">
           <my-tasks></my-tasks>
         </div><!--end tasks-->

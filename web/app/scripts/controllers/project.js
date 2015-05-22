@@ -71,6 +71,7 @@ angular.module('pmtoolApp')
   		for(var i=0 ; i < $scope.project[0].users.length; i++){
 			 $scope.userIds.push($scope.project[0].users[i].id)
 			 console.log($scope.userIds);
+			 console.log($scope.project[0].users);
 		}
   	};
 
