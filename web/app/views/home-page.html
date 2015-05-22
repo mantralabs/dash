@@ -28,9 +28,10 @@
         <my-contacts></my-contacts><!-- my-contacts is a directive -->
 
         <my-projects></my-projects>
-
-        <my-projectsadmin ng-if = "user.role == 'admin'"></my-projectsadmin>
-
+        
+        <div ng-if = "user.role == 'admin'">
+        <my-projectsadmin></my-projectsadmin>
+        </div>
         <div id="tasks">
           <my-tasks></my-tasks>
         </div><!--end tasks-->
