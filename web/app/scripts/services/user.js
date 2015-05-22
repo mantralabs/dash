@@ -38,12 +38,11 @@ angular.module('pmtoolApp')
     // To update the userprofile who is currently logged in
     this.updateProfile = function (userData) {
 
-      var id = userData.id,
-          deferred = $q.defer();
+      var deferred = $q.defer();
 
-      $http.put('/api/user/'+id, userData)
+      $http.put('/api/user', userData)
       .success(function(response){
-        console.log(response);
+        console.log('sdgfsgfs',response);
         deferred.resolve(response);
       })
       .error(function(err) {
@@ -95,7 +94,7 @@ angular.module('pmtoolApp')
     this.fetchUser = function(id){
       var deferred = $q.defer();
     
-      $http.get('/api/user/'+id)
+      $http.get('/api/user_info/'+id)
       .success(function(data){
         deferred.resolve(data);
       })
@@ -113,7 +112,7 @@ angular.module('pmtoolApp')
       
       var deferred = $q.defer();
       
-      $http.put('/api/basicInfo', user)
+      $http.put('/api/basic_info', user)
       .success(function(response){
         console.log(response);
         deferred.resolve(response);

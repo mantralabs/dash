@@ -30,22 +30,24 @@
       <div class="contact-left-right">
         <div class="contact-grey-left">
           <li>Email</li>
-          <li>Mobile</li>
-          <li>Skype</li>
-          <li>Web</li>
+          <li ng-if="user.phone">Mobile</li>
+          <li ng-if="user.skypeId">Skype</li>
+          <li ng-if="user.websiteUrl">Web</li>
         </div>
         <div class="contact-grey-right">
           <li>{{user.email}}</li>
-          <li>{{user.phone}}</li>
-          <li>{{user.skypeId}}</li>
-          <li><a href="{{user.websiteUrl}}" target="_blank">{{user.websiteUrl}}</a></li>
+          <li ng-if="user.phone">{{user.phone}}</li>
+          <li ng-if="user.skypeId">{{user.skypeId}}</li>
+          <li ng-if="user.websiteUrl">
+            <a href="{{user.websiteUrl}}" target="_blank">{{user.websiteUrl}}</a>
+          </li>
         </div>
         <div class="clear"></div>
       </div>
     </div>
     <div class="clear"></div>
   </div>
-  <div>
+  <div ng-if="user.aboutMe">
     <span class="profile-text head-info">About Me</span>
     <div class="description">
       <p>{{user.aboutMe}}</p>

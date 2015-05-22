@@ -41,7 +41,7 @@ angular.module('pmtoolApp')
 	$scope.user = $rootScope.user;
 	$scope.userIds = [];
 
-	Project.fetchProject($routeParams.id).then(function(response){
+	Project.fetchProject($routeParams.id ).then(function(response){
 			$scope.project = response;
 		}).catch(function(err){
 			console.log(err);

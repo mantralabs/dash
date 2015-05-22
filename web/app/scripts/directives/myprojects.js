@@ -11,13 +11,13 @@ angular.module('pmtoolApp')
 		restrict: 'E',
 		link: function(scope, element, attrs) {
 			// scope.user=user;
-			UserService.fetchUser(userId)
-			.then(function(response){
-				scope.user = response;
-				console.log('bxv',response);
-			}).catch(function(err){
-				$scope.error = err.message;
-			});
+			// UserService.fetchUser(userId)
+			// .then(function(response){
+			// 	scope.user = response;
+			// 	console.log('bxv',response);
+			// }).catch(function(err){
+			// 	scope.error = err.message;
+			// });
 		}
     };
 });
