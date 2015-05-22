@@ -24,7 +24,7 @@
 					<div class="mycontacts-header clearfix">
 						<h2>Project members
 							<span class="number">{{project[0].users.length}}</span>
-							<span ng-if="user.role == 'admin' " class="pull-right" data-toggle="modal" data-target="#contact-list-modal" title="create new project">+</span>
+							<span ng-if="user.role == 'admin' " class="pull-right" data-toggle="modal" data-target="#contact-list-modal" ng-click = "itemsPush()" title="create new project">+</span>
 						</h2>
 						<div id="project-1" ng-repeat = "member in project[0].users | limitTo : 3"> 
 							<p class="left-column">
