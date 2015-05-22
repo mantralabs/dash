@@ -40,48 +40,28 @@ angular.module('pmtoolApp')
 
 	$scope.user = $rootScope.user;
 	$scope.userIds = [];
-
-	if($routeParams.id){
-		Project.fetchProject($routeParams.id).then(function(response){
-				$scope.project = response;
-			}).catch(function(err){
-				console.log(err);
-				$scope.error = err.message;
-			});
-	}
 	
 	//if user checked push id into array if uncheck remove from array.
 	$scope.sync = function(bool, item){
 	    if(bool){
 	      // add item
-	      $scope.userIds.push(item.id);
-	      console.log($scope.userIds);
+	      $scope.userIds.push(item.id); 
 	    } else {
 	      // remove item
 	      console.log($scope.userIds.length);
 	      for(var i=0 ; i < $scope.userIds.length; i++) {
 	        if($scope.userIds[i] == item.id){
 	          $scope.userIds.splice(i,1);
-	          console.log($scope.userIds);
 	        }
-		  } 
-		   
+	      }      
 	    }
   	};
 
-  	$scope.itemsPush = function(){
-  		for(var i=0 ; i < $scope.project[0].users.length; i++){
-			 $scope.userIds.push($scope.project[0].users[i].id)
-			 console.log($scope.userIds);
-		}
-  	}
-
-  
+  	//is checked method is used to send checkbox result true/false on checked for checkbox.
   	$scope.isChecked = function(id){
-  	  var match = false;
-      for(var i=0 ; i < $scope.project[0].users.length; i++) {
-      	console.log("ischecked inside loop")
-        if($scope.project[0].users[i].id == id){
+      var match = false;
+      for(var i=0 ; i < $scope.userIds.length; i++) {
+        if($scope.userIds[i].id == id){
           match = true;
         }
       }
@@ -89,9 +69,10 @@ angular.module('pmtoolApp')
   	};
 
 	$scope.addMemberToProject = function(){
+		// console.log($scope.userIds);
 		$scope.projectId = $routeParams.id;
 		var data = {
-			"users" : $scope.userIds 
+			"users" : $scope.userIds
 		};
 
 		Project.addProjectMember($scope.projectId,data).then(function(response){
@@ -99,15 +80,16 @@ angular.module('pmtoolApp')
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
-		
 	};
 
+	if($routeParams.id){
 	Project.fetchProject($routeParams.id).then(function(response){
 			$scope.project = response;
 		}).catch(function(err){
 			console.log(err);
 			$scope.error = err.message;
 		});
+	}
 
 	$scope.editProject = function(name,description,workspace){
 		Project.edit({name,description,workspace})
