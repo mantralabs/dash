@@ -63,7 +63,7 @@ angular
 
       .when('/workspaces/:id',{
         templateUrl:'views/workspace-home.html',
-        controller:'getWorkspaceController',
+        controller:'workspaceCtrl',
         resolve : resolve
       })
 
