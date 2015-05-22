@@ -102,6 +102,13 @@ angular.module('pmtoolApp')
 			$location.path('/profile');
 		});
 	}
+	UserService.fetchUser($scope.user.id)
+		.then(function(response){
+			$scope.contact = response;
+		}).catch(function(err){
+			$scope.error = err.message;
+			$location.path('/profile');
+		});
 
 	//First Time Registration Method to set Name and Password.
 	$scope.basicInfo = function(data){

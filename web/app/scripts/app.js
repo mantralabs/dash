@@ -35,7 +35,13 @@ angular
       .when('/basicInfo/:hashKey',{
         templateUrl :'views/basic-info.html',
         controller:'userController'
-      })  
+      }) 
+
+      .when('/myprojects', {
+        templateUrl: 'views/projects-assigned.html',
+        controller:'userController',
+        resolve: resolve
+      }) 
 
       .when('/projects', {
         templateUrl: 'views/projects.html',

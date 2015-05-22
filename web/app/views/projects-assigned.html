@@ -1,0 +1,22 @@
+<div class="empty-div"> 
+  <headernavigation></headernavigation>
+</div>
+<div class="content">
+    <sidebar></sidebar>
+    <div class="common-div">
+	    <div class="home-page3">
+			<div class="home-page3-head">
+				<span>My Projects</span>
+			</div>
+
+			<div id="my-projects">
+				<div id="project-1" ng-repeat = "project in contact.projects"> 
+					<p class="left-column">
+						<a href="#/project/{{project.id}}">{{project.name}}</a>
+					</p>
+				</div><!--end project-1-->
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include="'views/modals.html'"></div>
