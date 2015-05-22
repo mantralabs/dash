@@ -130,7 +130,7 @@ angular.module('pmtoolApp')
 
       var deferred = $q.defer();
       
-      $http.post('api/resetPasswordInitiate', data)
+      $http.post('api/reset_password_initiate', data)
       .success(function(result){
         console.log(result);
         deferred.resolve(result);
@@ -147,7 +147,7 @@ angular.module('pmtoolApp')
 
       var deferred = $q.defer();
       
-      $http.put('api/resetPassword', data)
+      $http.put('api/reset_password', data)
       .success(function(result){
         console.log(result);
         deferred.resolve(result);
