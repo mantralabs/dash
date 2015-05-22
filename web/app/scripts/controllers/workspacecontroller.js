@@ -42,10 +42,9 @@ angular.module('pmtoolApp')
 		$location.path('/workspaces');
 	}
 
-})
+	var path= $location.path();
 
-.controller('getWorkspaceController', function ($scope, Workspace, $rootScope, $routeParams) {
-
+	if($routeParams.id && path.indexOf('workspace')>0 ){
 	Workspace.fetchWorkspace($routeParams.id)
 		.then(function(response){
 			$scope.workspace = response;
@@ -55,27 +54,27 @@ angular.module('pmtoolApp')
 			console.log(err);
 			$scope.error = err.message;
 		});
-
-		$scope.editWorkspace = function(workspaceName){
-			Workspace.edit({"name":workspaceName})
-			.then(function(response){
-				// $scope.workspace = response;
-				// $scope.projects = response[0].projects;
-				Workspace.fetchWorkspace($routeParams.id)
-					.then(function(response){
-						$scope.workspace = response;
-						$scope.projects = response[0].projects;
-					})
-					.catch(function(err){
-						console.log(err);
-						$scope.error = err.message;
-					});
-				$('#edit-workspace-modal').modal('hide');
-			})
-			.catch(function(err){
-				$scope.error = err.message;
-				console.log($scope.error);
-			});
-		};
 	}
-)
+
+	$scope.editWorkspace = function(workspaceName){
+		Workspace.edit({"name":workspaceName})
+		.then(function(response){
+			// $scope.workspace = response;
+			// $scope.projects = response[0].projects;
+			Workspace.fetchWorkspace($routeParams.id)
+				.then(function(response){
+					$scope.workspace = response;
+					$scope.projects = response[0].projects;
+				})
+				.catch(function(err){
+					console.log(err);
+					$scope.error = err.message;
+				});
+			$('#edit-workspace-modal').modal('hide');
+		})
+		.catch(function(err){
+			$scope.error = err.message;
+			console.log($scope.error);
+		});
+	};
+})
