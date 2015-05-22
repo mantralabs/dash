@@ -45,7 +45,7 @@ angular
 
       .when('/project/:id', {
         templateUrl: 'views/project.html',
-        controller:'projectController',
+        controller:'getprojectController',
         resolve: resolve
       })
 

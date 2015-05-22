@@ -11,13 +11,14 @@ angular.module('pmtoolApp')
 		restrict: 'E',
 		link: function(scope, element, attrs) {
 			scope.user=user;
-				if(user.role == 'admin'){
-				Project.fetch().then(function(response){
-					console.log(response);
-					scope.projects = response;
-				}).catch(function(err){
-					scope.error = err.message;
-				});
+			console.log('myproject dir',user);
+				// if(user.role == 'admin'){
+				// Project.fetch().then(function(response){
+				// 	console.log(response);
+				// 	scope.projects = response;
+				// }).catch(function(err){
+				// 	scope.error = err.message;
+				// });
 			}
 
 			// Contact.fetchOther(userId).then(function(response){
@@ -25,6 +26,6 @@ angular.module('pmtoolApp')
 			// }).catch(function(err){
 			// 	scope.error=err.message;
 			// });
-		}
+		// }
     };
   });
