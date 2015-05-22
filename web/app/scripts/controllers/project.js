@@ -72,9 +72,8 @@ angular.module('pmtoolApp')
 			 $scope.userIds.push($scope.project[0].users[i].id)
 			 console.log($scope.userIds);
 		}
-  	}
+  	};
 
-  
   	$scope.isChecked = function(id){
   	  var match = false;
       for(var i=0 ; i < $scope.project[0].users.length; i++) {
@@ -97,7 +96,7 @@ angular.module('pmtoolApp')
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
-		
+
 	};
 
 	Project.fetchProject($routeParams.id).then(function(response){
