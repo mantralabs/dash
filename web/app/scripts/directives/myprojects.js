@@ -3,7 +3,7 @@
 angular.module('pmtoolApp')
   .directive('myProjects', function (Project, $rootScope, $routeParams, $cookieStore, Contact, UserService) {
   	
-  	var user = $rootScope.user;
+  	var user = $rootScope.isLoggedIn;
 	var	userId= user.id;
 
     return {

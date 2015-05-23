@@ -179,7 +179,7 @@ angular.module('pmtoolApp')
       
       $http.get('/api/status')
       .success(function(result){
-        $rootScope.user = result; 
+        $rootScope.isLoggedIn = result; 
         deferred.resolve();
       })
       .error(function(err){

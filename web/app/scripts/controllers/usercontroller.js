@@ -6,7 +6,7 @@ angular.module('pmtoolApp')
 
 	UserService.fetchProfile()
 		.then(function(response){
-			$scope.loginUser = response;
+			$scope.user = response;
 			console.log("$scope.loginUser",$scope.loginUser);
 		}).catch(function(err){
 			$scope.error = err.message;
@@ -14,7 +14,7 @@ angular.module('pmtoolApp')
 		});
 
 		
-	$scope.user = $rootScope.user;
+	// $scope.user = $rootScope.user;
 	// console.log($scope.user);
 
 	//User Login Method

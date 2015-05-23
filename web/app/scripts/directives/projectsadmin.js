@@ -2,13 +2,13 @@
 
 angular.module('pmtoolApp')
 
-.directive('myProjectsadmin', function (Project, $rootScope, $routeParams, $cookieStore, Contact) {
+.directive('projectsAdmin', function (Project, $rootScope, $routeParams, $cookieStore, Contact) {
   	
-  	var user = $rootScope.user;
+  	var user = $rootScope.isLoggedIn;
 	var	userId= user.id;
 
     return {
-		templateUrl:'views/my-projectsadmin.html',
+		templateUrl:'views/projectsadmin.html',
 		restrict: 'E',
 		link: function(scope, element, attrs) {
 			scope.user=user;

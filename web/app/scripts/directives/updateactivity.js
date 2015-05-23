@@ -4,7 +4,7 @@ angular.module('pmtoolApp')
   	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
 
 		
-		var	user= $rootScope.user.id;
+		var	user= $rootScope.isLoggedIn.id;
 
 	    return {
 	      	templateUrl: 'views/updateactivity.html',
