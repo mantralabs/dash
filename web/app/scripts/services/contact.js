@@ -49,7 +49,7 @@ angular.module('pmtoolApp')
     this.fetchOther = function(id){
 		var deferred = $q.defer();
 		
-		$http.get('/api/user/'+id)
+		$http.get('/api/user_info/'+id)
 		.success(function(data){
 			deferred.resolve(data);
 		})

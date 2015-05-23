@@ -35,6 +35,19 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    //To fetch logedin user profile details
+    this.fetchProfile =function(){
+      var deferred = $q.defer();
+      $http.get('/api/account')
+      .success(function(response){
+        deferred.resolve(response)
+      })
+      .error(function(err){
+        deferred.reject(err);
+      })
+      return deferred.promise;
+    }
+
     // To update the userprofile who is currently logged in
     this.updateProfile = function (userData) {
 
@@ -42,7 +55,7 @@ angular.module('pmtoolApp')
 
       $http.put('/api/user', userData)
       .success(function(response){
-        console.log('sdgfsgfs',response);
+        console.log('userservice',response);
         deferred.resolve(response);
       })
       .error(function(err) {
@@ -75,7 +88,7 @@ angular.module('pmtoolApp')
       console.log('forgot-password');
     };
 
-    //To fetch all the user on the App
+    //To fetch all the user on the App for (admin)
     this.fetch = function(){
 
       var deferred = $q.defer();
@@ -165,7 +178,7 @@ angular.module('pmtoolApp')
       
       $http.get('/api/status')
       .success(function(result){
-        $rootScope.user = result;
+        $rootScope.user = result; 
         deferred.resolve();
       })
       .error(function(err){
