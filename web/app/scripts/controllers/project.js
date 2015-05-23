@@ -40,9 +40,16 @@ angular.module('pmtoolApp')
 
 	$scope.user = $rootScope.isLoggedIn;
 	$scope.userIds = [];
+	$scope.projectUsersList = [];
+	$scope.loggedUser =  $scope.user.id;
 
-	Project.fetchProject($routeParams.id).then(function(response){
+	Project.fetchProject($routeParams.id ).then(function(response){
 			$scope.project = response;
+			console.log("getprojectController",$scope.project);
+			for(var j=0 ; j < $scope.project[0].users.length; j++){
+				$scope.projectUsersList.push($scope.project[0].users[j].id)
+				console.log($scope.projectUsersList);
+			}
 		}).catch(function(err){
 			console.log(err);
 			$scope.error = err.message;

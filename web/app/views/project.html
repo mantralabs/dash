@@ -41,7 +41,9 @@
 				</div>
     		</div>
 	  		<div id="right" class="clearfix">
-	        	<updateactivity></updateactivity>
+	        	<div ng-if = "projectUsersList.indexOf(loggedUser) > -1">
+	        		<updateactivity></updateactivity>
+	        	</div>
 		        <div id="activities">
 		          <activities></activities>
 		        </div><!--end activities-->
