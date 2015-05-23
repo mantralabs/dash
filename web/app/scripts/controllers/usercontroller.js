@@ -144,8 +144,7 @@ angular.module('pmtoolApp')
 		console.log(email);
 		UserService.resetPasswordIntiate(email)
 		.then(function(response){
-			console.log(response);
-			$location.path('/')
+			$location.path('/notifyemail');
 		}).catch(function(err){
 			$scope.error = err.message;
 			console.log(err);

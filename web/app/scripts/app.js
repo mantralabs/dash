@@ -178,6 +178,11 @@ angular
         controller:'resetPasswordCtrl'
       })
 
+      .when('/notifyemail',{
+        templateUrl:'views/email-notifcation.html',
+        controller:'resetPasswordCtrl'
+      })
+
       .otherwise({
         redirectTo: '/'
       });
