@@ -24,7 +24,7 @@ angular.module('pmtoolApp')
 					scope.error = err.message;
 				});
 
-				Contact.fetchOther(user).then(function(response){
+				UserService.fetchProfile().then(function(response){
 					scope.contact = response;
 						}).catch(function(err){
 							scope.error=err.message;
