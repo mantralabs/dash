@@ -12,13 +12,13 @@ angular.module('pmtoolApp')
 		restrict: 'E',
 		link: function(scope, element, attrs) {
 			scope.user=user;
-			console.log('myproject dir',user);
-			Project.fetch().then(function(response){
-					console.log(response);
-					scope.projects = response;
-				}).catch(function(err){
-					scope.error = err.message;
-				});
+			Project.fetch()
+			.then(function(response){
+				console.log(response);
+				scope.projects = response;
+			}).catch(function(err){
+				scope.error = err.message;
+			});
 		}
     };
   });

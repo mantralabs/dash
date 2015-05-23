@@ -3,5 +3,5 @@
 angular.module('pmtoolApp')
   .controller('homePageCtrl', function ($scope, $cookieStore, $rootScope, Project) {
 
-	$scope.user = $rootScope.user;
+	// $scope.user = $rootScope.user;
 });

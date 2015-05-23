@@ -13,10 +13,8 @@ angular.module('pmtoolApp')
 			UserService.fetchProfile()
 				.then(function(response){
 					scope.user = response;
-					console.log("scope.loginUser",scope.loginUser);
 				}).catch(function(err){
-					scope.error = err.message;
-				
+					scope.error = err.message;				
 			});
 		}
     };
