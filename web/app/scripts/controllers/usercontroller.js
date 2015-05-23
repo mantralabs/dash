@@ -4,6 +4,16 @@
 angular.module('pmtoolApp')
 .controller('userController',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
+	UserService.fetchProfile()
+		.then(function(response){
+			$scope.loginUser = response;
+			console.log("$scope.loginUser",$scope.loginUser);
+		}).catch(function(err){
+			$scope.error = err.message;
+			
+		});
+
+		
 	$scope.user = $rootScope.user;
 	// console.log($scope.user);
 
@@ -32,6 +42,9 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		})
 	};
+
+
+
 
 	//edit profile method
 	$scope.updateUser = function(user){
@@ -102,13 +115,7 @@ angular.module('pmtoolApp')
 			$location.path('/profile');
 		});
 	}
-	// UserService.fetchUser($scope.user.id)
-	// 	.then(function(response){
-	// 		$scope.contact = response;
-	// 	}).catch(function(err){
-	// 		$scope.error = err.message;
-	// 		$location.path('/profile');
-	// 	});
+	
 
 	//First Time Registration Method to set Name and Password.
 	$scope.basicInfo = function(data){
@@ -123,6 +130,8 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		})
 	};
+
+
 })
 
 .controller('resetPasswordCtrl', function ($scope, $location, UserService, $routeParams){

@@ -10,14 +10,14 @@ angular.module('pmtoolApp')
 		templateUrl:'views/my-projects.html',
 		restrict: 'E',
 		link: function(scope, element, attrs) {
-			// scope.user=user;
-			// UserService.fetchUser(userId)
-			// .then(function(response){
-			// 	scope.user = response;
-			// 	console.log('bxv',response);
-			// }).catch(function(err){
-			// 	scope.error = err.message;
-			// });
+			UserService.fetchProfile()
+				.then(function(response){
+					scope.user = response;
+					console.log("scope.loginUser",scope.loginUser);
+				}).catch(function(err){
+					scope.error = err.message;
+				
+			});
 		}
     };
 });

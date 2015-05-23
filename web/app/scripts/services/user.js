@@ -40,6 +40,7 @@ angular.module('pmtoolApp')
       var deferred = $q.defer();
       $http.get('/api/account')
       .success(function(response){
+        console.log(response);
         deferred.resolve(response)
       })
       .error(function(err){
