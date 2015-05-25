@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
+  	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, UserService, Activity) {
 
 		var	user= $rootScope.isLoggedIn.id;
 
@@ -44,7 +44,7 @@ angular.module('pmtoolApp')
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};	      		
 
-	      		scope.selectedProject = function(description, projectId){
+	      		scope.sendActivity = function(description, projectId){
 	      			var activityData = {
 	      				description: description, 
 	      				project: projectId,
@@ -63,7 +63,7 @@ angular.module('pmtoolApp')
 
 	      		scope.path = $location.path();
 	      		
-      			scope.update = function(description){
+      			scope.updateInProject = function(description){
       				
 	      			var projectId = $routeParams.id;
 	      			var activityData = {
@@ -71,9 +71,10 @@ angular.module('pmtoolApp')
 	      				project: projectId,
 	      				user: user
 	      			}
-	      			console.log(activityData);
 	      			Activity.addActivity(activityData)
 	      			.then(function(response){
+	      				console.log('inside updateInProject',response);
+	      				// scope.project.activity.push(response.activity);
 	      			}).catch(function(err){
 	  					console.log(err);
 	      			})

@@ -29,15 +29,15 @@
 
       <div class="update-footer-btn">
         <button type="submit" id="home-page-btn" ng-if="path.indexOf('home')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
-        <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="update(activity.description)"> Update</button>
+        <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateInProject(activity.description)"> Update</button>
         <div class="list-projects hide">
           <ul>
             <li ng-if="contact.projects.length == 0">There are no Projects</li>
-            <li ng-repeat = "project in contact.projects" ng-click="selectedProject(activity.description, project.id)">{{project.name}}</li>  
+            <li ng-repeat = "project in contact.projects" ng-click="sendActivity(activity.description, project.id)">{{project.name}}</li>  
           </ul>
           <!-- <ul ng-if="user.role == 'admin'">
             <li ng-if="projects.length == 0">There are no Projects</li>
-            <li ng-repeat = "project in projects" ng-click="selectedProject(activity.description, project.id)">{{project.name}}</li>  
+            <li ng-repeat = "project in projects" ng-click="sendActivity(activity.description, project.id)">{{project.name}}</li>  
           </ul> -->
         </div>
       </div>
