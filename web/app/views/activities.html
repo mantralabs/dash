@@ -9,9 +9,8 @@
 				<img src="img/img-5.png" alt="profile-pic">
 			</div>
 			<div class="acts-discription" >
-				<p></p>
-				<p>
-					<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>updated an activity:  {{activity.activity.description}} in <a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a></p>
+				<p style="margin:25px 0px;">
+					<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>updated an activity:  {{activity.description}} in <a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a></p>
 				<ul>
 					<li class="like-comment timer">{{activity.createdAt | date}}</li>
 					<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>

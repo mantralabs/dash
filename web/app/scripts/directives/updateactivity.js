@@ -48,6 +48,7 @@ angular.module('pmtoolApp')
 
 	      			Activity.addActivity(activityData)
 	      			.then(function(response){
+	      				console.log('sdgfasghjd',response);
 						scope.activities1.push(response);
 						$('.list-projects').removeClass('show');
 						$('#activity-description').val("");
