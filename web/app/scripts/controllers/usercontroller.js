@@ -110,7 +110,7 @@ angular.module('pmtoolApp')
 		});
 	};
 
-	if($rootScope.isLoggedIn){
+	if($rootScope.user){
 		UserService.fetchProfile()
 		.then(function(response){
 			$scope.user = response;

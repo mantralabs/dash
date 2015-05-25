@@ -3,7 +3,7 @@
 angular.module('pmtoolApp')
   .controller('projectController', function ($scope, $cookieStore, Project, Contact, $rootScope, $routeParams) {
 	
-	$scope.user = $rootScope.isLoggedIn;
+	$scope.user = $rootScope.user;
 
 	Project.fetch().then(function(response){
 		$scope.projects = response;	
@@ -38,7 +38,7 @@ angular.module('pmtoolApp')
 
 .controller('getprojectController', function ($scope, Project, Contact, $rootScope, $routeParams, $cookieStore) {
 
-	$scope.user = $rootScope.isLoggedIn;
+	$scope.user = $rootScope.user;
 	$scope.userIds = [];
 	$scope.projectUsersList = [];
 	$scope.loggedUser =  $scope.user.id;

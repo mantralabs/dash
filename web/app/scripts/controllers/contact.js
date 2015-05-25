@@ -4,7 +4,7 @@ angular.module('pmtoolApp')
   .controller('contactController', function ($scope, $rootScope, $routeParams, $cookieStore, Contact) {
 	// $scope.contacts = Contact.fetch();
 
-	$scope.user = $rootScope.isLoggedIn;
+	$scope.user = $rootScope.user;
 
 	Contact.fetch().then(function(response){
 		$scope.contacts = response;
