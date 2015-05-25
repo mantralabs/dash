@@ -169,8 +169,8 @@ angular.module('pmtoolApp')
       var deferred = $q.defer();
       
       $http.get('/api/status')
-      .success(function(result){
-        $rootScope.isLoggedIn = result; 
+      .success(function(user){
+        $rootScope.user = user;
         deferred.resolve();
       })
       .error(function(err){

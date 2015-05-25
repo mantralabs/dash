@@ -7,12 +7,13 @@ angular
     'ngSanitize',
     'ngRoute'
   ])
-  .config([ '$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+  .config(function($routeProvider, $locationProvider) {
     
     var resolve = {
       auth: function ($location, UserService) {
         return UserService.isLoggedIn()
+        .then(function(user){
+        })
         .catch(function(err){
           $location.path('/');
         });
@@ -186,4 +187,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }]);
+  });

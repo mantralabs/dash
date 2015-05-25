@@ -5,8 +5,12 @@ angular.module('pmtoolApp')
     return {
       templateUrl: 'views/header-navigation.html',
       restrict: 'E',
+      scope: {
+      	user: '=userdata'
+      },
       
-      link: function(scope, element, attrs, $cookieStore) {
+      link: function(scope, element, attrs) {
+      	console.log('user', scope.user);
       }
     };
   }); 
