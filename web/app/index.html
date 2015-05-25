@@ -11,13 +11,12 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <!-- <link rel="stylesheet" href="styles/main-yo.css"> -->
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="styles/css/main.css">
     <link rel="stylesheet" href="styles/css/style.css">
     <!-- <link rel="stylesheet" href="styles/css/normalize.css"> -->
@@ -52,11 +51,13 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -101,18 +102,5 @@
         
         <script src="scripts/controllers/activity.js"></script>
         <!-- endbuild -->
-
-        <script>
-            // $(document).ready(function(){
-            //    // var windowH = $(window).height();
-            //     $('.content').height($(window).height());
-            // });
-                // var windowH = $(window).height();
-                // console.log(windowH);
-                // var wrapperH = $('.common-div').height();
-                // if(windowH > wrapperH) {                            
-                //     $('.common-div').css({'height':($(window).height())+'px'});
-                // }
-        </script>
 </body>
 </html>

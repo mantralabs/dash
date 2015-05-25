@@ -1,19 +1,20 @@
 <div class="empty-div"> 
-  <headernavigation></headernavigation>
+  <headernavigation userdata="user"></headernavigation>
 </div>
   <div class="content">
     <sidebar></sidebar>
     <div class="common-div">
     <div class="profile">
   <div class="profile-head">
-    <span class="name">{{contact.name}}</span>
+    <span class="name">{{profile.name}}</span>
     <div class="clear"></div>
   </div>
   <div class="basic-profile">
     <div class="bio">
-      <img class="pro-pic" src="img/img-6.png">
+      <img ng-if="profile.avatar && profile.avatar != null" class="pro-pic" src="{{profile.avatar}}">
+      <img ng-if="!profile.avatar || profile.avatar == '' || profile.avatar == undefined || profile.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
       <div class="info">
-        <span class="designation" class="profile-text">{{contact.designation}}</span>
+        <span class="designation" class="profile-text">{{profile.designation}}</span>
         <li><pre><img src="img/Assign.png"> Assign Task</pre></li>
         <li><pre>   <img src="../img/mail.png"> Message</pre></li>
       </div>
@@ -25,25 +26,25 @@
       <div class="contact-left-right">
         <div class="contact-grey-left">
           <li>Email</li>
-          <li ng-if="contact.phone">Mobile</li>
-          <li ng-if="contact.skypeId">Skype</li>
-          <li ng-if="contact.websiteUrl">Web</li>
+          <li ng-if="profile.phone">Mobile</li>
+          <li ng-if="profile.skypeId">Skype</li>
+          <li ng-if="profile.websiteUrl">Web</li>
         </div>
         <div class="contact-grey-right">
-          <li>{{contact.email}}</li>
-          <li ng-if="contact.phone">{{contact.phone}}</li>
-          <li ng-if="contact.skypeId">sudhakar.ponnusamy41</li>
-          <li ng-if="contact.websiteUrl">https://www.behance.net/sudhakar</li>
+          <li>{{profile.email}}</li>
+          <li ng-if="profile.phone">{{profile.phone}}</li>
+          <li ng-if="profile.skypeId">sudhakar.ponnusamy41</li>
+          <li ng-if="profile.websiteUrl">https://www.behance.net/sudhakar</li>
         </div>
         <div class="clear"></div>
       </div>
     </div>
     <div class="clear"></div>
   </div>
-  <div ng-if="contact.aboutMe">
+  <div ng-if="profile.aboutMe">
     <span class="profile-text head-info">About Me</span>
     <div class="description">
-      <p>{{contact.aboutMe}}</p>
+      <p>{{profile.aboutMe}}</p>
     </div>
   </div>
   </div>

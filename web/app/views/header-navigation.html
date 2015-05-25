@@ -1,7 +1,7 @@
 <div ng-controller="navigationCtrl" id="fixed">
 	
 	<div class="logo pull-left" style="margin-left:30px;">
-		<img src="img/dash-black-logo.png" width="90px"alt="Dash Black Logo">
+		<a href="/#/home"><img src="img/dash-black-logo.png" width="90px"alt="Dash Black Logo"></a>
 		<!-- <h1></h1>  -->
 	</div>
 
@@ -24,11 +24,12 @@
 	
 	<div class="user-profile-dd">
 		<div class="user-profile-dd-head">
-			<div class="user-profile-dd-head-left"> 
-				<img ng-if="user.avatar != null" class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{user.avatar}}">
+			<div class="user-profile-dd-head-left">
+
+				<img ng-if="user.avatar" class="pro-pic" src="{{user.avatar}}">
             
             	<img ng-if="user.avatar == '' || user.avatar == undefined || user.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic"></div>
-			<div class="user-profile-dd-head-right" ng-controller="userController"><span>{{user.name}}</span>
+			<div class="user-profile-dd-head-right"><span>{{user.name}}</span>
 			</div>
 			<div class="clear"></div>
 		</div>

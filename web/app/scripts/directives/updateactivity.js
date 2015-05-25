@@ -1,10 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
-
-		var	user= $rootScope.isLoggedIn.id;
-
+  	.directive('updateactivity', function ($rootScope, $routeParams, $location, Project, UserService, Activity) {
 	    return {
 	      	templateUrl: 'views/updateactivity.html',
 	      	restrict: 'CE',
@@ -13,9 +10,6 @@ angular.module('pmtoolApp')
 			},
 
 	      	link: function(scope, element, attrs) {
-
-	      		element.bind('click', function(event) {
-	      		});
 
 	      		//to fetch projects list to load into the dropdown
 	      		Project.fetch().then(function(response){
@@ -48,7 +42,7 @@ angular.module('pmtoolApp')
 	      			var activityData = {
 	      				description: description, 
 	      				project: projectId,
-	      				user: user
+	      				user: $rootScope.user.id
 	      			};
 
 	      			Activity.addActivity(activityData)
@@ -69,7 +63,7 @@ angular.module('pmtoolApp')
 	      			var activityData = {
 	      				description: description,
 	      				project: projectId,
-	      				user: user
+	      				user: $rootScope.user.id
 	      			}
 	      			console.log(activityData);
 	      			Activity.addActivity(activityData)

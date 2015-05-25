@@ -37,7 +37,6 @@ angular.module('pmtoolApp')
 
 		UserService.updateProfile(user)
 		.then(function(response){
-			$rootScope.user = response[0];
 			$scope.user = response[0];
 			$location.path('/profile');
 		}).catch(function(err){
@@ -86,8 +85,8 @@ angular.module('pmtoolApp')
   	var path = $location.path();
   	if((path.indexOf('profile')  > 0) && $routeParams.id){
 	  	UserService.fetchUser($routeParams.id)
-		.then(function(response){
-			$scope.contact = response;
+		.then(function(profile){
+			$scope.profile = profile;
 		}).catch(function(err){
 			$scope.error = err.message;
 			$location.path('/profile');

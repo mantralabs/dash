@@ -229,11 +229,11 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
     },
 
     // The following *-min tasks produce minified files in the dist folder
-    cssmin: {
-      options: {
-        root: '<%= yeoman.app %>'
-      }
-    },
+    // cssmin: {
+    //   options: {
+    //     root: '<%= yeoman.app %>'
+    //   }
+    // },
 
     imagemin: {
       dist: {
@@ -277,16 +277,16 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
     // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
     // things like resolve or inject so those have to be done manually.
-    ngmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
+    // ngmin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '.tmp/concat/scripts',
+    //       src: '*.js',
+    //       dest: '.tmp/concat/scripts'
+    //     }]
+    //   }
+    // },
 
     // Replace Google CDN references
     cdnify: {
@@ -414,12 +414,12 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
-    'ngmin',
+    // 'concat',
+    // 'ngmin',
     'copy:dist',
     'cdnify',
-    'cssmin',
-    'uglify',
+    // 'cssmin',
+    // 'uglify',
     'rev',
     'usemin',
     'htmlmin'
