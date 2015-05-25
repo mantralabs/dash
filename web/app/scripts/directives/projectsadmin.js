@@ -10,11 +10,11 @@ angular.module('pmtoolApp')
     return {
 		templateUrl:'views/projectsadmin.html',
 		restrict: 'E',
+		
 		link: function(scope, element, attrs) {
 			scope.user=user;
 			Project.fetch()
 			.then(function(response){
-				console.log(response);
 				scope.projects = response;
 			}).catch(function(err){
 				scope.error = err.message;

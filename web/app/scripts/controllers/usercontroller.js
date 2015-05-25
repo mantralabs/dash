@@ -9,7 +9,6 @@ angular.module('pmtoolApp')
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(response){
-				console.log(response);
 				$scope.user = response;
 				$location.path('/home');
 			}).catch(function(err){
@@ -27,7 +26,7 @@ angular.module('pmtoolApp')
 			$location.path('/');
 		}).catch(function(err){
 			$scope.error = err.message;
-		})
+		});
 	};
 
 	//edit profile method
@@ -69,7 +68,6 @@ angular.module('pmtoolApp')
 		    		UserService.uploadAvatar(imageData)
 		     		.then(function(response){
 	     				if(response){
-	     					console.log(response);	
 			     			$scope.imageUploadStatus = false;
 	     				}
 		     			$scope.avatarImageName = response.name;
@@ -82,7 +80,6 @@ angular.module('pmtoolApp')
   	};
 
   	$scope.deleteImage = function(data){
-  		console.log(data);
   	};
 
   	// Fetch Particular User
@@ -100,15 +97,18 @@ angular.module('pmtoolApp')
 	//First Time Registration Method to set Name and Password.
 	$scope.basicInfo = function(data){
 
-		var user = {name : data.name, password : data.password, hashKey : $routeParams.hashKey}
+		var user = {
+			name : data.name, 
+			password : data.password, 
+			hashKey : $routeParams.hashKey
+		};
 
 		UserService.basicInfo(user)
 		.then(function(response){
-			console.log(response);
 			$location.path('/');
 		}).catch(function(err){
 			$scope.error = err.message;
-		})
+		});
 	};
 
 	if($rootScope.isLoggedIn){
@@ -128,8 +128,7 @@ angular.module('pmtoolApp')
 		var data = {
 			hashKey : $routeParams.hashKey,
 			password : password
-		}	
-		console.log(data);
+		};
 		UserService.resetPassword(data)
 		.then(function(response){
 			$location.path('/');
@@ -141,7 +140,6 @@ angular.module('pmtoolApp')
 	};
 
 	$scope.resetPasswordIntiate = function(email){
-		console.log(email);
 		UserService.resetPasswordIntiate(email)
 		.then(function(response){
 			$location.path('/notifyemail');

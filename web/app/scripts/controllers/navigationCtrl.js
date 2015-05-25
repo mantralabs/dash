@@ -2,8 +2,6 @@
 
 angular.module('pmtoolApp')
 	.controller('navigationCtrl', function ($scope, $location, $rootScope, $cookieStore, UserService){
-
-		$scope.user = $rootScope.user;
 		
 		$scope.dropdownprofile = function(){
 			$(".user-profile-dd").slideToggle();

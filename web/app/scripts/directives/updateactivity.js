@@ -3,18 +3,18 @@
 angular.module('pmtoolApp')
   	.directive('updateactivity', function ($rootScope, $location, $routeParams, Project, Contact, UserService, $cookieStore, Activity) {
 
-		
 		var	user= $rootScope.isLoggedIn.id;
 
 	    return {
 	      	templateUrl: 'views/updateactivity.html',
 	      	restrict: 'CE',
-	  //     	scope: {
-   //          	projects: '=projects'
-			// },
+	      	scope: {
+            	activities1: '=activities1'
+			},
+
 	      	link: function(scope, element, attrs) {
+
 	      		element.bind('click', function(event) {
-	      			// console.log('even triggred');
 	      		});
 
 	      		//to fetch projects list to load into the dropdown
@@ -24,16 +24,17 @@ angular.module('pmtoolApp')
 					scope.error = err.message;
 				});
 
-				UserService.fetchProfile().then(function(response){
+				UserService.fetchProfile()
+				.then(function(response){
 					scope.contact = response;
-						}).catch(function(err){
-							scope.error=err.message;
-						});
+				}).catch(function(err){
+					scope.error=err.message;
+				});
 
 				//get list of users
-				UserService.fetch().then(function(response){
+				UserService.fetch()
+				.then(function(response){
 					scope.users = response;
-					// console.log(response);
 				}).catch(function(err){
 					scope.error = err.message;
 				});
@@ -41,42 +42,43 @@ angular.module('pmtoolApp')
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
-	      		};
-	      		
+	      		};	      		
 
-	      		scope.selectedProject = function(description,project){
-	      			var activityData = {description,project,user}
-	      			Activity.addActivity(activityData).then(function(response){
-	      				Activity.fetch().then(function(response){
-							scope.activities = response;
-							$('.list-projects').removeClass('show');
-							$('#activity-description').val("");
-						}).catch(function(err){
-							scope.error = err.message;
-						});
+	      		scope.selectedProject = function(description, projectId){
+	      			var activityData = {
+	      				description: description, 
+	      				project: projectId,
+	      				user: user
+	      			};
+
+	      			Activity.addActivity(activityData)
+	      			.then(function(response){
+						scope.activities1.push(response);
+						$('.list-projects').removeClass('show');
+						$('#activity-description').val("");
 	      			}).catch(function(err){
       					console.log(err);
 	      			})
 	      		}
+
 	      		scope.path = $location.path();
 	      		
-
       			scope.update = function(description){
-	      			var project = $routeParams.id;
-	      			var activityData = {description,project,user}
+      				
+	      			var projectId = $routeParams.id;
+	      			var activityData = {
+	      				description: description,
+	      				project: projectId,
+	      				user: user
+	      			}
 	      			console.log(activityData);
-	      			Activity.addActivity(activityData).then(function(response){
-	      				Activity.fetch().then(function(response){
-							scope.activities = response;
-						}).catch(function(err){
-							scope.error = err.message;
-						});
+	      			Activity.addActivity(activityData)
+	      			.then(function(response){
 	      			}).catch(function(err){
 	  					console.log(err);
 	      			})
 	      		}
 	      	}
-
 	    };
 	}
 );

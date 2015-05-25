@@ -40,7 +40,6 @@ angular.module('pmtoolApp')
       var deferred = $q.defer();
       $http.get('/api/account')
       .success(function(response){
-        console.log(response);
         deferred.resolve(response)
       })
       .error(function(err){
@@ -56,7 +55,6 @@ angular.module('pmtoolApp')
 
       $http.put('/api/user', userData)
       .success(function(response){
-        console.log('userservice',response);
         deferred.resolve(response);
       })
       .error(function(err) {
@@ -69,8 +67,6 @@ angular.module('pmtoolApp')
     //this request will be sent when user loads image in file upload elem.
     this.uploadAvatar = function(data){
         
-        console.log('in', data);
-
         var deferred = $q.defer();
         
         $http.post('/api/avatar', data)
@@ -86,7 +82,6 @@ angular.module('pmtoolApp')
 
 
     this.forgotPassword = function(){
-      console.log('forgot-password');
     };
 
     //To fetch all the user on the App for (admin)
@@ -128,7 +123,6 @@ angular.module('pmtoolApp')
       
       $http.put('/api/basic_info', user)
       .success(function(response){
-        console.log(response);
         deferred.resolve(response);
       }).error(function(err) {
         deferred.reject(err);
@@ -139,13 +133,11 @@ angular.module('pmtoolApp')
 
     //reset password or forgot password
     this.resetPasswordIntiate = function(data){
-      console.log(data);
 
       var deferred = $q.defer();
       
       $http.post('api/reset_password_initiate', data)
       .success(function(result){
-        console.log(result);
         deferred.resolve(result);
       })
       .error(function(err) {
@@ -162,7 +154,6 @@ angular.module('pmtoolApp')
       
       $http.put('api/reset_password', data)
       .success(function(result){
-        console.log(result);
         deferred.resolve(result);
       })
       .error(function(err) {

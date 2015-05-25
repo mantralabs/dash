@@ -44,49 +44,40 @@ angular.module('pmtoolApp')
 	$scope.loggedUser =  $scope.user.id;
 
 	Project.fetchProject($routeParams.id ).then(function(response){
-			$scope.project = response;
-			console.log("getprojectController",$scope.project);
-			for(var j=0 ; j < $scope.project[0].users.length; j++){
-				$scope.projectUsersList.push($scope.project[0].users[j].id)
-				console.log($scope.projectUsersList);
-			}
-		}).catch(function(err){
-			console.log(err);
-			$scope.error = err.message;
-		});
+		$scope.project = response;
+		for(var j=0 ; j < $scope.project.users.length; j++){
+			$scope.projectUsersList.push($scope.project.users[j].id)
+		}
+	}).catch(function(err){
+		console.log(err);
+		$scope.error = err.message;
+	});
 	
 	//if user checked push id into array if uncheck remove from array.
 	$scope.sync = function(bool, item){
 	    if(bool){
 	      // add item
 	      $scope.userIds.push(item.id);
-	      console.log($scope.userIds);
 	    } else {
 	      // remove item
-	      console.log($scope.userIds.length);
 	      for(var i=0 ; i < $scope.userIds.length; i++) {
 	        if($scope.userIds[i] == item.id){
 	          $scope.userIds.splice(i,1);
-	          console.log($scope.userIds);
 	        }
 		  } 
-		   
 	    }
   	};
 
   	$scope.itemsPush = function(){
-  		for(var i=0 ; i < $scope.project[0].users.length; i++){
-			 $scope.userIds.push($scope.project[0].users[i].id)
-			 console.log($scope.userIds);
-			 console.log($scope.project[0].users);
+  		for(var i=0 ; i < $scope.project.users.length; i++){
+			 $scope.userIds.push($scope.project.users[i].id)
 		}
   	};
 
   	$scope.isChecked = function(id){
   	  var match = false;
-      for(var i=0 ; i < $scope.project[0].users.length; i++) {
-      	console.log("ischecked inside loop")
-        if($scope.project[0].users[i].id == id){
+      for(var i=0 ; i < $scope.project.users.length; i++) {
+        if($scope.project.users[i].id == id){
           match = true;
         }
       }
@@ -99,15 +90,15 @@ angular.module('pmtoolApp')
 			"users" : $scope.userIds 
 		};
 
-		Project.addProjectMember($scope.projectId,data).then(function(response){
-				console.log(response);
+		Project.addProjectMember($scope.projectId,data)
+		.then(function(response){
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
-
 	};
 
-	Project.fetchProject($routeParams.id).then(function(response){
+	Project.fetchProject($routeParams.id)
+		.then(function(response){
 			$scope.project = response;
 		}).catch(function(err){
 			console.log(err);
@@ -115,15 +106,21 @@ angular.module('pmtoolApp')
 		});
 
 	$scope.editProject = function(name,description,workspace){
-		Project.edit({name,description,workspace})
+		
+		var data = {
+			name: name,
+			description: description,
+			workspace: workspace
+		};
+
+		Project.edit(data)
 		.then(function(response){
 			$scope.project = response;
 		})
 		.catch(function(err){
 			$scope.error=err.message;
-		})
+		});
 		$('#edit-project-modal').modal('hide');
-	}
-
+	};
 });
 

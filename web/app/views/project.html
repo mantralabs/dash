@@ -9,9 +9,9 @@
 		<section id="container" class="clearfix">
     		<div class="project-list">
 
-				<h4>{{project[0].name}}
+				<h4>{{project.name}}
 					<button ng-if="user.role == 'admin'" class="btn-green pull-right" title="Edit this workspace" data-toggle="modal" data-target="#edit-project-modal">Edit</button></h4>
-					<p>{{project[0].description}}</p>
+					<p>{{project.description}}</p>
 					
     			<!-- <div class="project-dropdown">
     				<select>
@@ -24,10 +24,10 @@
     			<div id="my-contacts">
 					<div class="mycontacts-header clearfix">
 						<h2>Project members
-							<span class="number">{{project[0].users.length}}</span>
+							<span class="number">{{project.users.length}}</span>
 							<span ng-if="user.role == 'admin' " class="pull-right" data-toggle="modal" data-target="#contact-list-modal" ng-click = "itemsPush()" title="create new project">+</span>
 						</h2>
-						<div id="project-1" ng-repeat = "member in project[0].users | limitTo : 3"> 
+						<div id="project-1" ng-repeat = "member in project.users | limitTo : 3"> 
 							<p class="left-column">
 								{{member.name}}
 							</p>
@@ -42,10 +42,10 @@
     		</div>
 	  		<div id="right" class="clearfix">
 	        	<div ng-if = "projectUsersList.indexOf(loggedUser) > -1">
-	        		<updateactivity></updateactivity>
+	        		<updateactivity activities1="activities1"></updateactivity>
 	        	</div>
 		        <div id="activities">
-		          <activities></activities>
+		          <activities list="activities1"></activities>
 		        </div><!--end activities-->
       		</div>
       	</section>

@@ -8,7 +8,6 @@ angular.module('pmtoolApp')
 
 	Contact.fetch().then(function(response){
 		$scope.contacts = response;
-		console.log(response);
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
@@ -17,7 +16,6 @@ angular.module('pmtoolApp')
 
 		Contact.add(data).then(function(response){
 			$scope.contacts.push(response);
-			// console.log(response);
 		}).catch(function(err){
 			$scope.error = err.message;
 		});
@@ -52,6 +50,5 @@ angular.module('pmtoolApp')
 			$scope.selection.push(id);
 		}
 
-		console.log($scope.selection);
 	}
 });
