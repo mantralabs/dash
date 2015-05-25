@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .directive('activities', function (Activity, $location, Project, $routeParams) {
+  .directive('activities', function (Activity, $location, UserService, Project, $routeParams) {
     return {
       templateUrl: 'views/activities.html',
       restrict: 'E',
@@ -15,6 +15,14 @@ angular.module('pmtoolApp')
 		    }).catch(function(err){
 		      scope.error = err.message;
 		    });
+
+        UserService.fetchProfile()
+        .then(function(response){
+          scope.user = response;
+          console.log('activity',response);
+        }).catch(function(err){
+          scope.error = err.message;
+        });
 
         scope.path = $location.path(); 
 
