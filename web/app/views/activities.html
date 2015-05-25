@@ -28,9 +28,8 @@
 				<div class="acts-img">
 					<img src="img/img-5.png" alt="profile-pic">
 				</div>
-				<div class="acts-discription" >
-					<p></p>
-					<p>
+				<div class="acts-discription">
+					<p style="margin:25px 0px;">
 						<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>updated an activity: <a href="javascript:"><span></span></a> {{activity.description}} in <a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a></p>
 					<ul>
 						<li class="like-comment timer">{{activity.createdAt | date}}</li>
@@ -87,7 +86,7 @@
 			<img src="img/img-5.png" alt="profile-pic">
 		</div>
 		<div class="acts-discription">
-			<p>
+			<p style="margin:25px 0px;">
 				<a ng-repeat="user in project.users | filter : activity.user" href="#/profile/{{user.id}}">
 					<span>{{user.name}}</span>
 				</a>
