@@ -3,7 +3,7 @@
 angular.module('pmtoolApp')
 .controller('workspaceCtrl',function ($scope, Workspace, $rootScope, $routeParams, $location, UserService, $cookieStore) {
 
-	$scope.user = $rootScope.isLoddegIn;
+	$scope.user = $rootScope.user;
 
 	Workspace.fetch().then(function(response){
 		$scope.workspaces = response;
