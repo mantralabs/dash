@@ -277,16 +277,16 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
     // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
     // things like resolve or inject so those have to be done manually.
-    // ngmin: {
-    //   dist: {
-    //     files: [{
-    //       expand: true,
-    //       cwd: '.tmp/concat/scripts',
-    //       src: '*.js',
-    //       dest: '.tmp/concat/scripts'
-    //     }]
-    //   }
-    // },
+    ngmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/concat/scripts',
+          src: '*.js',
+          dest: '.tmp/concat/scripts'
+        }]
+      }
+    },
 
     // Replace Google CDN references
     cdnify: {
@@ -344,28 +344,28 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css',
+            '<%= yeoman.app %>/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/scripts/scripts.js': [
+            '<%= yeoman.dist %>/scripts/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     // Test settings
     karma: {
@@ -381,7 +381,7 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run(['build', 'configureProxies:server', 'connect:dist:keepalive']);
     }
 
     grunt.task.run([
@@ -414,12 +414,12 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    // 'concat',
-    // 'ngmin',
+    'concat',
+    'ngmin',
     'copy:dist',
     'cdnify',
-    // 'cssmin',
-    // 'uglify',
+    'cssmin',
+    'uglify',
     'rev',
     'usemin',
     'htmlmin'

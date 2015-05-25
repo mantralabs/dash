@@ -2,17 +2,17 @@
 
 
 <h2>Activities</h2>
-<div id="acts" ng-if="path.indexOf('home')>0">
-	<div ng-if="user.role == 'admin'">
+<div id="acts">
+	<div>
 		<div class="acts-sub clearfix" ng-repeat="activity in activities1">
 			<div class="acts-img">
 				<img src="img/img-5.png" alt="profile-pic">
 			</div>
 			<div class="acts-discription" >
 				<p style="margin:25px 0px;">
-					<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>updated an activity:  {{activity.description}} in <a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a></p>
+					<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>{{activity.description}}</p>
 				<ul>
-					<li class="like-comment timer">{{activity.createdAt | date}}</li>
+					<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date}}</li>
 					<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
 					<li class="like-comment">3</li>
 					<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
@@ -22,26 +22,6 @@
 		</div><!--end acts-sub-->
 	</div>
 
-	<div ng-repeat="project in user.projects" ng-if="user.role != 'admin'">
-		<div class="acts-sub clearfix" ng-repeat="activity in activities1">
-			<div ng-if="activity.project.id == project.id">
-				<div class="acts-img">
-					<img src="img/img-5.png" alt="profile-pic">
-				</div>
-				<div class="acts-discription">
-					<p style="margin:25px 0px;">
-						<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>updated an activity: <a href="javascript:"><span></span></a> {{activity.description}} in <a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a></p>
-					<ul>
-						<li class="like-comment timer">{{activity.createdAt | date}}</li>
-						<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
-						<li class="like-comment">3</li>
-						<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-						<li class="like-comment">5</li>
-					</ul>
-				</div><!--end acts-discription-->
-			</div>
-		</div><!--end acts-sub-->
-	</div>
 
 	<!-- <div class="clearfix acts-reply">
 		<div class="acts-img">
@@ -79,27 +59,3 @@
 	</div> -->
 
 </div><!--end acts-->
-
-<div id="acts" ng-if="path.indexOf('project')>0">
-	<div class="acts-sub clearfix" ng-repeat="activity in project.activity">
-		<div class="acts-img">
-			<img src="img/img-5.png" alt="profile-pic">
-		</div>
-		<div class="acts-discription">
-			<p style="margin:25px 0px;">
-				<a ng-repeat="user in project.users | filter : activity.user" href="#/profile/{{user.id}}">
-					<span>{{user.name}}</span>
-				</a>
-				updated an activity: {{activity.description}}
-			</p>
-			<ul>
-				<li class="like-comment timer">{{activity.createdAt | date}}</li>
-				<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
-				<li class="like-comment">3</li>
-				<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-				<li class="like-comment">5</li>
-			</ul>
-		</div><!--end acts-discription-->
-	</div><!--end acts-sub-->
-
-</div><!--end acts-->	

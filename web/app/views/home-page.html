@@ -27,7 +27,7 @@
 
         <my-contacts></my-contacts><!-- my-contacts is a directive -->
 
-        <my-projects></my-projects>
+        <my-projects projects="projects"></my-projects>
         
         <div ng-if = "user.role == 'admin'">
         <projects-admin></projects-admin>
@@ -44,7 +44,7 @@
 
       <div id="right" class="clearfix">
 
-        <updateactivity activities1="activities1"></updateactivity>
+        <updateactivity activities1="activities1" projects="projects"></updateactivity>
 
         <div id="activities">
           <activities list="activities1"></activities>

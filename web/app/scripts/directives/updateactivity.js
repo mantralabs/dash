@@ -7,32 +7,11 @@ angular.module('pmtoolApp')
 	      	templateUrl: 'views/updateactivity.html',
 	      	restrict: 'CE',
 	      	scope: {
-            	activities1: '=activities1'
+            	activities1: '=activities1',
+            	projects: '=projects'
 			},
 
 	      	link: function(scope, element, attrs) {
-
-	      		//to fetch projects list to load into the dropdown
-	      		Project.fetch().then(function(response){
-					scope.projects = response;
-				}).catch(function(err){
-					scope.error = err.message;
-				});
-
-				UserService.fetchProfile()
-				.then(function(response){
-					scope.contact = response;
-				}).catch(function(err){
-					scope.error=err.message;
-				});
-
-				//get list of users
-				UserService.fetch()
-				.then(function(response){
-					scope.users = response;
-				}).catch(function(err){
-					scope.error = err.message;
-				});
 
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
@@ -42,14 +21,13 @@ angular.module('pmtoolApp')
 	      		scope.sendActivity = function(description, projectId){
 	      			var activityData = {
 	      				description: description, 
-	      				project: projectId,
-	      				user: $rootScope.user.id
+	      				project: projectId
 	      			};
 
 	      			Activity.addActivity(activityData)
 	      			.then(function(response){
 	      				console.log('sdgfasghjd',response);
-						scope.activities1.push(response);
+						scope.activities1.unshift(response);
 						$('.list-projects').removeClass('show');
 						$('#activity-description').val("");
 	      			}).catch(function(err){
@@ -60,17 +38,15 @@ angular.module('pmtoolApp')
 	      		scope.path = $location.path();
 	      		
       			scope.updateInProject = function(description){
-      				
 	      			var projectId = $routeParams.id;
 	      			var activityData = {
 	      				description: description,
-	      				project: projectId,
-	      				user: $rootScope.user.id
+	      				project: projectId
 	      			}
 	      			Activity.addActivity(activityData)
 	      			.then(function(response){
 	      				console.log('inside updateInProject',response);
-	      				// scope.project.activity.push(response.activity);
+	      				scope.activities1.unshift(response);
 	      			}).catch(function(err){
 	  					console.log(err);
 	      			})

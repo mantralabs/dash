@@ -4,10 +4,13 @@ angular.module('pmtoolApp')
   .service('Activity', function Activity($q, $http, $resource) {
     // AngularJS will instantiate a singleton by calling "new" on this function
   
-  	this.fetch = function(){
+  	this.fetch = function(id){
 		var deferred = $q.defer();
+		var url = '/api/activity/';
+		if(id)
+			url = url + id;
 		
-		$http.get('/api/activity')
+		$http.get(url)
 		.success(function(data){
 			deferred.resolve(data);
 		})

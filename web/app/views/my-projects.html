@@ -6,7 +6,7 @@
 
 	<!-- <span ng-if="user.role == 'admin'" class="task-icon"data-toggle="modal" data-target="#project-modal" title="create new project">+</span> -->
 	</h2>
-	<div id="project-1" ng-repeat = "project in user.projects | limitTo : 3"> 
+	<div id="project-1" ng-repeat = "project in projects | limitTo : 3"> 
 		<p class="left-column">
 			<a href="#/project/{{project.id}}">{{project.name}}</a>
 		</p>

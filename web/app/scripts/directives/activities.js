@@ -8,32 +8,27 @@ angular.module('pmtoolApp')
       scope: {
         activities1: '=list'
       },
+      
       link : function(scope, element, attrs) {
-        
-        Activity.fetch().then(function(response){
-          scope.activities1 = response;
-		    }).catch(function(err){
-		      scope.error = err.message;
-		    });
 
-        UserService.fetchProfile()
-        .then(function(response){
-          scope.user = response;
-          // console.log('activity',response);
-        }).catch(function(err){
-          scope.error = err.message;
-        });
+        scope.path = $location.path();
 
-        scope.path = $location.path(); 
-
-        if(scope.path.indexOf('project')>0){
-          Project.fetchProject($routeParams.id)
+        if($routeParams.id){
+          Activity.fetch($routeParams.id)
           .then(function(response){
-            scope.project = response;
-          }).catch(function(err){
-            console.log(err);
+            scope.activities1 = response;
+          })
+          .catch(function(err){
             scope.error = err.message;
-          }); 
+          });
+        }else{
+          Activity.fetch()
+          .then(function(response){
+            scope.activities1 = response;
+          })
+          .catch(function(err){
+            scope.error = err.message;
+          });
         }
       }
     };
