@@ -9,16 +9,16 @@
     <div class="update-footer">
       <div class="update-footer-icons">
         <ul>
-          <li class="icons">
+          <li class="icons" >
             <a href="javascript:">
-              <img src="../img/attach-files.png" alt="attach-files">
+              <input type="file" onchange="angular.element(this).scope().uploadAttachment(this)" ng-model="activity.attachment"><img src="../img/attach-files.png" alt="attach-files">
             </a>
           </li>
-          <li class="icons">
+          <!-- <li class="icons">
             <a href="javascript:">
               <img src="../img/camera-icon.png" alt="share-links">
             </a>
-          </li>
+          </li> -->
           <li class="icons">
             <a href="javascript:">
               <img src="../img/link-icon.png" alt="share-files" >
