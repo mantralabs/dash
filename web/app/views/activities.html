@@ -12,7 +12,7 @@
 				<p style="margin:25px 0px;">
 					<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>{{activity.description}}</p>
 				<ul>
-					<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date}}</li>
+					<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
 					<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
 					<li class="like-comment">3</li>
 					<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
