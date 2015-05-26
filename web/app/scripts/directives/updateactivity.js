@@ -16,13 +16,52 @@ angular.module('pmtoolApp')
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
-	      		};	      		
+	      		};
+
+	      		scope.uploadAttachment = function (imgElem) {
+				  var el = imgElem;
+				  	if(imgElem.files[0]){
+
+			  		scope.imageUploadStatus = true;
+				   	
+				   	scope.imageData = {};
+				   	var photofile = imgElem.files[0];
+				   
+				   	scope.imageData.ext = photofile.type.split("/")[1];
+			    	var FR= new FileReader();
+					FR.readAsDataURL(photofile);
+
+				  	   	FR.onload = function (e) {
+				  	   		
+					    	scope.imageData.data = e.target.result.split(",")[1];
+					    	// scope.imageData.fullFormat = e.target.result;
+					    	console.log("imageData",scope.imageData);
+
+					    		
+				    	};
+				    }   
+			  	};	      		
 
 	      		scope.sendActivity = function(description, projectId){
 	      			var activityData = {
 	      				description: description, 
 	      				project: projectId
 	      			};
+
+	      			if(scope.activity.description == "@"){
+	      				alert("working")
+	      			}
+	      			Activity.uploadAttachment(scope.imageData)
+		     		.then(function(response){
+		     			console.log(response);
+	     				if(response){
+			     			scope.imageUploadStatus = false;
+	     				}
+		     			// scope.avatarImageName = response.name;
+		     		}).catch(function(err){
+						scope.imageUploadStatus = false;
+		      			scope.error = err.message;
+		     		});
 
 	      			Activity.addActivity(activityData)
 	      			.then(function(response){
