@@ -127,6 +127,84 @@
   padding: 10px;
   margin-bottom: 20px;
 }
+#acts {
+  padding: 0 0 10px 10px;
+  border-bottom: 1px solid #eee;
+  height: 590px;
+  overflow: auto;
+}
+#acts p {
+  display: inline-block;
+  padding: 0 0 0 20px;
+}
+#acts .acts-img {
+  float: left;
+}
+#acts .acts-discription {
+  float: left;
+}
+#acts .acts-discription p {
+  display: inline-block;
+  padding: 0 0 0 20px;
+}
+#acts .acts-discription ul {
+  padding: 0 0 0 20px;
+}
+#acts span {
+  color: #2d7fc1;
+}
+#acts .like-comment {
+  padding: 0 5px 0 5px;
+  float: left;
+  overflow: hidden;
+  cursor: pointer;
+}
+#acts .timer {
+  padding-right: 21px;
+}
+#acts .acts-reply {
+  position: relative;
+  right: -85px;
+}
+#comment-box {
+  width: 80%;
+  background-color: #d8d8d8;
+  padding: 10px;
+  margin-left: 85px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#comment-box input {
+  padding-left: 10px;
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: 1px solid #B4B9BE;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin-bottom: 10px;
+}
+#comment-box #doc {
+  background-color: #a4a4a4;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  /*width: 130px;*/
+
+  margin: 10px 0 15px 0;
+  padding: 3px;
+}
+#comment-box .icons {
+  display: inline-block;
+  float: left;
+  margin: 0 15px 0 0;
+}
+#comment-box .comment-box-ul {
+  padding: 0;
+  margin: 10px 0 0 0;
+}
 .workspacelist {
   background-color: white;
   height: 45px;
@@ -654,93 +732,6 @@ ul#menu li:hover ul.sub-menu {
   padding-left: 10px;
   border-bottom: 2px solid #eee;
 }
-#acts {
-  padding: 0 0 10px 10px;
-  border-bottom: 1px solid #eee;
-  height: 590px;
-  overflow: auto;
-}
-#acts p {
-  display: inline-block;
-  padding: 0 0 0 20px;
-}
-#acts .acts-img {
-  float: left;
-}
-#acts .acts-discription {
-  float: left;
-  position: relative;
-  top: -20px;
-}
-#acts .acts-discription p {
-  display: inline-block;
-  padding: 0 0 0 20px;
-}
-#acts span {
-  color: #2d7fc1;
-}
-#acts .like-comment {
-  position: relative;
-  top: -18px;
-  left: -22px;
-  padding: 0 5px 0 5px;
-  display: inline-block;
-  float: left;
-}
-#acts .timer {
-  padding-right: 21px;
-}
-#acts .acts-reply {
-  position: relative;
-  right: -85px;
-}
-#comment-box {
-  display: none;
-  background-color: #d8d8d8;
-  padding: 10px;
-  /*width:675px;*/
-
-  height: 100px;
-  margin-left: 85px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-#comment-box input {
-  padding-left: 10px;
-  /*width: 665px;*/
-
-  height: 30px;
-  outline: none;
-  border: 1px solid #B4B9BE;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-#comment-box #doc {
-  background-color: #a4a4a4;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  /*width: 130px;*/
-
-  margin: 10px 0 15px 0;
-  padding-left: 5px;
-}
-#comment-box #doc .close-icon {
-  float: right;
-  padding: 3px;
-}
-#comment-box .icons {
-  display: inline-block;
-  float: left;
-  margin: 0 15px 0 0;
-}
-#comment-box .comment-box-ul {
-  padding: 0;
-  position: relative;
-  top: -10px;
-}
 /* ==========================================================================
            PROJECT PAGE
    ========================================================================== */
@@ -988,11 +979,6 @@ ul#menu li:hover ul.sub-menu {
   height: 30px;
 }
 .add-comment-btn {
-  float: right;
-  position: relative;
-  right: -20px;
-  top: -40px;
-  margin: 20px;
   width: 160px;
   height: 30px;
 }

@@ -3,59 +3,57 @@
 
 <h2>Activities</h2>
 <div id="acts">
-	<div>
-		<div class="acts-sub clearfix" ng-repeat="activity in activities1">
+	<div ng-repeat="activity in activities1">
+		<div>
+			<div class="acts-sub clearfix" >
+				<div class="acts-img">
+					<img src="img/img-5.png" alt="profile-pic">
+				</div>
+				<div class="acts-discription" >
+					<p>
+						<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>{{activity.description}}
+					</p>
+					<ul class="clearfix">
+						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
+						<li class="like-comment" ng-click="showCommentBox = ! showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
+						<li class="like-comment">3</li>
+						<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
+						<li class="like-comment">5</li>
+					</ul>
+				</div><!--end acts-discription-->
+			</div><!--end acts-sub-->
+		</div>
+		<!-- <div class="clearfix acts-reply">
 			<div class="acts-img">
-				<img src="img/img-5.png" alt="profile-pic">
+				<img src="img/img-4.png" alt="profile-pic">
 			</div>
-			<div class="acts-discription" >
-				<p style="margin:25px 0px;">
-					<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>{{activity.description}}</p>
+			<div class="acts-discription">
+				<p><a href="javascript:"><span>Sudhakar </span></a>I got the task <a href="javascript:"><span>Sudagar</span></a></p>
 				<ul>
-					<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
-					<li class="like-comment"> <a href="#"><img src="img/reply-icon.png" alt="comment"></a></li>
-					<li class="like-comment">3</li>
+					<li class="timer like-comment">2 days ago</li>
 					<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-					<li class="like-comment">5</li>
+					<li class="like-comment">3</li>
 				</ul>
-			</div><!--end acts-discription-->
-		</div><!--end acts-sub-->
+			</div>
+		</div> -->
+		<div id="comment-box" class="clearfix" ng-show="showCommentBox">
+			<form>
+				<input type="text">
+				<div>
+					<span id="doc">
+						<img src="img/doc-icon.png" alt="doc icon"><span>example.doc</span>
+						<img class="close-icon" src="img/close-icon.png" alt="close-icon">
+					</span>
+				</div>
+				<div class="comment-box-footer clearfix">
+					<ul class="comment-box-ul pull-left">
+						<li class="icons"><a href="javascript:"><img src="img/attach-files.png" alt="attach-files" height="18" width="10"></a></li>
+						<li class="icons"><a href="javascript:"><img src="img/camera-icon.png" alt="share-links"></a></li>
+						<li class="icons"><a href="javascript:"><img src="img/link-icon.png" alt="share-files" ></a></li>
+					</ul>
+					<button type="submit" class="add-comment-btn btn pull-right">Add Comment</button>
+				</div>
+			</form>
+		</div>
 	</div>
-
-
-	<!-- <div class="clearfix acts-reply">
-		<div class="acts-img">
-			<img src="img/img-4.png" alt="profile-pic">
-		</div>
-	
-		<div class="acts-discription">
-			<p><a href="javascript:"><span>Sudhakar </span></a>I got the task <a href="javascript:"><span>Sudagar</span></a></p>
-			<ul>
-				<li class="timer like-comment">2 days ago</li>
-				<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-				<li class="like-comment">3</li>
-			</ul>
-		</div>
-	</div> -->
-
-	<!-- <div id="comment-box" class="clearfix">
-		<form action="javascript:" method="post">
-			<input type="text">
-			
-			<div id="doc">
-				<img src="img/doc-icon.png" alt="doc icon"><span>example.doc</span>
-				<img class="close-icon" src="img/close-icon.png" alt="close-icon">
-			</div>
-	
-			<div class="comment-box-footer">
-				<ul class="comment-box-ul">
-					<li class="icons"><a href="javascript:"><img src="img/attach-files.png" alt="attach-files" height="18" width="10"></a></li>
-					<li class="icons"><a href="javascript:"><img src="img/camera-icon.png" alt="share-links"></a></li>
-					<li class="icons"><a href="javascript:"><img src="img/link-icon.png" alt="share-files" ></a></li>
-				</ul>
-				<button type="submit" class="add-comment-btn btn">Add Comment</button>
-			</div>
-		</form>
-	</div> -->
-
 </div><!--end acts-->

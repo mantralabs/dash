@@ -30,6 +30,9 @@ angular.module('pmtoolApp')
             scope.error = err.message;
           });
         }
+        // scope.showCommentBox = function(activity){
+        //   scope.showCommentTab = true;
+        // }
       }
     };
   });
