@@ -29,7 +29,7 @@ angular.module('pmtoolApp')
 	      				console.log('sdgfasghjd',response);
 						scope.activities1.unshift(response);
 						$('.list-projects').removeClass('show');
-						$('#activity-description').val("");
+						scope.activity.description = "";
 	      			}).catch(function(err){
       					console.log(err);
 	      			})
@@ -43,10 +43,12 @@ angular.module('pmtoolApp')
 	      				description: description,
 	      				project: projectId
 	      			}
+
 	      			Activity.addActivity(activityData)
 	      			.then(function(response){
 	      				console.log('inside updateInProject',response);
 	      				scope.activities1.unshift(response);
+	      				scope.activity.description = "";
 	      			}).catch(function(err){
 	  					console.log(err);
 	      			})
