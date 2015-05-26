@@ -1,5 +1,5 @@
 <div class="empty-div"> 
-  <headernavigation></headernavigation>
+  <headernavigation userdata="user"></headernavigation>
 </div>
 <form action="">
   <div class="content">
@@ -14,7 +14,7 @@
         </div>
         <div class="basic-profile">
           <div class="bio">
-
+            <img class="pro-pic" src="{{user.avatar}}" width="50px;">
             <!-- <img ng-if="user.avatar != null" class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{user.avatar}}"> -->
             
             <img ng-if="user.avatar == '' || user.avatar == undefined || user.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
