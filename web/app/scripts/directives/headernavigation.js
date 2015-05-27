@@ -10,7 +10,6 @@ angular.module('pmtoolApp')
       },
       
       link: function(scope, element, attrs) {
-      	console.log('user', scope.user);
-      }
+        }
     };
   }); 

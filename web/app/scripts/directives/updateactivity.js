@@ -18,7 +18,7 @@ angular.module('pmtoolApp')
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};
 
-	      		scope.uploadAttachment = function (imgElem) {
+	      		scope.uploadImage = function (imgElem) {
 				  var el = imgElem;
 				  	if(imgElem.files[0]){
 
@@ -47,17 +47,12 @@ angular.module('pmtoolApp')
 	      				description: description, 
 	      				project: projectId
 	      			};
-
-	      			if(scope.activity.description == "@"){
-	      				alert("working")
-	      			}
-	      			Activity.uploadAttachment(scope.imageData)
+	      			Activity.uploadImage(scope.imageData)
 		     		.then(function(response){
-		     			console.log(response);
+		     			console.log('image upload',response);
 	     				if(response){
 			     			scope.imageUploadStatus = false;
 	     				}
-		     			// scope.avatarImageName = response.name;
 		     		}).catch(function(err){
 						scope.imageUploadStatus = false;
 		      			scope.error = err.message;

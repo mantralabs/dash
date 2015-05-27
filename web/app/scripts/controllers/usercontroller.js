@@ -32,6 +32,7 @@ angular.module('pmtoolApp')
 	//edit profile method
 	$scope.updateUser = function(user){
 
+		console.log('inside user contrl',user);
 		//if user uploads the image, get the avatar image file name form the uploadImage method.
 		user.avatar = $scope.avatarImageName;
 
@@ -66,6 +67,8 @@ angular.module('pmtoolApp')
 
 		    		UserService.uploadAvatar(imageData)
 		     		.then(function(response){
+		     			console.log('imagedata',imageData);
+          				console.log('response',response);
 	     				if(response){
 			     			$scope.imageUploadStatus = false;
 	     				}

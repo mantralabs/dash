@@ -35,7 +35,7 @@ angular.module('pmtoolApp')
 		return deferred.promise;
 	}
 
-	this.uploadAttachment = function(data){
+	this.uploadImage = function(data){
         
         var deferred = $q.defer();
         

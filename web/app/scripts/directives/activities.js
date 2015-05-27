@@ -28,7 +28,6 @@ angular.module('pmtoolApp')
           Activity.fetch()
           .then(function(response){
             scope.activities1 = response;
-             console.log(scope.activities1);
           })
           .catch(function(err){
             scope.error = err.message;
