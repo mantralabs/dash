@@ -4,26 +4,24 @@
 
 	<form action="javascript:" method="" name="updateForm">
   	
-    <input type="text" id="activity-description" name="description" ng-model="activity.description" required>
+    <input type="text" class="activity-description" name="description" ng-model="activity.description" required>
 
     <div class="update-footer">
       <div class="update-footer-icons">
         <ul>
-          <li class="icons" >
-            <a href="javascript:">
-              <input type="file" onchange="angular.element(this).scope().uploadAttachment(this)" ng-model="activity.attachment"><img src="../img/attach-files.png" alt="attach-files">
-            </a>
+          <li class="icons">
+            <input type="file" class="upload-icon" onchange="angular.element(this).scope().uploadAttachment(this)" ng-model="activity.attachment"><img src="../img/attach-files.png" alt="attach-files">
           </li>
           <!-- <li class="icons">
             <a href="javascript:">
               <img src="../img/camera-icon.png" alt="share-links">
             </a>
           </li> -->
-          <li class="icons">
+          <!-- <li class="icons">
             <a href="javascript:">
               <img src="../img/link-icon.png" alt="share-files" >
             </a>
-          </li>
+          </li> -->
         </ul>
       </div><!--end update footer icons-->
 

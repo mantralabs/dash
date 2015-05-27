@@ -579,15 +579,14 @@ ul#menu li:hover ul.sub-menu {
   padding-left: 10px;
   margin-bottom: 0;
 }
-#project-1,
+.project-1,
 #project-2 {
   border-bottom: 1px solid #eee;
 }
-#project-1 p,
+.project-1 p,
 #project-2 p,
 #project-3 p {
-  display: inline-block;
-  padding-left: 10px;
+  padding: 5px 10px;
 }
 .right-column {
   float: right;
@@ -636,7 +635,7 @@ ul#menu li:hover ul.sub-menu {
   padding-left: 10px;
   margin: 0;
 }
-#right #update input {
+#right #update .activity-description {
   padding-left: 10px;
   margin-top: 20px;
   width: 96%;
@@ -647,6 +646,14 @@ ul#menu li:hover ul.sub-menu {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+.upload-icon {
+  width: 10px;
+  overflow: hidden;
+  opacity: 0;
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+}
 .update-footer-icons ul {
   padding-left: 15px;
 }
@@ -654,6 +661,7 @@ ul#menu li:hover ul.sub-menu {
   display: inline-block;
   float: left;
   margin: 20px 20px 20px 0;
+  position: relative;
 }
 .update-dropdown {
   float: left;

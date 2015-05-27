@@ -6,8 +6,8 @@
 
 	<!-- <span ng-if="user.role == 'admin'" class="task-icon"data-toggle="modal" data-target="#project-modal" title="create new project">+</span> -->
 	</h2>
-	<div class="home-page3-profile clearfix" ng-if="user.role == 'admin'" >
-		<p class="project-name" ng-repeat = "project in projects | limitTo : 3">
+	<div class="clearfix project-1" ng-if="user.role == 'admin'" ng-repeat = "project in projects | limitTo : 3">
+		<p>
 			<a href="#/project/{{project.id}}">{{project.name}}</a>
 		</p>
 	</div>
