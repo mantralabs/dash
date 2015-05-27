@@ -17,8 +17,8 @@
 						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
 						<li class="like-comment" ng-click="showCommentBox = ! showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
 						<li class="like-comment">3</li>
-						<li class="like-comment"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-						<li class="like-comment">5</li>
+						<li class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
+					<li class="like-comment">{{activity.likes}}</li>
 					</ul>
 				</div><!--end acts-discription-->
 			</div><!--end acts-sub-->
