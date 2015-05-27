@@ -26,8 +26,9 @@ angular.module('pmtoolApp')
 				   	
 				   	scope.imageData = {};
 				   	var photofile = imgElem.files[0];
-				   
-				   	scope.imageData.ext = photofile.type.split("/")[1];
+				   	console.log(photofile);
+				   var ext = photofile.name.split(".");
+				   	scope.imageData.ext = ext[ext.length-1];
 			    	var FR= new FileReader();
 					FR.readAsDataURL(photofile);
 
@@ -36,6 +37,7 @@ angular.module('pmtoolApp')
 					    	scope.imageData.data = e.target.result.split(",")[1];
 					    	// scope.imageData.fullFormat = e.target.result;
 					    	console.log("imageData",scope.imageData);
+					    	console.log(e.target.result);
 
 					    		
 				    	};

@@ -1892,7 +1892,6 @@ ul#menu li:hover ul.sub-menu {
 }
 .profile-text {
   color: #8b8b8b;
-  float: left;
 }
 .profile p {
   color: #8b8b8b;
@@ -1915,25 +1914,16 @@ ul#menu li:hover ul.sub-menu {
   display: inline-block;
   float: left;
 }
-.contact-grey-left {
-  float: left;
+.contact-info-content {
+  padding: 10px;
+  background: #f6f6f6;
 }
-.contact-grey-left li {
-  padding: 5px 0px 5px 0px;
-}
-.contact-grey-right {
-  float: left;
-  padding-left: 20px;
-}
-.contact-grey-right li {
-  padding: 5px 0px 5px 0px;
+.contact-info-content p span {
+  display: inline-block;
+  width: 50%;
 }
 .basic-profile {
   padding-bottom: 20px;
-}
-.contact-left-right {
-  padding: 10px;
-  background: #f6f6f6;
 }
 .description {
   background: #f6f6f6;
