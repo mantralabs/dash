@@ -18,7 +18,7 @@ angular.module('pmtoolApp')
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};
 
-	      		scope.uploadImage = function (imgElem) {
+	      		scope.uploadAttachment = function (imgElem) {
 				  var el = imgElem;
 				  	if(imgElem.files[0]){
 
@@ -43,36 +43,51 @@ angular.module('pmtoolApp')
 			  	};	      		
 
 	      		scope.sendActivity = function(description, projectId){
-	      			
-	      			Activity.uploadImage(scope.imageData)
-		     		.then(function(response){
-		     			console.log('image upload',response);
-		     			scope.attachment = response.name;
-		     			console.log('scope.attachment',scope.attachment);
-		     			var activityData = {
+	      			if(scope.imageData){
+		      			Activity.uploadImage(scope.imageData)
+			     		.then(function(response){
+			     			console.log('image upload',response);
+			     			scope.attachment = response.name;
+			     			console.log('scope.attachment',scope.attachment);
+			     			var activityData = {
+			      				description: description, 
+			      				project: projectId,
+			      				attachment:scope.attachment
+			      			};
+			      			console.log('activityData',activityData);
+			     			Activity.addActivity(activityData)
+			      			.then(function(response){
+			      				console.log('activity response',response);
+								scope.activities1.unshift(response);
+								$('.list-projects').removeClass('show');
+								scope.activity.description = "";
+								// scope.attachment = "";
+			      			}).catch(function(err){
+		      					console.log(err);
+			      			})
+		     				if(response){
+				     			scope.imageUploadStatus = false;
+		     				}
+			     		}).catch(function(err){
+							scope.imageUploadStatus = false;
+			      			scope.error = err.message;
+			     		});
+			     	}else{
+			     		var activityData = {
 		      				description: description, 
 		      				project: projectId,
-		      				attachment:scope.attachment
 		      			};
-		      			console.log('activityData',activityData);
-		     			Activity.addActivity(activityData)
+		      			Activity.addActivity(activityData)
 		      			.then(function(response){
 		      				console.log('activity response',response);
-							scope.activities1.push(response);
+							scope.activities1.unshift(response);
 							$('.list-projects').removeClass('show');
 							scope.activity.description = "";
 							// scope.attachment = "";
 		      			}).catch(function(err){
 	      					console.log(err);
-		      			})
-	     				if(response){
-			     			scope.imageUploadStatus = false;
-	     				}
-		     		}).catch(function(err){
-						scope.imageUploadStatus = false;
-		      			scope.error = err.message;
-		     		});
-
+		      			});
+			     	}
 	      		}
 
 	      		scope.path = $location.path();

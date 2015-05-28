@@ -18,8 +18,8 @@
 						<li class="like-comment" ng-click="showCommentBox = ! showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
 						<li class="like-comment">3</li>
 						<li class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-					<li class="like-comment">{{activity.likes}}</li><br>
-					<li><a href="activity.attachment" download> click here to download attachments</a></li>
+					<li class="like-comment">{{activity.likes}}</li>
+					<li ng-if="activity.attachment"><a href="{{activity.attachment}}" download>download attachment</a></li>
 					</ul>
 				</div><!--end acts-discription-->
 			</div><!--end acts-sub-->
