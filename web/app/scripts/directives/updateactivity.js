@@ -26,7 +26,6 @@ angular.module('pmtoolApp')
 				   	
 				   	scope.imageData = {};
 				   	var photofile = imgElem.files[0];
-				   	console.log(photofile);
 				   var ext = photofile.name.split(".");
 				   	scope.imageData.ext = ext[ext.length-1];
 			    	var FR= new FileReader();
@@ -36,7 +35,6 @@ angular.module('pmtoolApp')
 				  	   		
 					    	scope.imageData.data = e.target.result.split(",")[1];
 					    	// scope.imageData.fullFormat = e.target.result;
-					    	console.log("imageData",scope.imageData);
 					    	console.log(e.target.result);
 
 					    		
@@ -45,13 +43,28 @@ angular.module('pmtoolApp')
 			  	};	      		
 
 	      		scope.sendActivity = function(description, projectId){
-	      			var activityData = {
-	      				description: description, 
-	      				project: projectId
-	      			};
+	      			
 	      			Activity.uploadImage(scope.imageData)
 		     		.then(function(response){
 		     			console.log('image upload',response);
+		     			scope.attachment = response.name;
+		     			console.log('scope.attachment',scope.attachment);
+		     			var activityData = {
+		      				description: description, 
+		      				project: projectId,
+		      				attachment:scope.attachment
+		      			};
+		      			console.log('activityData',activityData);
+		     			Activity.addActivity(activityData)
+		      			.then(function(response){
+		      				console.log('activity response',response);
+							scope.activities1.push(response);
+							$('.list-projects').removeClass('show');
+							scope.activity.description = "";
+							// scope.attachment = "";
+		      			}).catch(function(err){
+	      					console.log(err);
+		      			})
 	     				if(response){
 			     			scope.imageUploadStatus = false;
 	     				}
@@ -60,15 +73,6 @@ angular.module('pmtoolApp')
 		      			scope.error = err.message;
 		     		});
 
-	      			Activity.addActivity(activityData)
-	      			.then(function(response){
-	      				console.log('sdgfasghjd',response);
-						scope.activities1.unshift(response);
-						$('.list-projects').removeClass('show');
-						scope.activity.description = "";
-	      			}).catch(function(err){
-      					console.log(err);
-	      			})
 	      		}
 
 	      		scope.path = $location.path();
