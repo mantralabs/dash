@@ -12,6 +12,7 @@
           <li class="icons">
             <input type="file" class="upload-icon" onchange="angular.element(this).scope().uploadAttachment(this)" ng-model="activity.attachment">
             <img src="../img/attach-files.png" alt="attach-files">
+            <span>{{attach_name}}</span>
           </li>
           <!-- <li class="icons">
             <input type="file" class="upload-icon" onchange="angular.element(this).scope().uploadImage(this)" ng-model="activity.image">
@@ -26,6 +27,7 @@
       </div><!--end update footer icons-->
 
       <div class="update-footer-btn">
+        <span ng-show="loader">updating...</span>
         <button type="submit" id="home-page-btn" ng-if="path.indexOf('home')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
         <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateInProject(activity.description)"> Update</button>
         <div class="list-projects hide">
