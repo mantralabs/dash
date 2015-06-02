@@ -19,11 +19,13 @@
 						<li class="like-comment">3</li>
 						<li class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
 					<li class="like-comment">{{activity.likes}}</li>
-					<li ng-if="activity.attachment"><a href="{{activity.attachment}}" download>download attachment</a></li>
+					<li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal">{{activity.attachment_name}}</li>
+					<!-- <li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal"><a href="{{activity.attachment}}" download>{{activity.attachment_name}}</a></li> -->
 					</ul>
 				</div><!--end acts-discription-->
 			</div><!--end acts-sub-->
 		</div>
+		<div ng-include="'views/modals.html'"></div>
 		<!-- <div class="clearfix acts-reply">
 			<div class="acts-img">
 				<img src="img/img-4.png" alt="profile-pic">
@@ -58,3 +60,4 @@
 		</div>
 	</div>
 </div><!--end acts-->
+

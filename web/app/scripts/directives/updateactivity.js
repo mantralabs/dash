@@ -17,18 +17,19 @@ angular.module('pmtoolApp')
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};
-	      		
+
 	      		scope.uploadAttachment = function (imgElem) {
 	      			
 	      		
 				  var el = imgElem;
 				  	if(imgElem.files[0]){
 
-			  		scope.imageUploadStatus = true;
-				   	
 				   	scope.imageData = {};
 				   	var photofile = imgElem.files[0];
-				   	scope.image_name = photofile.name;
+
+				   	scope.attach_name = photofile.name;
+				   	console.log('scope.attach_name',scope.attach_name);
+
 				   var ext = photofile.name.split(".");
 				   	scope.imageData.ext = ext[ext.length-1];
 			    	var FR= new FileReader();
@@ -45,9 +46,11 @@ angular.module('pmtoolApp')
 				    	};
 				    }   
 			  	};	      		
-
+			  	scope.loader = false;
 	      		scope.sendActivity = function(description, projectId){
-	      			
+
+	      			$('.list-projects').removeClass('show');
+	      			scope.loader = true;
 	      			if(scope.imageData){
 		      			Activity.uploadImage(scope.imageData)
 			     		.then(function(response){
@@ -63,9 +66,9 @@ angular.module('pmtoolApp')
 			      			console.log('activityData',activityData);
 			     			Activity.addActivity(activityData)
 			      			.then(function(response){
+			      				scope.loader = false;
 			      				console.log('activity response',response);
 								scope.activities1.unshift(response);
-								$('.list-projects').removeClass('show');
 								scope.activity.description = "";
 								// scope.attachment = "";
 			      			}).catch(function(err){

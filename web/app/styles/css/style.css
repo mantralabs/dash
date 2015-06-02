@@ -75,6 +75,14 @@
   margin: 0;
   padding: 10px;
 }
+#view-image-modal .modal-content {
+  padding: 20px;
+}
+#view-image-modal .modal-content img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
 .home-page3-profile .project-name {
   border-bottom: 1px solid #eee;
 }
