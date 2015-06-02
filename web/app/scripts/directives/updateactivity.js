@@ -12,13 +12,15 @@ angular.module('pmtoolApp')
 			},
 
 	      	link: function(scope, element, attrs) {
-
+	      		// scope.image_name = {};
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};
-
+	      		
 	      		scope.uploadAttachment = function (imgElem) {
+	      			
+	      		
 				  var el = imgElem;
 				  	if(imgElem.files[0]){
 
@@ -26,12 +28,14 @@ angular.module('pmtoolApp')
 				   	
 				   	scope.imageData = {};
 				   	var photofile = imgElem.files[0];
+				   	scope.image_name = photofile.name;
 				   var ext = photofile.name.split(".");
 				   	scope.imageData.ext = ext[ext.length-1];
 			    	var FR= new FileReader();
 					FR.readAsDataURL(photofile);
 
 				  	   	FR.onload = function (e) {
+				  	   		scope.loader = false;
 				  	   		
 					    	scope.imageData.data = e.target.result.split(",")[1];
 					    	// scope.imageData.fullFormat = e.target.result;
@@ -43,9 +47,11 @@ angular.module('pmtoolApp')
 			  	};	      		
 
 	      		scope.sendActivity = function(description, projectId){
+	      			
 	      			if(scope.imageData){
 		      			Activity.uploadImage(scope.imageData)
 			     		.then(function(response){
+			     			
 			     			console.log('image upload',response);
 			     			scope.attachment = response.name;
 			     			console.log('scope.attachment',scope.attachment);

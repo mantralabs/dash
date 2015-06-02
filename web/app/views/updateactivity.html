@@ -12,7 +12,11 @@
           <li class="icons">
             <input type="file" class="upload-icon" onchange="angular.element(this).scope().uploadAttachment(this)" ng-model="activity.attachment">
             <img src="../img/attach-files.png" alt="attach-files">
+            <p>{{image_name}}</p>
+
           </li>
+
+
           <!-- <li class="icons">
             <input type="file" class="upload-icon" onchange="angular.element(this).scope().uploadImage(this)" ng-model="activity.image">
             <img src="../img/camera-icon.png" alt="share-links">

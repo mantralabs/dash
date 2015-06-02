@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
+
   .directive('activities', function (Activity, $location, UserService, Project, $routeParams) {
     return {
       templateUrl: 'views/activities.html',
@@ -8,10 +9,7 @@ angular.module('pmtoolApp')
       scope: {
         activities1: '=list'
       },
-
-
-      
-      link : function(scope, element, attrs) {
+       link : function(scope, element, attrs) {
         
         scope.path = $location.path();
         
