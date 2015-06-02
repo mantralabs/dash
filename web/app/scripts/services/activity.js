@@ -35,10 +35,24 @@ angular.module('pmtoolApp')
 		return deferred.promise;
 	}
 
+	this.addlikes = function(activityData){
+  		var deferred = $q.defer();
+		
+		$http.post('/api/activity-like', activityData)
+		.success(function(activity){
+			deferred.resolve(activity);
+			
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+
+		return deferred.promise;
+	}
+
 	this.uploadImage = function(data){
-        
         var deferred = $q.defer();
-        
+
         $http.post('/api/attachment', data)
         .success(function(response){
           deferred.resolve(response);

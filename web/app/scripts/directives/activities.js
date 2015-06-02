@@ -31,11 +31,24 @@ angular.module('pmtoolApp')
             scope.error = err.message;
           });
         }
-        scope.activities1 = {"likes":1};
+        
         scope.addVote = function (activity) {
-          console.log(activity); 
-          activity.likes++;
+          
+          scope.likes = [];
+          var data = {"activity":activity.id}
+          
+          Activity.addlikes(data)
+            .then(function(response){
+              console.log(response);
+              scope.likes.push(response.likes[0]);
+              console.log(scope.likes);
+            })
+            .catch(function(err){
+              scope.error = err.message;
+            });
+
         }
+
 
       }
     };
