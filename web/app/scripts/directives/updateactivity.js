@@ -61,7 +61,9 @@ angular.module('pmtoolApp')
 			     			var activityData = {
 			      				description: description, 
 			      				project: projectId,
-			      				attachment:scope.attachment
+			      				attachment:scope.attachment,
+			      				likes:[],
+			      				parentId: null
 			      			};
 			      			console.log('activityData',activityData);
 			     			Activity.addActivity(activityData)
@@ -85,6 +87,8 @@ angular.module('pmtoolApp')
 			     		var activityData = {
 		      				description: description, 
 		      				project: projectId,
+		      				likes:[],
+			      			parentId: null
 		      			};
 		      			Activity.addActivity(activityData)
 		      			.then(function(response){
