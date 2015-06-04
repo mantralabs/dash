@@ -3,7 +3,8 @@
 
 <h2>Activities</h2>
 <div id="acts">
-	<div ng-repeat="activity in activities1">
+	<div ng-repeat="activity in activities1" style="
+    margin-bottom: 50px">
 		<div>
 			<div class="acts-sub clearfix" >
 				<div class="acts-img">
@@ -16,15 +17,45 @@
 					<ul class="clearfix">
 						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
 						<li class="like-comment" ng-click="showCommentBox = ! showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
-						<li class="like-comment">3</li>
-						<li class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li>
-					<!-- <li class="like-comment" ng-if="'{{likes}}' == 'undefined'">0</li> -->
-					<li class="like-comment" ng-if="'{{likes}}' != 'undefined'">{{likes.length}}</li>
-					
+						<li class="like-comment">{{activity.comments.length}}</li>
+						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
+						<p>{{activity.comments}}</p>
+						<li ng-if="activity.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
-					<li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal">{{activity.attachment_name}}</li>
-					<!-- <li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal"><a href="{{activity.attachment}}" download>{{activity.attachment_name}}</a></li> -->
+						<li ng-if="activity.likes.indexOf(activity.user.id)>-1" class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon-green.png"></a></li>
+					
+						<li class="like-comment">{{activity.likes.length}}</li>
+
+						<li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal">{{activity.attachment_name}}</li>
+					
 					</ul>
+
+				</div><!--end acts-discription-->
+			</div><!--end acts-sub-->
+		</div>
+		<div ng-repeat="comment in activity.comments">
+			
+			<div class="acts-sub clearfix" style="margin-left: 70px">
+				<div class="acts-img">
+					<img src="img/img-5.png" alt="profile-pic">
+				</div>
+				<div class="acts-discription" >
+					<p>
+						<a href="#/profile/{{activity.user.id}}"><span>{{comment.userInfo.name}} </span></a>{{comment.comment}}
+					</p>
+					<ul>
+						<li class="like-comment timer"> {{comment.createdAt | date:'short'}} </li>
+
+						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li> -->
+
+						<li ng-if="comment.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="addVoteComment(activity,comment.id,comment)"><a href="javascript:">like</a></li>
+
+						<li ng-if="comment.likes.indexOf(activity.user.id) >-1" class="like-comment" ng-click="addVoteComment(activity,comment.id,comment)"><a href="javascript:">Unlike</a></li>
+					
+						<li class="like-comment">{{comment.likes.length}}</li>
+					</ul>
+					
+					
 				</div><!--end acts-discription-->
 			</div><!--end acts-sub-->
 		</div>
@@ -44,7 +75,7 @@
 		</div> -->
 		<div id="comment-box" class="clearfix" ng-show="showCommentBox">
 			<form>
-				<input type="text">
+				<input type="text" ng-model="activity.comment">
 				<!-- <div>
 					<span id="doc">
 						<img src="img/doc-icon.png" alt="doc icon"><span>example.doc</span>
@@ -57,7 +88,7 @@
 						<li class="icons"><a href="javascript:"><img src="img/camera-icon.png" alt="share-links"></a></li>
 						<li class="icons"><a href="javascript:"><img src="img/link-icon.png" alt="share-files" ></a></li>
 					</ul> -->
-					<button type="submit" class="add-comment-btn btn pull-right">Add Comment</button>
+					<button type="submit" class="add-comment-btn btn pull-right" ng-click="addComment(activity)">Add Comment</button>
 				</div>
 			</form>
 		</div>

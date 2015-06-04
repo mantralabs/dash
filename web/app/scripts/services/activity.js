@@ -38,7 +38,7 @@ angular.module('pmtoolApp')
 	this.addlikes = function(activityData){
   		var deferred = $q.defer();
 		
-		$http.post('/api/activity-like', activityData)
+		$http.post('/api/activity/like', activityData)
 		.success(function(activity){
 			deferred.resolve(activity);
 			
@@ -49,6 +49,37 @@ angular.module('pmtoolApp')
 
 		return deferred.promise;
 	}
+
+	this.addComment = function(commentData){
+  		var deferred = $q.defer();
+		
+		$http.post('/api/activity/comment', commentData)
+		.success(function(activity){
+			deferred.resolve(activity);
+			
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+
+		return deferred.promise;
+	}
+
+	this.addlikesComment = function(activityData){
+  		var deferred = $q.defer();
+		
+		$http.post('/api/activity/comment/like', activityData)
+		.success(function(activity){
+			deferred.resolve(activity);
+			
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+
+		return deferred.promise;
+	}
+
 
 	this.uploadImage = function(data){
         var deferred = $q.defer();
