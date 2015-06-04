@@ -35,7 +35,7 @@ angular.module('pmtoolApp')
 		return deferred.promise;
 	}
 
-	this.addlikes = function(activityData){
+	this.addlikesActivity = function(activityData){
   		var deferred = $q.defer();
 		
 		$http.post('/api/activity/like', activityData)

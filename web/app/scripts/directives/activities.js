@@ -33,25 +33,33 @@ angular.module('pmtoolApp')
             scope.error = err.message;
           });
         }
+
+        // scope.showCommentBox = false;
+
+        // scope.hideShow = function(activity){
+        //   if(scope.showCommentBox === false){
+        //    return scope.showCommentBox = true;
+        //   }else{
+        //     return scope.showCommentBox = false;
+        //   }
+        // }
         
-        scope.addVote = function (activity) {
+        scope.likeActivity = function (activity) {
          // scope.selected = activity; 
-          
-          // scope.activity.likes = [];
           var data = {"activity":activity.id}
           
-          Activity.addlikes(data)
+          Activity.addlikesActivity(data)
             .then(function(response){
 
               console.log(response);
               if(response.likes.length > 0){
-                scope.selected = activity; 
+                // scope.selected = activity; 
                 for(var i=0; i<response.likes.length; i++){
                  activity.likes.push(response.likes[i]);
                 }
               }else{
                 if (activity.likes.indexOf(activity.user.id)>-1){
-                  scope.selected = "xyz";
+                  // scope.selected = "xyz";
                   activity.likes.splice(activity.user.id);
                 }
 
@@ -64,14 +72,14 @@ angular.module('pmtoolApp')
 
         }
 
-        scope.isActive = function(activity) {
-          if(scope.selected === activity){
-          return scope.selected === activity;
-          }else{
-            return scope.selected === !activity;
-          }
-        };
-        
+        // scope.isActive = function(activity) {
+        //   if(scope.selected === activity){
+        //   return scope.selected === activity;
+        //   }else{
+        //     return scope.selected === !activity;
+        //   }
+        // };
+         console.log(scope.showCommentBox);
         scope.addComment = function (activity) {
 
           var data = {"activity":activity.id,"comment":activity.comment}
@@ -79,7 +87,7 @@ angular.module('pmtoolApp')
           Activity.addComment(data)
             .then(function(response){
               scope.showCommentBox = false;
-              
+              console.log(scope.showCommentBox);
                activity.comments.push(response);
                console.log("activity",response);
                console.log(activity);
@@ -92,7 +100,7 @@ angular.module('pmtoolApp')
 
        
 
-        scope.addVoteComment = function (activity,id,comment) {
+        scope.likeComment = function (activity,id,comment) {
          console.log(activity,id,comment);
          
           // for(var j=0; j<activity.comments.length; j++){
@@ -111,7 +119,7 @@ angular.module('pmtoolApp')
                     comment.likes.push(response.likes[i]);
                 }
               }else{
-                for(var j=0; j<comment.length; j++){
+                for(var j=0; j<comment.likes.length; j++){
                   if (comment.likes.indexOf(activity.user.id)>-1){
                     comment.likes.splice(activity.user.id);
                   }

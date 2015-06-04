@@ -20,9 +20,9 @@
 						<li class="like-comment">{{activity.comments.length}}</li>
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
 						<p>{{activity.comments}}</p>
-						<li ng-if="activity.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
+						<li ng-if="activity.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
-						<li ng-if="activity.likes.indexOf(activity.user.id)>-1" class="like-comment" ng-click="addVote(activity)"><a href="javascript:"><img src="img/heart-icon-green.png"></a></li>
+						<li ng-if="activity.likes.indexOf(activity.user.id)>-1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon-green.png"></a></li>
 					
 						<li class="like-comment">{{activity.likes.length}}</li>
 
@@ -48,9 +48,9 @@
 
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li> -->
 
-						<li ng-if="comment.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="addVoteComment(activity,comment.id,comment)"><a href="javascript:">like</a></li>
+						<li ng-if="comment.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
-						<li ng-if="comment.likes.indexOf(activity.user.id) >-1" class="like-comment" ng-click="addVoteComment(activity,comment.id,comment)"><a href="javascript:">Unlike</a></li>
+						<li ng-if="comment.likes.indexOf(activity.user.id) >-1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon-green.png"></a></li>
 					
 						<li class="like-comment">{{comment.likes.length}}</li>
 					</ul>
@@ -88,7 +88,7 @@
 						<li class="icons"><a href="javascript:"><img src="img/camera-icon.png" alt="share-links"></a></li>
 						<li class="icons"><a href="javascript:"><img src="img/link-icon.png" alt="share-files" ></a></li>
 					</ul> -->
-					<button type="submit" class="add-comment-btn btn pull-right" ng-click="addComment(activity)">Add Comment</button>
+					<button type="submit" class="add-comment-btn btn pull-right" ng-click="addComment(activity)" ng-disabled="activity.comment.$error.required">Add Comment</button>
 				</div>
 			</form>
 		</div>
