@@ -84,6 +84,7 @@ angular.module('pmtoolApp')
 
           var data = {"activity":activity.id,"comment":activity.comment}
           console.log(activity);
+          
           Activity.addComment(data)
             .then(function(response){
               scope.showCommentBox = false;
