@@ -17,6 +17,22 @@ angular.module('pmtoolApp')
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
 	      		};
+	      		scope.typeInProcess = false;
+	      		scope.typeInProcess= function() {      
+				  scope.typeInProcess = true;
+				}; 
+	      		scope.tags = [
+				  {
+				    "name": "Foo",
+				    "id": "foo"
+				  },
+				  {
+				    "name": "Bar",
+				    "id": "bar"  
+				  }
+				] 
+
+
 
 	      		scope.uploadAttachment = function (imgElem) {
 	      			
@@ -123,6 +139,8 @@ angular.module('pmtoolApp')
 	  					console.log(err);
 	      			})
 	      		}
+	      		
+	      		
 	      	}
 	    };
 	}

@@ -16,13 +16,13 @@
 					</p>
 					<ul class="clearfix">
 						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
-						<li class="like-comment" ng-click="showCommentBox = ! showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
+						<li class="like-comment" ng-click="hideShow()"> <img src="img/reply-icon.png" alt="comment"></li>
 						<li class="like-comment">{{activity.comments.length}}</li>
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
 						<!-- <p>{{activity.comments}}</p> -->
 						<li ng-if="activity.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
-						<li ng-if="activity.likes.indexOf(activity.user.id)>-1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon-green.png"></a></li>
+						<li ng-if="activity.likes.indexOf(activity.user.id)>-1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
 					
 						<li class="like-comment">{{activity.likes.length}}</li>
 
@@ -50,7 +50,7 @@
 
 						<li ng-if="comment.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
-						<li ng-if="comment.likes.indexOf(activity.user.id) >-1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon-green.png"></a></li>
+						<li ng-if="comment.likes.indexOf(activity.user.id) >-1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
 					
 						<li class="like-comment">{{comment.likes.length}}</li>
 					</ul>
@@ -75,7 +75,8 @@
 		</div> -->
 		<div id="comment-box" class="clearfix" ng-show="showCommentBox">
 			<form>
-				<input type="text" ng-model="activity.comment">
+				<input type="text" ng-model="activity.comment" class="commentbox">
+				
 				<!-- <div>
 					<span id="doc">
 						<img src="img/doc-icon.png" alt="doc icon"><span>example.doc</span>

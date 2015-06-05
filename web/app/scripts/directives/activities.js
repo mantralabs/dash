@@ -12,7 +12,6 @@ angular.module('pmtoolApp')
       },
        link : function(scope, element, attrs) {
 
-        
         scope.path = $location.path();
         
         if($routeParams.id){
@@ -34,15 +33,15 @@ angular.module('pmtoolApp')
           });
         }
 
-        // scope.showCommentBox = false;
+        
 
-        // scope.hideShow = function(activity){
-        //   if(scope.showCommentBox === false){
-        //    return scope.showCommentBox = true;
-        //   }else{
-        //     return scope.showCommentBox = false;
-        //   }
-        // }
+        scope.hideShow = function(activity){
+          if(scope.showCommentBox === false){
+           return scope.showCommentBox = true;
+          }else{
+            return scope.showCommentBox = false;
+          }
+        }
         
         scope.likeActivity = function (activity) {
          // scope.selected = activity; 
@@ -79,38 +78,34 @@ angular.module('pmtoolApp')
         //     return scope.selected === !activity;
         //   }
         // };
-         console.log(scope.showCommentBox);
+        scope.showCommentBox = false;
         scope.addComment = function (activity) {
 
           var data = {"activity":activity.id,"comment":activity.comment}
           console.log(activity);
+          scope.showCommentBox  =  ! scope.showCommentBox;
+          
           
           Activity.addComment(data)
             .then(function(response){
-              scope.showCommentBox = false;
-              console.log(scope.showCommentBox);
-               activity.comments.push(response);
+              activity.comments.push(response);
                console.log("activity",response);
                console.log(activity);
-              
+               $('.commentbox').val('');
             })
             .catch(function(err){
               scope.error = err.message;
             });
-        }
+          }
 
        
 
         scope.likeComment = function (activity,id,comment) {
          console.log(activity,id,comment);
+         var data = {"commentId":id}
+         console.log(data);
          
-          // for(var j=0; j<activity.comments.length; j++){
-          var data = {"commentId":id}
-          console.log(data);
-          // }
-          
-         
-          Activity.addlikesComment(data)
+         Activity.addlikesComment(data)
             .then(function(response){
 
               console.log("commentlikes",response);

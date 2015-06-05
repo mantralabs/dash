@@ -4,8 +4,12 @@
 
 	<form action="javascript:" method="" name="updateForm">
   	
-    <input type="text" class="activity-description" name="description" ng-model="activity.description" required>
-
+    <input type="text" class="activity-description" name="description" ng-model="activity.description"  required>
+    <!-- <div>
+      <ul ng-if="typeInProcess == true">   
+        <li ng-repeat="tag in tags | filter:activity.description"> {{tag.name}} </li>
+      </ul>
+    </div> -->
     <div class="update-footer">
       <div class="update-footer-icons">
         <ul>
@@ -31,7 +35,7 @@
       </div><!--end update footer icons-->
 
       <div class="update-footer-btn">
-        <span ng-show="loader">updating...</span>
+        <!-- <span ng-show="loader">updating...</span> -->
         <button type="submit" id="home-page-btn" ng-if="path.indexOf('home')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
         <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateInProject(activity.description)"> Update</button>
         <div class="list-projects hide">
