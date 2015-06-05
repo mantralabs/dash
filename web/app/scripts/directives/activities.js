@@ -49,16 +49,21 @@ angular.module('pmtoolApp')
           
           Activity.addlikesActivity(data)
             .then(function(response){
-
+              console.log(activity);
               console.log(response);
-              if(response.likes.length > 0){
-                // scope.selected = activity; 
-                for(var i=0; i<response.likes.length; i++){
-                 activity.likes.push(response.likes[i]);
-                }
+              console.log(activity.user.id);
+              console.log((activity.likes.indexOf(response.user.id)));
+              if(activity.likes.indexOf(response.user) == -1){
+               
+                console.log("if");
+                
+                activity.likes.push(activity.user.id);
+                
               }else{
-                if (activity.likes.indexOf(activity.user.id)>-1){
-                  // scope.selected = "xyz";
+                console.log("else");
+                if (activity.likes.indexOf(response.user) >-1){
+                 
+                  console.log("else inside");
                   activity.likes.splice(activity.user.id);
                 }
 
@@ -109,17 +114,18 @@ angular.module('pmtoolApp')
             .then(function(response){
 
               console.log("commentlikes",response);
-              if(response.likes.length > 0){
-                for(var i=0; i<response.likes.length; i++){
+              if(comment.likes.indexOf(response.userInfo.id) == -1){
+
+                
                  
-                    comment.likes.push(response.likes[i]);
-                }
+                    comment.likes.push(response.userInfo.id);
+                
               }else{
-                for(var j=0; j<comment.likes.length; j++){
-                  if (comment.likes.indexOf(activity.user.id)>-1){
-                    comment.likes.splice(activity.user.id);
+                
+                  if (comment.likes.indexOf(response.userInfo.id)>-1){
+                    comment.likes.splice(response.userInfo.id);
                   }
-                }
+                
 
               }
             
