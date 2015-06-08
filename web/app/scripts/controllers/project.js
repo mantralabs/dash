@@ -12,7 +12,9 @@ angular.module('pmtoolApp')
 	});
 
 	$scope.addNewProject = function(data){
-
+		var userId = $scope.user.id;
+		data.users = [userId];
+		console.log(data);
 		Project.add(data).then(function(response){
 			$scope.projects.push(response);
 		}).catch(function(err){

@@ -139,6 +139,14 @@ angular.module('pmtoolApp')
 	  					console.log(err);
 	      			})
 	      		}
+
+	      		$('.tag-user').mentionable('/api/user/suggest/',
+	      			{
+	      				minimumChar: 3,
+	      				parameterName: 'term'
+	      			}, function(lists){
+                    console.log(lists);
+                });
 	      		
 	      		
 	      	}

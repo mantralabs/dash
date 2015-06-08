@@ -2,9 +2,10 @@
 
 	<h2 >Update an Activity</h2>
 
-	<form action="javascript:" method="" name="updateForm">
+	<form action="javascript:" method="" name="updateForm" style="position:relative;">
   	
-    <input type="text" class="activity-description" name="description" ng-model="activity.description"  required>
+    <input type="text" class="activity-description tag-user" name="description" ng-model="activity.description" style="position: relative;" required>
+    <!-- <input type="hidden" name="mentioned_id[]" value=""> -->
     <!-- <div>
       <ul ng-if="typeInProcess == true">   
         <li ng-repeat="tag in tags | filter:activity.description"> {{tag.name}} </li>
