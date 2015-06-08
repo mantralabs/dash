@@ -21,7 +21,7 @@
 						<li class="like-comment">{{activity.comments.length}}</li>
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
 						<!-- <p>{{activity.comments}}</p> -->
-						<p>{{user.id}} === {{activity}}</p>
+						
 						
 						<li ng-if="activity.likes.indexOf(user.id) == -1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
