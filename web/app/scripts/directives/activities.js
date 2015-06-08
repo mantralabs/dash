@@ -2,7 +2,7 @@
 
 angular.module('pmtoolApp')
 
-  .directive('activities', function (Activity, $location, UserService, Project, $routeParams) {
+  .directive('activities', function (Activity,$rootScope, $location, UserService, Project, $routeParams) {
     return {
       templateUrl: 'views/activities.html',
       restrict: 'E',
@@ -11,7 +11,7 @@ angular.module('pmtoolApp')
 
       },
        link : function(scope, element, attrs) {
-
+        scope.user = $rootScope.user;
         scope.path = $location.path();
         
         if($routeParams.id){
@@ -44,28 +44,51 @@ angular.module('pmtoolApp')
         }
         
         scope.likeActivity = function (activity) {
-         // scope.selected = activity; 
+         
           var data = {"activity":activity.id}
           
           Activity.addlikesActivity(data)
             .then(function(response){
-              console.log(activity);
-              console.log(response);
-              console.log(activity.user.id);
-              console.log((activity.likes.indexOf(response.user.id)));
-              if(activity.likes.indexOf(response.user) == -1){
-               
-                console.log("if");
+
+              if(activity.likes.indexOf(scope.user.id) == -1){
+               activity.likes.push(scope.user.id);
+              }else{
+                if (activity.likes.indexOf(scope.user.id) >-1){
+                 var i = activity.likes.indexOf(scope.user.id);
+                 activity.likes.splice(i,1);
+                 }
+              }
+            
+            })
+            .catch(function(err){
+              scope.error = err.message;
+            });
+
+        }
+
+
+        scope.likeComment = function (activity,id,comment) {
+         console.log(activity,id,comment);
+         var data = {"commentId":id}
+        
+         
+         Activity.addlikesComment(data)
+            .then(function(response){
+
+             
+              if(comment.likes.indexOf(scope.user.id) == -1){
+
                 
-                activity.likes.push(activity.user.id);
+                  comment.likes.push(scope.user.id);
                 
               }else{
-                console.log("else");
-                if (activity.likes.indexOf(response.user) >-1){
-                 
-                  console.log("else inside");
-                  activity.likes.splice(activity.user.id);
-                }
+                
+                  if (comment.likes.indexOf(scope.user.id)>-1){
+                    
+                    var i = comment.likes.indexOf(scope.user.id);
+                    comment.likes.splice(i,1);
+                  }
+                
 
               }
             
@@ -105,36 +128,40 @@ angular.module('pmtoolApp')
 
        
 
-        scope.likeComment = function (activity,id,comment) {
-         console.log(activity,id,comment);
-         var data = {"commentId":id}
-         console.log(data);
+        
+
+        //  scope.likeComment = function (activity,id,comment) {
+        //  console.log(activity,id,comment);
+        //  var data = {"commentId":id}
+        //  console.log(data);
          
-         Activity.addlikesComment(data)
-            .then(function(response){
+        //  Activity.addlikesComment(data)
+        //     .then(function(response){
 
-              console.log("commentlikes",response);
-              if(comment.likes.indexOf(response.userInfo.id) == -1){
+        //       console.log("commentlikes",response);
+        //       if(comment.likes.indexOf(response.userInfo.id) == -1){
 
+        //         comment.likes.push(activity.user.id);
                 
-                 
-                    comment.likes.push(response.userInfo.id);
+        //       }else{
                 
-              }else{
-                
-                  if (comment.likes.indexOf(response.userInfo.id)>-1){
-                    comment.likes.splice(response.userInfo.id);
-                  }
+        //           if (comment.likes.indexOf(response.userInfo.id)>-1){
+        //             console.log("comment.likes",comment.likes)
+                    
+        //             var i = comment.likes.indexOf(activity.user.id);
+        //             comment.likes.splice(i,1);
+                    
+        //           }
                 
 
-              }
+        //       }
             
-            })
-            .catch(function(err){
-              scope.error = err.message;
-            });
+        //     })
+        //     .catch(function(err){
+        //       scope.error = err.message;
+        //     });
 
-        }
+        // }
 
 
       }

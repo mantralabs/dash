@@ -9,6 +9,7 @@
 			<div class="acts-sub clearfix" >
 				<div class="acts-img">
 					<img src="img/img-5.png" alt="profile-pic">
+				
 				</div>
 				<div class="acts-discription" >
 					<p>
@@ -21,9 +22,10 @@
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
 						<!-- <p>{{activity.comments}}</p> -->
 						
-						<li ng-if="activity.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
+						<li ng-if="activity.likes.indexOf(user.id) == -1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
-						<li ng-if="activity.likes.indexOf(activity.user.id)>-1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
+
+						<li ng-if="activity.likes.indexOf(user.id)>-1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
 					
 						<li class="like-comment">{{activity.likes.length}}</li>
 
@@ -49,9 +51,9 @@
 
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li> -->
 
-						<li ng-if="comment.likes.indexOf(activity.user.id) == -1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
+						<li ng-if="comment.likes.indexOf(user.id) == -1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
-						<li ng-if="comment.likes.indexOf(activity.user.id) >-1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
+						<li ng-if="comment.likes.indexOf(user.id) >-1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
 					
 						<li class="like-comment">{{comment.likes.length}}</li>
 					</ul>
