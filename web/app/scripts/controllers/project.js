@@ -94,18 +94,33 @@ angular.module('pmtoolApp')
 
 		Project.addProjectMember($scope.projectId,data)
 		.then(function(response){
+			
+			Project.fetchProject($routeParams.id)
+				.then(function(response){
+					console.log("fetch",response);
+					$scope.project = response;
+				}).catch(function(err){
+					console.log(err);
+					$scope.error = err.message;
+				});
+			// $scope.project.users.push(response);
+			console.log("response",response);
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
 	};
 
+
 	Project.fetchProject($routeParams.id)
 		.then(function(response){
+			console.log("fetch",response);
 			$scope.project = response;
 		}).catch(function(err){
 			console.log(err);
 			$scope.error = err.message;
 		});
+
+
 
 	$scope.editProject = function(name,description,workspace){
 		
