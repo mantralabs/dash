@@ -127,7 +127,8 @@ angular.module('pmtoolApp')
 	      			var projectId = $routeParams.id;
 	      			var activityData = {
 	      				description: description,
-	      				project: projectId
+	      				project: projectId,
+	      				likes : []
 	      			}
 
 	      			Activity.addActivity(activityData)

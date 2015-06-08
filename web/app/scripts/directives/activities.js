@@ -27,6 +27,7 @@ angular.module('pmtoolApp')
           Activity.fetch()
           .then(function(response){
             scope.activities1 = response;
+            console.log(scope.activities1);
           })
           .catch(function(err){
             scope.error = err.message;
@@ -77,19 +78,14 @@ angular.module('pmtoolApp')
 
              
               if(comment.likes.indexOf(scope.user.id) == -1){
+                comment.likes.push(scope.user.id);
+              }
+              else{
 
-                
-                  comment.likes.push(scope.user.id);
-                
-              }else{
-                
-                  if (comment.likes.indexOf(scope.user.id)>-1){
-                    
+                if (comment.likes.indexOf(scope.user.id)>-1){
                     var i = comment.likes.indexOf(scope.user.id);
                     comment.likes.splice(i,1);
                   }
-                
-
               }
             
             })
@@ -126,44 +122,6 @@ angular.module('pmtoolApp')
             });
           }
 
-       
-
-        
-
-        //  scope.likeComment = function (activity,id,comment) {
-        //  console.log(activity,id,comment);
-        //  var data = {"commentId":id}
-        //  console.log(data);
-         
-        //  Activity.addlikesComment(data)
-        //     .then(function(response){
-
-        //       console.log("commentlikes",response);
-        //       if(comment.likes.indexOf(response.userInfo.id) == -1){
-
-        //         comment.likes.push(activity.user.id);
-                
-        //       }else{
-                
-        //           if (comment.likes.indexOf(response.userInfo.id)>-1){
-        //             console.log("comment.likes",comment.likes)
-                    
-        //             var i = comment.likes.indexOf(activity.user.id);
-        //             comment.likes.splice(i,1);
-                    
-        //           }
-                
-
-        //       }
-            
-        //     })
-        //     .catch(function(err){
-        //       scope.error = err.message;
-        //     });
-
-        // }
-
-
-      }
+       }
     };
   });
