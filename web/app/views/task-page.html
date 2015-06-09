@@ -8,7 +8,7 @@
         <span>My Tasks</span>
         <li>Assigned Task</li>
         <li>All Task</li>
-        <button class="task-head-button">Create Task</button>
+        <button ng-if="user.role == 'admin'" data-toggle="modal" data-target="#task-modal" class="task-head-button">Create Task</button>
         <div class="clear"></div>
       </div>
       <div class="task-body-nav">
@@ -85,3 +85,5 @@
   </div>
   </div>
   </div>
+
+  <div ng-include="'views/modals.html'"></div>

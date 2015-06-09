@@ -1,4 +1,4 @@
-<!-- create new project modal -->
+ create new project modal -->
 <div class="modal fade" id="project-modal" ng-controller="workspaceCtrl">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -30,6 +30,46 @@
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn-green" ng-click='addNewProject(project)'>Create Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+<!-- modal for task -->
+<div class="modal fade" id="task-modal" ng-controller="workspaceCtrl">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">New Task</h4>
+        </div>
+        <form action="">
+          <div class="modal-body">
+            <div class="project-title border-bottom-grey">
+              <input class="modal-input" type="text" placeholder="Task Title" ng-model='task.name'>
+            </div>
+
+            <div class="project-desc border-bottom-grey">
+              <textarea name="" id="" placeholder="Task Description" ng-model='task.description'></textarea>
+            </div>
+            
+            <div class="clearfix border-bottom-grey">
+              <span>select Project : </span>
+            <select ng-model="task.project">
+                <option value="">Select Project</option>
+                <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}">{{project.name}}</option>
+            </select>
+            <select ng-model="task.projectMember">
+                <option value="">Assign To</option>
+                <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}">{{project.name}}</option>
+            </select>
+            
+            
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn-green" ng-click='addNewTask(task)'>Create Task</button>
           </div>
         </form>
       </div>
@@ -184,4 +224,4 @@
       <img src="{{activity.attachment}}" alt="">
     </div>
   </div>
-</div><!-- /.modal-->
+</div><!-- /.modal
