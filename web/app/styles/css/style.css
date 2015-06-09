@@ -31,6 +31,7 @@
   margin-right: 20px;
 }
 #project-modal .modal-dialog .modal-content .modal-header,
+#task-modal .modal-dialog .modal-content .modal-header,
 #contacts-modal .modal-dialog .modal-content .modal-header,
 #workspace-modal .modal-dialog .modal-content .modal-header,
 .common-modal .modal-dialog .modal-content .modal-header {
@@ -38,6 +39,7 @@
   color: #fff;
 }
 #project-modal .modal-dialog .modal-content .modal-header .close,
+#task-modal .modal-dialog .modal-content .modal-header .close,
 #contacts-modal .modal-dialog .modal-content .modal-header .close,
 #workspace-modal .modal-dialog .modal-content .modal-header .close,
 .common-modal .modal-dialog .modal-content .modal-header .close {
@@ -46,18 +48,21 @@
   text-shadow: none;
 }
 #project-modal .modal-dialog .modal-content .modal-header .close span,
+#task-modal .modal-dialog .modal-content .modal-header .close span,
 #contacts-modal .modal-dialog .modal-content .modal-header .close span,
 #workspace-modal .modal-dialog .modal-content .modal-header .close span,
 .common-modal .modal-dialog .modal-content .modal-header .close span {
   color: #fff;
 }
 #project-modal .modal-dialog .modal-content .modal-body,
+#task-modal .modal-dialog .modal-content .modal-body,
 #contacts-modal .modal-dialog .modal-content .modal-body,
 #workspace-modal .modal-dialog .modal-content .modal-body,
 .common-modal .modal-dialog .modal-content .modal-body {
   padding: 0;
 }
 #project-modal .modal-dialog .modal-content .modal-body textarea,
+#task-modal .modal-dialog .modal-content .modal-body textarea,
 #contacts-modal .modal-dialog .modal-content .modal-body textarea,
 #workspace-modal .modal-dialog .modal-content .modal-body textarea,
 .common-modal .modal-dialog .modal-content .modal-body textarea {
@@ -68,6 +73,7 @@
   font-size: 16px;
 }
 #project-modal .modal-dialog .modal-content .modal-footer,
+#task-modal .modal-dialog .modal-content .modal-footer,
 #contacts-modal .modal-dialog .modal-content .modal-footer,
 #workspace-modal .modal-dialog .modal-content .modal-footer,
 .common-modal .modal-dialog .modal-content .modal-footer {
