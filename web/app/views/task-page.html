@@ -26,7 +26,8 @@
           <span class="task-open-heading">{{task.name}}</span>
           <p>{{task.description}}</p>
           <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
-          <li class="task-open-dates">Due date:{{task.duedate | date}}</li><br>
+          <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
+          <li class="task-open-dates">Project Name:{{task.project.name}}</li>
          <!--  <span class="task-open-comment">Comments</span> -->
         </div>
     <!-- <div class="task-comments">
