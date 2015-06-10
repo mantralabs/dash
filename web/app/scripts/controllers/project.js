@@ -4,10 +4,18 @@ angular.module('pmtoolApp')
   .controller('projectController', function ($scope, $cookieStore, Project, Contact, $rootScope, $routeParams) {
 	
 	$scope.user = $rootScope.user;
+	 // $scope.tasks = [];
 
 	Project.fetch().then(function(response){
 		$scope.projects = response;
 		console.log("$scope.projects",$scope.projects)	
+	}).catch(function(err){
+		$scope.error = err.message;
+	});
+
+	Project.fetchTasks().then(function(response){
+		$scope.tasks = response;
+		console.log("$scope.tasks",$scope.tasks)	
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
@@ -18,6 +26,7 @@ angular.module('pmtoolApp')
 			data.users = [userId];
 			console.log(data);
 			Project.add(data).then(function(response){
+				console.log(response);
 				$scope.projects.push(response);
 			}).catch(function(err){
 				$scope.error = err.message;
@@ -43,11 +52,16 @@ angular.module('pmtoolApp')
 		}
 	}
 
-	$scope.createTask = function(tasks){
-		console.log(tasks);
-		$('#task-modal').modal('hide');
-		
-
+	$scope.createTask = function(){
+		console.log($scope.task);
+		Project.addTask($scope.task).then(function(response){
+			console.log(response);
+			$scope.tasks.push(response);
+			$('#task-modal').modal('hide');
+			console.log($scope.tasks);
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
 	}
 
 	$scope.deleteProject = function(id){

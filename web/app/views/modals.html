@@ -56,7 +56,7 @@
             
             <div class="clearfix border-bottom-grey">
               <span>select Project : </span>
-            <select ng-model="task.project" ng-change = "fetchUsers(task.projectid)">
+            <select ng-model="task.project" ng-change = "fetchUsers(task.project)">
                 <option value="">Select Project</option>
                 <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
             </select>
@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn-green" ng-click='createTask(task)'>Create Task</button>
+            <button type="submit" class="btn-green" ng-click='createTask()'>Create Task</button>
           </div>
         </form>
       </div>

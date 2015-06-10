@@ -74,6 +74,35 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    this.addTask = function (task) {
+      	var deferred = $q.defer()
+            
+      	$http.post('/api/task/add', task)
+      	.success(function(response){
+        	deferred.resolve(response);
+     	 })
+      	.error(function(err) {
+        	deferred.reject(err);
+      	});
+
+      return deferred.promise;
+    };
+
+    this.fetchTasks = function(){
+		var deferred = $q.defer();
+		
+		$http.get('/api/task/get')
+		.success(function(data){
+			deferred.resolve(data);
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+		
+		return deferred.promise;
+  	}
+
+
   	this.addProjectMember = function(projectId,data){
   		// console.log(projectId,data);
   		
