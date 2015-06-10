@@ -5,10 +5,10 @@
     <sidebar></sidebar>
     <div class="common-div clearfix" ng-controller="projectController">
       <div class="task-head-nav">
-        <span>My Tasks</span>
-        <li>Assigned Task</li>
-        <li>All Task</li>
-        <button ng-if="user.role == 'admin'" data-toggle="modal" data-target="#task-modal" class="task-head-button">Create Task</button>
+        <span ng-click="myTask()">My Tasks</span>
+        <li ng-click="assignedTask()">Assigned Task</li>
+        <!-- <li>All Task</li> -->
+        <button data-toggle="modal" data-target="#task-modal" class="task-head-button">Create Task</button>
         <div class="clear"></div>
       </div>
       <div class="task-body-nav">
@@ -39,6 +39,7 @@
     </div> -->
     <!-- <div class="clear">
     </div> -->
+
    <!--  <div class="task-body-co">
       <div class="task-body-container2">
         <img class="task-dp" src="img/dp.png">
@@ -84,8 +85,10 @@
   </div> -->
   <!-- <div class="clear">
   </div> -->
+  
   </div>
   </div>
   </div>
+
 
   <div ng-include="'views/modals.html'"></div>
