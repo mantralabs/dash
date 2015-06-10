@@ -16,12 +16,12 @@
         <li>In Progress</li>
         <li>Completed</li>
         <select class="task-body-select" ng-model="task.project">
-          <option value="">Select Project</option>
+          <option value="">All Projects</option>
           <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
         </select>
       </div>
       <div>
-      <div class="task-container" ng-repeat = "task in tasks">
+      <div class="task-container" ng-repeat = "task in tasks | filter:task.project">
         <div class="task-body-container1" >
           <span class="task-open-heading">{{task.name}}</span>
           <p>{{task.description}}</p>
