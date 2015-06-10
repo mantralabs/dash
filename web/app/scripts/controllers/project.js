@@ -55,8 +55,9 @@ angular.module('pmtoolApp')
 	$scope.createTask = function(){
 		console.log($scope.task);
 		Project.addTask($scope.task).then(function(response){
-			console.log(response);
 			$scope.tasks.push(response);
+			console.log(response);
+			
 			$('#task-modal').modal('hide');
 			console.log($scope.tasks);
 		}).catch(function(err){
