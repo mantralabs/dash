@@ -3,7 +3,7 @@
 </div>
   <div class="content">
     <sidebar></sidebar>
-    <div class="common-div" ng-controller="projectController">
+    <div class="common-div clearfix" ng-controller="projectController">
       <div class="task-head-nav">
         <span>My Tasks</span>
         <li>Assigned Task</li>
@@ -20,8 +20,8 @@
           <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
         </select>
       </div>
-      <div>
-      <div class="task-container" ng-repeat = "task in tasks | filter:task.project">
+      <div class="clearfix">
+      <div class="task-container clearfix" ng-repeat = "task in tasks | filter:task.project">
         <div class="task-body-container1" >
           <span class="task-open-heading">{{task.name}}</span>
           <p>{{task.description}}</p>

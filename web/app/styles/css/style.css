@@ -2077,10 +2077,6 @@ ul#menu li:hover ul.sub-menu {
   border-bottom: 1px solid #d4d4d4;
   padding: 0px 0px 0px 10px;
 }
-.task-container {
-  width: 80%;
-  float: left;
-}
 .task-comments {
   border-radius: 5px;
   background: #f6f6f6;
