@@ -6,20 +6,48 @@ angular.module('pmtoolApp')
 	$scope.user = $rootScope.user;
 
 	Project.fetch().then(function(response){
-		$scope.projects = response;	
+		$scope.projects = response;
+		console.log("$scope.projects",$scope.projects)	
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
 
 	$scope.addNewProject = function(data){
-		var userId = $scope.user.id;
-		data.users = [userId];
-		console.log(data);
-		Project.add(data).then(function(response){
-			$scope.projects.push(response);
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
+		if(data){
+			var userId = $scope.user.id;
+			data.users = [userId];
+			console.log(data);
+			Project.add(data).then(function(response){
+				$scope.projects.push(response);
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}
+	}
+	$( "#date" ).datepicker();
+	$scope.fetchUsers = function(id){
+		if(id){
+			$scope.UsersList = [];
+			Project.fetchProject(id)
+			.then(function(response){
+				$scope.project = response;
+				for(var j=0 ; j < $scope.project.users.length; j++){
+					$scope.UsersList.push($scope.project.users[j].id)
+					console.log("$scope.UsersList",$scope.UsersList)
+					
+				}
+			}).catch(function(err){
+				console.log(err);
+				$scope.error = err.message;
+			});
+		}
+	}
+
+	$scope.createTask = function(tasks){
+		console.log(tasks);
+		$('#task-modal').modal('hide');
+		
+
 	}
 
 	$scope.deleteProject = function(id){
@@ -44,16 +72,21 @@ angular.module('pmtoolApp')
 	$scope.userIds = [];
 	$scope.projectUsersList = [];
 	$scope.loggedUser =  $scope.user.id;
+	
+	
+	Project.fetchProject($routeParams.id )
+		.then(function(response){
+			$scope.project = response;
+			for(var j=0 ; j < $scope.project.users.length; j++){
+				$scope.projectUsersList.push($scope.project.users[j].id)
+				console.log("$scope.projectUsersList",$scope.projectUsersList)
+			}
+		}).catch(function(err){
+			console.log(err);
+			$scope.error = err.message;
+		});
 
-	Project.fetchProject($routeParams.id ).then(function(response){
-		$scope.project = response;
-		for(var j=0 ; j < $scope.project.users.length; j++){
-			$scope.projectUsersList.push($scope.project.users[j].id)
-		}
-	}).catch(function(err){
-		console.log(err);
-		$scope.error = err.message;
-	});
+	
 	
 	//if user checked push id into array if uncheck remove from array.
 	$scope.sync = function(bool, item){

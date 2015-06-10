@@ -1,4 +1,4 @@
- create new project modal -->
+
 <div class="modal fade" id="project-modal" ng-controller="workspaceCtrl">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -37,7 +37,7 @@
 </div>
 
 <!-- modal for task -->
-<div class="modal fade" id="task-modal" ng-controller="workspaceCtrl">
+<div class="modal fade" id="task-modal" ng-controller="projectController">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -56,20 +56,24 @@
             
             <div class="clearfix border-bottom-grey">
               <span>select Project : </span>
-            <select ng-model="task.project">
+            <select ng-model="task.project" ng-change = "fetchUsers(task.projectid)">
                 <option value="">Select Project</option>
-                <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}">{{project.name}}</option>
+                <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
             </select>
-            <select ng-model="task.projectMember">
+            <p ng-if="project.users.length == 0" style="color: red">No Members select another project</p>
+            <select ng-model="task.assignedTo" ng-if="project.users.length != 0"  
+            ng-disabled="project.users == undefined">
                 <option value="">Assign To</option>
-                <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}">{{project.name}}</option>
+                <option ng-repeat="member in project.users"  value="{{member.id}}">{{member.name}}</option>
             </select>
+            <input type="text" name="date" id="date" ng-model="task.duedate">
+            
             
             
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn-green" ng-click='addNewTask(task)'>Create Task</button>
+            <button type="submit" class="btn-green" ng-click='createTask(task)'>Create Task</button>
           </div>
         </form>
       </div>
