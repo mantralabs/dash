@@ -219,6 +219,14 @@
   padding: 0;
   margin: 10px 0 0 0;
 }
+.active-task {
+  color: #2d7fc1 !important;
+  border-bottom: #2d7fc1 solid 2px !important;
+}
+.active-task-body {
+  color: #3c3c3c !important;
+  border-bottom: #ffd70a 2px solid !important;
+}
 .workspacelist {
   background-color: white;
   height: 45px;
@@ -1975,18 +1983,14 @@ ul#menu li:hover ul.sub-menu {
 /* ==========================================================================
                           TASK-PAGE
    ========================================================================== */
-.task-head-nav span {
-  display: inline-block;
-  color: #2d7fc1;
-  border-bottom: #2d7fc1 solid 2px;
-  padding: 20px 10px 20px 10px;
-  margin: 0px 10px 0px 27%;
-  font-size: 20px;
+.task-head-nav {
+  text-align: center;
 }
 .task-head-nav li {
   display: inline-block;
   color: #8b8b8b;
   padding: 20px 10px 20px 10px;
+  border-bottom: 2px solid #fff;
   margin: 0px 10px 0px 10px;
   font-size: 20px;
 }
@@ -2013,8 +2017,6 @@ ul#menu li:hover ul.sub-menu {
 }
 .task-body-nav span {
   display: inline-block;
-  color: #3c3c3c;
-  border-bottom: #ffd70a 2px solid;
   padding: 15px 10px 15px 10px;
   margin-right: 20px;
   font-size: 17px;
@@ -2025,6 +2027,7 @@ ul#menu li:hover ul.sub-menu {
   padding: 15px 10px 15px 10px;
   margin-right: 20px;
   font-size: 17px;
+  border-bottom: 2px solid #fff;
 }
 .task-body-nav li:hover {
   color: #3c3c3c;

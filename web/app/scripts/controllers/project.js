@@ -8,34 +8,23 @@ angular.module('pmtoolApp')
 
 	Project.fetch().then(function(response){
 		$scope.projects = response;
-		console.log("$scope.projects",$scope.projects)	
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
 
 	Project.fetchTasks().then(function(response){
 		$scope.tasks = response;
-		console.log("$scope.tasks",$scope.tasks)	
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
 
 	$scope.showAssignedTask = false;
-	$scope.assignedTask = function(){
-		$scope.showAssignedTask = true;
-		$scope.showMyTask = false;
-		$scope.tasks = [];
-		Project.fetchTasksAssigned().then(function(response){
-			$scope.tasks = response;
-			// console.log("$scope.tasksAssigned",$scope.tasksAssigned)	
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
-	}
-
 	$scope.alltasks = true;
 	$scope.showMyTask = true;
-	$scope.myTask = function(){
+
+	$scope.myTask = function ($event){
+		$(event.target).siblings('li').removeClass('active-task');
+		$(event.target).addClass('active-task');
 		$scope.showAssignedTask = false;
 		$scope.showMyTask = true;
 		$scope.alltasks = true;
@@ -44,35 +33,54 @@ angular.module('pmtoolApp')
 		$scope.tasks = [];
 		Project.fetchTasks().then(function(response){
 			$scope.tasks = response;
-			console.log("$scope.tasks",$scope.tasks)	
 		}).catch(function(err){
 			$scope.error = err.message;
 		});
 	}
 
-	$scope.progress = false;
-	$scope.inProgress = function(){
+	$scope.assignedTask = function ($event){
+		$(event.target).siblings('li').removeClass('active-task');
+		$(event.target).addClass('active-task');
+		$scope.showMyTask = false;
+		$scope.showAssignedTask = true;
+		$scope.alltasks = true;
+		$scope.finished = false;
+		$scope.progress = false;
+		$scope.tasks = [];
+		Project.fetchTasksAssigned().then(function(response){
+			$scope.tasks = response;
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
+
+	// $scope.progress = false;
+	$scope.inProgress = function ($event){
+		$(event.target).siblings('li').removeClass('active-task-body');
+		$(event.target).addClass('active-task-body');
 		$scope.alltasks = false;
 		$scope.finished = false;
 		$scope.progress = true;
 		$scope.inProgressTasks =[];
+
 		angular.forEach($scope.tasks, function(task, idx) {
-			if (task.status == "inprogress"){
+			if (task.status == "In progress"){
 				$scope.inProgressTasks.push(task);
-				console.log($scope.inProgressTasks);
 			}
 		});
 	}
-	$scope.finished = false;
-	$scope.completed = function(){
+
+	// $scope.finished = false;
+	$scope.completed = function ($event){
+		$(event.target).siblings('li').removeClass('active-task-body');
+		$(event.target).addClass('active-task-body');
 		$scope.alltasks = false;
-		$scope.finished = true;
 		$scope.progress = false;
+		$scope.finished = true;
 		$scope.completedTasks = [];
 		 angular.forEach($scope.tasks, function(task, idx) {
-			if (task.status == "completed"){
+			if (task.status == "Completed"){
 				$scope.completedTasks.push(task);
-				console.log($scope.completedTasks);
 			}
 		});
 	}
@@ -80,9 +88,7 @@ angular.module('pmtoolApp')
 		if(data){
 			var userId = $scope.user.id;
 			data.users = [userId];
-			console.log(data);
 			Project.add(data).then(function(response){
-				console.log(response);
 				$scope.projects.push(response);
 			}).catch(function(err){
 				$scope.error = err.message;
@@ -98,7 +104,6 @@ angular.module('pmtoolApp')
 				$scope.project = response;
 				for(var j=0 ; j < $scope.project.users.length; j++){
 					$scope.UsersList.push($scope.project.users[j].id)
-					console.log("$scope.UsersList",$scope.UsersList)
 					
 				}
 			}).catch(function(err){
@@ -111,24 +116,18 @@ angular.module('pmtoolApp')
 	$scope.createTask = function(){
 		
 		$scope.task.status = "Not started";
-		console.log($scope.task);
 		Project.addTask($scope.task).then(function(response){
 			$scope.tasks.push(response);
-			console.log(response);
 			
 			$('#task-modal').modal('hide');
-			console.log($scope.tasks);
 		}).catch(function(err){
 			$scope.error = err.message;
 		});
 	}
 	$scope.taskStatus = function (status, taskid) {
-		console.log(status,taskid);
 		var data = {"status":status}
-		console.log(data);
 		Project.statusUpdate(taskid,data).then(function(response){
 			// $scope.tasks.push(response);
-			console.log(response);
 		}).catch(function(err){
 			$scope.error = err.message;
 		});
@@ -163,7 +162,6 @@ angular.module('pmtoolApp')
 			$scope.project = response;
 			for(var j=0 ; j < $scope.project.users.length; j++){
 				$scope.projectUsersList.push($scope.project.users[j].id)
-				console.log("$scope.projectUsersList",$scope.projectUsersList)
 			}
 		}).catch(function(err){
 			console.log(err);
@@ -214,14 +212,12 @@ angular.module('pmtoolApp')
 			
 			Project.fetchProject($routeParams.id)
 				.then(function(response){
-					console.log("fetch",response);
 					$scope.project = response;
 				}).catch(function(err){
 					console.log(err);
 					$scope.error = err.message;
 				});
 			// $scope.project.users.push(response);
-			console.log("response",response);
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
@@ -230,7 +226,6 @@ angular.module('pmtoolApp')
 
 	Project.fetchProject($routeParams.id)
 		.then(function(response){
-			console.log("fetch",response);
 			$scope.project = response;
 		}).catch(function(err){
 			console.log(err);

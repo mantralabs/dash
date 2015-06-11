@@ -5,17 +5,17 @@
     <sidebar></sidebar>
     <div class="common-div clearfix" ng-controller="projectController">
       <div class="task-head-nav">
-        <span ng-click="myTask()">My Tasks</span>
-        <li ng-click="assignedTask()">Assigned Task</li>
+        <li class="active-task" ng-click="myTask($event)">My Tasks</li>
+        <li ng-click="assignedTask($event)">Assigned Task</li>
         <!-- <li>All Task</li> -->
         <button data-toggle="modal" data-target="#task-modal" class="task-head-button">Create Task</button>
         <div class="clear"></div>
       </div>
       <div class="task-body-nav">
-        <span ng-if="showMyTask" ng-click="myTask()">Open</span>
-        <span ng-if="showAssignedTask" ng-click="assignedTask()">Open</span>
-        <li ng-click="inProgress()">In Progress</li>
-        <li ng-click="completed()">Completed</li>
+        <li class="active-task-body tasks-open" ng-if="showMyTask" ng-click="myTask($event)">Open</li>
+        <li class="active-task-body tasks-open" ng-if="showAssignedTask" ng-click="assignedTask($event)">Open</li>
+        <li ng-click="inProgress($event)">In Progress</li>
+        <li ng-click="completed($event)">Completed</li>
         <select class="task-body-select" ng-model="task.project">
           <option value="">All Projects</option>
           <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
