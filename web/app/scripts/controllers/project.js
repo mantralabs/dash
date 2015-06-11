@@ -19,24 +19,24 @@ angular.module('pmtoolApp')
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
-$scope.assignedTask = function(){
-	$scope.tasks = [];
-	Project.fetchTasksAssigned().then(function(response){
-		$scope.tasks = response;
-		// console.log("$scope.tasksAssigned",$scope.tasksAssigned)	
-	}).catch(function(err){
-		$scope.error = err.message;
-	});
-}
-$scope.myTask = function(){
-	$scope.tasks = [];
-	Project.fetchTasks().then(function(response){
-		$scope.tasks = response;
-		console.log("$scope.tasks",$scope.tasks)	
-	}).catch(function(err){
-		$scope.error = err.message;
-	});
-}
+	$scope.assignedTask = function(){
+		$scope.tasks = [];
+		Project.fetchTasksAssigned().then(function(response){
+			$scope.tasks = response;
+			// console.log("$scope.tasksAssigned",$scope.tasksAssigned)	
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
+	$scope.myTask = function(){
+		$scope.tasks = [];
+		Project.fetchTasks().then(function(response){
+			$scope.tasks = response;
+			console.log("$scope.tasks",$scope.tasks)	
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
 	$scope.addNewProject = function(data){
 		if(data){
 			var userId = $scope.user.id;
@@ -81,7 +81,17 @@ $scope.myTask = function(){
 			$scope.error = err.message;
 		});
 	}
-
+	$scope.taskStatus = function(presentStatus,taskid){
+		console.log(presentStatus,taskid);
+		var data = {"presentStatus":presentStatus,"taskid":taskid}
+		console.log(data);
+		Project.statusUpdate(data).then(function(response){
+			// $scope.tasks.push(response);
+			console.log(response);
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
 
 	$scope.deleteProject = function(id){
 		if (window.confirm('Delete!! Are You Sure?')){
