@@ -4,10 +4,10 @@
 	</h2>
 
 	<div id="project-1" ng-repeat = "task in tasks">
-		<p ng-if="task.status == completed" class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-		<p ng-if="task.status == onprogress" class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-		<p class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-		<p class="right-column">{{task.duedate | date}}</p>
+		<p ng-if="task.status == 'Completed'" class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+		<p ng-if="task.status == 'In progress'" class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+		<p ng-if="task.status == 'Not started'" class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+		<p class="right-column">{{task.duedate | date}} </p>
 	</div>
 </div>
 <!-- 
