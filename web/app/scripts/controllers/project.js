@@ -109,6 +109,8 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.createTask = function(){
+		
+		$scope.task.status = "Not started";
 		console.log($scope.task);
 		Project.addTask($scope.task).then(function(response){
 			$scope.tasks.push(response);
