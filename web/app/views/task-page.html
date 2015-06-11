@@ -12,74 +12,71 @@
         <div class="clear"></div>
       </div>
       <div class="task-body-nav">
-        <span>Open</span>
-        <li>In Progress</li>
-        <li>Completed</li>
+        <span ng-if="showMyTask" ng-click="myTask()">Open</span>
+        <span ng-if="showAssignedTask" ng-click="assignedTask()">Open</span>
+        <li ng-click="inProgress()">In Progress</li>
+        <li ng-click="completed()">Completed</li>
         <select class="task-body-select" ng-model="task.project">
           <option value="">All Projects</option>
           <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
         </select>
       </div>
       <div class="clearfix">
-      <div class="task-container clearfix" ng-repeat = "task in tasks | filter:task.project">
+
+      <div ng-if="alltasks" class="task-container clearfix" ng-repeat = "task in tasks | filter:task.project">
         <div class="task-body-container1" >
           <span class="task-open-heading">{{task.name}}</span>
           <p>{{task.description}}</p>
           <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
           <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
-          <select class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
+          <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
             <option value="">status</option>
             <option value="inprogress">InProgress</option>
             <option value="completed">Completed</option>
           </select>
-         <!--  <span class="task-open-comment">Comments</span> -->
+          <span ng-if="task.assignedBy.id == user.id">Status:{{task.status}}</span>
+        
         </div>
-    <!-- <div class="task-comments">
-	    <textarea class="task-comments-area"></textarea><br>
-      <img src="img/attach-files.png">
-      <img src="img/camera-icon.png">
-      <img src="img/link-icon.png">
-      <button class="task-head-button">Add Comment</button>
-    </div> -->
-    <!-- <div class="clear">
-    </div> -->
+    
+      </div>
 
-   <!--  <div class="task-body-co">
-      <div class="task-body-container2">
-        <img class="task-dp" src="img/dp.png">
-        <div class="task-conntainer2-right">
-          <span class="task-prof-name">Sudhakar</span>
-          <p>tell me about pages and the functionalities</p><br>
-          <span class="task-days">2 days ago</span>
-          <li><img src="img/reply.png"> 2</li>
-          <li><img src="img/heart.png"> 3</li>
+
+      <div ng-if="progress" class="task-container clearfix" ng-repeat = "task in inProgressTasks | filter:task.project">
+        <div class="task-body-container1" >
+          <span class="task-open-heading">{{task.name}}</span>
+          <p>{{task.description}}</p>
+          <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
+          <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
+          <li class="task-open-dates">Project Name:{{task.project.name}}</li>
+          <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
+            <option value="">status</option>
+            <option value="inprogress">InProgress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <span ng-if="task.assignedBy.id == user.id">Status:{{task.status}}</span>
+        
         </div>
-        <div class="clear"></div>
+    
       </div>
-      <div class="task-body-cont">
-        <div class="task-body-container2">
-          <img class="task-dp" src="img/dp.png">
-          <div class="task-conntainer2-right">
-            <span class="task-prof-name">Sudhagar</span>
-            <p>I got the task Sudhagar</p> 
-            <span class="task-prof-name"> Sudhagar</span><br>
-            <span class="task-days">2 days ago</span>
-            <li><img src="img/heart.png"> 3</li>
-          </div>
-          <div class="clear">          	
-          </div>
+
+      <div ng-if="finished" class="task-container clearfix" ng-repeat = "task in completedTasks | filter:task.project">
+        <div class="task-body-container1" >
+          <span class="task-open-heading">{{task.name}}</span>
+          <p>{{task.description}}</p>
+          <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
+          <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
+          <li class="task-open-dates">Project Name:{{task.project.name}}</li>
+          <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
+            <option value="">status</option>
+            <option value="inprogress">InProgress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <span ng-if="task.assignedBy.id == user.id">Status:{{task.status}}</span>
+        
         </div>
-        <div class="task-comments">
-	        <textarea class="task-comments-area"></textarea><br>
-	        <img src="img/attach-files.png">
-	        <img src="img/camera-icon.png">
-	        <img src="img/link-icon.png">
-	        <button class="task-head-button">Add Comment</button>
-        </div>
+    
       </div>
-    </div> -->
-  </div>
   <!-- <div class="task-body-right">
 	  <span>Assigned by</span>
 	  <img src="img/rightdp.png"><br>

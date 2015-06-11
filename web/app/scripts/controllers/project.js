@@ -19,7 +19,11 @@ angular.module('pmtoolApp')
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
+
+	$scope.showAssignedTask = false;
 	$scope.assignedTask = function(){
+		$scope.showAssignedTask = true;
+		$scope.showMyTask = false;
 		$scope.tasks = [];
 		Project.fetchTasksAssigned().then(function(response){
 			$scope.tasks = response;
@@ -28,13 +32,48 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		});
 	}
+
+	$scope.alltasks = true;
+	$scope.showMyTask = true;
 	$scope.myTask = function(){
+		$scope.showAssignedTask = false;
+		$scope.showMyTask = true;
+		$scope.alltasks = true;
+		$scope.finished = false;
+		$scope.progress = false;
 		$scope.tasks = [];
 		Project.fetchTasks().then(function(response){
 			$scope.tasks = response;
 			console.log("$scope.tasks",$scope.tasks)	
 		}).catch(function(err){
 			$scope.error = err.message;
+		});
+	}
+
+	$scope.progress = false;
+	$scope.inProgress = function(){
+		$scope.alltasks = false;
+		$scope.finished = false;
+		$scope.progress = true;
+		$scope.inProgressTasks =[];
+		angular.forEach($scope.tasks, function(task, idx) {
+			if (task.status == "inprogress"){
+				$scope.inProgressTasks.push(task);
+				console.log($scope.inProgressTasks);
+			}
+		});
+	}
+	$scope.finished = false;
+	$scope.completed = function(){
+		$scope.alltasks = false;
+		$scope.finished = true;
+		$scope.progress = false;
+		$scope.completedTasks = [];
+		 angular.forEach($scope.tasks, function(task, idx) {
+			if (task.status == "completed"){
+				$scope.completedTasks.push(task);
+				console.log($scope.completedTasks);
+			}
 		});
 	}
 	$scope.addNewProject = function(data){
