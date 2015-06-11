@@ -64,7 +64,7 @@
             <select ng-model="task.assignedTo" ng-if="project.users.length != 0"  
             ng-disabled="project.users == undefined">
                 <option value="">Assign To</option>
-                <option ng-repeat="member in project.users"  value="{{member.id}}">{{member.name}}</option>
+                <option ng-repeat="member in project.users | filter:{ id: '!'+user.id}"  value="{{member.id}}">{{member.name}}</option>
             </select>
             <input type="text" name="date" id="date" ng-model="task.duedate">
             
