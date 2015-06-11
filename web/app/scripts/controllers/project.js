@@ -81,11 +81,11 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		});
 	}
-	$scope.taskStatus = function(presentStatus,taskid){
-		console.log(presentStatus,taskid);
-		var data = {"presentStatus":presentStatus,"taskid":taskid}
+	$scope.taskStatus = function (status, taskid) {
+		console.log(status,taskid);
+		var data = {"status":status}
 		console.log(data);
-		Project.statusUpdate(data).then(function(response){
+		Project.statusUpdate(taskid,data).then(function(response){
 			// $scope.tasks.push(response);
 			console.log(response);
 		}).catch(function(err){

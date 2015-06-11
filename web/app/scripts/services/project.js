@@ -102,10 +102,11 @@ angular.module('pmtoolApp')
 		return deferred.promise;
   	}
 
-  	this.statusUpdate = function(data){
+  	this.statusUpdate = function (taskid, data) {
 		var deferred = $q.defer();
 		console.log(data);
-		$http.put('/api/task/edit/'+ data.taskid, data.presentStatus)
+
+		$http.put('/api/task/edit/'+ taskid, data)
 		.success(function(data){
 			console.log("sucess");
 			deferred.resolve(data);

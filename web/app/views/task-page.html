@@ -28,7 +28,7 @@
           <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
           <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
-          <select class="task-body-select" ng-model="task.presentStatus" ng-change="taskStatus(task.presentStatus,task.id)">
+          <select class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
             <option value="">status</option>
             <option value="inprogress">InProgress</option>
             <option value="completed">Completed</option>
