@@ -227,6 +227,15 @@
   color: #3c3c3c !important;
   border-bottom: #ffd70a 2px solid !important;
 }
+.search-list {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  height: 30px;
+  background: url('../../img/search.png') no-repeat right center;
+  float: right;
+  margin-right: 10px;
+  padding: 0 20px 0 10px;
+}
 .workspacelist {
   background-color: white;
   height: 45px;
