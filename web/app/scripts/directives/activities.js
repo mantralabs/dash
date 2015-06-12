@@ -31,17 +31,6 @@ angular.module('pmtoolApp')
           });
         }
 
-        
-
-        scope.hideShow = function(activity){
-          if(scope.showCommentBox === false){
-           return scope.showCommentBox = true;
-          }else{
-            return scope.showCommentBox = false;
-          }
-          
-        }
-        
         scope.likeActivity = function (activity) {
          
           var data = {"activity":activity.id}
@@ -93,21 +82,10 @@ angular.module('pmtoolApp')
 
         }
 
-        // scope.isActive = function(activity) {
-        //   if(scope.selected === activity){
-        //   return scope.selected === activity;
-        //   }else{
-        //     return scope.selected === !activity;
-        //   }
-        // };
-        scope.showCommentBox = false;
+        
         scope.addComment = function (activity) {
 
           var data = {"activity":activity.id,"comment":activity.comment}
-          
-          scope.showCommentBox  =  ! scope.showCommentBox;
-          
-          
           Activity.addComment(data)
             .then(function(response){
               activity.comments.push(response);

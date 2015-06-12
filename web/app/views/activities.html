@@ -17,7 +17,7 @@
 					</p>
 					<ul class="clearfix">
 						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
-						<li class="like-comment" ng-click="hideShow()"> <img src="img/reply-icon.png" alt="comment"></li>
+						<li class="like-comment" ng-init="indexNo=$index" ng-click="showCommentBox=!showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
 						<li class="like-comment">{{activity.comments.length}}</li>
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
 						<!-- <p>{{activity.comments}}</p> -->
@@ -50,8 +50,6 @@
 					<ul>
 						<li class="like-comment timer"> {{comment.createdAt | date:'short'}} </li>
 
-						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png" alt="like"></a></li> -->
-
 						<li ng-if="comment.likes.indexOf(user.id) == -1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
 						<li ng-if="comment.likes.indexOf(user.id) >-1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
@@ -68,19 +66,8 @@
 			<form>
 				<input type="text" ng-model="activity.comment" class="commentbox">
 				
-				<!-- <div>
-					<span id="doc">
-						<img src="img/doc-icon.png" alt="doc icon"><span>example.doc</span>
-						<img class="close-icon" src="img/close-icon.png" alt="close-icon">
-					</span>
-				</div> -->
 				<div class="comment-box-footer clearfix">
-					<!-- <ul class="comment-box-ul pull-left">
-						<li class="icons"><a href="javascript:"><img src="img/attach-files.png" alt="attach-files" height="18" width="10"></a></li>
-						<li class="icons"><a href="javascript:"><img src="img/camera-icon.png" alt="share-links"></a></li>
-						<li class="icons"><a href="javascript:"><img src="img/link-icon.png" alt="share-files" ></a></li>
-					</ul> -->
-					<button type="submit" class="add-comment-btn btn pull-right" ng-click="addComment(activity)" ng-disabled="activity.comment.$error.required">Add Comment</button>
+					<button type="submit" class="add-comment-btn btn pull-right" ng-click="addComment(activity); showCommentBox=!showCommentBox" ng-disabled="activity.comment.$error.required">Add Comment</button>
 				</div>
 			</form>
 		</div>
