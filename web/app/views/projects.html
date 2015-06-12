@@ -12,8 +12,8 @@
 			</div>
 
 			<div class="home-page3-profile clearfix" ng-if="user.role == 'admin'" >
-				<p class="project-name" ng-repeat = "project in projects | filter:name">
-					<button  class="close-btn" title="delete this Project" ng-click="deleteProject(project.id)">x</button>
+				<p class="project-name" ng-repeat = "project in projects | filter:name" >
+					<button  class="close-btn" title="delete this Project" ng-click="deleteProject(project.id)" style="padding:0px;"><img src="img/trash.png" style="width: 20px;height: 20px;"></button>
 					<a href="#/project/{{project.id}}">{{project.name}}</a>
 				</p>
 			</div>
