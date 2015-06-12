@@ -30,6 +30,12 @@
   padding: 5px 10px;
   margin-right: 20px;
 }
+.modal-select {
+  box-shadow: none;
+  height: 30px;
+  border: 1px solid #eee;
+  margin: 5px;
+}
 #project-modal .modal-dialog .modal-content .modal-header,
 #task-modal .modal-dialog .modal-content .modal-header,
 #contacts-modal .modal-dialog .modal-content .modal-header,
@@ -1600,14 +1606,12 @@ ul#menu li:hover ul.sub-menu {
 /* ==========================================================================
             HOME-PAGE-3
    ========================================================================== */
-.home-page3-head select {
-  -webkit-appearance: none;
-}
 .home-page3-sort {
-  background: url("../../img/triangle.png") no-repeat;
+  border: none;
+  box-shadow: none;
+  height: 30px;
   width: 160px;
   padding: 5px 10px 5px 10px;
-  background-position: 136px 8px;
   color: #2d7fc1;
   font-size: 15px;
 }
