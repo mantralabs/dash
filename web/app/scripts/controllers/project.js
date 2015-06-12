@@ -13,6 +13,7 @@ angular.module('pmtoolApp')
 	});
 
 	Project.fetchTasks().then(function(response){
+		console.log("fetchTasks",response)
 		$scope.tasks = response;
 	}).catch(function(err){
 		$scope.error = err.message;
@@ -22,7 +23,22 @@ angular.module('pmtoolApp')
 	$scope.alltasks = true;
 	$scope.showMyTask = true;
 
+	$scope.createTask = function(){
+		
+		$scope.task.status = "Not started";
+		Project.addTask($scope.task).then(function(response){
+			$scope.tasks.push(response);
+			console.log(response);
+			$('#task-modal').modal('hide');
+			// $scope.assignedTask();
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+
+	}
+
 	$scope.myTask = function ($event){
+		console.log("myTask",$event);
 		if ($(event.target).parent().hasClass('task-head-nav')){
 			$(event.target).siblings('li').removeClass('active-task');
 			$(event.target).addClass('active-task');
@@ -44,6 +60,7 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.assignedTask = function ($event){
+		console.log("assignedTaskevent",$event);
 		if ($(event.target).parent().hasClass('task-head-nav')){
 			$(event.target).siblings('li').removeClass('active-task');
 			$(event.target).addClass('active-task');
@@ -66,6 +83,7 @@ angular.module('pmtoolApp')
 
 	// $scope.progress = false;
 	$scope.inProgress = function ($event){
+		console.log("inProgressevent",$event);
 		$(event.target).siblings('li').removeClass('active-task-body');
 		$(event.target).addClass('active-task-body');
 		$scope.alltasks = false;
@@ -82,6 +100,7 @@ angular.module('pmtoolApp')
 
 	// $scope.finished = false;
 	$scope.completed = function ($event){
+		console.log("completedevent",$event);
 		$(event.target).siblings('li').removeClass('active-task-body');
 		$(event.target).addClass('active-task-body');
 		$scope.alltasks = false;
@@ -123,17 +142,7 @@ angular.module('pmtoolApp')
 		}
 	}
 
-	$scope.createTask = function(){
-		
-		$scope.task.status = "Not started";
-		Project.addTask($scope.task).then(function(response){
-			$scope.tasks.push(response);
-			
-			$('#task-modal').modal('hide');
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
-	}
+	
 	$scope.taskStatus = function (status, taskid) {
 		var data = {"status":status}
 		Project.statusUpdate(taskid,data).then(function(response){

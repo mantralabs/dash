@@ -22,7 +22,8 @@
         </select>
       </div>
       <div class="clearfix">
-
+        <!-- <p ng-if="noTasksAssignedToU">No Tasks Assigned To You Yet</p>
+        <p ng-if="noTasksAssignedByU">No Tasks Assigned By You</p> -->
       <div ng-if="alltasks" class="task-container clearfix" ng-repeat = "task in tasks | filter:task.project">
         <div class="task-body-container1" >
           <span class="task-open-heading">{{task.name}}</span>
@@ -36,9 +37,7 @@
             <option value="Completed">Completed</option>
           </select>
           <span ng-if="task.assignedBy.id == user.id">Status:{{task.status}}</span>
-        
         </div>
-    
       </div>
 
 
@@ -50,7 +49,7 @@
           <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
           <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
-            <option value="">status</option>
+            <option value="NOt Started">status</option>
             <option value="inprogress">InProgress</option>
             <option value="completed">Completed</option>
           </select>

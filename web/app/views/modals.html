@@ -56,10 +56,12 @@
             
             <div class="clearfix border-bottom-grey">
               <span>select Project : </span>
-            <select ng-model="task.project" ng-change = "fetchUsers(task.project)">
-                <option value="">Select Project</option>
-                <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
-            </select>
+           <!--  <div class="select-style"> -->
+              <select ng-model="task.project" ng-change = "fetchUsers(task.project)">
+                  <option value="">Select Project</option>
+                  <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
+              </select>
+            <!-- </div> -->
             <p ng-if="project.users.length == 0" style="color: red">No Members select another project</p>
             <select ng-model="task.assignedTo" ng-if="project.users.length != 0"  
             ng-disabled="project.users == undefined">

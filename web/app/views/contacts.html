@@ -7,10 +7,10 @@
 	    <div class="home-page3">
 			<div class="home-page3-head">
 				<span>Sort by</span>
-				<select class="home-page3-sort">
-					<option>Recently Added</option>
+				<select class="home-page3-sort" ng-model="sort">
+					<option value="createdAt">Recently Added</option>
 					<!-- <option>Size</option> -->
-					<option ng-model="filterNames">Name</option>
+					<option value="name">Name</option>
 					<!-- <option>Kind</option> -->
 				</select>
 				<button ng-if= "user.role == 'admin' " class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button>
@@ -21,7 +21,8 @@
 			<div class="home-page3-profile">
 				<!-- <input class="checks" id="check11" type="checkbox"> -->
 				<!-- <span class="home-page3-select">Select All</span><br> -->
-				<div ng-repeat="contact in contacts" ng-if="user.id !== contact.id" class="clearfix">
+				<div ng-repeat="contact in contacts | orderBy : sort" ng-if="user.id !== contact.id" class="clearfix">
+					{{contact.email}}
 					<div class="home-page3-left">
 						<div class="home-page3-check align-middle">
 							<!-- <input class="checks" id="check12" type="checkbox" ng-checked="selection.indexOf(contact.id) > -1" ng-click="toggleSelection(contact.id)" > -->
