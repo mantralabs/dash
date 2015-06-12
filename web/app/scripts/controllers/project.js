@@ -23,8 +23,13 @@ angular.module('pmtoolApp')
 	$scope.showMyTask = true;
 
 	$scope.myTask = function ($event){
-		$(event.target).siblings('li').removeClass('active-task');
-		$(event.target).addClass('active-task');
+		if ($(event.target).parent().hasClass('task-head-nav')){
+			$(event.target).siblings('li').removeClass('active-task');
+			$(event.target).addClass('active-task');
+		} else {
+			$(event.target).siblings('li').removeClass('active-task-body');
+			$(event.target).addClass('active-task-body');
+		}
 		$scope.showAssignedTask = false;
 		$scope.showMyTask = true;
 		$scope.alltasks = true;
@@ -39,8 +44,13 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.assignedTask = function ($event){
-		$(event.target).siblings('li').removeClass('active-task');
-		$(event.target).addClass('active-task');
+		if ($(event.target).parent().hasClass('task-head-nav')){
+			$(event.target).siblings('li').removeClass('active-task');
+			$(event.target).addClass('active-task');
+		} else {
+			$(event.target).siblings('li').removeClass('active-task-body');
+			$(event.target).addClass('active-task-body');
+		}
 		$scope.showMyTask = false;
 		$scope.showAssignedTask = true;
 		$scope.alltasks = true;
