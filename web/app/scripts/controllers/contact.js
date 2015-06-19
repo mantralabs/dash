@@ -35,10 +35,6 @@ angular.module('pmtoolApp')
 		}
 	}
 
-	// $scope.getOtherUserData = function(otherUserId){
-	// 	console.log('inside other');
-	// }
-
 	$scope.selection=[];
 
 	$scope.toggleSelection = function(id){

@@ -11,7 +11,7 @@ angular.module('pmtoolApp')
 		$scope.error = err.message;
 	});
 
-	$scope.addNewWorkspace = function(data){
+	$scope.addNewWorkspace = function (data) {
 		Workspace.add(data).then(function(response){
 			$scope.workspaces.push(response);
 			$('#workspace-modal').modal('hide');
@@ -20,7 +20,7 @@ angular.module('pmtoolApp')
 		});
 	};
 
-	$scope.deleteWorkspace = function(workspaceId){
+	$scope.deleteWorkspace = function (workspaceId) {
 		if (window.confirm('Delete!! Are You Sure?')){
 			Workspace.delete(workspaceId)
 			.then(function(response){
@@ -35,7 +35,7 @@ angular.module('pmtoolApp')
 		}
 	};
 
-	$scope.workspaceRedirect = function(){
+	$scope.workspaceRedirect = function () {
 		$('#project-modal').modal('hide');
 		$('div').removeClass('modal-backdrop fade in')
 		$location.path('/workspaces');
@@ -53,7 +53,7 @@ angular.module('pmtoolApp')
 		$scope.error = err.message;
 	});
 
-	$scope.editWorkspace = function(workspaceName){
+	$scope.editWorkspace = function (workspaceName) {
 		var data = {
 			"name":workspaceName
 		};

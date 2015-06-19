@@ -7,12 +7,15 @@ angular.module('pmtoolApp')
 		restrict: 'E',
 		scope: {
 			projects: '=projects'
+			
 		},
 		
-		link: function(scope, element, attrs) {
+		link: function (scope, element, attrs) {
+
 			UserService.fetchProfile()
 			.then(function(response){
 				scope.projects = response.projects;
+
 			}).catch(function(err){
 				scope.error = err.message;				
 			});

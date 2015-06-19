@@ -25,14 +25,28 @@
         <!-- <p ng-if="noTasksAssignedToU">No Tasks Assigned To You Yet</p>
         <p ng-if="noTasksAssignedByU">No Tasks Assigned By You</p> -->
       <div ng-if="alltasks" class="task-container clearfix" ng-repeat = "task in tasks | filter:task.project">
-        <div class="task-body-container1" >
-          <span class="task-open-heading">{{task.name}}</span>
-          <p>{{task.description}}</p>
+        <div class="task-body-container1">
+          <div class="col-md-12">
+            <div class="col-md-8">
+              <span class="task-open-heading">{{task.name}}</span><br>
+              <p>{{task.description}}</p>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2" ng-if="showMyTask">
+              <p class="col-md-6">assigned by:</p>
+              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
+            </div>
+             <div class="col-md-2" ng-if="showAssignedTask">
+              <p class="col-md-6">assigned to:</p>
+              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}">
+            </div>
+           </div>
           <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
           <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
           <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
-            <option value="">status</option>
+            <option value="Not Started">status</option>
             <option value="In progress">InProgress</option>
             <option value="Completed">Completed</option>
           </select>
@@ -43,13 +57,28 @@
 
       <div ng-if="progress" class="task-container clearfix" ng-repeat = "task in inProgressTasks | filter:task.project">
         <div class="task-body-container1" >
-          <span class="task-open-heading">{{task.name}}</span>
-          <p>{{task.description}}</p>
+          <div class="col-md-12">
+            <div class="col-md-8">
+              <span class="task-open-heading">{{task.name}}</span><br>
+              <p>{{task.description}}</p>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2" ng-if="showMyTask">
+              <p class="col-md-6">assigned by:</p>
+              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
+            </div>
+             <div class="col-md-2" ng-if="showAssignedTask">
+              <p class="col-md-6">assigned to:</p>
+              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}">
+            </div>
+           </div>
+          
           <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
           <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
           <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
-            <option value="NOt Started">status</option>
+            <option value="Not Started">status</option>
             <option value="inprogress">InProgress</option>
             <option value="completed">Completed</option>
           </select>
@@ -61,13 +90,28 @@
 
       <div ng-if="finished" class="task-container clearfix" ng-repeat = "task in completedTasks | filter:task.project">
         <div class="task-body-container1" >
-          <span class="task-open-heading">{{task.name}}</span>
-          <p>{{task.description}}</p>
+          <div class="col-md-12">
+            <div class="col-md-8">
+              <span class="task-open-heading">{{task.name}}</span><br>
+              <p>{{task.description}}</p>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2" ng-if="showMyTask">
+              <p class="col-md-6">assigned by:</p>
+              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
+            </div>
+             <div class="col-md-2" ng-if="showAssignedTask">
+              <p class="col-md-6">assigned to:</p>
+              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}">
+            </div>
+           </div>
+          
           <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
           <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
           <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
-            <option value="">status</option>
+            <option value="Not Started">status</option>
             <option value="inprogress">InProgress</option>
             <option value="completed">Completed</option>
           </select>

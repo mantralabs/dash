@@ -4,37 +4,14 @@
 	</h2>
 
 	<div id="project-1" ng-repeat = "task in tasks">
-		<p ng-if="task.status == 'Completed' " class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-		<p ng-if="task.status == 'In progress' " class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-		<p ng-if="task.status == 'Not started' || task.status == '' " class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-		<p class="right-column">{{task.duedate | date}} </p>
+		<div class="col-md-7">
+			<p ng-if="task.status == 'Completed' " class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+			<p ng-if="task.status == 'In progress' " class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+			<p ng-if="task.status == 'Not Started'" class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+		</div>
+		<div class="col-md-5">
+			<p class="right-column">{{task.duedate | date}} </p>
+		</div>
 	</div>
 </div>
-<!-- 
-<div id="project-2">
-	<p class="left-column"><img src="img/in-progress.png" alt="in-progress">&nbsp;&nbsp;Watch in wireframe</p>
-	<p class="right-column">29/03/2014</p>
-</div><!--end project-2-->
 
-<!-- <div id="project-3">
-	<p class="left-column"><img src="img/not-completed.png" alt="not-completed">&nbsp;&nbsp;Chess</p>
-	<p class="right-column">4/04/2014</p>
-</div><!--end project-3--> 
-
-<!-- <div class="task-container clearfix" ng-repeat = "task in tasks">
-    <div class="task-body-container1" >
-      <span class="task-open-heading">{{task.name}}</span>
-      <p>{{task.description}}</p>
-      <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
-      <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
-      <li class="task-open-dates">Project Name:{{task.project.name}}</li>
-      <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
-        <option value="">status</option>
-        <option value="inprogress">InProgress</option>
-        <option value="completed">Completed</option>
-      </select>
-      <span ng-if="task.assignedBy.id == user.id">Status:{{task.status}}</span>
-    
-    </div>
-
-</div> -->

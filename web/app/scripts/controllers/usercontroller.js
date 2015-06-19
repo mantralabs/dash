@@ -5,7 +5,7 @@ angular.module('pmtoolApp')
 .controller('userController',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
 	//User Login Method
-	$scope.login = function(user){
+	$scope.login = function (user) {
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(response){
@@ -19,7 +19,7 @@ angular.module('pmtoolApp')
 	};
 
 	//Logout method
-	$scope.logout = function(){
+	$scope.logout = function () {
 
 		UserService.signout()
 		.then(function(response){
@@ -30,7 +30,7 @@ angular.module('pmtoolApp')
 	};
 
 	//edit profile method
-	$scope.updateUser = function(user){
+	$scope.updateUser = function (user) {
 
 		console.log('inside user contrl',user);
 		//if user uploads the image, get the avatar image file name form the uploadImage method.
@@ -67,7 +67,6 @@ angular.module('pmtoolApp')
 
 		    		UserService.uploadAvatar(imageData)
 		     		.then(function(response){
-		     			console.log('imagedata',imageData);
           				console.log('response',response);
 	     				if(response){
 			     			$scope.imageUploadStatus = false;
@@ -81,10 +80,10 @@ angular.module('pmtoolApp')
 	    }   
   	};
 
-  	$scope.deleteImage = function(data){
-  	};
+  	// $scope.deleteImage = function (data) {
+  	// };
 
-  	// Fetch Particular User
+  	
   	var path = $location.path();
   	if((path.indexOf('profile')  > 0) && $routeParams.id){
 	  	UserService.fetchUser($routeParams.id)
@@ -97,7 +96,7 @@ angular.module('pmtoolApp')
 	}
 	
 	//First Time Registration Method to set Name and Password.
-	$scope.basicInfo = function(data){
+	$scope.basicInfo = function (data) {
 
 		var user = {
 			name : data.name, 
@@ -125,7 +124,7 @@ angular.module('pmtoolApp')
 
 .controller('resetPasswordCtrl', function ($scope, $location, UserService, $routeParams){
 
-	$scope.resetPassword = function(password){
+	$scope.resetPassword = function (password) {
 	
 		var data = {
 			hashKey : $routeParams.hashKey,
@@ -153,43 +152,43 @@ angular.module('pmtoolApp')
 	}
 })
 
-.controller('taskPageCtrl', function($scope,$location){
+// .controller('taskPageCtrl', function($scope,$location){
 	
 
-})
-.controller('createEventCtrl', function($scope,$location){
+// })
+// .controller('createEventCtrl', function($scope,$location){
 	
 
-})
-.controller('searchResultsCtrl', function($scope,$location){
+// })
+// .controller('searchResultsCtrl', function($scope,$location){
 	
 
-})
-.controller('privacySettingsCtrl', function($scope,$location){
+// })
+// .controller('privacySettingsCtrl', function($scope,$location){
 	
 
-})
-.controller('notificationSettingsCtrl', function($scope,$location){
+// })
+// .controller('notificationSettingsCtrl', function($scope,$location){
 	
 
-})
-.controller('gettingStartedCtrl', function($scope,$location){
+// })
+// .controller('gettingStartedCtrl', function($scope,$location){
 	
 
-})
-.controller('createTaskCtrl', function($scope,$location){
+// })
+// .controller('createTaskCtrl', function($scope,$location){
 	
 
-})
-.controller('contactSupportCtrl', function($scope,$location){
+// })
+// .controller('contactSupportCtrl', function($scope,$location){
 	
 
-})
-.controller('profilePageCtrl', function($scope,$location){
+// })
+// .controller('profilePageCtrl', function($scope,$location){
 	
 
-})
+// })
 
-.controller('contactsPageCtrl', function($scope,$location){
+// .controller('contactsPageCtrl', function($scope,$location){
 
-})
+// })

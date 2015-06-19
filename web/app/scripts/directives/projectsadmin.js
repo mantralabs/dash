@@ -9,7 +9,7 @@ angular.module('pmtoolApp')
 		templateUrl:'views/projectsadmin.html',
 		restrict: 'E',
 		
-		link: function(scope, element, attrs) {
+		link: function (scope, element, attrs) {
 			scope.user = $rootScope.user;
 			Project.fetch()
 			.then(function(response){

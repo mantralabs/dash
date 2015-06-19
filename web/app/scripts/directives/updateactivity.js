@@ -9,6 +9,7 @@ angular.module('pmtoolApp')
 	      	scope: {
             	activities1: '=activities1',
             	projects: '=projects'
+            	
 			},
 
 	      	link: function(scope, element, attrs) {
@@ -21,6 +22,7 @@ angular.module('pmtoolApp')
 	      		scope.typeInProcess= function() {      
 				  scope.typeInProcess = true;
 				}; 
+				
 	      		scope.tags = [
 				  {
 				    "name": "Foo",
@@ -31,6 +33,8 @@ angular.module('pmtoolApp')
 				    "id": "bar"  
 				  }
 				] 
+
+				
 
 
 
@@ -61,10 +65,12 @@ angular.module('pmtoolApp')
 					    		
 				    	};
 				    }   
-			  	};	      		
-			  	scope.loader = false;
-	      		scope.sendActivity = function(description, projectId){
+			  	};	 
 
+			  	scope.loader = false;
+
+	      		scope.sendActivity = function (description, projectId) {
+	      			console.log(scope.projects)
 	      			$('.list-projects').removeClass('show');
 	      			scope.loader = true;
 	      			if(scope.imageData){

@@ -117,35 +117,35 @@ p{}
   
 @font-face {
     font-family: 'ProximaNova-Bold';
-    src: url('fonts/ProximaNova-Bold.ttf');
-    src: url('fonts/ProximaNova-Bold.svg') format ('svg'),
-    url('fonts/ProximaNova-Bold.woff') format ('woff');
+    // src: url('fonts/ProximaNova-Bold.ttf');
+    // src: url('fonts/ProximaNova-Bold.svg') format ('svg'),
+    // url('fonts/ProximaNova-Bold.woff') format ('woff');
     font-weight:normal;
     font-style:normal;
 }
 
 @font-face {
     font-family: 'ProximaNova-Regular';
-    src: url('fonts/ProximaNova-Regular_0.ttf') ;
-    src: url('fonts/ProximaNova-Regular_0.svg') format ('svg'),
-    url('fonts/ProximaNova-Regular_0.woff') format ('woff');
+    // src: url('fonts/ProximaNova-Regular_0.ttf') ;
+    // src: url('fonts/ProximaNova-Regular_0.svg') format ('svg'),
+    // url('fonts/ProximaNova-Regular_0.woff') format ('woff');
     font-weight:normal;
     font-style:normal;
 }
  
 @font-face {
     font-family: 'ProximaNova-Semibold';
-    src: url('fonts/ProximaNova-Semibold.ttf') ;
-    src: url('fonts/ProximaNova-Semibold.svg') format ('svg'),
-    url('fonts/ProximaNova-Semibold.woff') format ('woff');
+    // src: url('fonts/ProximaNova-Semibold.ttf') ;
+    // src: url('fonts/ProximaNova-Semibold.svg') format ('svg'),
+    // url('fonts/ProximaNova-Semibold.woff') format ('woff');
     font-weight:normal;
     font-style:normal;
 }
 @font-face {
     font-family: 'RobotoSlab-Regular';
-    src: url('fonts/RobotoSlab-Regular.ttf');
-    src: url('fonts/RobotoSlab-Regular.svg') format ('svg'),
-    url('fonts/RobotoSlab-Regular.woff') format ('woff');
+    // src: url('fonts/RobotoSlab-Regular.ttf');
+    // src: url('fonts/RobotoSlab-Regular.svg') format ('svg'),
+    // url('fonts/RobotoSlab-Regular.woff') format ('woff');
     font-weight:normal;
     font-style:normal;
 }
@@ -353,6 +353,9 @@ ul#menu li:hover ul.sub-menu {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px; 
+}
+#left #my-contacts{
+      overflow-x: hidden;
 }
 
 #left #my-contacts h2{
@@ -1433,6 +1436,7 @@ ul#menu li:hover ul.sub-menu {
 .home-page3-head span{
     color:#939393;
     padding-right: 10px;
+    font-size: 22px;
 }
 .home-page3-head {
     border-bottom: 1px #939393 solid;
@@ -1443,8 +1447,8 @@ ul#menu li:hover ul.sub-menu {
     margin:5px 30px 0px 0px;
 }
 .home-page3-profile{
-    border-bottom:1px solid #939393;
-    padding:20px 0px 20px 10px;
+    padding:20px 0px 10px 10px;
+    margin-left: 10px;
 }
 .home-page3-name{
     color:#2d7fc1;
@@ -1460,11 +1464,41 @@ ul#menu li:hover ul.sub-menu {
     padding:0px 0px 17px 0px;
     display: inline-block;
 }
-.home-page3-profile li{
-    color:#939393;
-    display: inline-block;
-    list-style-type: none;
+.project-name{
+  display: inline-block;
 }
+.view-delete-buttons{
+    display: inline-block;
+}
+.home-page3-profile ul li{
+    color:#939393;
+    list-style-type: decimal-leading-zero;
+    text-transform: capitalize;
+    padding-bottom: 17px;
+    border-bottom: 1px solid;
+    padding-top: 17px;
+    a{
+        font-size: 19px;
+    }
+    .view-btn{
+         margin-right: 11px;
+        float: right;
+        margin-left: 400px;
+        background-color: rgb(44, 190, 143);
+        color: white;
+        border-radius: 3px;
+        border: 0px;
+    }
+    .delete-btn{
+        margin-right: 22px;
+        float: right;
+       background-color: rgb(94, 93, 93);
+        color: white;
+        border-radius: 3px;
+        border: 0px;
+    }
+}
+
 /*.home-page3-profile input{
     -webkit-appearance:none;
     border:1px solid #8b8b8b;
@@ -1696,7 +1730,8 @@ ul#menu li:hover ul.sub-menu {
     }
 .profile-head{
     padding:10px 0px 10px 10px;
-    border-bottom: solid #f6f6f6 2px;
+    // border-bottom: solid #f6f6f6 2px;
+    border-bottom: solid#CCC7C7 2px;
 }
 .profile-head button{
     float:right;
@@ -1712,12 +1747,37 @@ ul#menu li:hover ul.sub-menu {
 }
 .name{
     color:#2d7fc1;
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-top: 20px;
+    position: absolute;
 
+}
+.col-md-6{
+ padding: 0px;   
+}
+.col-md-2{
+ padding: 0px;   
+}
+.col-md-12{
+ padding: 0px;   
+}
+.col-md-8{
+ padding: 0px;   
+}
+.col-md-1{
+ padding: 0px;   
 }
 .pro-pic{
     padding:10px 10px;
     height:100px;
     width:100px;
+    float:left;
+}
+.pro-pic-small{
+    padding:10px 10px;
+    height:80px;
+    width:80px;
     float:left;
 }
 .info{
@@ -1796,6 +1856,7 @@ ul#menu li:hover ul.sub-menu {
 .head-info{
     display: block;
     padding-bottom: 10px;
+    color: #2d7fc1;
 }
 /* ==========================================================================
                            SEARCH-RESULTS-PAGE

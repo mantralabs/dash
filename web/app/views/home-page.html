@@ -27,8 +27,8 @@
 
         <my-contacts></my-contacts><!-- my-contacts is a directive -->
 
-        <my-projects projects="projects"></my-projects>
-        
+        <my-projects projects="projects" ></my-projects>
+
         <div ng-if = "user.role == 'admin'">
         <projects-admin></projects-admin>
         </div>
@@ -36,15 +36,15 @@
           <my-tasks></my-tasks>
         </div><!--end tasks-->
 
-        <div id="events">
+        <!-- <div id="events">
           <my-events></my-events>
-        </div><!--end events-->
+        </div> --><!--end events-->
 
       </div><!--end left-->
 
       <div id="right" class="clearfix">
 
-        <updateactivity activities1="activities1" projects="projects"></updateactivity>
+        <updateactivity activities1="activities1" projects="projects" ></updateactivity>
 
         <div id="activities">
           <activities list="activities1"></activities>
