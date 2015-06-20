@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('projectController', function ($scope, $cookieStore, Project, Contact, $rootScope, $routeParams) {
+  .controller('projectController', function ($scope, $cookieStore, Project, Contact,$location, $rootScope, $routeParams) {
 	
 	$scope.user = $rootScope.user;
 	
@@ -13,7 +13,6 @@ angular.module('pmtoolApp')
 	});
 
 	Project.fetchTasks().then(function(response){
-		console.log("fetchTasks",response)
 		$scope.tasks = response;
 	}).catch(function(err){
 		$scope.error = err.message;
@@ -54,6 +53,8 @@ angular.module('pmtoolApp')
 			});
 		}
 	}
+
+	
 
 	$scope.deleteProject = function (id) {
 		if (window.confirm('Delete!! Are You Sure?')){

@@ -16,9 +16,9 @@
             </div>
             
             <div class="clearfix border-bottom-grey">
-              <span>select workspace : </span>
+              <span>Select workspace : </span>
             <select class="modal-select" ng-model="project.workspace">
-                <option value="">Select Workspace</option>
+                <option value="">Workspace</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
             <p ng-if="workspaces.length==0" style="color:red">Please create a workspace</p>
@@ -46,7 +46,7 @@
         <form action="">
           <div class="modal-body">
             <div class="project-title border-bottom-grey">
-              <input class="modal-input" type="text" placeholder="Task Title" ng-model='task.name'>
+              <input class="taskdescription modal-input" type="text" placeholder="Task Title" ng-model='task.name'>
             </div>
 
             <div class="project-desc border-bottom-grey">
@@ -54,10 +54,10 @@
             </div>
             
             <div class="clearfix border-bottom-grey">
-              <span>select Project : </span>
+              <span>Select Project : </span>
            <!--  <div class="select-style"> -->
               <select class="modal-select" ng-model="task.project" ng-change = "fetchUsers(task.project)">
-                  <option value="">Select Project</option>
+                  <option value="">Project</option>
                   <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
               </select>
             <!-- </div> -->
@@ -100,9 +100,9 @@
             </div>
             
             <div class="clearfix border-bottom-grey">
-              <span>select workspace : </span>
+              <span>Select workspace : </span>
             <select class="modal-select" ng-model="project.workspace">
-                <option value="">Select Workspace</option>
+                <option value="">Workspace</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
             <p ng-if="workspaces.length==0" style="color:red">Please create a workspace</p>
@@ -163,7 +163,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" ng-disabled="workspaceForm.workspaceName.$error.required" class="btn-green" ng-click="addNewWorkspace(workspace)">create Workspace</button>
+          <button type="button" ng-disabled="workspaceForm.workspaceName.$error.required" class="btn-green" ng-click="addNewWorkspace(workspace)">Create Workspace</button>
         </div>
       </form>
     </div>

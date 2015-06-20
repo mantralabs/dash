@@ -81,7 +81,7 @@ angular.module('pmtoolApp')
 	}
 
 
-	this.uploadImage = function(data){
+	this.uploadImage = function (data) {
         var deferred = $q.defer();
 
         $http.post('/api/attachment', data)
@@ -95,4 +95,21 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+  
+	this.deleteActivity = function (data) {
+		var deferred = $q.defer();
+
+        $http.delete('/api/activity/'+data.activityId, data)
+        .success(function(response){
+          deferred.resolve(response);
+        })
+        .error(function(err) {
+          deferred.reject(err);
+        });
+
+      return deferred.promise;
+    };
+
+
   });
+	

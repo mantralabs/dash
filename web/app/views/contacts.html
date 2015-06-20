@@ -14,21 +14,23 @@
 					<!-- <option>Kind</option> -->
 				</select>
 				<button ng-if= "user.role == 'admin' " class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button>
-				<input class="search-list" type="text" ng-model="name">
+				<input class="search-list" type="text" ng-model="name" placeholder="Search here">
 
 			</div>
 
-			<div class="col-md-4 home-page3-profile">
+
+
+			<div class="col-md-12 home-page3-profile">
 				<!-- <input class="checks" id="check11" type="checkbox"> -->
 				<!-- <span class="home-page3-select">Select All</span><br> -->
-				<div ng-repeat="contact in contacts | orderBy : sort | filter : name" ng-if="user.id !== contact.id" class="clearfix">
+				<div ng-repeat="contact in contacts | orderBy : sort | filter : name" ng-if="user.id !== contact.id" class="col-md-7 contactslist clearfix">
 					
-					<div class="col-md-6 home-page3-left">
-						<div class="home-page3-check align-middle">
+					<div class="col-md-3 home-page3-left">
+						<!-- <div class="home-page3-check align-middle"> -->
 							<!-- <input class="checks" id="check12" type="checkbox" ng-checked="selection.indexOf(contact.id) > -1" ng-click="toggleSelection(contact.id)" > -->
 							
-							<button ng-if= "user.role == 'admin' " class="close-btn" title="delete this contact" ng-click="deleteContact(contact.id)" style="padding:0px;"><img src="img/trash.png" style="width: 20px;height: 20px;"></button>
-						</div> 
+							<!-- <button ng-if= "user.role == 'admin' " class="close-btn" title="delete this contact" ng-click="deleteContact(contact.id)" style="padding:0px;"><img src="img/trash.png" style="width: 20px;height: 20px;"></button>
+						</div>  -->
 						<!-- <p>{{contact.photo ? contact.photo : "img/img-6.png"}}</p> -->
 						<!-- {{user}} -->
 						<p>      
@@ -37,7 +39,7 @@
       						<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
       					</p>
 					</div>
-					<div class="col-md-6 home-page3-right align-middle">
+					<div class="col-md-3 home-page3-right align-middle">
 						<a href="#/profile/{{contact.id}}">
 							<span class="home-page3-name">{{contact.name}}</span><br>
 							<span class="home-page3-designation">{{contact.designation}}</span>
@@ -49,9 +51,89 @@
 							<img src="img/mail.png">Message
 						</li> -->
 					</div>
+					<div class="col-md-3 btns-contact">
+						<a href="#/profile/{{contact.id}}"><button class="view-btn-contacts" title="view this Project">View</button></a>
+						<a ng-if="user.role == 'admin'" href=""><button  class="delete-btn-contacts" title="delete this Project" ng-click="deleteContact(contact.id)" >Delete</button></a>
+					</div>
 				</div>
+
+
+
+
 			</div>
+
+
+
+
 		</div>
 	</div>
 </div>
 <div ng-include="'views/modals.html'"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="empty-div"> 
+  <headernavigation></headernavigation>
+</div>
+<div class="content">
+    <sidebar></sidebar>
+    <div class="common-div">
+	    <div class="home-page3">
+			<div class="home-page3-head clearfix">
+				<span>Sort by</span>
+				<select class="home-page3-sort" ng-model="sort">
+					<option value="createdAt">Recently Added</option>
+					
+					<option value="name">Name</option>
+					
+				</select>
+				<button ng-if= "user.role == 'admin' " class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button>
+				<input class="search-list" type="text" ng-model="name">
+			</div>
+
+			<div class="home-page3-profile clearfix">
+				<ul class="project-name">
+					<li  ng-repeat="contact in contacts | orderBy : sort | filter : name" ng-if="user.id !== contact.id" class="contactslist">
+						<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
+
+  						<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
+  						
+						<button  class="view-btn" title="view this Project" onclick="location.href='/#/project/project.id'">View</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include="'views/modals.html'"></div> -->

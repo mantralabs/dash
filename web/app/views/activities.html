@@ -7,7 +7,7 @@
 		<div>
 			<div class="clearfix" >
 				<div class="acts-img">
-					<!-- <img src="img/img-5.png" alt="profile-pic"> -->
+					<img ng-if="!user.avatar || user.avatar == '' || user.avatar == undefined || user.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
 					<!-- {{user.avatar}} -->
 					<img ng-if="user.avatar" class="pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{activity.user.avatar}}">
 				</div>
@@ -30,6 +30,8 @@
 					
 						<li class="like-comment">{{activity.likes.length}}</li>
 
+						<li class="like-comment" ng-if="user.id == activity.user.id" ng-click="ActivityDelete(activity,activity.id)">Delete</li>
+
 						<!-- <li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal">Attachment:{{activity.attachment}}</li> -->
 						
 						
@@ -48,6 +50,7 @@
 			<!-- {{comment}} -->
 			<div class="acts-sub clearfix">
 				<div class="acts-img">
+					<img ng-if="!user.avatar || user.avatar == '' || user.avatar == undefined || user.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
 					<!-- <img src="img/img-5.png" alt="profile-pic"> -->
 					<img ng-if="user.avatar" class="pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{comment.userInfo.avatar}}">
 				</div>

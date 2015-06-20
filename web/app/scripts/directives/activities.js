@@ -82,6 +82,25 @@ angular.module('pmtoolApp')
 
         }
 
+        scope.ActivityDelete =  function (activity,id) {
+          console.log(id);
+          var data = {"activityId":id}
+          Activity.deleteActivity(data)
+          .then(function(response){
+              Activity.fetch($routeParams.id)
+              .then(function(response){
+                scope.activities1 = response;
+              })
+              .catch(function(err){
+                scope.error = err.message;
+              });
+        
+          })
+          .catch(function(err){
+            scope.error = err.message;
+          });
+        }
+
         
         scope.addComment = function (activity) {
 

@@ -27,6 +27,11 @@
 	font-size: 16px;
 	width: 100%;
 }
+
+// .taskdescription{
+	::-webkit-input-placeholder { font-size: 10pt; color: lightgrey; }
+// }
+
 .close-btn{
 	border-radius: 3px;
 	background-color: #eee;
@@ -40,6 +45,7 @@
   	height: 30px;
   	border: 1px solid #eee;
   	margin: 5px;
+  	font-size: 15px;
 }	
 //
 #project-modal,#task-modal,#contacts-modal,#workspace-modal,.common-modal{
@@ -48,6 +54,11 @@
 			.modal-header{
 				background-color: #000;
 				color: #fff;
+				h4.modal-title {
+				  color: #4b9ff2;
+				  padding-right: 10px;
+				  font-size: 19px;
+				}
 				.close{
 					color: #fff;
 					opacity: 1;
@@ -81,6 +92,11 @@
 	}
 	
 }
+h4.modal-title {
+  color: #4b9ff2;
+  padding-right: 10px;
+  font-size: 18px;
+}
 #view-image-modal{
 	.modal-content{
 		padding: 20px;
@@ -96,6 +112,9 @@
 	.project-name{
 		border-bottom: 1px solid #eee;
 	}
+}
+.home-projects{
+	text-transform: capitalize;
 }
 
 
@@ -123,13 +142,15 @@
 				padding: 5px;
 			}
 			.list-projects{
-				border-radius: 5px;
-				background-color: #fff;
-				border: 1px solid #B4B9BE;
-				position: absolute;
-				width: 10%;
-				right:33px;
-				text-align: left;
+				  border-radius: 5px;
+				  background-color: #fff;
+				  border: 1px solid #B4B9BE;
+				  position: absolute;
+				  width: 17%;
+				  right: 57px;
+				  text-align: left;
+				  top: 133px;
+
 				ul{
 					padding: 0px;
 					margin: 0;
@@ -138,6 +159,8 @@
 						padding: 5px;
 						border-bottom: 1px solid #B4B9BE;
 						cursor: pointer;
+						list-style-type:upper-hexadecimal;
+  						margin-left: 28px;
 						&:last-child{
 							border-bottom: none;
 						}
@@ -200,6 +223,7 @@
     float: left;
     overflow: hidden;
     cursor: pointer;
+    font-size: 15px;
 }
 #acts .timer{
     padding-right: 21px;
@@ -269,4 +293,10 @@
 	float: right;
 	margin-right: 10px;
 	padding: 0 20px 0 10px; 
+}
+
+.contactslist{
+	border-bottom: 2px solid grey;
+  margin-bottom: 18px;
+  border-radius:10px;
 }

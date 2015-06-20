@@ -56,6 +56,7 @@ angular.module('pmtoolApp')
 					FR.readAsDataURL(photofile);
 
 				  	   	FR.onload = function (e) {
+				  	   		alert("upload complete");
 				  	   		scope.loader = false;
 				  	   		
 					    	scope.imageData.data = e.target.result.split(",")[1];

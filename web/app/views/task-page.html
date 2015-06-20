@@ -6,7 +6,7 @@
     <div class="common-div clearfix" ng-controller="projectController">
       <div class="task-head-nav">
         <li class="active-task" ng-click="myTask($event)">My Tasks</li>
-        <li ng-click="assignedTask($event)">Assigned Task</li>
+        <li ng-click="assignedTask($event)">Others Task</li>
         <!-- <li>All Task</li> -->
         <button data-toggle="modal" data-target="#task-modal" class="task-head-button">Create Task</button>
         <div class="clear"></div>
@@ -35,7 +35,9 @@
             </div>
             <div class="col-md-2" ng-if="showMyTask">
               <p class="col-md-6">assigned by:</p>
-              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
+              <img ng-if="!task.assignedBy.avatar || task.assignedBy.avatar == '' || task.assignedBy.avatar == undefined || task.assignedBy.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic col-md-1 pro-pic-small ng-scope">
+
+              <img ng-if="task.assignedBy.avatar && task.assignedBy.avatar != null" class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
             </div>
              <div class="col-md-2" ng-if="showAssignedTask">
               <p class="col-md-6">assigned to:</p>
@@ -66,11 +68,17 @@
             </div>
             <div class="col-md-2" ng-if="showMyTask">
               <p class="col-md-6">assigned by:</p>
-              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
+              <img ng-if="!task.assignedBy.avatar || task.assignedBy.avatar == '' || task.assignedBy.avatar == undefined || task.assignedBy.avatar == null" src="img/default-pic.png" alt="No Image" class="col-md-1 pro-pic-small ng-scope">
+
+              <img ng-if="task.assignedBy.avatar && task.assignedBy.avatar != null" class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
+
+              <!-- <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}"> -->
             </div>
              <div class="col-md-2" ng-if="showAssignedTask">
               <p class="col-md-6">assigned to:</p>
-              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}">
+              <img ng-if="!task.assignedTo.avatar || task.assignedTo.avatar == '' || task.assignedTo.avatar == undefined || task.assignedTo.avatar == null" src="img/default-pic.png" alt="No Image" class="col-md-1 pro-pic-small ng-scope">
+
+              <img ng-if="task.assignedTo.avatar && task.assignedTo.avatar != null" class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}">
             </div>
            </div>
           
@@ -99,11 +107,17 @@
             </div>
             <div class="col-md-2" ng-if="showMyTask">
               <p class="col-md-6">assigned by:</p>
-              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
+              <!-- <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}"> -->
+              <img ng-if="!task.assignedBy.avatar || task.assignedBy.avatar == '' || task.assignedBy.avatar == undefined || task.assignedBy.avatar == null" src="img/default-pic.png" alt="No Image" class="col-md-1 pro-pic-small ng-scope">
+
+              <img ng-if="task.assignedBy.avatar && task.assignedBy.avatar != null" class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedBy.avatar}}">
             </div>
              <div class="col-md-2" ng-if="showAssignedTask">
               <p class="col-md-6">assigned to:</p>
-              <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}">
+              <!-- <img class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}"> -->
+              <img ng-if="!task.assignedTo.avatar || task.assignedTo.avatar == '' || task.assignedTo.avatar == undefined || task.assignedTo.avatar == null" src="img/default-pic.png" alt="No Image" class="col-md-1 pro-pic-small ng-scope">
+
+              <img ng-if="task.assignedTo.avatar && task.assignedTo.avatar != null" class="col-md-1 pro-pic-small ng-scope" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{task.assignedTo.avatar}}">
             </div>
            </div>
           

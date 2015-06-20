@@ -22,6 +22,10 @@
   font-size: 16px;
   width: 100%;
 }
+::-webkit-input-placeholder {
+  font-size: 10pt;
+  color: lightgrey;
+}
 .close-btn {
   border-radius: 3px;
   background-color: #eee;
@@ -35,6 +39,7 @@
   height: 30px;
   border: 1px solid #eee;
   margin: 5px;
+  font-size: 15px;
 }
 #project-modal .modal-dialog .modal-content .modal-header,
 #task-modal .modal-dialog .modal-content .modal-header,
@@ -43,6 +48,15 @@
 .common-modal .modal-dialog .modal-content .modal-header {
   background-color: #000;
   color: #fff;
+}
+#project-modal .modal-dialog .modal-content .modal-header h4.modal-title,
+#task-modal .modal-dialog .modal-content .modal-header h4.modal-title,
+#contacts-modal .modal-dialog .modal-content .modal-header h4.modal-title,
+#workspace-modal .modal-dialog .modal-content .modal-header h4.modal-title,
+.common-modal .modal-dialog .modal-content .modal-header h4.modal-title {
+  color: #4b9ff2;
+  padding-right: 10px;
+  font-size: 19px;
 }
 #project-modal .modal-dialog .modal-content .modal-header .close,
 #task-modal .modal-dialog .modal-content .modal-header .close,
@@ -87,6 +101,11 @@
   margin: 0;
   padding: 10px;
 }
+h4.modal-title {
+  color: #4b9ff2;
+  padding-right: 10px;
+  font-size: 18px;
+}
 #view-image-modal .modal-content {
   padding: 20px;
 }
@@ -97,6 +116,9 @@
 }
 .home-page3-profile .project-name {
   border-bottom: 1px solid #eee;
+}
+.home-projects {
+  text-transform: capitalize;
 }
 #update .update-footer {
   overflow: hidden;
@@ -123,9 +145,10 @@
   background-color: #fff;
   border: 1px solid #B4B9BE;
   position: absolute;
-  width: 10%;
-  right: 33px;
+  width: 17%;
+  right: 57px;
   text-align: left;
+  top: 133px;
 }
 #update .update-footer .update-footer-btn .list-projects ul {
   padding: 0px;
@@ -136,6 +159,8 @@
   padding: 5px;
   border-bottom: 1px solid #B4B9BE;
   cursor: pointer;
+  list-style-type: upper-hexadecimal;
+  margin-left: 28px;
 }
 #update .update-footer .update-footer-btn .list-projects ul li:last-child {
   border-bottom: none;
@@ -187,6 +212,7 @@
   float: left;
   overflow: hidden;
   cursor: pointer;
+  font-size: 15px;
 }
 #acts .timer {
   padding-right: 21px;
@@ -249,6 +275,11 @@
   float: right;
   margin-right: 10px;
   padding: 0 20px 0 10px;
+}
+.contactslist {
+  border-bottom: 2px solid grey;
+  margin-bottom: 18px;
+  border-radius: 10px;
 }
 .workspacelist {
   background-color: white;
@@ -573,6 +604,9 @@ ul#menu li:hover ul.sub-menu {
 #left {
   float: left;
   width: 29%;
+}
+div#project-1 {
+  padding-left: 9px;
 }
 #left #my-contacts,
 #left #my-projects,
@@ -1588,6 +1622,12 @@ ul#menu li:hover ul.sub-menu {
 /* ==========================================================================
             HOME-PAGE-3
    ========================================================================== */
+.noprojects {
+  text-align: center;
+  font-size: 19px;
+  padding-top: 20px;
+  color: red;
+}
 .home-page3-sort {
   border: none;
   box-shadow: none;
@@ -1601,9 +1641,9 @@ ul#menu li:hover ul.sub-menu {
   color: #2d7fc1;
 }
 .home-page3-head span {
-  color: #939393;
+  color: #4b9ff2;
   padding-right: 10px;
-  font-size: 22px;
+  font-size: 20px;
 }
 .home-page3-head {
   border-bottom: 1px #939393 solid;
@@ -1646,7 +1686,7 @@ ul#menu li:hover ul.sub-menu {
   padding-top: 17px;
 }
 .home-page3-profile ul li a {
-  font-size: 19px;
+  font-size: 17px;
 }
 .home-page3-profile ul li .view-btn {
   margin-right: 11px;
@@ -1660,7 +1700,23 @@ ul#menu li:hover ul.sub-menu {
 .home-page3-profile ul li .delete-btn {
   margin-right: 22px;
   float: right;
-  background-color: #5e5d5d;
+  background-color: #959494;
+  color: white;
+  border-radius: 3px;
+  border: 0px;
+}
+.btns-contact {
+  margin-top: 25px;
+  margin-left: 135px;
+}
+.btns-contact .view-btn-contacts {
+  background-color: #2cbe8f;
+  color: white;
+  border-radius: 3px;
+  border: 0px;
+}
+.btns-contact .delete-btn-contacts {
+  background-color: #959494;
   color: white;
   border-radius: 3px;
   border: 0px;
@@ -1915,6 +1971,11 @@ ul#menu li:hover ul.sub-menu {
   margin-top: 20px;
   position: absolute;
 }
+.nameuser {
+  color: #2d7fc1;
+  font-size: 20px;
+  text-transform: capitalize;
+}
 .col-md-6 {
   padding: 0px;
 }
@@ -1922,6 +1983,9 @@ ul#menu li:hover ul.sub-menu {
   padding: 0px;
 }
 .col-md-12 {
+  padding: 0px;
+}
+.col-md-7 {
   padding: 0px;
 }
 .col-md-8 {
@@ -1996,6 +2060,8 @@ ul#menu li:hover ul.sub-menu {
 .description {
   background: #f6f6f6;
   padding: 10px;
+  width: 400px;
+  height: 150px;
 }
 .head-info {
   display: block;
@@ -2242,6 +2308,10 @@ ul#menu li:hover ul.sub-menu {
 }
 .clear {
   clear: both;
+}
+input.fileupload {
+  padding-top: 12px;
+  padding-left: 10px;
 }
 /* ==========================================================================
                        COMMON
