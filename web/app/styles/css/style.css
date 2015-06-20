@@ -101,7 +101,7 @@
   margin: 0;
   padding: 10px;
 }
-h4.modal-title {
+.modal-title {
   color: #4b9ff2;
   padding-right: 10px;
   font-size: 18px;
@@ -2046,13 +2046,20 @@ div#project-1 {
   display: inline-block;
   float: left;
 }
+.contact-info p {
+  color: green;
+}
 .contact-info-content {
   padding: 10px;
   background: #f6f6f6;
 }
 .contact-info-content p span {
   display: inline-block;
-  width: 50%;
+  width: 11%;
+}
+.contact-info-content p span.headings {
+  color: #2d7fc1;
+  font-weight: 500;
 }
 .basic-profile {
   padding-bottom: 20px;

@@ -26,19 +26,19 @@
           <div class="clear"></div>
         </div>
         <div class="contact-info">
-          <h4 class="head-info profile-text">Contact Information</h4>
+          <p>Contact Information</p>
           <div class="contact-info-content">
               <p>
-                <span>Email</span><span>{{user.email}}</span>
+                <span class="headings">Email:</span><span>{{user.email}}</span>
               </p>
               <p ng-if="user.phone">
-                <span>Mobile</span><span>{{user.phone}}</span>
+                <span class="headings">Mobile:</span><span>{{user.phone}}</span>
               </p>
               <p ng-if="user.skypeId">
-                <span>Skype</span><span>{{user.skypeId}}</span>
+                <span class="headings">Skype:</span><span>{{user.skypeId}}</span>
               </p>
               <p ng-if="user.websiteUrl">
-                <span>Web</span><a href="{{user.websiteUrl}}" target="_blank">{{user.websiteUrl}}</a>
+                <span class="headings">Web:</span><a href="{{user.websiteUrl}}" target="_blank">{{user.websiteUrl}}</a>
               </p>
           </div>
         </div>
