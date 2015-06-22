@@ -2040,6 +2040,11 @@ div#project-1 {
   display: inline-block;
   float: left;
 }
+img.spinner-image {
+  position: absolute;
+  left: 136px;
+  bottom: 190px;
+}
 .contact-info {
   padding: 15px 0px 0px 0px;
   width: 50%;
