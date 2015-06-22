@@ -60,82 +60,6 @@ angular.module('pmtoolApp')
 		return deferred.promise;
   	}
 
-  	this.edit = function (userData) {
-      	var deferred = $q.defer(),
-            id=$routeParams.id;
-      	$http.put('/api/project/'+id, userData)
-      	.success(function(response){
-        	deferred.resolve(response);
-     	 })
-      	.error(function(err) {
-        	deferred.reject(err);
-      	});
-
-      return deferred.promise;
-    };
-
-    this.addTask = function (task) {
-      	var deferred = $q.defer()
-            
-      	$http.post('/api/task/add', task)
-      	.success(function(response){
-        	deferred.resolve(response);
-     	 })
-      	.error(function(err) {
-        	deferred.reject(err);
-      	});
-
-      return deferred.promise;
-    };
-
-    this.fetchTasks = function(){
-		var deferred = $q.defer();
-		
-		$http.get('/api/task/get')
-		.success(function(data){
-			deferred.resolve(data);
-		})
-		.error(function(err){
-			deferred.reject(err);
-		});
-		
-		return deferred.promise;
-  	}
-
-  	this.statusUpdate = function (taskid, data) {
-		var deferred = $q.defer();
-		console.log(data);
-
-		$http.put('/api/task/edit/'+ taskid, data)
-		.success(function(data){
-			console.log("sucess");
-			deferred.resolve(data);
-		})
-		.error(function(err){
-			deferred.reject(err);
-		});
-		
-		return deferred.promise;
-  	}
-
-
-  	this.fetchTasksAssigned = function(){
-		var deferred = $q.defer();
-		
-		$http.get('/api/task/assignedTask')
-
-		.success(function(data){
-			deferred.resolve(data);
-			console.log("success");
-		})
-		.error(function(err){
-			deferred.reject(err);
-		});
-		
-		return deferred.promise;
-  	}
-
-
   	this.addProjectMember = function(projectId,data){
   		// console.log(projectId,data);
   		
@@ -154,4 +78,19 @@ angular.module('pmtoolApp')
 		
 		return deferred.promise;
   	}
+
+  	this.edit = function (userData) {
+      	var deferred = $q.defer(),
+            id=$routeParams.id;
+      	$http.put('/api/project/'+id, userData)
+      	.success(function(response){
+        	deferred.resolve(response);
+     	 })
+      	.error(function(err) {
+        	deferred.reject(err);
+      	});
+
+      return deferred.promise;
+    };
+
 });

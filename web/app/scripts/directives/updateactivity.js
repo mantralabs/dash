@@ -96,7 +96,7 @@ angular.module('pmtoolApp')
 			      				console.log('activity response',response);
 								scope.activities1.unshift(response);
 								scope.activity.description = "";
-								// scope.attachment = "";
+								scope.attach_name = "";
 			      			}).catch(function(err){
 		      					console.log(err);
 			      			})
@@ -121,7 +121,7 @@ angular.module('pmtoolApp')
 							scope.activities1.unshift(response);
 							$('.list-projects').removeClass('show');
 							scope.activity.description = "";
-							// scope.attachment = "";
+							scope.attach_name = "";
 		      			}).catch(function(err){
 	      					console.log(err);
 		      			});

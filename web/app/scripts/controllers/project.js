@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('projectController', function ($scope, $cookieStore, Project, Contact,$location, $rootScope, $routeParams) {
+  .controller('projectController', function ($scope, $cookieStore,Task, Project, Contact,$location, $rootScope, $routeParams) {
 	
 	$scope.user = $rootScope.user;
 	
@@ -11,18 +11,7 @@ angular.module('pmtoolApp')
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
-
-	Project.fetchTasks().then(function(response){
-		$scope.tasks = response;
-	}).catch(function(err){
-		$scope.error = err.message;
-	});
-
-	$scope.showAssignedTask = false;
-	$scope.alltasks = true;
-	$scope.showMyTask = true;
-
-	
+	$( "#date" ).datepicker();
 	$scope.addNewProject = function (data) {
 		if(data){
 			var userId = $scope.user.id;
@@ -34,8 +23,6 @@ angular.module('pmtoolApp')
 			});
 		}
 	}
-
-	$( "#date" ).datepicker();
 
 	$scope.fetchUsers = function (id) {
 		if(id){
@@ -54,8 +41,6 @@ angular.module('pmtoolApp')
 		}
 	}
 
-	
-
 	$scope.deleteProject = function (id) {
 		if (window.confirm('Delete!! Are You Sure?')){
 			Project.delete(id).then(function(response){
@@ -71,105 +56,6 @@ angular.module('pmtoolApp')
 		}
 	}
 
-
-	$scope.createTask = function() {
-		
-		$scope.task.status = "Not started";
-		Project.addTask($scope.task).then(function(response){
-			$scope.tasks.push(response);
-			console.log(response);
-			$('#task-modal').modal('hide');
-			// $scope.assignedTask();
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
-
-	}
-
-	$scope.myTask = function ($event) {
-		console.log("myTask",$event);
-		if ($(event.target).parent().hasClass('task-head-nav')){
-			$(event.target).siblings('li').removeClass('active-task');
-			$(event.target).addClass('active-task');
-		} else {
-			$(event.target).siblings('li').removeClass('active-task-body');
-			$(event.target).addClass('active-task-body');
-		}
-		$scope.showAssignedTask = false;
-		$scope.showMyTask = true;
-		$scope.alltasks = true;
-		$scope.finished = false;
-		$scope.progress = false;
-		$scope.tasks = [];
-		Project.fetchTasks().then(function(response){
-			$scope.tasks = response;
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
-	}
-
-	$scope.assignedTask = function ($event) {
-		console.log("assignedTaskevent",$event);
-		if ($(event.target).parent().hasClass('task-head-nav')){
-			$(event.target).siblings('li').removeClass('active-task');
-			$(event.target).addClass('active-task');
-		} else {
-			$(event.target).siblings('li').removeClass('active-task-body');
-			$(event.target).addClass('active-task-body');
-		}
-		$scope.showMyTask = false;
-		$scope.showAssignedTask = true;
-		$scope.alltasks = true;
-		$scope.finished = false;
-		$scope.progress = false;
-		$scope.tasks = [];
-		Project.fetchTasksAssigned().then(function(response){
-			$scope.tasks = response;
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
-	}
-
-	
-	$scope.inProgress = function ($event) {
-		console.log("inProgressevent",$event);
-		$(event.target).siblings('li').removeClass('active-task-body');
-		$(event.target).addClass('active-task-body');
-		$scope.alltasks = false;
-		$scope.finished = false;
-		$scope.progress = true;
-		$scope.inProgressTasks =[];
-
-		angular.forEach($scope.tasks, function(task, idx) {
-			if (task.status == "In progress"){
-				$scope.inProgressTasks.push(task);
-			}
-		});
-	}
-
-
-	$scope.completed = function ($event) {
-		console.log("completedevent",$event);
-		$(event.target).siblings('li').removeClass('active-task-body');
-		$(event.target).addClass('active-task-body');
-		$scope.alltasks = false;
-		$scope.progress = false;
-		$scope.finished = true;
-		$scope.completedTasks = [];
-		 angular.forEach($scope.tasks, function(task, idx) {
-			if (task.status == "Completed"){
-				$scope.completedTasks.push(task);
-			}
-		});
-	}
-
-	$scope.taskStatus = function (status, taskid) {
-		var data = {"status":status}
-		Project.statusUpdate(taskid,data).then(function(response){
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
-	}
 })
 
 .controller('getprojectController', function ($scope, Project, Contact, $rootScope, $routeParams, $cookieStore) {

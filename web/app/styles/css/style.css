@@ -120,6 +120,9 @@
 .home-projects {
   text-transform: capitalize;
 }
+#update .activity-form {
+  position: relative;
+}
 #update .update-footer {
   overflow: hidden;
   padding: 20px 10px;
@@ -483,6 +486,9 @@ li {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+.signup-page {
+  color: red;
+}
 .common {
   font-family: RobotoSlab-Regular;
   outline: none;
@@ -540,6 +546,12 @@ li {
 .empty-div {
   height: 60px;
   z-index: 99;
+}
+.logo {
+  margin-left: 30px;
+}
+.logo img {
+  width: 90px;
 }
 .logo h1 {
   padding: 0;

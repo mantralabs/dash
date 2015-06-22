@@ -152,10 +152,7 @@ angular.module('pmtoolApp')
 	}
 })
 
-// .controller('taskPageCtrl', function($scope,$location){
-	
 
-// })
 // .controller('createEventCtrl', function($scope,$location){
 	
 

@@ -21,7 +21,7 @@
                 <option value="">Workspace</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
-            <p ng-if="workspaces.length==0" style="color:red">Please create a workspace</p>
+            <p ng-if="workspaces.length==0" class="signup-page">Please create a workspace</p>
             <button ng-if="workspaces.length==0"  ng-click="workspaceRedirect()">
               Create Workspace
             </button>
@@ -61,7 +61,7 @@
                   <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
               </select>
             <!-- </div> -->
-            <p ng-if="project.users.length == 0" style="color: red">No Members select another project</p>
+            <p ng-if="project.users.length == 0" class="signup-page">No Members select another project</p>
             <select class="modal-select" ng-model="task.assignedTo" ng-if="project.users.length != 0"  
             ng-disabled="project.users == undefined">
                 <option value="">Assign To</option>
@@ -73,7 +73,7 @@
             
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" ng-controller="taskPageCtrl">
             <button type="submit" class="btn-green" ng-click='createTask()'>Create Task</button>
           </div>
         </form>
@@ -105,7 +105,7 @@
                 <option value="">Workspace</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
-            <p ng-if="workspaces.length==0" style="color:red">Please create a workspace</p>
+            <p ng-if="workspaces.length==0" class="signup-page">Please create a workspace</p>
             </div>
           </div>
           <div class="modal-footer">

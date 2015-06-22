@@ -26,6 +26,7 @@ angular.module('pmtoolApp')
 		
 		$http.post('/api/activity', activityData)
 		.success(function(activity){
+			console.log(activity);
 			deferred.resolve(activity);
 		})
 		.error(function(err){

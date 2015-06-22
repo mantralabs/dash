@@ -2,9 +2,9 @@
 
 	<h2 >Update an Activity</h2>
 
-	<form action="javascript:" method="" name="updateForm" style="position:relative;">
+	<form action="javascript:" method="" name="updateForm" class="activity-form" >
   	
-    <input type="text" class="activity-description tag-user" name="description" ng-model="activity.description" style="position: relative;" required>
+    <input type="text" class="activity-description tag-user activity-form" name="description" ng-model="activity.description" required>
     <!-- <input type="hidden" name="mentioned_id[]" value=""> -->
     <!-- <div>
       <ul ng-if="typeInProcess == true">   
@@ -18,7 +18,7 @@
             <input type="file" class="upload-icon" onchange="angular.element(this).scope().uploadAttachment(this)" ng-model="activity.attachment">
             <img src="../img/attach-files.png" alt="attach-files">
 
-           <!-- <span>{{attach_name}}</span> -->
+           <span>{{attach_name}}</span>
 
           </li>
 

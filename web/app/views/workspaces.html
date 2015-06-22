@@ -20,7 +20,7 @@
 					<li  ng-repeat ="workspace in workspaces | filter:name track by $index">
 						<a  href="#/workspaces/{{workspace.id}}">{{workspace.name}}</a>
 							<button  class="delete-btn" title="delete this Project" ng-click="deleteWorkspace(workspace.id)" >Delete</button>
-							<button  class="view-btn" title="view this Project" ng-click="deleteWorkspace(workspace.id)" >View</button>
+							<a  href="#/workspaces/{{workspace.id}}"><button class="view-btn" title="view this Project">View</button></a>
 					</li>
 				</ul>
 				<ul class="project-name" ng-if="user.role == 'user'">
