@@ -37,7 +37,7 @@ angular.module('pmtoolApp')
 
 		$http.put('/api/task/edit/'+ taskid, data)
 		.success(function(data){
-			console.log("sucess");
+			console.log("success");
 			deferred.resolve(data);
 		})
 		.error(function(err){

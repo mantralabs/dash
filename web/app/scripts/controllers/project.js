@@ -12,6 +12,7 @@ angular.module('pmtoolApp')
 		$scope.error = err.message;
 	});
 	$( "#date" ).datepicker();
+	
 	$scope.addNewProject = function (data) {
 		if(data){
 			var userId = $scope.user.id;

@@ -122,6 +122,7 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.taskStatus = function (status, taskid) {
+		console.log(status);
 		var data = {"status":status}
 		Task.statusUpdate(taskid,data).then(function(response){
 		}).catch(function(err){
