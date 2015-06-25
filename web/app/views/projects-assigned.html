@@ -17,7 +17,7 @@
 				<ul class="project-name">
 					<li  ng-repeat = "project in user.projects | filter:name">
 						<a  href="#/project/{{project.id}}">{{project.name}}</a>
-						<button  class="view-btn" title="view this Project" onclick="location.href='/#/project/project.id'">View</button>
+						<a  href="#/project/{{project.id}}"><button  class="view-btn" title="view this Project">View</button></a>
 					</li>
 				</ul>
 			</div>

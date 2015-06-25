@@ -35,7 +35,7 @@ angular.module('pmtoolApp')
 		$scope.task.status = "Not started";
 		Task.addTask($scope.task).then(function(response){
 			$scope.tasks.push(response);
-			console.log(response);
+			// console.log(response);
 			$('#task-modal').modal('hide');
 			// $scope.assignedTask();
 		}).catch(function(err){
@@ -45,7 +45,7 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.myTask = function ($event) {
-		console.log("myTask",$event);
+		// console.log("myTask",$event);
 		if ($(event.target).parent().hasClass('task-head-nav')){
 			$(event.target).siblings('li').removeClass('active-task');
 			$(event.target).addClass('active-task');
@@ -59,15 +59,18 @@ angular.module('pmtoolApp')
 		$scope.finished = false;
 		$scope.progress = false;
 		$scope.tasks = [];
-		Task.fetchTasks().then(function(response){
-			$scope.tasks = response;
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
+
+		
+			Task.fetchTasks().then(function(response){
+				$scope.tasks = response;
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+
 	}
 
 	$scope.assignedTask = function ($event) {
-		console.log("assignedTaskevent",$event);
+		// console.log("assignedTaskevent",$event);
 		if ($(event.target).parent().hasClass('task-head-nav')){
 			$(event.target).siblings('li').removeClass('active-task');
 			$(event.target).addClass('active-task');
@@ -81,6 +84,7 @@ angular.module('pmtoolApp')
 		$scope.finished = false;
 		$scope.progress = false;
 		$scope.tasks = [];
+		
 		Task.fetchTasksAssigned().then(function(response){
 			$scope.tasks = response;
 		}).catch(function(err){
@@ -90,7 +94,7 @@ angular.module('pmtoolApp')
 
 	
 	$scope.inProgress = function ($event) {
-		console.log("inProgressevent",$event);
+		// console.log("inProgressevent",$event);
 		$(event.target).siblings('li').removeClass('active-task-body');
 		$(event.target).addClass('active-task-body');
 		$scope.alltasks = false;
@@ -107,7 +111,7 @@ angular.module('pmtoolApp')
 
 
 	$scope.completed = function ($event) {
-		console.log("completedevent",$event);
+		// console.log("completedevent",$event);
 		$(event.target).siblings('li').removeClass('active-task-body');
 		$(event.target).addClass('active-task-body');
 		$scope.alltasks = false;
@@ -122,7 +126,7 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.taskStatus = function (status, taskid) {
-		console.log(status);
+		// console.log(status);
 		var data = {"status":status}
 		Task.statusUpdate(taskid,data).then(function(response){
 		}).catch(function(err){

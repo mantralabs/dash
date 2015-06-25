@@ -61,7 +61,7 @@ angular.module('pmtoolApp')
   	}
 
   	this.addProjectMember = function(projectId,data){
-  		// console.log(projectId,data);
+  		console.log("project",data);
   		
   		var deferred = $q.defer();
 		

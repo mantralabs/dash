@@ -65,6 +65,7 @@ angular.module('pmtoolApp')
 	$scope.userIds = [];
 	$scope.projectUsersList = [];
 	$scope.loggedUser =  $scope.user.id;
+	$scope.removedMembers = [];
 	
 	
 	Project.fetchProject($routeParams.id )
@@ -85,11 +86,21 @@ angular.module('pmtoolApp')
 	    if(bool){
 	      // add item
 	      $scope.userIds.push(item.id);
+		    for(var j=0 ; j < $scope.removedMembers.length; j++) {
+		        if($scope.removedMembers[j] == item.id){
+		        	 $scope.removedMembers.splice(j,1);
+		        	 console.log("removedMembers",$scope.removedMembers)
+
+		        }
+		    }
 	    } else {
 	      // remove item
 	      for(var i=0 ; i < $scope.userIds.length; i++) {
 	        if($scope.userIds[i] == item.id){
 	          $scope.userIds.splice(i,1);
+	          $scope.removedMembers.push(item.id);
+	          console.log("removedMembers",$scope.removedMembers)
+
 	        }
 		  } 
 	    }
@@ -114,7 +125,8 @@ angular.module('pmtoolApp')
 	$scope.addMemberToProject = function () {
 		$scope.projectId = $routeParams.id;
 		var data = {
-			"users" : $scope.userIds 
+			"users" : $scope.userIds,
+			"removedMembers" : $scope.removedMembers
 		};
 
 		Project.addProjectMember($scope.projectId,data)
