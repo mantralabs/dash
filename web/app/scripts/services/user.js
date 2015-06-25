@@ -9,7 +9,6 @@ angular.module('pmtoolApp')
 
 	    $http.post('/api/user/login', user)
       .success(function(response){
-        console.log(response);
         deferred.resolve(response);
       })
       .error(function(err) {

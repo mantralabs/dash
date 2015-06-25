@@ -23,16 +23,16 @@ angular.module('pmtoolApp')
 				  scope.typeInProcess = true;
 				}; 
 				
-	      		scope.tags = [
-				  {
-				    "name": "Foo",
-				    "id": "foo"
-				  },
-				  {
-				    "name": "Bar",
-				    "id": "bar"  
-				  }
-				] 
+	   //    		scope.tags = [
+				//   {
+				//     "name": "Foo",
+				//     "id": "foo"
+				//   },
+				//   {
+				//     "name": "Bar",
+				//     "id": "bar"  
+				//   }
+				// ] 
 
 				
 
@@ -93,7 +93,7 @@ angular.module('pmtoolApp')
 			     			Activity.addActivity(activityData)
 			      			.then(function(response){
 			      				scope.loader = false;
-			      				console.log('activity response',response);
+			      				console.log('activity',response);
 								scope.activities1.unshift(response);
 								scope.activity.description = "";
 								scope.attach_name = "";

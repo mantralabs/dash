@@ -9,6 +9,7 @@ angular.module('pmtoolApp')
       	$http.post('/api/task/add', task)
       	.success(function(response){
         	deferred.resolve(response);
+        	console.log(response);
      	 })
       	.error(function(err) {
         	deferred.reject(err);

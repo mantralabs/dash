@@ -107,6 +107,7 @@ angular.module('pmtoolApp')
           var data = {"activity":activity.id,"comment":activity.comment}
           Activity.addComment(data)
             .then(function(response){
+              console.log("comments",response)
               activity.comments.push(response);
                
                $('.commentbox').val('');
