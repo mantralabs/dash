@@ -128,6 +128,7 @@ angular.module('pmtoolApp')
 			"users" : $scope.userIds,
 			"removedMembers" : $scope.removedMembers
 		};
+		
 
 		Project.addProjectMember($scope.projectId,data)
 		.then(function(response){

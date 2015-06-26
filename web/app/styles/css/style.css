@@ -175,6 +175,12 @@
   padding: 10px;
   margin-bottom: 20px;
 }
+.workspace-name {
+  color: #4b9ff2;
+  padding-right: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+}
 #acts {
   padding: 0 0 10px 10px;
   border-bottom: 1px solid #eee;
@@ -2074,8 +2080,8 @@ div#project-1 {
 img.spinner-image {
   position: absolute;
   left: 119px;
-  bottom: 196px;
-  width: 74px;
+  bottom: 156px;
+  width: 78px;
 }
 .contact-info {
   padding: 15px 0px 0px 0px;

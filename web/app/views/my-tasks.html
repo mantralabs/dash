@@ -1,6 +1,6 @@
 <div ng-controller="taskPageCtrl">
 	<h2><a class="blue-head" href="/#/task-page"> Tasks </a><span class="number">{{tasks.length}}</span> 
-		<a href="/#/createTask"><img src="img/task-icon.png" alt="attach-files" class="task-icon"></a>
+		<a  data-toggle="modal" data-target="#task-modal" title="Assign-task" ><img src="img/task-icon.png" alt="attach-files" class="task-icon" ></a>
 	</h2>
 
 	<div id="project-1" ng-repeat = "task in tasks">
@@ -14,6 +14,8 @@
 		</div>
 	</div>
 </div>
+
+<div ng-include="'views/modals.html'"></div>
 
 
 
