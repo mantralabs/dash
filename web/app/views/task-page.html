@@ -22,8 +22,17 @@
         </select>
       </div>
       <div class="clearfix">
-        <!-- <p ng-if="noTasksAssignedToU">No Tasks Assigned To You Yet</p>
-        <p ng-if="noTasksAssignedByU">No Tasks Assigned By You</p> -->
+        
+
+        
+        
+      <div class="messages">
+        <p ng-show="noTasks">No Tasks Assigned To You Yet</p>
+        <!-- <p ng-show="noTasksrecieved">No Tasks Assigned To You Yet</p>  -->
+        <p ng-show="noTasksAssigned">No Tasks Assigned By You</p>
+        <p ng-show="inProgressShow">No In Progress Tasks Found</p>
+        <p ng-show="completedShow">No Completed Tasks Found</p>
+      </div>
       <div ng-if="alltasks" class="task-container clearfix" ng-repeat = "task in tasks | filter:task.project">
         <div class="task-body-container1">
           <div class="col-md-12">

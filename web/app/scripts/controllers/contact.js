@@ -12,13 +12,22 @@ angular.module('pmtoolApp')
 		$scope.error = err.message;
 	});
 
-	$scope.addNewContact = function(data){
+	$scope.emailError = false;
 
-		Contact.add(data).then(function(response){
-			$scope.contacts.push(response);
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
+	$scope.addNewContact = function (data) {
+
+		var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+		if (testEmail.test(data.email)){
+			$scope.emailError = false;
+			Contact.add(data).then(function(response){
+				$scope.contacts.push(response);
+				$('.email').val('');
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}else{
+			$scope.emailError = true;
+		}
 	}
 
 	$scope.deleteContact = function(id){

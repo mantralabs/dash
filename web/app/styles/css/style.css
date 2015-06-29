@@ -688,6 +688,13 @@ div#project-1 {
   padding-left: 10px;
   margin-bottom: 0;
 }
+.messages {
+  text-align: center;
+}
+.messages p {
+  color: #ff9e00;
+  font-size: 18px;
+}
 .number {
   padding-left: 10px;
   color: #8b8b8b;

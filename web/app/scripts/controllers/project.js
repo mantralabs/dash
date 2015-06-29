@@ -12,8 +12,9 @@ angular.module('pmtoolApp')
 		$scope.error = err.message;
 	});
 	$( "#date" ).datepicker();
-	
+	$scope.creatingProject = false;
 	$scope.addNewProject = function (data) {
+		$scope.creatingProject = true;
 		console.log("addNewProject",data);
 		if(data){
 			var userId = $scope.user.id;
@@ -21,6 +22,7 @@ angular.module('pmtoolApp')
 			Project.add(data).then(function(response){
 				console.log(response)
 				$scope.projects.push(response);
+				$scope.creatingProject = false;
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
@@ -164,6 +166,7 @@ angular.module('pmtoolApp')
 
 
 	$scope.showeditError = false;
+
 	$scope.editProject = function (name,description,workspace) {
 		console.log(workspace);
 		var data = {
@@ -172,7 +175,7 @@ angular.module('pmtoolApp')
 			workspace: workspace
 		};
 
-		if($scope.project.name == '' || $scope.project.description == '' || $scope.project.workspace == ''){
+		if(name == undefined || description == undefined || workspace == undefined){
 			$scope.showeditError = true;
 		}else{
 			Project.edit(data)

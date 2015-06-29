@@ -69,9 +69,9 @@ angular.module('pmtoolApp')
 			  	};	 
 
 			  	scope.loader = false;
-
+			  	scope.processing = false;
 	      		scope.sendActivity = function (description, projectId) {
-	      			console.log(scope.projects)
+	      			scope.processing = true;
 	      			$('.list-projects').removeClass('show');
 	      			scope.loader = true;
 	      			if(scope.imageData){
@@ -93,6 +93,7 @@ angular.module('pmtoolApp')
 			     			Activity.addActivity(activityData)
 			      			.then(function(response){
 			      				scope.loader = false;
+			      				scope.processing = false;
 			      				console.log('activity',response);
 								scope.activities1.unshift(response);
 								scope.activity.description = "";
@@ -119,6 +120,7 @@ angular.module('pmtoolApp')
 		      			.then(function(response){
 		      				console.log('activity response',response);
 		      				scope.loader = false;
+		      				scope.processing = false;
 							scope.activities1.unshift(response);
 							$('.list-projects').removeClass('show');
 							scope.activity.description = "";

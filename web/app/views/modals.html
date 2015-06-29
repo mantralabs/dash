@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn-green" ng-click='addNewProject(project)'>Create Project</button>
+            <button type="submit" ng-disable="creatingProject" class="btn-green" ng-click='addNewProject(project)'>Create Project</button>
           </div>
         </form>
       </div>
@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="modal-footer" ng-controller="taskPageCtrl">
-            <button type="submit" class="btn-green" ng-click='createTask(task.name,task.description,task.project,task.assignedTo,task.duedate)'>Create Task</button>
+            <button type="submit" ng-disabled="creatingTask" class="btn-green" ng-click='createTask(task.name,task.description,task.project,task.assignedTo,task.duedate)'>Create Task</button>
           </div>
         </form>
       </div>
@@ -92,17 +92,17 @@
         <form action="">
           <div class="modal-body">
             <div class="project-title border-bottom-grey">
-              <input class="modal-input" type="text" placeholder="Project Title" ng-model='project.name'>
+              <input class="modal-input" type="text" placeholder="Project Title" ng-model='projectedit.name'>
             </div>
 
             <div class="project-desc border-bottom-grey">
-              <textarea name="" id="" placeholder="describe your project here.." ng-model='project.description'></textarea>
+              <textarea name="" id="" placeholder="describe your project here.." ng-model='projectedit.description'></textarea>
             </div>
             
             <div class="clearfix border-bottom-grey">
               <span>Select workspace : </span>
              
-            <select class="modal-select workspace-select" id="leaveCode" ng-model="project.workspace" >
+            <select class="modal-select workspace-select" id="leaveCode" ng-model="projectedit.workspace" >
                 <option value="" >Select Workspace</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
@@ -112,7 +112,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn-green" ng-click='editProject(project.name,project.description,project.workspace)'>Save</button>
+            <button type="submit" class="btn-green" ng-click='editProject(projectedit.name,projectedit.description,projectedit.workspace)'>Save</button>
           </div>
         </form>
       </div>
@@ -129,14 +129,12 @@
 			</div>
 
 			<div class="modal-body">
-				<!-- <div class="project-title border-bottom-grey">
-					<input class="modal-input" type="text" placeholder="Contact Name">
-				</div> -->
-
 				<div class="project-title border-bottom-grey">
-					<input class="modal-input" type="text" placeholder="Should be an e-mail" ng-model='contact.email'>
+					<input class="modal-input email" type="text" placeholder="Should be an e-mail" ng-model='contact.email'>
+          <p ng-show="emailError" class="signup-page">*Enter valid Email</p>
 				</div>
-			</div>
+      </div>
+
 
 			<div class="modal-footer">
 				<button type="button" class="btn-green" ng-click="addNewContact(contact)">Add Contact</button>
@@ -156,10 +154,6 @@
         </div>
 
         <div class="modal-body">
-          <!-- <div class="project-title border-bottom-grey">
-            <input class="modal-input" type="text" placeholder="Contact Name">
-          </div> -->
-
           <div class="project-title border-bottom-grey">
             <input class="modal-input workspacename" name="workspaceName" id="workspaceName" type="text" placeholder="Enter Workspace Name" ng-model='workspace.name' required>
           </div>
@@ -184,10 +178,7 @@
         </div>
 
         <div class="modal-body">
-          <!-- <div class="project-title border-bottom-grey">
-            <input class="modal-input" type="text" placeholder="Contact Name">
-          </div> -->
-          <div class="project-title border-bottom-grey">
+         <div class="project-title border-bottom-grey">
             <input class="modal-input" name="workspaceName" id="workspaceName" type="text" placeholder="Edit Workspace Name" ng-model='workspace.name' required>
           </div>
         </div>
