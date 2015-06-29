@@ -41,7 +41,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">New Task</h4>
+          <h4 class="modal-title">Assign Task</h4>
         </div>
         <form action="">
           <div class="modal-body">
@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="modal-footer" ng-controller="taskPageCtrl">
-            <button type="submit" class="btn-green" ng-click='createTask()'>Create Task</button>
+            <button type="submit" class="btn-green" ng-click='createTask(task.name,task.description,task.project,task.assignedTo,task.duedate)'>Create Task</button>
           </div>
         </form>
       </div>

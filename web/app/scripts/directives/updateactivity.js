@@ -57,7 +57,7 @@ angular.module('pmtoolApp')
 
 				  	   	FR.onload = function (e) {
 				  	   		alert("upload complete");
-				  	   		scope.loader = false;
+				  	   		// scope.loader = false;
 				  	   		
 					    	scope.imageData.data = e.target.result.split(",")[1];
 					    	// scope.imageData.fullFormat = e.target.result;
@@ -118,6 +118,7 @@ angular.module('pmtoolApp')
 		      			Activity.addActivity(activityData)
 		      			.then(function(response){
 		      				console.log('activity response',response);
+		      				scope.loader = false;
 							scope.activities1.unshift(response);
 							$('.list-projects').removeClass('show');
 							scope.activity.description = "";

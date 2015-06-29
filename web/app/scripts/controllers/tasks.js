@@ -30,23 +30,23 @@ angular.module('pmtoolApp')
 	$scope.showMyTask = true;
 	$( "#date" ).datepicker();
 
-	$scope.createTask = function() {
-		
-		$scope.task.status = "Not started";
-		Task.addTask($scope.task).then(function(response){
-			$scope.tasks.push(response);
-			// console.log(response);
-			$('#task-modal').modal('hide');
-			// $scope.assignedTask();
-		}).catch(function(err){
-			$scope.error = err.message;
-		});
-
-		$('.tasktitle').val("");
-		$('.taskdesc').val("");
-		$('.taskproject').val("");
-		$('.taskassigned').val("");
-		$('.date').val("");
+	$scope.createTask = function(name,description,project,assignedTo,duedate) {
+		var data = {status:"Not started",description:description,name:name,project:project,assignedTo:assignedTo,duedate:duedate};
+		if(name == undefined || description == undefined || project == undefined || assignedTo == undefined || duedate == undefined){
+			alert("Please fill all details");
+		}else{
+			Task.addTask(data).then(function(response){
+				$scope.tasks.push(response);
+				$('#task-modal').modal('hide');
+				$('.tasktitle').val("");
+				$('.taskdesc').val("");
+				$('.taskproject').val("");
+				$('.taskassigned').val("");
+				$('.date').val("");
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}
 	}
 
 	$scope.myTask = function ($event) {

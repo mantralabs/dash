@@ -36,9 +36,10 @@
       </div><!--end update footer icons-->
 
       <div class="update-footer-btn">
-        <!-- <span ng-show="loader">updating...</span> -->
+        <span ng-show="loader">updating...</span> 
         <button type="submit" id="home-page-btn" ng-if="path.indexOf('home')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
         <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateInProject(activity.description)"> Update</button>
+
         <div class="list-projects hide">
           <ul>
             <li ng-if="projects.length == 0">There are no Projects</li>
