@@ -42,6 +42,11 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		});
 
+		$('.tasktitle').val("");
+		$('.taskdesc').val("");
+		$('.taskproject').val("");
+		$('.taskassigned').val("");
+		$('.date').val("");
 	}
 
 	$scope.myTask = function ($event) {
@@ -126,7 +131,6 @@ angular.module('pmtoolApp')
 	}
 
 	$scope.taskStatus = function (status, taskid) {
-		// console.log(status);
 		var data = {"status":status}
 		Task.statusUpdate(taskid,data).then(function(response){
 		}).catch(function(err){

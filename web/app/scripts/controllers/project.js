@@ -14,15 +14,20 @@ angular.module('pmtoolApp')
 	$( "#date" ).datepicker();
 	
 	$scope.addNewProject = function (data) {
+		console.log("addNewProject",data);
 		if(data){
 			var userId = $scope.user.id;
 			data.users = [userId];
 			Project.add(data).then(function(response){
+				console.log(response)
 				$scope.projects.push(response);
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
 		}
+		$('.Newproject-title').val("");
+		$('.Newproject-description').val("");
+		$(".Newproject-workspace option[value='']").attr('selected', true)
 	}
 
 	$scope.fetchUsers = function (id) {
@@ -114,11 +119,13 @@ angular.module('pmtoolApp')
 
   	$scope.isChecked = function (id) {
   	  var match = false;
-      for(var i=0 ; i < $scope.project.users.length; i++) {
-        if($scope.project.users[i].id == id){
-          match = true;
-        }
-      }
+  	  if($scope.project.users){
+	      for(var i=0 ; i < $scope.project.users.length; i++) {
+	        if($scope.project.users[i].id == id){
+	          match = true;
+	        }
+	      }
+	  }
       return match;
   	};
 
@@ -156,23 +163,40 @@ angular.module('pmtoolApp')
 		});
 
 
-
+	$scope.showeditError = false;
 	$scope.editProject = function (name,description,workspace) {
-		
+		console.log(workspace);
 		var data = {
 			name: name,
 			description: description,
 			workspace: workspace
 		};
 
-		Project.edit(data)
-		.then(function(response){
-			$scope.project = response;
-		})
-		.catch(function(err){
-			$scope.error=err.message;
-		});
-		$('#edit-project-modal').modal('hide');
+		if($scope.project.name == '' || $scope.project.description == '' || $scope.project.workspace == ''){
+			$scope.showeditError = true;
+		}else{
+			Project.edit(data)
+			.then(function(response){
+				$scope.project = response;
+				console.log(response);
+				Project.fetchProject($routeParams.id)
+				.then(function(response){
+					$scope.project = response;
+				}).catch(function(err){
+					console.log(err);
+					$scope.error = err.message;
+				});
+			})
+			.catch(function(err){
+				$scope.error=err.message;
+			});
+			$scope.showeditError = false;
+			$('#edit-project-modal').modal('hide');
+
+			   
+			
+		}
+		
 	};
 });
 

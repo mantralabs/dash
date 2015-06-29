@@ -8,17 +8,17 @@
         <form action="">
           <div class="modal-body">
             <div class="project-title border-bottom-grey">
-              <input class="modal-input" type="text" placeholder="Project Title" ng-model='project.name'>
+              <input class="modal-input Newproject-title" type="text" placeholder="Project Title" ng-model='project.name'>
             </div>
 
             <div class="project-desc border-bottom-grey">
-              <textarea name="" placeholder="describe your project here.." ng-model='project.description'></textarea>
+              <textarea name="" class="Newproject-description" placeholder="describe your project here.." ng-model='project.description'></textarea>
             </div>
             
             <div class="clearfix border-bottom-grey">
               <span>Select workspace : </span>
-            <select class="modal-select" ng-model="project.workspace">
-                <option value="">Workspace</option>
+            <select class="modal-select Newproject-workspace" ng-model="project.workspace" >
+                <option value="">Workspace select</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
             <p ng-if="workspaces.length==0" class="signup-page">Please create a workspace</p>
@@ -45,29 +45,29 @@
         </div>
         <form action="">
           <div class="modal-body">
-            <div class="project-title border-bottom-grey">
-              <input class="taskdescription modal-input" type="text" placeholder="Task Title" ng-model='task.name'>
+            <div class="border-bottom-grey">
+              <input class="modal-input tasktitle" type="text" placeholder="Task Title" ng-model='task.name'>
             </div>
 
-            <div class="project-desc border-bottom-grey">
-              <textarea name="" id="" placeholder="Task Description" ng-model='task.description'></textarea>
+            <div class="project-desc border-bottom-grey project-desc">
+              <textarea class="taskdesc" name="" id="" placeholder="Task Description" ng-model='task.description'></textarea>
             </div>
             
             <div class="clearfix border-bottom-grey">
               <span>Select Project : </span>
            <!--  <div class="select-style"> -->
-              <select class="modal-select" ng-model="task.project" ng-change = "fetchUsers(task.project)">
+              <select class="modal-select taskproject" ng-model="task.project" ng-change = "fetchUsers(task.project)">
                   <option value="">Project</option>
                   <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
               </select>
             <!-- </div> -->
             <p ng-if="project.users.length == 0" class="signup-page">No Members select another project</p>
-            <select class="modal-select" ng-model="task.assignedTo" ng-if="project.users.length != 0"  
+            <select class="modal-select taskassigned" ng-model="task.assignedTo" ng-if="project.users.length != 0"  
             ng-disabled="project.users == undefined">
                 <option value="">Assign To</option>
                 <option ng-repeat="member in project.users | filter:{ id: '!'+user.id}"  value="{{member.id}}">{{member.name}}</option>
             </select>
-            <input type="text" name="date" id="date" ng-model="task.duedate">
+            <input type="text" class="date" name="date" id="date" ng-model="task.duedate">
             
             
             
@@ -101,15 +101,18 @@
             
             <div class="clearfix border-bottom-grey">
               <span>Select workspace : </span>
-            <select class="modal-select" ng-model="project.workspace">
-                <option value="">Workspace</option>
+             
+            <select class="modal-select workspace-select" id="leaveCode" ng-model="project.workspace" >
+                <option value="" >Select Workspace</option>
                 <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
             </select>
+          
             <p ng-if="workspaces.length==0" class="signup-page">Please create a workspace</p>
+            <p ng-if="showeditError" class="signup-page">Please fill all the details</p>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn-green" ng-click='editProject(project.name,project.description,workspace.id)'>Save</button>
+            <button type="submit" class="btn-green" ng-click='editProject(project.name,project.description,project.workspace)'>Save</button>
           </div>
         </form>
       </div>
@@ -131,7 +134,7 @@
 				</div> -->
 
 				<div class="project-title border-bottom-grey">
-					<input class="modal-input" type="text" placeholder="e-mail" ng-model='contact.email'>
+					<input class="modal-input" type="text" placeholder="Should be an e-mail" ng-model='contact.email'>
 				</div>
 			</div>
 
@@ -158,7 +161,7 @@
           </div> -->
 
           <div class="project-title border-bottom-grey">
-            <input class="modal-input" name="workspaceName" id="workspaceName" type="text" placeholder="Enter Workspace Name" ng-model='workspace.name' required>
+            <input class="modal-input workspacename" name="workspaceName" id="workspaceName" type="text" placeholder="Enter Workspace Name" ng-model='workspace.name' required>
           </div>
         </div>
 
