@@ -527,6 +527,13 @@ li {
 .part {
   margin: 18px;
 }
+img.login-image {
+  position: absolute;
+  left: 656px;
+  bottom: 3px;
+  width: 37px;
+  height: 36px;
+}
 /* ==========================================================================
                    Homepage styling
    ========================================================================== */
@@ -2082,9 +2089,16 @@ div#project-1 {
 }
 img.spinner-image {
   position: absolute;
-  left: 119px;
-  bottom: 156px;
-  width: 78px;
+  bottom: 6px;
+  width: 72px;
+  right: 34px;
+}
+img.loader-profile {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 117px;
+  top: 176px;
 }
 .contact-info {
   padding: 15px 0px 0px 0px;
@@ -2161,6 +2175,7 @@ img.spinner-image {
   border-bottom: 2px solid #fff;
   margin: 0px 10px 0px 10px;
   font-size: 20px;
+  cursor: pointer;
 }
 .task-head-nav li:hover {
   color: #2d7fc1;
@@ -2196,6 +2211,7 @@ img.spinner-image {
   margin-right: 20px;
   font-size: 17px;
   border-bottom: 2px solid #fff;
+  cursor: pointer;
 }
 .task-body-nav li:hover {
   color: #3c3c3c;
