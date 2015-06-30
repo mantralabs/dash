@@ -142,7 +142,7 @@
 #update .update-footer .update-footer-btn .update-btn {
   width: 100px;
   margin-right: 10px;
-  padding: 5px;
+  padding: 3px;
 }
 #update .update-footer .update-footer-btn .list-projects {
   border-radius: 5px;
@@ -293,6 +293,9 @@
 }
 .sort-by {
   font-size: 16px !important;
+}
+.plusbutton {
+  cursor: pointer;
 }
 .workspacelist {
   background-color: white;
@@ -489,6 +492,7 @@ li {
 .common {
   font-family: RobotoSlab-Regular;
   outline: none;
+  padding-top: 2px;
   padding-left: 35px;
   width: 350px;
   height: 30px;
@@ -1055,7 +1059,7 @@ div#project-1 {
 }
 #signin-box .signup-btn {
   margin-top: 10px;
-  width: 387px;
+  width: 350px;
   height: 34px;
 }
 .update-btn {
