@@ -5,11 +5,14 @@ angular.module('pmtoolApp')
 .controller('userController',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
 	//User Login Method
+	$scope.loggingIn = false;
 	$scope.login = function (user) {
+		$scope.loggingIn = true;
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(response){
 				$scope.user = response;
+				$scope.loggingIn = false;
 				$location.path('/home');
 			}).catch(function(err){
 				$scope.error = err.message;

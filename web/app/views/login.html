@@ -27,7 +27,7 @@
 					<p class="i-agree forgot-password" ><a href="#/resetpasswordintiate" >Forgot password?</a></p>
 				</div>
 				<!-- <button class="signup-btn btn" type="submit" ng-click="login()">Sign In</button> -->
-    			<button class="signup-btn btn" type="submit" ng-click="login(user)" ng-disabled="myForm.email.$pristine && myForm.email.$invalid || myForm.password.$pristine && myForm.password.$invalid">Sign In</button>
+    			<button class="signup-btn btn" type="submit" ng-click="login(user)" ng-disabled="myForm.email.$pristine && myForm.email.$invalid || myForm.password.$pristine && myForm.password.$invalid || loggingIn">Sign In</button>
 			</form>			
 		</div><!--end input container-->
 	</div><!--end signin box-->
