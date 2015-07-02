@@ -1,8 +1,10 @@
 <!-- mycontacts.html -->
 
-<div id="my-contacts">
+<div id="my-contacts" ng-controller="contactController">
 	<div class="mycontacts-header  clearfix">
-		<h2><a href="/#/contacts" class="blue-head">My Contacts </a><span class="number">{{contacts.length-1}}</span></h2>
+		<h2><a href="/#/contacts" class="blue-head">My Contacts </a><span class="number">{{contacts.length-1}}</span>
+		<a ng-if="user.role == 'admin'"data-toggle="modal" data-target="#contacts-modal"><img src="img/add-user.png" class="pagination-right add-contacts-icon" alt="add-contacts"/></a></h2>
+		
 			 <!-- <div class="pagination">
 				<a href="javascript:"><img src="img/left-arrow.png" class="pagination-left" alt="add-contacts" ng-click="scroll()"/></a>
 				<a href="javascript:"><img src="img/right-arrow.png" class="pagination-right" alt="add-contacts"/></a>
@@ -11,8 +13,8 @@
 
 	<div class="profile-pics clearfix">
 
-		<ul class="clearfix">
-			<li ng-repeat="contact in contacts | limitTo : 12" ng-if="user.id !== contact.id">
+		<ul class="clearfix contacts-li">
+			<li  ng-repeat="contact in contacts | limitTo : 9" ng-if="user.id !== contact.id">
 				<a href="#/profile/{{contact.id}}">
 		      		<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
 
@@ -25,3 +27,4 @@
 		</ul>
 	</div><!--end profile pics-->  
 </div>
+<div ng-include="'views/modals.html'"></div>

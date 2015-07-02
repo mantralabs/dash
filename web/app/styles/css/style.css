@@ -143,6 +143,7 @@
   width: 100px;
   margin-right: 10px;
   padding: 3px;
+  cursor: pointer;
 }
 #update .update-footer .update-footer-btn .list-projects {
   border-radius: 5px;
@@ -415,9 +416,9 @@ a {
    Author's custom styles
    ========================================================================== */
 @font-face {
-  font-family: 'ProximaNova-Bold';
-  src: url('fonts/ProximaNova-Bold.ttf');
-  src: url('fonts/ProximaNova-Bold.svg') format('svg'), url('fonts/ProximaNova-Bold.woff') format('woff');
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Regular-webfont.ttf');
+  src: url('fonts/Roboto-Regular-webfont.svg') format('svg'), url('../fonts/ProximaNova-Regular_0.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -428,6 +429,7 @@ h2 {
   padding: 10px 5px;
   font-weight: normal;
   font-family: RobotoSlab-Regular;
+  margin-top: 10px;
 }
 a {
   font-family: RobotoSlab-Regular;
@@ -533,6 +535,7 @@ img.login-image {
   bottom: 3px;
   width: 37px;
   height: 36px;
+  top: 352px;
 }
 /* ==========================================================================
                    Homepage styling
@@ -633,14 +636,11 @@ div#project-1 {
 #left #tasks,
 #left #events {
   /*width: 365px;*/
-  height: 205px;
+  height: 210px;
   background-color: #fff;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-}
-#left #my-contacts {
-  overflow-x: hidden;
 }
 #left #my-contacts h2 {
   padding: 10px 5px 5px 5px;
@@ -664,13 +664,13 @@ div#project-1 {
   margin: 5px -20px;
 }
 #left #my-projects h2 {
-  border-bottom: 2px solid #eee;
+  border-bottom: 1px solid #DED4D4;
   padding-left: 10px;
   margin-bottom: 0;
 }
 .project-1,
 #project-2 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #DED4D4;
 }
 .project-1 p,
 #project-2 p,
@@ -1008,6 +1008,18 @@ div#project-1 {
   border-bottom: 1px solid #eee;
   margin-right: 370px;
 }
+.calender-tasks {
+  position: relative;
+  bottom: 30px;
+  left: 313px;
+}
+.calender-input {
+  position: relative;
+  bottom: 4px;
+}
+.duedate {
+  color: #8b8b8b;
+}
 /* class used in javascript */
 .onclick-changecolor-blue {
   color: #4b9ff2;
@@ -1068,6 +1080,7 @@ div#project-1 {
   margin-top: 10px;
   width: 350px;
   height: 34px;
+  cursor: pointer;
 }
 .update-btn {
   float: right;
@@ -1731,6 +1744,13 @@ div#project-1 {
   border-radius: 3px;
   border: 0px;
 }
+ul.clearfix.contacts-li {
+  padding-left: 19px;
+}
+.add-contacts-icon {
+  float: right;
+  width: 21px;
+}
 .contacts-page .contacts-list {
   padding: 0px 58px 0px 0px;
 }
@@ -2043,8 +2063,8 @@ div#project-1 {
 }
 .pro-pic {
   padding: 10px 10px;
-  height: 100px;
-  width: 100px;
+  height: 82px;
+  width: 83px;
   float: left;
 }
 .pro-pic-small {
