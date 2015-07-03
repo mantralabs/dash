@@ -298,6 +298,36 @@
 .plusbutton {
   cursor: pointer;
 }
+.ui-widget-content {
+  border: 1px solid #8e846b;
+  background: #ffffff url("images/ui-bg_highlight-soft_100_feeebd_1x100.png") 50% top repeat-x;
+  color: #383838;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: none;
+  background: none;
+  font-weight: bold;
+  color: #4c3000;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #655e4e;
+  background: #1298d8 url("images/ui-bg_inset-soft_30_ffffff_1x100.png") 50% 50% repeat-x;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.ui-datepicker .ui-datepicker-header {
+  background-color: #1298D8;
+}
+span.ui-datepicker-month {
+  color: black;
+}
+span.ui-datepicker-year {
+  color: black;
+}
 .workspacelist {
   background-color: white;
   height: 45px;
@@ -1516,6 +1546,10 @@ div#project-1 {
 /* ==========================================================================
             CREATE-EVENT-PAGE, CREATE-TASK-PAGE
    ========================================================================== */
+.assign-task-heading {
+  font-color: white;
+  margin-top: 0px;
+}
 .create-event {
   margin: 100px 0px 0px 15%;
   width: 70%;
