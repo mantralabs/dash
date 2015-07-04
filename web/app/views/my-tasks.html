@@ -3,16 +3,17 @@
 		<a  data-toggle="modal" data-target="#task-modal" title="Assign-task" ><img src="img/task-icon.png" alt="attach-files" class="task-icon" ></a>
 	</h2>
 
-	<div id="project-1" ng-repeat = "task in tasks">
-		<div class="col-md-7">
+	<div id="project-1" ng-repeat = "task in tasks" >
+		<div class="col-md-7 tasks-repeat">
 			<p ng-if="task.status == 'Completed' " class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
 			<p ng-if="task.status == 'In progress' " class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
 			<p ng-if="task.status == 'Not started'" class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
 		</div>
-		<div class="col-md-5">
+		<div class="col-md-5 tasks-repeat">
 			<p class="right-column">{{task.duedate | date}} </p>
 		</div>
 	</div>
+	
 </div>
 
 <div ng-include="'views/modals.html'"></div>

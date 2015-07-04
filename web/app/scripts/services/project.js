@@ -93,4 +93,20 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
+    this.notify = function(data){
+    	console.log(data);
+		var deferred = $q.defer();
+		
+		$http.post('/api/notify', data)
+		.success(function(response){
+      		deferred.resolve(response);
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+
+		return deferred.promise;
+	}
+
+
 });

@@ -315,7 +315,7 @@
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
   border: 1px solid #655e4e;
-  background: #1298d8 url("images/ui-bg_inset-soft_30_ffffff_1x100.png") 50% 50% repeat-x;
+  background: #ffffff url("images/ui-bg_inset-soft_30_ffffff_1x100.png") 50% 50% repeat-x !important;
   font-weight: bold;
   color: #FFFFFF;
 }
@@ -323,10 +323,22 @@
   background-color: #1298D8;
 }
 span.ui-datepicker-month {
-  color: black;
+  color: white;
 }
 span.ui-datepicker-year {
-  color: black;
+  color: white;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  font-weight: bold;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  background: #1298d8 url("images/ui-bg_inset-soft_30_ffffff_1x100.png") 50% 50% repeat-x !important;
+  font-weight: bold;
+  color: #FFFFFF;
 }
 .workspacelist {
   background-color: white;
@@ -1049,6 +1061,10 @@ div#project-1 {
 }
 .duedate {
   color: #8b8b8b;
+}
+.tasks-repeat {
+  border-bottom: 1px solid #DED4D4;
+  padding-top: 5px !important;
 }
 /* class used in javascript */
 .onclick-changecolor-blue {

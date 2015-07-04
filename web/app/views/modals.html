@@ -209,7 +209,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="submit" class="btn-green" ng-click="addMemberToProject()">Add</button>
+          <button type="submit" class="btn-green" ng-click="addMemberToProject()" ng-disabled="memberAdded">Update</button>
         </div>
       </form>
     </div>
@@ -217,11 +217,11 @@
 </div><!-- modal-->
 
 <!-- Contacts List Modal for adding projects or tasks -->
-<div class="modal fade" id="view-image-modal" ng-controller="contactController">
+<!-- <div class="modal fade" id="view-image-modal" ng-controller="contactController">
   <div class="modal-dialog">
     <div class="modal-content">
       <img src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{activity.attachment}}" alt="">
     </div>
    
   </div>
-</div>
+</div> -->
