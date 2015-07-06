@@ -3,7 +3,7 @@
 angular.module('pmtoolApp')
   .service('Project', function ($http, $q, $resource, $routeParams) {
 
-	this.fetch = function(){
+	this.fetch = function () {
 		var deferred = $q.defer();
 		
 		$http.get('/api/project')
@@ -17,7 +17,7 @@ angular.module('pmtoolApp')
 		return deferred.promise;
   	}
 
-	this.add = function(data){
+	this.add = function (data) {
 		var deferred = $q.defer();
 		
 		$http.post('/api/project', data)
@@ -32,7 +32,7 @@ angular.module('pmtoolApp')
 		return deferred.promise;
 	}
 
-	this.delete = function(id){
+	this.delete = function (id) {
       var deferred = $q.defer();
       
       $http.delete('/api/project/'+id)
@@ -60,7 +60,7 @@ angular.module('pmtoolApp')
 		return deferred.promise;
   	}
 
-  	this.addProjectMember = function(projectId,data){
+  	this.addProjectMember = function (projectId,data) {
   		console.log("project",data);
   		
   		var deferred = $q.defer();
@@ -93,7 +93,7 @@ angular.module('pmtoolApp')
       return deferred.promise;
     };
 
-    this.notify = function(data){
+    this.notify = function (data) {
     	console.log(data);
 		var deferred = $q.defer();
 		

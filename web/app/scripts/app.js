@@ -138,8 +138,8 @@ angular
       })
       
       .when('/search',{
-        templateUrl:'views/search-results-page.html',
-        controller:'searchResultsCtrl'
+        templateUrl:'views/search-results-page.html'
+        // controller:'searchResultsCtrl'
       })
       
       .when('/mytasks',{
@@ -160,13 +160,13 @@ angular
       })
       
       .when('/info',{
-        templateUrl:'views/getting-started.html',
-        controller:'gettingStartedCtrl'
+        templateUrl:'views/getting-started.html'
+        // controller:'gettingStartedCtrl'
       })
       
       .when('/contactsupport',{
-        templateUrl:'views/contact-support.html',
-        controller:'contactSupportCtrl'
+        templateUrl:'views/contact-support.html'
+        // controller:'contactSupportCtrl'
       })
       
       .when('/resetpasswordintiate',{

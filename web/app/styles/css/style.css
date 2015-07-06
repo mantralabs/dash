@@ -315,7 +315,7 @@
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
   border: 1px solid #655e4e;
-  background: #ffffff url("images/ui-bg_inset-soft_30_ffffff_1x100.png") 50% 50% repeat-x !important;
+  background: #ffffff url("") 50% 50% repeat-x !important;
   font-weight: bold;
   color: #FFFFFF;
 }
@@ -672,6 +672,8 @@ ul#menu li:hover ul.sub-menu {
 }
 div#project-1 {
   padding-left: 9px;
+  margin-top: 8px;
+  border-bottom: 1px solid #d4d4d4;
 }
 #left #my-contacts,
 #left #my-projects,
@@ -685,10 +687,14 @@ div#project-1 {
   -webkit-border-radius: 2px;
 }
 #left #my-contacts h2 {
-  padding: 10px 5px 5px 5px;
+  margin-bottom: 3px;
+  padding: 10px 5px 11px 5px;
   border: 0;
   margin: 0 0 0 5px;
   /*display: inline-block;*/
+}
+.workspace-projects {
+  border-bottom: 1px solid #d4d4d4 !important;
 }
 .pagination {
   float: right;
@@ -916,6 +922,7 @@ div#project-1 {
    ========================================================================== */
 .blue-head {
   color: #4b9ff2;
+  font-size: 18px;
 }
 .tasks-header {
   font-family: RobotoSlab-Regular;
@@ -986,6 +993,9 @@ div#project-1 {
 }
 .task-date ul {
   float: right;
+}
+.select-project {
+  padding-left: 6px;
 }
 .tasks-like-comment {
   display: inline-block;
@@ -2416,6 +2426,7 @@ img.loader-profile {
   background: white;
   color: #8b8b8b;
   border: #c2c2c2 solid 1px;
+  border-radius: 5px;
   border-top: none;
   width: 25%;
   top: 60px;
