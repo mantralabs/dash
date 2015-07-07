@@ -1,13 +1,20 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('contactController', function ($scope, $rootScope, $routeParams, $cookieStore, Contact) {
+  .controller('contactController', function ($scope, $rootScope, $routeParams, $cookieStore, Contact,Project) {
 	// $scope.contacts = Contact.fetch();
 
 	$scope.user = $rootScope.user;
 
 	Contact.fetch().then(function(response){
 		$scope.contacts = response;
+		console.log("contacts",$scope.contacts)
+	}).catch(function(err){
+		$scope.error = err.message;
+	});
+
+	Project.fetch().then(function(response){
+		$scope.projects = response;
 	}).catch(function(err){
 		$scope.error = err.message;
 	});

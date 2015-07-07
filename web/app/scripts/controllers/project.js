@@ -168,18 +168,14 @@ angular.module('pmtoolApp')
 					$scope.existedprojectMembers = [];
 					$scope.project = response;
 					for(var j=0 ; j < $scope.project.users.length; j++){
-					$scope.projectUsersEmailLatest.push($scope.project.users[j].email)
-
-
+						$scope.projectUsersEmailLatest.push($scope.project.users[j].email)
 					}
 					$scope.sendUpdates();
 					$scope.projectUsersEmailOld = [];
 					for(var k=0 ; k < $scope.projectUsersEmailLatest.length; k++){
-					$scope.projectUsersEmailOld.push($scope.projectUsersEmailLatest[k])
-				   }
+						$scope.projectUsersEmailOld.push($scope.projectUsersEmailLatest[k])
+				    }
 				    
-
-
 					for(var j=0 ; j < $scope.project.users.length; j++){
 						$scope.existedprojectMembers.push($scope.project.users[j].email)
 					}
@@ -229,10 +225,6 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		});
 
-
-
-
-
 		console.log("removed",$scope.removedEmailIds);
 		$scope.addedEmailIds = [];
 		$scope.removedEmailIds = [];
@@ -240,13 +232,13 @@ angular.module('pmtoolApp')
 	}
 
 
-	Project.fetchProject($routeParams.id)
-		.then(function(response){
-			$scope.project = response;
-		}).catch(function(err){
-			console.log(err);
-			$scope.error = err.message;
-		});
+	// Project.fetchProject($routeParams.id)
+	// 	.then(function(response){
+	// 		$scope.project = response;
+	// 	}).catch(function(err){
+	// 		console.log(err);
+	// 		$scope.error = err.message;
+	// 	});
 
 
 	$scope.showeditError = false;

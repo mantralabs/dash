@@ -170,6 +170,20 @@
 #update .update-footer .update-footer-btn .list-projects ul li:last-child {
   border-bottom: none;
 }
+#mentioned-user-list {
+  left: 17px !important;
+  top: 60px !important;
+  width: 400px !important;
+}
+#mentioned-user-list li {
+  background-color: #FFF !important;
+  color: #fff;
+  text-align: start;
+}
+#mentioned-user-list li .active {
+  background-color: #FFF !important;
+  color: #fff;
+}
 .project-list,
 .workspace-list {
   background-color: #fff;
@@ -284,22 +298,23 @@
   border-radius: 5px;
   height: 30px;
   background: url('../../img/search.png') no-repeat right center;
+  background-position: 198px;
   float: right;
   margin-right: 10px;
   padding: 0 20px 0 10px;
 }
 .contactslist {
-  border-bottom: 1px solid grey;
-  margin-bottom: 18px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 6px;
 }
 .sort-by {
   font-size: 16px !important;
+  color: #4b9ff2;
 }
 .plusbutton {
   cursor: pointer;
 }
 .ui-widget-content {
-  border: 1px solid #8e846b;
   background: #ffffff url("images/ui-bg_highlight-soft_100_feeebd_1x100.png") 50% top repeat-x;
   color: #383838;
 }
@@ -664,7 +679,7 @@ ul#menu li:hover ul.sub-menu {
   margin-top: 20px;
 }
 #container {
-  margin: 30px 10px 30px 7%;
+  margin: 15px 10px 30px 7%;
 }
 #left {
   float: left;
@@ -766,7 +781,8 @@ div#project-1 {
 }
 #right #update {
   /*width: 805px;*/
-  height: 205px;
+  height: 210px;
+  margin-bottom: 10px;
   background-color: #fff;
   text-align: center;
   border-radius: 2px;
@@ -877,6 +893,7 @@ div#project-1 {
 #right #activities h2 {
   padding-left: 10px;
   border-bottom: 2px solid #eee;
+  margin-top: 0px;
 }
 /* ==========================================================================
            PROJECT PAGE
@@ -1732,26 +1749,19 @@ div#project-1 {
   border: none;
   box-shadow: none;
   height: 30px;
-  width: 160px;
+  width: 90px;
   padding: 5px 10px 5px 10px;
   color: #2d7fc1;
   font-size: 15px;
 }
+select:focus {
+  width: auto;
+}
 .home-page3-sort option {
   color: #2d7fc1;
 }
-.home-page3-head span {
-  color: #4b9ff2;
-  padding-right: 10px;
-  font-size: 20px;
-}
 .home-page3-head {
-  border-bottom: 1px #939393 solid;
   padding: 10px 0px 10px 10px;
-}
-.home-page3-head img {
-  float: right;
-  margin: 5px 30px 0px 0px;
 }
 .home-page3-profile {
   padding: 20px 0px 10px 10px;
@@ -1833,8 +1843,8 @@ ul.clearfix.contacts-li {
   padding: 0px 3px 0px 0px;
 }
 .btns-contact {
-  margin-top: 25px;
-  margin-left: 135px;
+  float: right;
+  margin-right: 22px;
 }
 .btns-contact .view-btn-contacts {
   background-color: #2cbe8f;
@@ -1847,6 +1857,60 @@ ul.clearfix.contacts-li {
   color: white;
   border-radius: 3px;
   border: 0px;
+}
+.actionsbtn {
+  color: black;
+  padding: 3px 10px !important;
+  background-color: #e6e6e6;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  font-family: RobotoSlab-Regular;
+}
+.actions-ul li {
+  color: black;
+  list-style-type: none !important;
+  text-transform: none !important;
+  padding-bottom: 0px !important;
+  border-bottom: none !important;
+  padding-top: 0px !important;
+}
+.project-filters {
+  margin-top: 20px;
+  text-align: center;
+  padding-right: 9px;
+}
+.contacts-section-right {
+  background-color: white;
+  margin-left: 15px;
+  min-height: 250px;
+}
+.addmember {
+  margin-top: 9px;
+  padding-right: 45px !important;
+}
+.dashcontacts {
+  margin-top: 58px;
+  text-align: center;
+  padding-right: 30px;
+}
+.actionbtndiv {
+  padding-top: 15px;
+}
+.contacts-header-sort {
+  background-color: white;
+  margin-left: 2px;
+}
+.contacts-header-section {
+  margin-top: 8px;
+  margin-bottom: 5px;
+  padding-bottom: 16px;
+  padding-left: 19px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.contact-name-email {
+  line-height: 8px;
+  margin-top: 15px;
 }
 /*.home-page3-profile input{
     -webkit-appearance:none;
@@ -2123,8 +2187,8 @@ ul.clearfix.contacts-li {
 }
 .pro-pic {
   padding: 10px 10px;
-  height: 82px;
-  width: 83px;
+  height: 65px;
+  width: 65px;
   float: left;
 }
 .pro-pic-small {
@@ -2469,7 +2533,7 @@ input.fileupload {
                        COMMON
    ========================================================================== */
 .common-div {
-  margin: 30px 2% 0px 7%;
+  margin: 15px 2% 0px 7%;
   background: #ffffff;
 }
 .common-div1 {

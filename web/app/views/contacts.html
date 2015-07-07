@@ -1,58 +1,64 @@
 <div class="empty-div"> 
 	<headernavigation></headernavigation>
 </div>
-<div class="content">
+<div class="content-contacts">
     <sidebar></sidebar>
     <div class="common-div">
-	    <div class="home-page3">
-			<div class="home-page3-head">
-				<span class="sort-by">Sort by</span>
-				<select class="home-page3-sort" ng-model="sort">
-					<option value="createdAt">Recently Added</option>
-					<option value="name">Name</option>
-				</select>
-				<button ng-if= "user.role == 'admin' " class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button>
-				<input class="search-list" type="text" ng-model="name" placeholder="Search here">
-			</div>
-
-
-
-			<div class="col-md-12 home-page3-profile">
-				<div ng-repeat="contact in contacts | orderBy : sort | filter : name" ng-if="user.id !== contact.id" class="col-md-7 contactslist clearfix">
-					<div class="col-md-2 home-page3-left">
-						<p>      
-							<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
-
-      						<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
-      					</p>
-					</div>
-					<div class="col-md-3 home-page3-right align-middle ">
-						<a href="#/profile/{{contact.id}}">
-							<span class="home-page3-name">{{contact.name}}</span><br>
-							<span class="home-page3-designation">{{contact.designation}}</span>
-						</a>
-						<a href="/#/task-page" class="contacts-page"><li class="contacts-list"><pre class="assign-task"><img src="img/assign.png" class="assign-task-logo"> Assign Task</pre></li></a>
-						<!-- <li>
-							<img src="img/assign.png">Assign Task
-						</li>
-						<li>
-							<img src="img/mail.png">Message
-						</li> -->
-					</div>
-					<div class="col-md-3 btns-contact">
-						<a href="#/profile/{{contact.id}}"><button class="view-btn-contacts" title="view this Project">View</button></a>
-						<a ng-if="user.role == 'admin'" href=""><button  class="delete-btn-contacts" title="delete this Project" ng-click="deleteContact(contact.id)" >Delete</button></a>
-					</div>
+	    <div class="home-page3 col-md-12">
+			<div class="col-md-8 contacts-header-sort">
+				<div class="contacts-header-section">
+					<span class="sort-by">Sort by</span>
+					<select class="home-page3-sort" ng-model="sort">
+						<option value="createdAt">Recently Added</option>
+						<option value="name">Name</option>
+					</select>
+					<!-- <button ng-if= "user.role == 'admin' " class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button> -->
+					<input class="search-list" type="text" ng-model="name" placeholder="Search contact">
 				</div>
 
+				<div class="col-md-12">
+					<div ng-repeat="contact in contacts | orderBy : sort | filter : name | filter : project" ng-if="user.id !== contact.id" class="contactslist clearfix">
+						<div class="col-md-1 home-page3-left">
+							<p>     
+								<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
 
-
-
+	      						<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
+	      					</p>
+						</div>
+						<div class="col-md-3 contact-name-email">
+							<a href="#/profile/{{contact.id}}">
+								<p class="contact-name">{{contact.name}}</p><br>
+								<p class="contact-designation">{{contact.email}}</p>
+							</a>
+						</div>
+						<div class="btns-contact">
+							<div class="btn-group actionbtndiv">
+								<button type="button" class="btn btn-default dropdown-toggle actionsbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></button>
+								<ul class="dropdown-menu actions-ul">
+									<li><a href="#/profile/{{contact.id}}">View profile</a></li>
+									<li><a href="/#/task-page">Assign task</a></li>
+									<li ng-if="user.role == 'admin'" ng-click="deleteContact(contact.id)"><a href="">Remove contact</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-
-
-
-
+			<div class="col-md-3 contacts-section-right">
+		  		<div class="addmember col-md-12" ng-if= "user.role == 'admin'" >
+		  			<button  class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">+ ADD NEW CONTACT</button>
+				</div>
+				<div class="dashcontacts">
+					<span>Dash Contacts ({{contacts.length}})</span>
+				</div>
+				<div class="project-filters">
+					<span>Filter:</span>
+					<select class="home-page3-sort" ng-model="project">
+						<option value="">All</option>
+						<option ng-repeat = "project in projects">{{project.name}}</option>
+					</select>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
