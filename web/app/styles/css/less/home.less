@@ -19,6 +19,8 @@
 }
 .border-bottom-grey{
 	border-bottom: 1px solid #eee;
+	margin-left: 10px;
+    // margin-top: 5px;
 }
 
 .modal-input{
@@ -48,14 +50,14 @@
   	font-size: 15px;
 }	
 //
-#project-modal,#task-modal,#contacts-modal,#workspace-modal,.common-modal{
+#project-modal,#task-modal,#contact-list-modal,#contacts-modal,#workspace-modal,.common-modal{
 	.modal-dialog{
 		.modal-content{
 			.modal-header{
 				background-color: #000;
 				color: #fff;
 				h4.modal-title {
-				  color: #4b9ff2;
+				  color: white;
 				  padding-right: 10px;
 				  font-size: 19px;
 				  // text-transform: capitalize;
@@ -209,13 +211,15 @@
 //For activity directive
 
 #acts{
-    padding:  0 0 10px 10px;
+    padding:  0 10px 10px 10px;
     border-bottom: 1px solid #eee;
     height: 590px;
     overflow: auto;
 }
 .activity{
 	margin-bottom: 15px;
+	border-bottom: 1px solid #ded4d4;
+	padding-bottom: 4px;
 }
 #acts p{
     display: inline-block;
@@ -226,6 +230,7 @@
 }
 #acts .acts-discription{
   float: left;
+  margin-top: 5px;
   // position: relative;
   // top: -20px;
 }
@@ -320,7 +325,7 @@
 	border-radius:5px;
 	height: 30px;
 	background: url('../../img/search.png') no-repeat right center; 
-	background-position: 198px;
+	background-position: 172px;
 	float: right;
 	margin-right: 10px;
 	padding: 0 20px 0 10px; 

@@ -53,28 +53,35 @@
               <textarea class="taskdesc" name="" id="" placeholder="Task Description" ng-model='task.description'></textarea>
             </div>
             
-            <div class="clearfix border-bottom-grey">
-              <span class="select-project">Select Project : </span>
+            <div class="clearfix border-bottom-grey" style="display: inline-flex;">
+              <!-- <span class="select-project">Select Project : </span> -->
            <!--  <div class="select-style"> -->
+           <div class="project-select">
               <select class="modal-select taskproject" ng-model="task.project" ng-change = "fetchUsers(task.project)">
                   <option value="">Project</option>
                   <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
               </select>
+              </div>
+           
             <!-- </div> -->
-            <p ng-if="project.users.length == 0" class="signup-page">No Members select another project</p>
+            <span ng-if="project.users.length == 0" class="signup-page nopeople">No Members</span>
+             <div class="project-select">
             <select class="modal-select taskassigned" ng-model="task.assignedTo" ng-if="project.users.length != 0"  
             ng-disabled="project.users == undefined">
                 <option value="">Assign To</option>
                 <option ng-repeat="member in project.users | filter:{ id: '!'+user.id}"  value="{{member.id}}">{{member.name}}</option>
             </select>
-            <input type="text" class="date" name="date" id="date" ng-model="task.duedate">
-            
-            
-            
+            </div>
+          
+           <div class="calender-box">
+            <input type="text" class="date" name="date" id="date" ng-model="task.duedate"
+            placeholder="Duedate">
+            </div>
+         
             </div>
           </div>
           <div class="modal-footer" ng-controller="taskPageCtrl">
-            <button type="submit" ng-disabled="creatingTask" class="btn-green" ng-click='createTask(task.name,task.description,task.project,task.assignedTo,task.duedate)'>Create Task</button>
+            <button type="submit" ng-disabled="creatingTask" class="btn-green assignbtn" ng-click='createTask(task.name,task.description,task.project,task.assignedTo,task.duedate)'>Assign</button>
           </div>
         </form>
       </div>
@@ -209,7 +216,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="submit" class="btn-green" ng-click="addMemberToProject()" ng-disabled="memberAdded">Update</button>
+          <button type="submit" class="btn-green" ng-click="updateProjectMembers()" ng-disabled="memberAdded">Update</button>
         </div>
       </form>
     </div>

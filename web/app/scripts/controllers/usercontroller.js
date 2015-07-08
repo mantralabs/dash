@@ -41,6 +41,7 @@ angular.module('pmtoolApp')
 
 		UserService.updateProfile(user)
 		.then(function(response){
+			console.log("res",response)
 			$scope.user = response[0];
 			$location.path('/profile');
 		}).catch(function(err){
@@ -133,6 +134,7 @@ angular.module('pmtoolApp')
 			hashKey : $routeParams.hashKey,
 			password : password
 		};
+
 		UserService.resetPassword(data)
 		.then(function(response){
 			$location.path('/');
@@ -156,39 +158,3 @@ angular.module('pmtoolApp')
 })
 
 
-// .controller('createEventCtrl', function($scope,$location){
-	
-
-// })
-// .controller('searchResultsCtrl', function($scope,$location){
-	
-
-// })
-// .controller('privacySettingsCtrl', function($scope,$location){
-	
-
-// })
-// .controller('notificationSettingsCtrl', function($scope,$location){
-	
-
-// })
-// .controller('gettingStartedCtrl', function($scope,$location){
-	
-
-// })
-// .controller('createTaskCtrl', function($scope,$location){
-	
-
-// })
-// .controller('contactSupportCtrl', function($scope,$location){
-	
-
-// })
-// .controller('profilePageCtrl', function($scope,$location){
-	
-
-// })
-
-// .controller('contactsPageCtrl', function($scope,$location){
-
-// })

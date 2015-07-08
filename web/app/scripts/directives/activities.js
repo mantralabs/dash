@@ -17,6 +17,7 @@ angular.module('pmtoolApp')
           Activity.fetch($routeParams.id)
           .then(function(response){
             scope.activities1 = response;
+            console.log("withparams",scope.activities1)
           })
           .catch(function(err){
             scope.error = err.message;
@@ -25,11 +26,24 @@ angular.module('pmtoolApp')
           Activity.fetch()
           .then(function(response){
             scope.activities1 = response;
+            console.log("withoutparams",scope.activities1)
           })
           .catch(function(err){
             scope.error = err.message;
           });
         }
+
+         // scope.$on("triggerActivity",function(){
+         //  console.log("Im active now in activity")
+         //    Activity.fetch()
+         //    .then(function(response){
+         //      scope.activities1 = response;
+         //      console.log(scope.activities1);
+         //    })
+         //    .catch(function(err){
+         //      scope.error = err.message;
+         //    });
+         // });
 
         scope.likeActivity = function (activity) {
          

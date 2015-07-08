@@ -60,6 +60,21 @@ angular.module('pmtoolApp')
 		return deferred.promise;
   	}
 
+  	this.fetchMyProjects = function(){
+  		var deferred = $q.defer();
+		
+		$http.get('/api/myprojects/')
+		.success(function(data){
+			deferred.resolve(data);
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+		
+		return deferred.promise;
+
+  	}
+
   	this.addProjectMember = function (projectId,data) {
   		console.log("project",data);
   		

@@ -8,6 +8,7 @@ angular.module('pmtoolApp')
 
 	Project.fetch().then(function(response){
 		$scope.projects = response;
+		console.log($scope.projects);
 	}).catch(function(err){
 		$scope.error = err.message;
 	});
@@ -15,7 +16,7 @@ angular.module('pmtoolApp')
 	$scope.creatingProject = false;
 
 	$scope.addNewProject = function (data) {
-		$scope.creatingProject = true;
+		$scope.creatingProject = true; 
 		console.log("addNewProject",data);
 		if(data){
 			var userId = $scope.user.id;
@@ -80,8 +81,6 @@ angular.module('pmtoolApp')
 	$scope.removedEmailIds = [];
 	$scope.memberAdded = false;
 	 
-	
-	
 	Project.fetchProject($routeParams.id )
 		.then(function(response){
 			$scope.project = response;
@@ -97,11 +96,6 @@ angular.module('pmtoolApp')
 			$scope.error = err.message;
 		});
 
-	
-
-	
-	
-	//if user checked push id into array if uncheck remove from array.
 	$scope.sync = function (bool, item) {
 
 		if(bool){
@@ -127,10 +121,7 @@ angular.module('pmtoolApp')
 		}
   	};
 
-
-
-
-  	$scope.itemsPush = function () {
+	$scope.itemsPush = function () {
   		for(var i=0 ; i < $scope.project.users.length; i++){
 			 $scope.userIds.push($scope.project.users[i].id)
 		}
@@ -148,7 +139,7 @@ angular.module('pmtoolApp')
       return match;
   	};
 
-	$scope.addMemberToProject = function () {
+	$scope.updateProjectMembers = function () {
 		$scope.memberAdded = true;
 		$scope.projectId = $routeParams.id;
 		var data = {
@@ -161,7 +152,7 @@ angular.module('pmtoolApp')
 
 		Project.addProjectMember($scope.projectId,data)
 		.then(function(response){
-			console.log(response);
+			// $scope.$broadcast("triggerActivity");
 			Project.fetchProject($routeParams.id)
 				.then(function(response){
 					$scope.memberAdded = false;
@@ -170,7 +161,8 @@ angular.module('pmtoolApp')
 					for(var j=0 ; j < $scope.project.users.length; j++){
 						$scope.projectUsersEmailLatest.push($scope.project.users[j].email)
 					}
-					$scope.sendUpdates();
+					$scope.sendEmailUpdates();
+
 					$scope.projectUsersEmailOld = [];
 					for(var k=0 ; k < $scope.projectUsersEmailLatest.length; k++){
 						$scope.projectUsersEmailOld.push($scope.projectUsersEmailLatest[k])
@@ -187,8 +179,17 @@ angular.module('pmtoolApp')
 			}).catch(function(err){
 				$scope.error = err.message;
 			});
-			
-			
+
+			// Project.fetchProject($routeParams.id )
+			// .then(function(response){
+			// 	$scope.project = response;
+			// 	for(var j=0 ; j < $scope.project.users.length; j++){
+			// 		$scope.projectUsersList.push($scope.project.users[j].id)
+			// 	}
+			// 	}).catch(function(err){
+			// 		console.log(err);
+			// 		$scope.error = err.message;
+			// 	});
 			
 			$scope.removedMembers = [];
 			$scope.removedEmailIds = [];
@@ -196,9 +197,10 @@ angular.module('pmtoolApp')
 			$scope.projectUsersEmailLatest = [];
 			$scope.userIds = [];
 
+
 	};
 
-	$scope.sendUpdates = function(){
+	$scope.sendEmailUpdates = function(){
 		//added
 		for(var i=0;i<$scope.projectUsersEmailLatest.length;i++){
 			if($scope.projectUsersEmailOld.indexOf($scope.projectUsersEmailLatest[i])==-1){$scope.addedEmailIds.push($scope.projectUsersEmailLatest[i]);}
@@ -244,13 +246,12 @@ angular.module('pmtoolApp')
 	$scope.showeditError = false;
 
 	$scope.editProject = function (name,description,workspace) {
-		
+
 		var data = {
 			name: name,
 			description: description,
 			workspace: workspace
 		};
-		
 
 		if(data.name == '' || data.description == '' || data.workspace == ''){
 			$scope.showeditError = true;
@@ -258,7 +259,6 @@ angular.module('pmtoolApp')
 			Project.edit(data)
 			.then(function(response){
 				$scope.project = response;
-				console.log(response);
 				Project.fetchProject($routeParams.id)
 				.then(function(response){
 					$scope.project = response;

@@ -15,6 +15,7 @@
 }
 .border-bottom-grey {
   border-bottom: 1px solid #eee;
+  margin-left: 10px;
 }
 .modal-input {
   border: none;
@@ -43,6 +44,7 @@
 }
 #project-modal .modal-dialog .modal-content .modal-header,
 #task-modal .modal-dialog .modal-content .modal-header,
+#contact-list-modal .modal-dialog .modal-content .modal-header,
 #contacts-modal .modal-dialog .modal-content .modal-header,
 #workspace-modal .modal-dialog .modal-content .modal-header,
 .common-modal .modal-dialog .modal-content .modal-header {
@@ -51,15 +53,17 @@
 }
 #project-modal .modal-dialog .modal-content .modal-header h4.modal-title,
 #task-modal .modal-dialog .modal-content .modal-header h4.modal-title,
+#contact-list-modal .modal-dialog .modal-content .modal-header h4.modal-title,
 #contacts-modal .modal-dialog .modal-content .modal-header h4.modal-title,
 #workspace-modal .modal-dialog .modal-content .modal-header h4.modal-title,
 .common-modal .modal-dialog .modal-content .modal-header h4.modal-title {
-  color: #4b9ff2;
+  color: white;
   padding-right: 10px;
   font-size: 19px;
 }
 #project-modal .modal-dialog .modal-content .modal-header .close,
 #task-modal .modal-dialog .modal-content .modal-header .close,
+#contact-list-modal .modal-dialog .modal-content .modal-header .close,
 #contacts-modal .modal-dialog .modal-content .modal-header .close,
 #workspace-modal .modal-dialog .modal-content .modal-header .close,
 .common-modal .modal-dialog .modal-content .modal-header .close {
@@ -69,6 +73,7 @@
 }
 #project-modal .modal-dialog .modal-content .modal-header .close span,
 #task-modal .modal-dialog .modal-content .modal-header .close span,
+#contact-list-modal .modal-dialog .modal-content .modal-header .close span,
 #contacts-modal .modal-dialog .modal-content .modal-header .close span,
 #workspace-modal .modal-dialog .modal-content .modal-header .close span,
 .common-modal .modal-dialog .modal-content .modal-header .close span {
@@ -76,6 +81,7 @@
 }
 #project-modal .modal-dialog .modal-content .modal-body,
 #task-modal .modal-dialog .modal-content .modal-body,
+#contact-list-modal .modal-dialog .modal-content .modal-body,
 #contacts-modal .modal-dialog .modal-content .modal-body,
 #workspace-modal .modal-dialog .modal-content .modal-body,
 .common-modal .modal-dialog .modal-content .modal-body {
@@ -83,6 +89,7 @@
 }
 #project-modal .modal-dialog .modal-content .modal-body textarea,
 #task-modal .modal-dialog .modal-content .modal-body textarea,
+#contact-list-modal .modal-dialog .modal-content .modal-body textarea,
 #contacts-modal .modal-dialog .modal-content .modal-body textarea,
 #workspace-modal .modal-dialog .modal-content .modal-body textarea,
 .common-modal .modal-dialog .modal-content .modal-body textarea {
@@ -94,6 +101,7 @@
 }
 #project-modal .modal-dialog .modal-content .modal-footer,
 #task-modal .modal-dialog .modal-content .modal-footer,
+#contact-list-modal .modal-dialog .modal-content .modal-footer,
 #contacts-modal .modal-dialog .modal-content .modal-footer,
 #workspace-modal .modal-dialog .modal-content .modal-footer,
 .common-modal .modal-dialog .modal-content .modal-footer {
@@ -199,13 +207,15 @@
   text-transform: capitalize;
 }
 #acts {
-  padding: 0 0 10px 10px;
+  padding: 0 10px 10px 10px;
   border-bottom: 1px solid #eee;
   height: 590px;
   overflow: auto;
 }
 .activity {
   margin-bottom: 15px;
+  border-bottom: 1px solid #ded4d4;
+  padding-bottom: 4px;
 }
 #acts p {
   display: inline-block;
@@ -216,6 +226,7 @@
 }
 #acts .acts-discription {
   float: left;
+  margin-top: 5px;
 }
 .attachment-link {
   padding-left: 22px;
@@ -298,7 +309,7 @@
   border-radius: 5px;
   height: 30px;
   background: url('../../img/search.png') no-repeat right center;
-  background-position: 198px;
+  background-position: 172px;
   float: right;
   margin-right: 10px;
   padding: 0 20px 0 10px;
@@ -482,7 +493,7 @@ a {
 /*---regular --*/
 h2 {
   color: #4b9ff2;
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px 5px;
   font-weight: normal;
   font-family: RobotoSlab-Regular;
@@ -588,7 +599,7 @@ li {
 }
 img.login-image {
   position: absolute;
-  left: 656px;
+  left: 698px;
   bottom: 3px;
   width: 37px;
   height: 36px;
@@ -685,17 +696,15 @@ ul#menu li:hover ul.sub-menu {
   float: left;
   width: 29%;
 }
-div#project-1 {
-  padding-left: 9px;
-  margin-top: 8px;
-  border-bottom: 1px solid #d4d4d4;
+div#project-1 p {
+  padding: 9px 9px;
+  margin-bottom: 0px;
 }
 #left #my-contacts,
 #left #my-projects,
 #left #tasks,
 #left #events {
-  /*width: 365px;*/
-  height: 210px;
+  min-height: 208px;
   background-color: #fff;
   border-radius: 2px;
   -moz-border-radius: 2px;
@@ -706,7 +715,12 @@ div#project-1 {
   padding: 10px 5px 11px 5px;
   border: 0;
   margin: 0 0 0 5px;
+  border-bottom: 1px solid #d4d4d4;
+  margin-left: 0px;
   /*display: inline-block;*/
+}
+.my-contacts-home {
+  border-bottom: none !important;
 }
 .workspace-projects {
   border-bottom: 1px solid #d4d4d4 !important;
@@ -728,8 +742,12 @@ div#project-1 {
 }
 #left #my-projects h2 {
   border-bottom: 1px solid #DED4D4;
-  padding-left: 10px;
+  padding-left: 13px;
   margin-bottom: 0;
+}
+.memberslength {
+  text-align: right;
+  padding-right: 15px !important;
 }
 .project-1,
 #project-2 {
@@ -738,14 +756,15 @@ div#project-1 {
 .project-1 p,
 #project-2 p,
 #project-3 p {
-  padding: 5px 10px;
+  padding: 9px 9px;
+  margin: 0px;
 }
 .right-column {
   float: right;
   padding-right: 10px;
 }
 #tasks h2 {
-  border-bottom: 2px solid #eee;
+  border-bottom: 1px solid #DED4D4;
   padding-left: 10px;
   margin-bottom: 0;
 }
@@ -892,7 +911,7 @@ div#project-1 {
 }
 #right #activities h2 {
   padding-left: 10px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 1px solid #DED4D4;
   margin-top: 0px;
 }
 /* ==========================================================================
@@ -1091,7 +1110,6 @@ div#project-1 {
 }
 .tasks-repeat {
   border-bottom: 1px solid #DED4D4;
-  padding-top: 5px !important;
 }
 /* class used in javascript */
 .onclick-changecolor-blue {
@@ -1761,6 +1779,7 @@ select:focus {
   color: #2d7fc1;
 }
 .home-page3-head {
+  border-bottom: 1px solid #DED4D4 ;
   padding: 10px 0px 10px 10px;
 }
 .home-page3-profile {
@@ -2187,8 +2206,8 @@ ul.clearfix.contacts-li {
 }
 .pro-pic {
   padding: 10px 10px;
-  height: 65px;
-  width: 65px;
+  height: 67px;
+  width: 67px;
   float: left;
 }
 .pro-pic-small {
@@ -2481,6 +2500,34 @@ img.loader-profile {
 .task-body-right div {
   float: right;
   padding: 100px 0px 0px 0px;
+}
+.col-md-11.clearfix.border-bottom-grey {
+  display: inline-flex;
+  border: 1px solid #cacaca !important;
+}
+.project-select {
+  border-right: 1px solid #cacaca;
+  padding-right: 20px;
+  padding-left: 11px;
+}
+.project-select select {
+  margin: 0px;
+  width: 116px;
+  border: 0px;
+}
+.calender-box {
+  margin-top: 4px;
+  margin-left: 11px;
+}
+.calender-box input {
+  border: none;
+}
+.assignbtn {
+  margin-top: 14px;
+}
+.nopeople {
+  margin-left: 10px;
+  margin-top: 3px;
 }
 /* ==========================================================================
                        USER-PROFILE-DD

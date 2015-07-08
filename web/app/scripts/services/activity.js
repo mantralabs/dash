@@ -9,8 +9,9 @@ angular.module('pmtoolApp')
 		var url = '/api/activity/';
 		if(id)
 			url = url + id;
-		
+		console.log("working fetch in home");
 		$http.get(url)
+
 		.success(function(data){
 			deferred.resolve(data);
 		})

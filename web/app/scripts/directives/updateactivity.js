@@ -70,7 +70,9 @@ angular.module('pmtoolApp')
 
 			  	scope.loader = false;
 			  	scope.processing = false;
+
 	      		scope.sendActivity = function (description, projectId) {
+	      			
 	      			scope.processing = true;
 	      			$('.list-projects').removeClass('show');
 	      			scope.loader = true;
@@ -98,6 +100,7 @@ angular.module('pmtoolApp')
 								scope.activities1.unshift(response);
 								scope.activity.description = "";
 								scope.attach_name = "";
+								scope.imageData = "";
 			      			}).catch(function(err){
 		      					console.log(err);
 			      			})
@@ -125,6 +128,7 @@ angular.module('pmtoolApp')
 							$('.list-projects').removeClass('show');
 							scope.activity.description = "";
 							scope.attach_name = "";
+							
 		      			}).catch(function(err){
 	      					console.log(err);
 		      			});
@@ -146,6 +150,8 @@ angular.module('pmtoolApp')
 	      				console.log('inside updateInProject',response);
 	      				scope.activities1.unshift(response);
 	      				scope.activity.description = "";
+	      				scope.attach_name = "";
+	      				scope.imageData = "";
 	      			}).catch(function(err){
 	  					console.log(err);
 	      			})

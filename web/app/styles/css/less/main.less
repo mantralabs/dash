@@ -168,7 +168,7 @@ p{}
 /*---regular --*/
 h2{
     color: #4b9ff2;
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px 5px;
     font-weight: normal;
     font-family: RobotoSlab-Regular;
@@ -271,7 +271,7 @@ li{
 }
 img.login-image {
   position: absolute;
-  left: 656px;
+  left: 698px;
   bottom: 3px;
   width: 37px;
   height: 36px;
@@ -386,30 +386,37 @@ ul#menu li:hover ul.sub-menu {
 }
 
 div#project-1 {
-  padding-left: 9px;
-  margin-top: 8px;
-  border-bottom: 1px solid #d4d4d4;
+  // padding-left: 9px;
+  // margin-top: 8px;
+  // border-bottom: 1px solid #d4d4d4;
+}
+div#project-1 p{
+  padding: 9px 9px;
+  margin-bottom: 0px;
 }
 
 #left #my-contacts,#left #my-projects,#left #tasks,#left #events{
-    /*width: 365px;*/
-    height: 210px;
+   
+    min-height: 208px;
     background-color: #fff;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px; 
 }
-// #left #my-contacts{
-//       overflow-x: hidden;
-// }
+
 
 #left #my-contacts h2{
     margin-bottom: 3px;
     padding: 10px 5px 11px 5px;
     border: 0;
     margin: 0 0 0 5px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+    margin-left: 0px;
     
     /*display: inline-block;*/
+}
+.my-contacts-home{
+  border-bottom: none !important;
 }
 .workspace-projects{
    border-bottom: 1px solid #d4d4d4 !important;
@@ -432,14 +439,21 @@ div#project-1 {
 
 #left #my-projects h2{
     border-bottom: 1px solid #DED4D4;
-    padding-left: 10px;
+    padding-left: 13px;
     margin-bottom: 0; 
 }
+
+.memberslength{
+  text-align: right;
+  padding-right: 15px !important;
+}
+
 .project-1,#project-2{
     border-bottom: 1px solid #DED4D4;
 }
 .project-1 p,#project-2 p,#project-3 p{
-    padding:5px 10px; 
+    padding:9px 9px; 
+    margin: 0px;
 }
 .right-column{
     float: right;
@@ -447,7 +461,7 @@ div#project-1 {
 }
 
 #tasks h2{
-     border-bottom: 2px solid #eee;
+     border-bottom: 1px solid #DED4D4;;
      padding-left: 10px;
      margin-bottom: 0;
     }
@@ -602,7 +616,7 @@ div#project-1 {
 }
 #right #activities h2{
     padding-left: 10px;
-    border-bottom: 2px solid #eee; 
+    border-bottom: 1px solid #DED4D4; 
     margin-top: 0px;
     }
 
@@ -803,7 +817,7 @@ div#project-1 {
 }
 .tasks-repeat{
     border-bottom: 1px solid #DED4D4;
-    padding-top: 5px !important;
+    // padding-top: 5px !important;
 }
 
 /* class used in javascript */
@@ -1534,7 +1548,7 @@ select:focus{
     // font-size: 20px;
 }
 .home-page3-head {
-    // border-bottom: 1px #939393 solid;
+    border-bottom: 1px solid #DED4D4 ;
     padding:10px 0px 10px 10px;
 }
 .home-page3-head img{
@@ -1989,8 +2003,8 @@ ul.clearfix.contacts-li {
 }
 .pro-pic{
     padding:10px 10px;
-    height:65px;
-    width:65px;
+    height:67px;
+    width:67px;
     float:left;
 }
 .pro-pic-small{
@@ -2331,6 +2345,36 @@ img.loader-profile{
 .task-body-right div{
     float:right;
     padding:100px 0px 0px 0px;
+}
+
+.col-md-11.clearfix.border-bottom-grey{
+  display: inline-flex;
+  border: 1px solid rgb(202, 202, 202) !important;
+}
+.project-select{
+border-right: 1px solid rgb(202, 202, 202);
+padding-right: 20px;
+padding-left: 11px;
+  select{
+    margin: 0px;
+    width: 116px;
+    border: 0px;
+  }
+}
+.calender-box{
+    margin-top: 4px;
+  margin-left: 11px;
+  input{
+    border: none;
+  }
+
+}
+.assignbtn{
+   margin-top: 14px;
+}
+.nopeople{
+  margin-left: 10px;
+  margin-top: 3px;
 }
 /* ==========================================================================
                        USER-PROFILE-DD

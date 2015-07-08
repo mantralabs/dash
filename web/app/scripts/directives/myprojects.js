@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .directive('myProjects', function (UserService) {
+  .directive('myProjects', function (UserService,Project) {
     return {
 		templateUrl:'views/my-projects.html',
 		restrict: 'E',
@@ -12,12 +12,21 @@ angular.module('pmtoolApp')
 		
 		link: function (scope, element, attrs) {
 
+
 			UserService.fetchProfile()
 			.then(function(response){
 				scope.projects = response.projects;
+				// console.log("projects",scope.projects);
 
 			}).catch(function(err){
 				scope.error = err.message;				
+			});
+
+			Project.fetchMyProjects().then(function(response){
+			scope.myprojects = response;
+			console.log("scope.myprojects",scope.myprojects);
+			}).catch(function(err){
+			scope.error = err.message;
 			});
 		}
     };
