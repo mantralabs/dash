@@ -33,6 +33,15 @@ angular.module('pmtoolApp')
           });
         }
 
+
+        $(document).ready(function(){
+          $("html").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });
+        });
+        
+        $("#acts").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });
+       
+
+
          // scope.$on("triggerActivity",function(){
          //  console.log("Im active now in activity")
          //    Activity.fetch()

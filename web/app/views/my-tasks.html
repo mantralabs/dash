@@ -1,16 +1,18 @@
-<div ng-controller="taskPageCtrl">
+<div ng-controller="taskPageCtrl" id="thisdiv">
+	
 	<h2><a class="blue-head" href="/#/task-page"> Tasks </a><span class="number">{{tasks.length}}</span> 
 		<a  data-toggle="modal" data-target="#task-modal" title="Assign-task" ><img src="img/task-icon.png" alt="attach-files" class="task-icon" ></a>
 	</h2>
-
-	<div id="project-1" ng-repeat = "task in tasks | limitTo : 4" >
-		<div class="col-md-7 tasks-repeat">
-			<p ng-if="task.status == 'Completed' " class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-			<p ng-if="task.status == 'In progress' " class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-			<p ng-if="task.status == 'Not started'" class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-		</div>
-		<div class="col-md-5 tasks-repeat">
-			<p class="right-column">{{task.duedate | date}} </p>
+	<div id="taskscroll">
+		<div id="project-1" ng-repeat = "task in tasks" >
+			<div class="col-md-7 tasks-repeat">
+				<p ng-if="task.status == 'Completed' " class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+				<p ng-if="task.status == 'In progress' " class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+				<p ng-if="task.status == 'Not started'" class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+			</div>
+			<div class="col-md-5 tasks-repeat">
+				<p class="right-column">{{task.duedate | date}} </p>
+			</div>
 		</div>
 	</div>
 	

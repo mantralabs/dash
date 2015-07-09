@@ -15,6 +15,7 @@ angular.module('pmtoolApp')
 				$scope.loggingIn = false;
 				$location.path('/home');
 			}).catch(function(err){
+				$scope.loggingIn = false;
 				$scope.error = err.message;
 				$location.path('/');
 			});

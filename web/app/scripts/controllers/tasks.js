@@ -31,8 +31,13 @@ angular.module('pmtoolApp')
 		$scope.error = err.message;
 	});
 	
-	
+	$(document).ready(function() { 
+    $("#taskscroll").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });
+	});
 
+	// $("#tasks").mouseover(function() {
+ //    $("#tasks").getNiceScroll().resize();
+	// });
 	// $scope.noTasks = false;
 
 	$scope.showAssignedTask = false;

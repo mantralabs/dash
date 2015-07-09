@@ -271,10 +271,9 @@ li{
 }
 img.login-image {
   position: absolute;
-  left: 698px;
+  left: 635px;
   bottom: 3px;
-  width: 37px;
-  height: 36px;
+  width: 72px;
   top: 352px;
 }
 
@@ -388,7 +387,7 @@ ul#menu li:hover ul.sub-menu {
 div#project-1 {
   // padding-left: 9px;
   // margin-top: 8px;
-  // border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #DED4D4;;
 }
 div#project-1 p{
   padding: 9px 9px;
@@ -397,13 +396,18 @@ div#project-1 p{
 
 #left #my-contacts,#left #my-projects,#left #tasks,#left #events{
    
-    min-height: 208px;
+    min-height: 210px;
     background-color: #fff;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px; 
 }
 
+#taskscroll{
+  overflow: auto;
+  overflow-x: hidden;
+  height: 200px;
+}
 
 #left #my-contacts h2{
     margin-bottom: 3px;
@@ -606,14 +610,13 @@ div#project-1 p{
 
 
 #right #activities{
-    /*width: 805px;*/
-    height: 641px;
+    min-height: 679px !important;
     background-color: #fff;
     border-radius: 2px;
-    /*overflow: scroll;*/
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;  
 }
+
 #right #activities h2{
     padding-left: 10px;
     border-bottom: 1px solid #DED4D4; 
@@ -2051,10 +2054,6 @@ ul.clearfix.contacts-li {
 }
 
 img.spinner-image{
-  // position: absolute;
-  // left: 150px;
-  // bottom: 156px;
-  // width: 78px;
   position: absolute;
   bottom: 6px;
   width: 72px;

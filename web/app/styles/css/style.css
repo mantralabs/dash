@@ -599,10 +599,9 @@ li {
 }
 img.login-image {
   position: absolute;
-  left: 698px;
+  left: 635px;
   bottom: 3px;
-  width: 37px;
-  height: 36px;
+  width: 72px;
   top: 352px;
 }
 /* ==========================================================================
@@ -696,6 +695,9 @@ ul#menu li:hover ul.sub-menu {
   float: left;
   width: 29%;
 }
+div#project-1 {
+  border-bottom: 1px solid #DED4D4;
+}
 div#project-1 p {
   padding: 9px 9px;
   margin-bottom: 0px;
@@ -704,11 +706,16 @@ div#project-1 p {
 #left #my-projects,
 #left #tasks,
 #left #events {
-  min-height: 208px;
+  min-height: 210px;
   background-color: #fff;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
+}
+#taskscroll {
+  overflow: auto;
+  overflow-x: hidden;
+  height: 200px;
 }
 #left #my-contacts h2 {
   margin-bottom: 3px;
@@ -901,11 +908,9 @@ div#project-1 p {
   background-color: #fff;
 }
 #right #activities {
-  /*width: 805px;*/
-  height: 641px;
+  min-height: 679px !important;
   background-color: #fff;
   border-radius: 2px;
-  /*overflow: scroll;*/
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
 }
