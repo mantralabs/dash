@@ -4,17 +4,17 @@
 	<div class="activity" ng-repeat="activity in activities1">
 		<div>
 			<div class="clearfix" >
-				<div class="acts-img">
+				<div class="acts-img col-md-1">
 					<img ng-if="!user.avatar || user.avatar == '' || user.avatar == undefined || user.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
 					<!-- {{activity.user.avatar}} -->
 					<img ng-if="user.avatar" class="pro-pic-small ng-scope" src="{{activity.user.avatar}}">
 				</div>
-				<div class="acts-discription" >
+				<div class="acts-discription col-md-11" >
 					<p>
 						<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>{{activity.description}}
 					</p>
 					<ul class="clearfix">
-						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
+						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>@{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
 						<li class="like-comment" ng-init="indexNo=$index" ng-click="showCommentBox=!showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
 						<li class="like-comment">{{activity.comments.length}}</li>
 						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
@@ -28,7 +28,7 @@
 					
 						<li class="like-comment">{{activity.likes.length}}</li>
 
-						<li class="like-comment" ng-if="user.id == activity.user.id" ng-click="ActivityDelete(activity,activity.id)">Delete</li>
+						<li class="like-comment" ng-if="user.id == activity.user.id" ng-click="ActivityDelete(activity,activity.id)"><img class="activity-delete-icon"src="img/delete.png">Delete</li>
 
 						<!-- <li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal">Attachment:{{activity.attachment}}</li> -->
 						

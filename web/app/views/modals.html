@@ -37,7 +37,7 @@
 
 <!-- modal for task -->
 <div class="modal fade" id="task-modal" ng-controller="projectController">
-    <div class="modal-dialog">
+    <div class="modal-dialog" ng-controller="taskPageCtrl">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -73,14 +73,18 @@
             </select>
             </div>
           
-           <div class="calender-box">
-            <input type="text" class="date" name="date" id="date" ng-model="task.duedate"
-            placeholder="Duedate">
+           <div class="calender-box" >
+            <!-- <input type="text" class="date" name="date" id="date" ng-model="task.duedate"
+            placeholder="Duedate"> -->
+              <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                <input  class="date form-control" type="text" readonly ng-model="task.duedate"/>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
             </div>
          
             </div>
           </div>
-          <div class="modal-footer" ng-controller="taskPageCtrl">
+          <div class="modal-footer" >
             <button type="submit" ng-disabled="creatingTask" class="btn-green assignbtn" ng-click='createTask(task.name,task.description,task.project,task.assignedTo,task.duedate)'>Assign</button>
           </div>
         </form>

@@ -12,6 +12,7 @@
     "jquery": "*",
     "jquery-ui" : "*",
     "bootstrap": "*",
+    "bootstrap-datepicker" : "*",
     "jquery.nicescroll" : "3.6.0"
   },
   "devDependencies": {

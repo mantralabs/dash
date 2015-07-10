@@ -8,8 +8,16 @@
  * Controller of the pmtoolApp
  */
 angular.module('pmtoolApp')
-  .controller('taskPageCtrl', function ($scope,$location,Task, Project,$rootScope, $routeParams) {
+  .controller('taskPageCtrl', function ($scope,$filter,$location,Task, Project,$rootScope, $routeParams) {
 	$scope.user = $rootScope.user;
+
+	$("#datepicker").datepicker({ 
+	autoclose: true, 
+	todayHighlight: true,
+	startDate: new Date()
+	}).datepicker('update', new Date());;
+	
+
 	
 
 	Project.fetch().then(function(response){
@@ -35,23 +43,27 @@ angular.module('pmtoolApp')
     $("#taskscroll").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });
 	});
 
-	// $("#tasks").mouseover(function() {
- //    $("#tasks").getNiceScroll().resize();
-	// });
-	// $scope.noTasks = false;
+	
 
 	$scope.showAssignedTask = false;
 	$scope.alltasks = true;
 	$scope.showMyTask = true;
 	$scope.creatingTask = false;
-	$( "#date" ).datepicker();
+	$scope.dateError = false;
+	// $( "#date" ).datepicker();
+	
+
+
 
 	$scope.createTask = function(name,description,project,assignedTo,duedate) {
-		$scope.creatingTask = true;
+		console.log($scope.task.duedate);
+		console.log(duedate);
+		
 		var data = {status:"Not started",description:description,name:name,project:project,assignedTo:assignedTo,duedate:duedate};
-		if(name == undefined || description == undefined || project == undefined || assignedTo == undefined || duedate == undefined){
+		if(name == undefined || description == undefined || project == undefined || assignedTo == undefined || duedate == undefined ){
 			alert("Please fill all details");
 		}else{
+			$scope.creatingTask = true;
 			Task.addTask(data).then(function(response){
 				$scope.tasks.push(response);
 				$('#task-modal').modal('hide');
@@ -66,6 +78,9 @@ angular.module('pmtoolApp')
 			});
 		}
 	}
+
+	
+
 
 	$scope.myTask = function ($event) {
 		$scope.alltasks = true;

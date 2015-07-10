@@ -719,7 +719,7 @@ div#project-1 p {
 }
 #left #my-contacts h2 {
   margin-bottom: 3px;
-  padding: 10px 5px 11px 5px;
+  padding: 10px 5px 11px 9px;
   border: 0;
   margin: 0 0 0 5px;
   border-bottom: 1px solid #d4d4d4;
@@ -749,7 +749,7 @@ div#project-1 p {
 }
 #left #my-projects h2 {
   border-bottom: 1px solid #DED4D4;
-  padding-left: 13px;
+  padding-left: 9px;
   margin-bottom: 0;
 }
 .memberslength {
@@ -807,8 +807,8 @@ div#project-1 p {
 }
 #right #update {
   /*width: 805px;*/
-  height: 210px;
-  margin-bottom: 10px;
+  height: 213px;
+  margin-bottom: 11px;
   background-color: #fff;
   text-align: center;
   border-radius: 2px;
@@ -830,6 +830,11 @@ div#project-1 p {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+}
+.activity-delete-icon {
+  width: 11px;
+  padding-bottom: 4px;
+  margin-right: 3px;
 }
 .upload-icon {
   width: 15px;
@@ -2521,8 +2526,10 @@ img.loader-profile {
   border: 0px;
 }
 .calender-box {
-  margin-top: 4px;
   margin-left: 11px;
+}
+.calender-box #datepicker {
+  width: 244px;
 }
 .calender-box input {
   border: none;
