@@ -35,9 +35,9 @@
 							<div class="btn-group actionbtndiv">
 								<button type="button" class="btn btn-default dropdown-toggle actionsbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></button>
 								<ul class="dropdown-menu actions-ul">
-									<li><a href="#/profile/{{contact.id}}">View profile</a></li>
-									<li><a href="/#/task-page">Assign task</a></li>
-									<li ng-if="user.role == 'admin'" ng-click="deleteContact(contact.id)"><a href="">Remove contact</a></li>
+									<li><a class="iconsdropdown" href="#/profile/{{contact.id}}"><img class="contacts-icons"src="img/user.png">View profile</a></li>
+									<li><a class="iconsdropdown" href="/#/task-page"><img class="contacts-icons"src="img/task.png">Assign task</a></li>
+									<li ng-if="user.role == 'admin'" ng-click="deleteContact(contact.id)"><a class="iconsdropdown" href=""><img class="contacts-icons"src="img/contactremove.png">Remove contact</a></li>
 								</ul>
 							</div>
 						</div>

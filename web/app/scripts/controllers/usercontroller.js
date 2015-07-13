@@ -22,6 +22,18 @@ angular.module('pmtoolApp')
 		}
 	};
 
+		// var today=new Date() 
+		// if(today.getHours() >= 0 && today.getHours() < 12) 
+		// {      
+		// console.log("Good morning"); 
+		// }else if(today.getHours() >= 12 && today.getHours() < 16){
+		// console.log("Good afternoon")
+		// } 
+		// else 
+		// {      
+		// console.log("Good evening"); 
+		// } 
+
 	//Logout method
 	$scope.logout = function () {
 

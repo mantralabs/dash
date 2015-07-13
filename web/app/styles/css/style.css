@@ -15,7 +15,6 @@
 }
 .border-bottom-grey {
   border-bottom: 1px solid #eee;
-  margin-left: 10px;
 }
 .modal-input {
   border: none;
@@ -123,9 +122,6 @@
   margin: 0 auto;
   max-width: 100%;
 }
-.home-page3-profile .project-name {
-  border-bottom: 1px solid #eee;
-}
 .home-projects {
   text-transform: capitalize;
 }
@@ -208,7 +204,6 @@
 }
 #acts {
   padding: 0 10px 10px 10px;
-  border-bottom: 1px solid #eee;
   height: 590px;
   overflow: auto;
 }
@@ -1162,6 +1157,14 @@ div#project-1 p {
 .contact-page-header {
   border-bottom: 1px solid #eee;
   padding-bottom: 5px;
+}
+.contacts-icons {
+  width: 13px;
+  margin-bottom: 2px;
+  margin-right: 2px;
+}
+a.iconsdropdown {
+  padding-left: 7px !important;
 }
 /* ==========================================================================
      BUTTONS
