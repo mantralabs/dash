@@ -8,7 +8,7 @@ angular.module('pmtoolApp')
 
 	Project.fetch().then(function(response){
 		$scope.projects = response;
-		console.log($scope.projects);
+		// console.log($scope.projects);
 	}).catch(function(err){
 		$scope.error = err.message;
 	});

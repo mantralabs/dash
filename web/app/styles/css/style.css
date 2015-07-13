@@ -208,8 +208,6 @@
 }
 #acts {
   padding: 0 10px 10px 10px;
-  height: 590px;
-  overflow: auto;
 }
 .activity {
   margin-bottom: 15px;
@@ -311,7 +309,7 @@
   background-position: 172px;
   float: right;
   margin-right: 10px;
-  padding: 0 20px 0 10px;
+  padding: 5px 20px 0 10px;
 }
 .contactslist {
   border-bottom: 1px solid #e2e2e2;
@@ -660,9 +658,6 @@ ul#menu li:hover ul.sub-menu {
   float: left;
   width: 29%;
 }
-div#project-1 {
-  border-bottom: 1px solid #DED4D4;
-}
 div#project-1 p {
   padding: 9px 9px;
   margin-bottom: 0px;
@@ -671,7 +666,7 @@ div#project-1 p {
 #left #my-projects,
 #left #tasks,
 #left #events {
-  min-height: 210px;
+  min-height: 213px;
   background-color: #fff;
   border-radius: 2px;
   -moz-border-radius: 2px;
@@ -744,7 +739,7 @@ div#project-1 p {
   text-align: center;
 }
 .messages p {
-  color: #ff9e00;
+  color: red;
   font-size: 18px;
 }
 .number {
@@ -878,7 +873,6 @@ div#project-1 p {
   background-color: #fff;
 }
 #right #activities {
-  min-height: 679px !important;
   background-color: #fff;
   border-radius: 2px;
   -moz-border-radius: 2px;

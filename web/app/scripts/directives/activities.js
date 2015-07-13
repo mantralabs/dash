@@ -17,7 +17,7 @@ angular.module('pmtoolApp')
           Activity.fetch($routeParams.id)
           .then(function(response){
             scope.activities1 = response;
-            console.log("withparams",scope.activities1)
+            // console.log("withparams",scope.activities1)
           })
           .catch(function(err){
             scope.error = err.message;
@@ -26,19 +26,30 @@ angular.module('pmtoolApp')
           Activity.fetch()
           .then(function(response){
             scope.activities1 = response;
-            console.log("withoutparams",scope.activities1)
+            // console.log("withoutparams",scope.activities1)
           })
           .catch(function(err){
             scope.error = err.message;
           });
         }
 
-
+        if(scope.user.role == "admin"){
+            $('#activities').css({'height': '686px' });
+            $('#acts').css({'height': '636px'});
+          }else{
+            $('#activities').css({'height': '464px' });
+            $('#acts').css({'height': '409px'});
+          }
+       
         $(document).ready(function(){
           $("html").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });
+          $("#acts").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });
         });
         
-        $("#acts").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });
+        
+          
+        
+
        
 
 

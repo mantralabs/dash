@@ -24,7 +24,7 @@ angular.module('pmtoolApp')
 
 			Project.fetchMyProjects().then(function(response){
 			scope.myprojects = response;
-			console.log("scope.myprojects",scope.myprojects);
+			// console.log("scope.myprojects",scope.myprojects);
 			}).catch(function(err){
 			scope.error = err.message;
 			});
