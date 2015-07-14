@@ -255,6 +255,16 @@
   position: relative;
   right: -85px;
 }
+.search-list-activity {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background: url('../../img/search.png') no-repeat right center;
+  background-position: 146px;
+  font-size: 14px;
+  float: right;
+  padding: 5px 20px 0 10px;
+  width: 182px;
+}
 #comment-box {
   width: 80%;
   background-color: #d8d8d8;
@@ -300,6 +310,11 @@
 .active-task-body {
   color: #3c3c3c !important;
   border-bottom: #ffd70a 2px solid !important;
+}
+.activity-filter {
+  text-align: center;
+  padding-top: 31px;
+  font-size: 17px;
 }
 .search-list {
   border: 1px solid #eee;
@@ -459,11 +474,11 @@ h2 {
   font-size: 18px;
   padding: 10px 5px;
   font-weight: normal;
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
   margin-top: 10px;
 }
 a {
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
   text-decoration: none;
   color: #8b8b8b;
 }
@@ -474,9 +489,11 @@ p,
 span,
 ul,
 li,
-input {
+input,
+button,
+select {
   color: #8b8b8b;
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
 }
 li {
   list-style-type: none;
@@ -492,14 +509,14 @@ li {
 }
 #login-page h1,
 #signup-page h1 {
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
   font-size: 24px;
   color: #bdbdbd;
   font-weight: normal;
   padding: 0px 0px 0px 0px;
 }
 .top-p {
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
   margin-top: 20px;
   color: #A4A4A4;
   font-size: 16px;
@@ -523,7 +540,7 @@ li {
   color: red;
 }
 .common {
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
   outline: none;
   padding-top: 2px;
   padding-left: 35px;
@@ -930,7 +947,7 @@ div#project-1 p {
   font-size: 18px;
 }
 .tasks-header {
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
   font-weight: normal;
   padding: 0;
   text-align: center;
@@ -944,7 +961,7 @@ div#project-1 p {
   margin: 0 20px;
 }
 .tasks-content {
-  font-family: RobotoSlab-Regular;
+  font-family: Roboto;
   color: #8b8b8b;
   width: 1180px;
   background-color: #fff;
@@ -1142,7 +1159,6 @@ a.iconsdropdown {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  font-family: RobotoSlab-Regular;
 }
 #signin-box .signup-btn {
   margin-top: 10px;
@@ -1861,7 +1877,6 @@ ul.clearfix.contacts-li {
   outline: none;
   border: none;
   border-radius: 3px;
-  font-family: RobotoSlab-Regular;
 }
 .actions-ul li {
   color: black;

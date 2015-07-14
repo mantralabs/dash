@@ -1,7 +1,8 @@
 <!-- activities.html -->
-<h2 class="blue-head">Activities</h2>
+<h2 class="blue-head">Activities<input class="search-list-activity ng-pristine ng-valid" type="text" ng-model="name" placeholder="search activities"></h2>
+
 <div id="acts">
-	<div class="activity" ng-repeat="activity in activities1">
+	<div class="activity" ng-repeat="activity in activities1 | filter : name">
 		<div>
 			<div class="clearfix" >
 				<div class="acts-img col-md-1">
@@ -80,6 +81,9 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<div class="activity-filter">
+		<p class="filter-notification" ng-show="(activities1 | filter:name).length == 0">No Results Found!</p>
 	</div>
 </div><!--end acts-->
 
