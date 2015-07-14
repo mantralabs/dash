@@ -96,11 +96,7 @@ angular.module('pmtoolApp')
 	    	};
 	    }   
   	};
-
-  	// $scope.deleteImage = function (data) {
-  	// };
-
-  	
+	
   	var path = $location.path();
   	if((path.indexOf('profile')  > 0) && $routeParams.id){
 	  	UserService.fetchUser($routeParams.id)
@@ -139,7 +135,9 @@ angular.module('pmtoolApp')
 	}
 })
 
-.controller('resetPasswordCtrl', function ($scope, $location, UserService, $routeParams){
+.controller('resetPasswordCtrl', function ($scope, $location, UserService, $routeParams ,$rootScope){
+
+	$scope.user = $rootScope.user;
 
 	$scope.resetPassword = function (password) {
 	
@@ -150,6 +148,7 @@ angular.module('pmtoolApp')
 
 		UserService.resetPassword(data)
 		.then(function(response){
+			console.log("response",response)
 			$location.path('/');
 		}).catch(function(err){
 			$scope.error = err.message;
@@ -158,7 +157,7 @@ angular.module('pmtoolApp')
 		});
 	};
 
-	$scope.resetPasswordIntiate = function(email){
+	$scope.resetPasswordIntiate = function (email) {
 		UserService.resetPasswordIntiate(email)
 		.then(function(response){
 			$location.path('/notifyemail');
@@ -167,7 +166,37 @@ angular.module('pmtoolApp')
 			console.log(err);
 			$location.path('/');
 		});
-	}
+	};
+
+
+	$scope.changePassword = function () {
+		if($scope.newPasswordFirst != $scope.newPasswordSecond){
+			alert("Set Newpassword correctly")
+		}else{
+			var data = {
+				userId : $scope.user.id,
+				oldPassword : $scope.oldPassword,
+				newPassword : $scope.newPasswordFirst
+			};
+
+			UserService.setNewPassword(data)
+			.then(function(response){
+				$('#view-image-modal').modal('show');
+
+				setTimeout(function() { 
+					$('#view-image-modal').modal('hide');
+				}, 2000);
+
+				$scope.oldPassword = "";
+				$scope.newPasswordFirst = "";
+				$scope.newPasswordSecond = "";
+				
+			}).catch(function(err){
+				$scope.error = err.message;
+				console.log(err);
+			});
+		}
+	};
 })
 
 

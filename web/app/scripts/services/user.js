@@ -17,6 +17,24 @@ angular.module('pmtoolApp')
 
       return deferred.promise;
     };
+
+    this.setNewPassword = function (user) {
+      console.log("userservice",user);
+
+       var deferred = $q.defer();  
+
+      $http.put('/api/set_new_password', user)
+      .success(function(response){
+        console.log("response",response);
+        deferred.resolve(response);
+      })
+      .error(function(err) {
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+
+    }
 	
     //Sends request to API and User Logs out from the APPLICATION
     this.signout = function() {

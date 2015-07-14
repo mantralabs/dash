@@ -5,6 +5,7 @@ angular.module('pmtoolApp')
 	// $scope.contacts = Contact.fetch();
 
 	$scope.user = $rootScope.user;
+	// console.log("rootscope.user",$rootScope.user);
 
 	Contact.fetch().then(function(response){
 		$scope.contacts = response;
