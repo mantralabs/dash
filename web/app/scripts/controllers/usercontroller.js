@@ -7,7 +7,7 @@ angular.module('pmtoolApp')
 	//User Login Method
 	// $scope.loggingIn = false;
 	$scope.login = function (user) {
-		$scope.loggingIn = true;
+		// $scope.loggingIn = true;
 		$('#login-spinner-modal').modal('show');
 		if(user.email && user.password){
 			UserService.postLogin(user)
