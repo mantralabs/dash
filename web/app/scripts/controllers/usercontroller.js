@@ -17,6 +17,7 @@ angular.module('pmtoolApp')
 				$('#login-spinner-modal').modal('hide');
 				$location.path('/home');
 			}).catch(function(err){
+				$('#login-spinner-modal').modal('hide');
 				// $scope.loggingIn = false;
 				$scope.error = err.message;
 				$location.path('/');
