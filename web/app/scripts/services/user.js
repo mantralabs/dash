@@ -53,17 +53,19 @@ angular.module('pmtoolApp')
     };
 
     //To fetch logedin user profile details
-    this.fetchProfile =function(){
-      var deferred = $q.defer();
-      $http.get('/api/account')
-      .success(function(response){
-        deferred.resolve(response)
-      })
-      .error(function(err){
-        deferred.reject(err);
-      })
-      return deferred.promise;
-    }
+    
+      this.fetchProfile =function(){
+        var deferred = $q.defer();
+        $http.get('/api/account')
+        .success(function(response){
+          deferred.resolve(response)
+        })
+        .error(function(err){
+          deferred.reject(err);
+        })
+        return deferred.promise;
+      }
+ 
 
     // To update the userprofile who is currently logged in
     this.updateProfile = function (userData) {
