@@ -15,7 +15,7 @@ angular.module('pmtoolApp')
 				$scope.loggingIn = false;
 				$location.path('/home');
 			}).catch(function(err){
-				// $scope.loggingIn = false;
+				$scope.loggingIn = false;
 				$scope.error = err.message;
 				$location.path('/');
 			});
@@ -125,7 +125,8 @@ angular.module('pmtoolApp')
 		});
 	};
 
-	if($rootScope.user){
+	// if($rootScope.user){
+	if((path.indexOf('home')  > 0)){
 		UserService.fetchProfile()
 		.then(function(response){
 			$scope.user = response;
