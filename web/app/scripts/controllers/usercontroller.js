@@ -12,16 +12,18 @@ angular.module('pmtoolApp')
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(response){
-				$scope.user = response;
-				// $scope.loggingIn = false;
+				$('div').removeClass('modal-backdrop fade in')
 				$('#login-spinner-modal').modal('hide');
 				$location.path('/home');
+				$scope.user = response;
+				// $scope.loggingIn = false;
 			}).catch(function(err){
 				$('#login-spinner-modal').modal('hide');
 				// $scope.loggingIn = false;
 				$scope.error = err.message;
 				$location.path('/');
 			});
+
 		}
 	};
 
