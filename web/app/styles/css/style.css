@@ -73,6 +73,7 @@
   color: #fff;
   opacity: 1;
   text-shadow: none;
+  margin-top: 2px;
 }
 #project-modal .modal-dialog .modal-content .modal-header .close span,
 #task-modal .modal-dialog .modal-content .modal-header .close span,
@@ -1605,8 +1606,9 @@ a.iconsdropdown {
             CREATE-EVENT-PAGE, CREATE-TASK-PAGE
    ========================================================================== */
 .assign-task-heading {
-  font-color: white;
+  color: white;
   margin-top: 0px;
+  padding: 0px;
 }
 .create-event {
   margin: 100px 0px 0px 15%;
@@ -2513,7 +2515,7 @@ img.loader-profile {
 }
 .project-select select {
   margin: 0px;
-  width: 116px;
+  width: 130px;
   border: 0px;
 }
 .calender-box {

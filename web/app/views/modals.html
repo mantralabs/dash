@@ -3,7 +3,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">New Project</h4>
+          <h4 class="modal-title assign-task-heading">New Project</h4>
         </div>
         <form action="">
           <div class="modal-body">
@@ -65,14 +65,16 @@
            
             <!-- </div> -->
             <span ng-if="project.users.length == 0" class="signup-page nopeople">No Members</span>
-             <div class="project-select">
-            <select class="modal-select taskassigned" ng-model="task.assignedTo" ng-if="project.users.length != 0"  
-            ng-disabled="project.users == undefined">
-                <option value="">Assign To</option>
-                <option ng-repeat="member in project.users | filter:{ id: '!'+user.id}"  value="{{member.id}}">{{member.name}}</option>
-            </select>
+            <div class="project-select">
+
+              <select class="modal-select taskassigned" ng-model="task.assignedTo" ng-if="project.users.length != 0"  
+              ng-disabled="project.users == undefined">
+                  <option value="">Assign To</option>
+                  <!-- <option ng-repeat="member in project.users | filter:{ id: '!'+user.id}"  value="{{member.id}}">{{member.name}}</option> -->
+                  <option ng-repeat="member in project.users"  value="{{member.id}}" ng-disabled="member.id == user.id">{{member.name}}</option>
+              </select>
             </div>
-          
+         
            <div class="calender-box" >
             <!-- <input type="text" class="date" name="date" id="date" ng-model="task.duedate"
             placeholder="Duedate"> -->
@@ -98,7 +100,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Edit Project</h4>
+          <h4 class="modal-title assign-task-heading">Edit Project</h4>
         </div>
         <form action="">
           <div class="modal-body">
@@ -136,7 +138,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">New Contact</h4>
+				<h4 class="modal-title assign-task-heading">New Contact</h4>
 			</div>
 
 			<div class="modal-body">
@@ -161,7 +163,7 @@
       <form action="" name="workspaceForm">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">New Workspace</h4>
+          <h4 class="modal-title assign-task-heading">New Workspace</h4>
         </div>
 
         <div class="modal-body">
@@ -185,7 +187,7 @@
       <form action="" name="workspaceForm">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Edit Workspace</h4>
+          <h4 class="modal-title assign-task-heading">Edit Workspace</h4>
         </div>
 
         <div class="modal-body">
@@ -209,7 +211,7 @@
       <form action="">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Select Contact to Update</h4>
+          <h4 class="modal-title assign-task-heading">Select Contact to Update</h4>
         </div>
     
         <div class="modal-body">
