@@ -37,7 +37,7 @@ angular.module('pmtoolApp')
             $('#activities').css({'height': '686px' });
             $('#acts').css({'height': '636px'});
           }else{
-            $('#activities').css({'height': '464px' });
+            $('#activities').css({'height': '463px' });
             $('#acts').css({'height': '409px'});
           }
        

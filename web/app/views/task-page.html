@@ -56,7 +56,7 @@
               <img class="col-md-1 pro-pic-small ng-scope" src="{{task.assignedTo.avatar}}">
             </div>
            </div>
-          <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
+          <li class="task-open-dates">Assigned Date:{{task.createdAt | date:'dd/MM/yyyy'}}</li>
           <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
           <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">

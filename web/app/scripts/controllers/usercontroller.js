@@ -138,6 +138,7 @@ angular.module('pmtoolApp')
 .controller('resetPasswordCtrl', function ($scope, $location, UserService, $routeParams ,$rootScope){
 
 	$scope.user = $rootScope.user;
+	$scope.requirederror = false;
 
 	$scope.resetPassword = function (password) {
 	
@@ -170,9 +171,13 @@ angular.module('pmtoolApp')
 
 
 	$scope.changePassword = function () {
-		if($scope.newPasswordFirst != $scope.newPasswordSecond){
+		if($scope.newPasswordFirst == undefined || $scope.newPasswordSecond == undefined || $scope.oldPassword == undefined ){
+			$scope.requirederror = true;
+		}else if($scope.newPasswordFirst != $scope.newPasswordSecond){
+			$scope.requirederror = false;
 			alert("Set Newpassword correctly")
 		}else{
+			$scope.requirederror = false;
 			var data = {
 				userId : $scope.user.id,
 				oldPassword : $scope.oldPassword,
