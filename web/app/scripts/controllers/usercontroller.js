@@ -5,17 +5,19 @@ angular.module('pmtoolApp')
 .controller('userController',function ($scope, $rootScope, $routeParams, $location, UserService, $cookieStore){
 
 	//User Login Method
-	$scope.loggingIn = false;
+	// $scope.loggingIn = false;
 	$scope.login = function (user) {
 		$scope.loggingIn = true;
+		$('#login-spinner-modal').modal('show');
 		if(user.email && user.password){
 			UserService.postLogin(user)
 			.then(function(response){
 				$scope.user = response;
-				$scope.loggingIn = false;
+				// $scope.loggingIn = false;
+				$('#login-spinner-modal').modal('hide');
 				$location.path('/home');
 			}).catch(function(err){
-				$scope.loggingIn = false;
+				// $scope.loggingIn = false;
 				$scope.error = err.message;
 				$location.path('/');
 			});

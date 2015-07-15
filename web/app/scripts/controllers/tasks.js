@@ -12,9 +12,9 @@ angular.module('pmtoolApp')
 	$scope.user = $rootScope.user;
 
 	$("#datepicker").datepicker({ 
-	autoclose: true, 
-	todayHighlight: true,
-	startDate: new Date()
+		autoclose: true, 
+		todayHighlight: true,
+		startDate: new Date()
 	}).datepicker('update', new Date());;
 	
 
