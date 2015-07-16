@@ -131,7 +131,7 @@ angular.module('pmtoolApp')
 	};
 
 	// if($rootScope.user){
-	if((path.indexOf('home')  > 0)){
+	if((path.indexOf('profile')  > 0)){
 		UserService.fetchProfile()
 		.then(function(response){
 			$scope.user = response;

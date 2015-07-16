@@ -5,11 +5,14 @@ angular.module('pmtoolApp')
 
 	$scope.user = $rootScope.user;
 
-	Workspace.fetch().then(function(response){
-		$scope.workspaces = response;
-	}).catch(function(err){
-		$scope.error = err.message;
-	});
+	var path = $location.path();
+	 if((path.indexOf('project')  > 0) || (path.indexOf('workspaces')  > 0)){
+		Workspace.fetch().then(function(response){
+			$scope.workspaces = response;
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+    }
 
 	$scope.addNewWorkspace = function (data) {
 		Workspace.add(data).then(function(response){

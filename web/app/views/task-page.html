@@ -57,14 +57,16 @@
             </div>
            </div>
           <li class="task-open-dates">Assigned Date:{{task.createdAt | date}}</li>
-          <li class="task-open-dates">Due date:{{task.duedate}}</li>
+          <li class="task-open-dates">Due date:{{task.duedate | date}}</li>
           <li class="task-open-dates">Project Name:{{task.project.name}}</li>
-          <select ng-if="task.assignedBy.id != user.id" class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
+          <select ng-if="task.assignedBy.id != user.id || task.assignedBy.id == task.assignedTo.id " class="task-body-select" ng-model="task.status" ng-change="taskStatus(task.status,task.id)">
             <option value="Not started">status</option>
             <option value="In progress">InProgress</option>
             <option value="Completed">Completed</option>
           </select>
-          <span ng-if="task.assignedBy.id == user.id">Status:{{task.status}}</span>
+         <!--  <span ng-if="task.assignedBy.id == user.id">Status:{{task.status}}</span> -->
+           <span>Status:{{task.status}}</span>
+
         </div>
       </div>
     </div>

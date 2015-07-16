@@ -13,7 +13,7 @@ angular.module('pmtoolApp')
 			},
 
 	      	link: function(scope, element, attrs) {
-	      		// scope.image_name = {};
+	      		
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
@@ -22,22 +22,7 @@ angular.module('pmtoolApp')
 	      		scope.typeInProcess= function() {      
 				  scope.typeInProcess = true;
 				}; 
-				
-	   //    		scope.tags = [
-				//   {
-				//     "name": "Foo",
-				//     "id": "foo"
-				//   },
-				//   {
-				//     "name": "Bar",
-				//     "id": "bar"  
-				//   }
-				// ] 
-
-				
-
-
-
+	
 	      		scope.uploadAttachment = function (imgElem) {
 	      			
 	      		

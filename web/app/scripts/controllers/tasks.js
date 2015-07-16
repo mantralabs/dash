@@ -18,26 +18,30 @@ angular.module('pmtoolApp')
 	}).datepicker('update', new Date());;
 	
 
-	
-
-	Project.fetch().then(function(response){
-		$scope.projects = response;
-	}).catch(function(err){
-		$scope.error = err.message;
-	});
+	var path = $location.path();
+	if((path.indexOf('task-page')  > 0)){ 
+		Project.fetch().then(function(response){
+			$scope.projects = response;
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
 
 	$scope.noTasks = false;
+	var path = $location.path();
+	if((path.indexOf('home')  > 0) || (path.indexOf('task-page')  > 0)){ 
 
-	Task.fetchTasks().then(function(response){
-		$scope.tasks = response;
-		if($scope.tasks.length == 0){
-	 		$scope.noTasks = true;
-		}else{
-			$scope.noTasks = false;
-		}
-	}).catch(function(err){
-		$scope.error = err.message;
-	});
+		Task.fetchTasks().then(function(response){
+			$scope.tasks = response;
+			if($scope.tasks.length == 0){
+		 		$scope.noTasks = true;
+			}else{
+				$scope.noTasks = false;
+			}
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
 	
 	$(document).ready(function() { 
     $("#taskscroll").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });

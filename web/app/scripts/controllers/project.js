@@ -5,13 +5,16 @@ angular.module('pmtoolApp')
 	
 	$scope.user = $rootScope.user;
 	
+	var path = $location.path();
+  	if((path.indexOf('home')  > 0) || $routeParams.id || (path.indexOf('projects')  > 0)){
+		Project.fetch().then(function(response){
+			$scope.projects = response;
+			// console.log($scope.projects);
+		}).catch(function(err){
+			$scope.error = err.message;
+		});
+    }
 
-	Project.fetch().then(function(response){
-		$scope.projects = response;
-		// console.log($scope.projects);
-	}).catch(function(err){
-		$scope.error = err.message;
-	});
 	$( "#date" ).datepicker();
 	$scope.creatingProject = false;
 
@@ -68,7 +71,7 @@ angular.module('pmtoolApp')
 
 })
 
-.controller('getprojectController', function ($scope, Project, Contact, $rootScope, $routeParams, $cookieStore) {
+.controller('getprojectController', function ($scope,$location, Project, Contact, $rootScope, $routeParams, $cookieStore) {
 
 	$scope.user = $rootScope.user;
 	$scope.userIds = [];
@@ -80,21 +83,24 @@ angular.module('pmtoolApp')
 	$scope.addedEmailIds = []
 	$scope.removedEmailIds = [];
 	$scope.memberAdded = false;
-	 
-	Project.fetchProject($routeParams.id )
-		.then(function(response){
-			$scope.project = response;
-			
-			for(var j=0 ; j < $scope.project.users.length; j++){
-				$scope.projectUsersList.push($scope.project.users[j].id)
-				// $scope.existedprojectMembers.push($scope.project.users[j].email)
-				$scope.projectUsersEmailOld.push($scope.project.users[j].email)
-				console.log("$scope.projectUsersEmailOld",$scope.projectUsersEmailOld)
-			}
-		}).catch(function(err){
-			console.log(err);
-			$scope.error = err.message;
-		});
+	
+	var path = $location.path();
+	// if((path.indexOf('home')  > 0) || $routeParams.id){ 
+		Project.fetchProject($routeParams.id )
+			.then(function(response){
+				$scope.project = response;
+				
+				for(var j=0 ; j < $scope.project.users.length; j++){
+					$scope.projectUsersList.push($scope.project.users[j].id)
+					// $scope.existedprojectMembers.push($scope.project.users[j].email)
+					$scope.projectUsersEmailOld.push($scope.project.users[j].email)
+					console.log("$scope.projectUsersEmailOld",$scope.projectUsersEmailOld)
+				}
+			}).catch(function(err){
+				console.log(err);
+				$scope.error = err.message;
+			});
+	// }
 
 	$scope.sync = function (bool, item) {
 
@@ -232,15 +238,6 @@ angular.module('pmtoolApp')
 		$scope.removedEmailIds = [];
 
 	}
-
-
-	// Project.fetchProject($routeParams.id)
-	// 	.then(function(response){
-	// 		$scope.project = response;
-	// 	}).catch(function(err){
-	// 		console.log(err);
-	// 		$scope.error = err.message;
-	// 	});
 
 
 	$scope.showeditError = false;
