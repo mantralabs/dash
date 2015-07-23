@@ -31,7 +31,13 @@ angular
         templateUrl :'views/home-page.html',
         controller:'homePageCtrl',
         resolve : resolve
-      })  
+      })
+
+      // .when('/chat',{
+      //   templateUrl :'views/chat.html',
+      //   controller:'ChatController',
+      //   resolve : resolve
+      // })    
 
       .when('/basicInfo/:hashKey',{
         templateUrl :'views/basic-info.html',

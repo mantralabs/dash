@@ -64,4 +64,20 @@ angular.module('pmtoolApp')
 		
 		return deferred.promise;
   	}
+
+  	this.deleteTask = function(data){
+  		var deferred = $q.defer();
+
+  		$http.delete('/api/task/'+data.id)
+  		.success(function(data){
+			deferred.resolve(data);
+			console.log("task deleted succesfully");
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+		
+		return deferred.promise;
+  	}
+
   });

@@ -228,4 +228,20 @@ angular.module('pmtoolApp')
 		});
 	}
 
+
+	$scope.taskDelete = function (taskid) {
+
+		var data = {"id":taskid}
+
+		Task.deleteTask(data).then(function(response){
+			Task.fetchTasks().then(function(response){
+				$scope.tasks = response;
+				}).catch(function(err){
+					$scope.error = err.message;
+				});
+			}).catch(function(err){
+			$scope.error = err.message;
+		});
+	}
+
 })

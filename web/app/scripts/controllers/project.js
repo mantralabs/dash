@@ -156,7 +156,7 @@ angular.module('pmtoolApp')
 		};
 		// console.log(data);
 
-		Project.addProjectMember($scope.projectId,data)
+		Project.addProjectMember ($scope.projectId,data)
 		.then(function(response){
 			// $scope.$broadcast("triggerActivity");
 			Project.fetchProject($routeParams.id)
