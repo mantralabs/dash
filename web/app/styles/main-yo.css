@@ -30,3 +30,8 @@ body {
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
+
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}

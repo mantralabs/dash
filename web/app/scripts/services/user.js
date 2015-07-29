@@ -13,6 +13,7 @@ angular.module('pmtoolApp')
       })
       .error(function(err) {
         deferred.reject(err);
+        
       });
 
       return deferred.promise;
