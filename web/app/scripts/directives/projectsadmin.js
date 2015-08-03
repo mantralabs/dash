@@ -12,14 +12,14 @@ angular.module('pmtoolApp')
 		link: function (scope, element, attrs) {
 			scope.user = $rootScope.user;
 			var path = $location.path();
-			if($routeParams.id){ 
+			// if($routeParams.id){ 
 				Project.fetch()
 				.then(function(response){
 					scope.projects = response;
 				}).catch(function(err){
 					scope.error = err.message;
 				});
-		    }
+		    // }
 		}
     };
   });
