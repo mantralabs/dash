@@ -12,19 +12,19 @@
             </div>
 
             <div class="project-desc border-bottom-grey">
-              <textarea name="" class="Newproject-description" placeholder="describe your project here.." ng-model='project.description'></textarea>
+              <textarea name="" class="Newproject-description" placeholder="describe your project here.." ng-model='project.description'>{{workspaces}}</textarea>
             </div>
             
             <div class="clearfix border-bottom-grey">
-              <span class="workspace-select">Select workspace : </span>
-            <select class="modal-select Newproject-workspace" ng-model="project.workspace" >
-                <option value="">Workspace select</option>
-                <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
-            </select>
-            <p ng-if="workspaces.length==0" class="signup-page">Please create a workspace</p>
-            <button ng-if="workspaces.length==0"  ng-click="workspaceRedirect()">
-              Create Workspace
-            </button>
+                <span class="workspace-select">Select workspace : </span>
+              <select class="modal-select Newproject-workspace" ng-model="project.workspace" >
+                  <option value="">Workspace select</option>
+                  <option ng-repeat="workspace in workspaces" id ="{{workspace.id}}" value="{{workspace.id}}">{{workspace.name}}</option>
+              </select>
+              <p ng-if="workspaces.length==0" class="signup-page">Please create a workspace</p>
+              <button ng-if="workspaces.length==0"  ng-click="workspaceRedirect()">
+                Create Workspace
+              </button>
             </div>
           </div>
           <div class="modal-footer">

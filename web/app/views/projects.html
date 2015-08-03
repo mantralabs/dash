@@ -59,7 +59,7 @@
 					</li>
 
 				</ul>
-				<p class="filter-notification" ng-show="(projects | filter:name).length == 0">No Results Found!</p>
+				<p class="filter-notification" ng-show="(projects | filter:name).length == 0 && projects.length !== 0">No Results Found!</p>
 				
 			</div>
 
@@ -76,7 +76,7 @@
 					</li>
 					
 				</ul>
-				<p class="filter-notification" ng-show="(projects | filter:name).length == 0">No Results Found!</p>
+				<p class="filter-notification" ng-show="(projects | filter:name).length == 0 && projects.length !== 0">No Results Found!</p>
 			</div>
 		</div>
 	</div>
