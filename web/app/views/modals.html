@@ -1,4 +1,4 @@
-<div class="modal fade" id="project-modal" ng-controller="workspaceCtrl">
+<div class="modal fade" id="project-modal" ng-controller="projectController">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -15,7 +15,7 @@
               <textarea name="" class="Newproject-description" placeholder="describe your project here.." ng-model='project.description'>{{workspaces}}</textarea>
             </div>
             
-            <div class="clearfix border-bottom-grey">
+            <div class="clearfix border-bottom-grey" ng-controller="workspaceCtrl">
                 <span class="workspace-select">Select workspace : </span>
               <select class="modal-select Newproject-workspace" ng-model="project.workspace" >
                   <option value="">Workspace select</option>
