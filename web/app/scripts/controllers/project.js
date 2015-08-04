@@ -28,6 +28,12 @@ angular.module('pmtoolApp')
 				console.log(response)
 				$scope.projects.push(response);
 				$scope.creatingProject = false;
+				Project.fetch().then(function(response){
+					$scope.projects = response;
+					// console.log($scope.projects);
+					}).catch(function(err){
+					$scope.error = err.message;
+				});
 			}).catch(function(err){
 				$scope.error = err.message;
 			});

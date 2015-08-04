@@ -71,8 +71,8 @@
               ng-disabled="project.users == undefined">
                   <option value="">Assign To</option>
                   <!-- <option ng-repeat="member in project.users | filter:{ id: '!'+user.id}"  value="{{member.id}}">{{member.name}}</option> -->
-                  <option ng-repeat="member in project.users"  value="{{member.id}}" ng-disabled="member.id == user.id">{{member.name}}</option>
-                  <!-- <option ng-repeat="member in project.users"  value="{{member.id}}">{{member.name}}</option> -->
+                  <!-- <option ng-repeat="member in project.users"  value="{{member.id}}" ng-disabled="member.id == user.id">{{member.name}}</option> -->
+                  <option ng-repeat="member in project.users"  value="{{member.id}}">{{member.name}}</option>
               </select>
             </div>
          
