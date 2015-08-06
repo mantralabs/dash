@@ -2,7 +2,7 @@
 
 angular.module('pmtoolApp')
 
-  .directive('activities', function (Activity,$rootScope, $location, UserService, Project, $routeParams) {
+  .directive('activities', function (Activity, $rootScope, $location, $routeParams) {
     return {
       templateUrl: 'views/activities.html',
       restrict: 'E',
@@ -14,7 +14,13 @@ angular.module('pmtoolApp')
         scope.path = $location.path();
         
         if($routeParams.id){
-          Activity.fetch($routeParams.id)
+          var condition = {};
+          if(attrs.type == 'project')
+            condition.projectId = $routeParams.id;
+          else if(attrs.type == 'workspace')
+            condition.workspaceId = $routeParams.id;
+          
+          Activity.fetch(condition)
           .then(function(response){
             scope.activities1 = response;
             // console.log("withparams",scope.activities1)
