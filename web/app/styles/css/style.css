@@ -295,6 +295,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   /*width: 130px;*/
+
   margin: 10px 0 15px 0;
   padding: 3px;
 }
@@ -607,6 +608,7 @@ img.login-image {
   width: 100%;
   height: 60px;
   /*overflow:hidden;*/
+
   position: fixed;
   z-index: 9;
   background-color: #fff;
@@ -652,6 +654,7 @@ img.login-image {
   top: 30px;
   left: 0;
   /*    width: 100px;*/
+
 }
 ul#menu li:hover ul.sub-menu {
   display: block;
@@ -659,6 +662,7 @@ ul#menu li:hover ul.sub-menu {
 .content {
   background-color: #e4e9ef;
   /*height: 100%;*/
+
   clear: both;
   overflow: hidden;
 }
@@ -713,6 +717,7 @@ div#project-1 p {
   border-bottom: 1px solid #d4d4d4;
   margin-left: 0px;
   /*display: inline-block;*/
+
 }
 .my-contacts-home {
   border-bottom: none !important;
@@ -795,6 +800,7 @@ div#project-1 p {
 }
 #right #update {
   /*width: 805px;*/
+
   height: 213px;
   margin-bottom: 11px;
   background-color: #fff;
@@ -846,6 +852,7 @@ div#project-1 p {
   margin-top: 20px;
   margin-left: 43%;
   /*z-index: 10;*/
+
 }
 .dropdown ul {
   padding: 0;
@@ -855,6 +862,7 @@ div#project-1 p {
 .parent-ul .parent-li {
   display: block;
   /*position: relative;*/
+
   float: left;
   height: 30px;
   border: 1px solid #ccc;
@@ -889,6 +897,7 @@ div#project-1 p {
   top: 100%;
   padding: 5px;
   /*width: 180px;*/
+
   position: absolute;
   text-align: left;
   border-radius: 5px;
@@ -1207,6 +1216,7 @@ a.iconsdropdown {
   border: 0;
   overflow: hidden;
   /* IE 6/7 fallback */
+
   *text-indent: -9999px;
 }
 .ir:before {
@@ -1269,8 +1279,10 @@ a.iconsdropdown {
 .clearfix:after {
   content: " ";
   /* 1 */
+
   display: table;
   /* 2 */
+
 }
 .clearfix:after {
   clear: both;
@@ -1335,6 +1347,7 @@ a.iconsdropdown {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster: h5bp.com/s */
+  
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -1349,8 +1362,8 @@ a.iconsdropdown {
     content: " (" attr(title) ")";
   }
   /*
-     * Don't show links for images, or javascript/internal links
-     */
+       * Don't show links for images, or javascript/internal links
+       */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
@@ -1364,6 +1377,7 @@ a.iconsdropdown {
   thead {
     display: table-header-group;
     /* h5bp.com/t */
+  
   }
   tr,
   img {
@@ -1372,7 +1386,7 @@ a.iconsdropdown {
   img {
     max-width: 100% !important;
   }
-  @page {
+  @page  {
     margin: 0.5cm;
   }
   p,
@@ -1392,6 +1406,7 @@ a.iconsdropdown {
 #account-settings-nav {
   border-bottom: solid 1px #d4d4d4;
   /*margin:10px 0px 10px 0px;*/
+
 }
 #account-settings-password {
   float: left;
@@ -1435,12 +1450,14 @@ a.iconsdropdown {
   padding: 10px 10px 10px 10px;
   display: inline-block;
   /*margin:0px 10px 0px 0px;*/
+
 }
 .account-settings-hover {
   display: inline-block;
   padding: 10px 10px 10px 10px;
   color: #949494;
   /*margin:0px 10px 0px 10px;*/
+
 }
 .account-settings-hover:hover {
   color: #2d7fc1;
@@ -1651,6 +1668,7 @@ a.iconsdropdown {
 }
 .client-skype-meeting input {
   /*padding:10px;*/
+
   padding: 10px 0px 10px 0px;
   width: 100%;
   border: none;
@@ -1752,6 +1770,7 @@ a.iconsdropdown {
   line-height: 40px;
   padding-left: 30px;
   /*list-style-image: */
+
 }
 .getting-started-sub-container span {
   color: #656565;
@@ -2004,6 +2023,7 @@ ul.clearfix.contacts-li {
   padding: 10px 10px 10px 10px;
   color: #949494;
   /*margin:0px 10px 0px 10px;*/
+
 }
 .notifications-settings-hover:hover {
   color: #2d7fc1;
@@ -2015,6 +2035,7 @@ ul.clearfix.contacts-li {
   padding: 10px 10px 10px 10px;
   display: inline-block;
   /*margin:0px 10px 0px 0px;*/
+
 }
 #notifications-checkboxes {
   padding: 30px 0px 0px 20px;
@@ -2088,6 +2109,7 @@ ul.clearfix.contacts-li {
   padding: 10px 10px 10px 10px;
   color: #949494;
   /*margin:0px 10px 0px 10px;*/
+
 }
 .privacy-settings-hover:hover {
   color: #2d7fc1;
@@ -2099,6 +2121,7 @@ ul.clearfix.contacts-li {
   padding: 10px 10px 10px 10px;
   display: inline-block;
   /*margin:0px 10px 0px 10px;*/
+
 }
 #privacy-settings-head {
   color: #656565;
@@ -2415,11 +2438,18 @@ img.loader-profile {
   margin-bottom: 30px;
   line-height: 30px;
 }
+.task-body-container1 .task-detail .task-assigned {
+  float: none;
+  padding: 0;
+}
+.task-body-container1 .task-detail .pro-pic-small {
+  float: none;
+}
 .task-open-dates {
   color: #939393;
   display: inline-block;
   padding-right: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .task-open-comment {
   color: #3b88c5;

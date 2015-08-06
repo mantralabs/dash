@@ -82,7 +82,7 @@ module.exports = {
 	index: function (data, callback) {
 		User.find().populate("projects").exec(function (err, data) {
 			if (!err) {
-				sails.log.debug("datapro",data);
+				// sails.log.debug("datapro",data);
 				callback(null, data);
 			} else {
 				callback(err);
