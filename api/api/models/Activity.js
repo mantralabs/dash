@@ -22,6 +22,11 @@ module.exports = {
 			model: 'Project'
 		},
 
+		workspace: {
+			// required : true,
+			model: 'Workspace'
+		},
+
 		user: {
 			// required : true,
 			model: 'User',
@@ -46,92 +51,71 @@ module.exports = {
 		},
 	},
 	
-	index: function (data, callback) {
-		User.findOne({id: data.userData.id}).populate('projects').exec(function (err, user) {
-		var counter = 0;
-		var i = 0;
-		var length;
-		var result = [];
-		if(data.project){
+	index: function (user, input, callback) {
+		User.findOne({id: user.id}).populate('projects').exec(function (err, user) {
+			if(err){
+				return callback(err);
+			}
 			var conditions = {};
-			conditions.parentId = null;
-			conditions.project = data.project;
-			Activity.findActivities(conditions, function(err, response){
-				if(!err){
-					callback(null, response);
-				} else {
-					callback(err);
-				}
-			});
-		} else {
-			length = user.projects.length;
-			if(length > 0){
-				var fn1 = function(){
-					var project = user.projects[i++];
-					var fn2 = function(){
-						if(counter < length){
-							fn1();
-						} else {
-							callback(null, result);
-						}
-					};
-					var conditions = {};
-					conditions.parentId = null;
-					conditions.project = project.id;
-					Activity.findActivities(conditions, function(error, response){
-						if(!error){
-							if(response && response.length > 0){
-								_.each(response, function(info){
-									result.push(info);
-								});
-							}
-							counter++;
-							fn2();
+			if(input.projectId)
+				conditions['project'] = input.projectId;
+			if(input.workspaceId)
+				conditions['workspace'] = input.workspaceId;
+			
+			if(conditions.project || conditions.workspace){
+				Activity.findActivities(conditions, function(err, response){
+					if(!err){
+						return callback(null, response);
+					} else {
+						return callback(err);
+					}
+				});
+			} else {
+				var projects = user.projects;
+				if(projects.length == 0)
+					return callback(null, []);
+				
+				async.map(projects, function(project, cb){
+					Activity.findActivities({project: project.id}, function(err, activitiesForProject){
+						if(err){
+							sails.log.error(err);
+							return cb(err);
+						}else{
+							project.activities = activitiesForProject;
+							return cb(null, project);
 						}
 					});
-				};
-				fn1();
-			} else {
-				callback(null, []);
+				}, function(err, projects){
+					if(!err){
+						var activities = [];
+						_.each(projects, function(project){
+							activities = _.union(project.activities, activities);
+						});
+						activities.sort(function(act1, act2){
+							return act1.createdAt < act2.createdAt;
+						});
+						return callback(null, activities);
+					}else{
+						sails.log.error(err);
+						return callback(err);
+					}
+					
+				});
 			}
-		}
-	});
+		});
 	},
 
 	findActivities: function(data, callback){
-		var counter = 0;
-		var i = 0;
-		var length;
-		var result = [];
 		Activity.find({where:data, sort: 'createdAt DESC'}).populateAll().exec(function (err, activities) {
 			if (!err) {
-				length = activities.length;
-				if(length > 0){
-					var fn1 = function(){
-						var activity = activities[i++];
-						var fn2 = function(){
-							if(counter < length){
-								fn1();
-							} else {
-								callback(null, result);
-							}
-						};
-						delete activity.user.hashKey;
-						delete activity.user.email_verified;
-						delete activity.user.password;
-						Activity.findComments({parentId: activity.id}, function(error, comments){
-							if(!error){
-								activity.comments = comments;
-								result.push(activity);
-								counter++;
-								fn2();
-							}
-						});
-					};
-					fn1();
-				} else {
-					callback(null, activities);
-				}
+				async.map(activities, function(activity, cb){
+					Activity.find({where: {parentId: activity.id, sort: 'createdAt ASC'}}).exec(function(error, comments){
+						if(!error){
+							activity.comments = comments;
+							cb(null, activity);
+						}
+					});
+				}, callback);
 			} else {
 				callback(err);
 			}
@@ -196,7 +180,7 @@ module.exports = {
 	},
 
 	findComments: function(data, callback){
-		Activity.find({where: data, sort: 'createdAt DESC'}, function(err, comments){
+		Activity.find({where: data, sort: 'createdAt ASC'}, function(err, comments){
 			if(!err){
 				if(comments.length == 0){
 					callback(null, []);

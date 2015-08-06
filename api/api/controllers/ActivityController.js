@@ -9,16 +9,7 @@ module.exports = {
 
 	//Get list of activity
 	index: function (req, res) {
-			
-		var conditions = {};
-		if(req.param('projectId')){
-			conditions.project =  req.param('projectId');
-		}
-		
-		conditions.userData = req.session.user;
-
-		Activity.index(conditions, function (err, activities) {
-
+		Activity.index(req.session.user, req.body, function (err, activities) {
 			if (!err) {
 				 _.map(activities, function(activity) {
 				 	activity.user.avatar = base_url + activity.user.avatar;

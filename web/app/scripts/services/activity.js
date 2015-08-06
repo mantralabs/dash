@@ -6,10 +6,10 @@ angular.module('pmtoolApp')
   
   	this.fetch = function(id){
 		var deferred = $q.defer();
-		var url = '/api/activity/';
-		if(id)
-			url = url + id;
-		$http.get(url)
+		var url = '/api/activity/fetch';
+		// if(id)
+		// 	url = url + id;
+		$http.post(url)
 
 		.success(function(data){
 			deferred.resolve(data);
@@ -24,7 +24,7 @@ angular.module('pmtoolApp')
   	this.addActivity = function(activityData){
   		var deferred = $q.defer();
 		
-		$http.post('/api/activity', activityData)
+		$http.post('/api/activity/add', activityData)
 		.success(function(activity){
 			console.log(activity);
 			deferred.resolve(activity);

@@ -65,8 +65,8 @@ module.exports.routes = {
   'GET /projects_related_to_workspace/:id' : 'ProjectController.getProjectsDetailsRelatedToWorkspace',
 
 
-  'POST /activity'                  : 'ActivityController.add',
-  'GET /activity/:projectId?'       : 'ActivityController.index',
+  'POST /activity/add'              : 'ActivityController.add',
+  'POST /activity/fetch'            : 'ActivityController.index',
   'PUT /activity/:id'               : 'ActivityController.edit',
   'POST /activity/like'             : 'ActivityController.like',
   'POST /activity/comment'          : 'ActivityController.comment',
