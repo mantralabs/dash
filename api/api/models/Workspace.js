@@ -81,7 +81,36 @@ module.exports = {
 				return callback(err);
 			}
 		});
-    }
-	
+    },
+
+	myWorkspaces : function (user, callback) {
+		var projects = user.projects;
+		
+		projects = _.map(projects, function(project){
+			return project.id;
+		});
+		async.map(projects, function(id, cb){
+			Project.findOne({id: id}).populate('workspace').exec(function(err, project){
+				if(!err){
+					return cb(null, project.workspace);
+				};
+			});
+			
+		}, function(err, workspacesL){
+			sails.log.debug(workspaces);
+			if(err)
+				return callback(err);
+			var workspaces = [];
+			var workspace_ids_in_array =[];
+			_.each(workspacesL, function(workspace){
+				if(!_.contains(workspace_ids_in_array, workspace.id)){
+					workspace_ids_in_array.push(workspace.id);
+					workspaces.push(workspace);
+				}
+			});
+			callback(null, workspaces);
+
+		});
+	}
 };
 

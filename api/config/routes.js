@@ -53,6 +53,7 @@ module.exports.routes = {
   'POST /workspace'                 : 'WorkspaceController.add',
   'PUT /workspace/:id'              : 'WorkspaceController.edit',
   'DELETE /workspace/:id'           : 'WorkspaceController.delete',
+  'GET /myworkspaces'               : 'WorkspaceController.myWorkspaces',
 
   'POST /project'                   : 'ProjectController.add',
   'GET /myprojects'                 : 'ProjectController.myprojects',

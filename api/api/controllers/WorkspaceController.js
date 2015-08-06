@@ -70,6 +70,16 @@ module.exports = {
 		} else {
 			res.status(400).json({message: "ID is missing"});
 		}
-    }
+    },
+
+    myWorkspaces: function (req, res) {
+		Workspace.myWorkspaces(req.session.user,function (err, workspaces) {
+			if (!err) {
+				res.json(workspaces);
+			} else {
+				res.negotiate(err);
+			}
+		});
+	},
 };
 
