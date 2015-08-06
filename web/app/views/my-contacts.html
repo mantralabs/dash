@@ -15,12 +15,13 @@
 
 		<ul class="clearfix contacts-li">
 			<li  ng-repeat="contact in contacts | limitTo : 9" ng-if="user.id !== contact.id">
+				
 				<a href="#/profile/{{contact.id}}">
-		      		<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
+		      		<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}" title ="{{contact.name}}">
 
 					<!-- <img src="img/img-1.png" alt="profile-pic"> -->
 					<!-- <img ng-if="contact.avatar != null" class="pro-pic" src="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{contact.avatar}}">-->
-      				<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic">
+      				<img ng-if="contact.avatar == '' || contact.avatar == undefined || contact.avatar == null" src="img/default-pic.png" alt="No Image" class="pro-pic" title ="{{contact.name}}">
 
 				</a>
 			</li>
