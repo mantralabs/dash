@@ -73,6 +73,20 @@ angular.module('pmtoolApp')
     });
     
     return deferred.promise;
-    }
+    };
+
+    this.fetchMyWorkspace = function(){
+    var deferred = $q.defer();
+    
+    $http.get('/api/myworkspaces')
+    .success(function(data){
+      deferred.resolve(data);
+    })
+    .error(function(err){
+      deferred.reject(err);
+    });
+    
+    return deferred.promise;
+    };
     
   });
