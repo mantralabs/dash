@@ -28,7 +28,7 @@ module.exports = {
    */
   add: function (req, res) {
    var user = req.session.user;
-   // sails.log.debug("req.body",req.body);
+   sails.log.debug("req.body",req.body);
    req.body.assignedBy = user.id;
   
    // if(user.id != req.body.assignedTo){
