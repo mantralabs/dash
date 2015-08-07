@@ -18,9 +18,6 @@
 						<li class="like-comment timer"><a href="#/project/{{activity.project.id}}"><span>@{{activity.project.name}}</span></a> {{activity.createdAt | date:'short'}}</li>
 						<li class="like-comment" ng-init="indexNo=$index" ng-click="showCommentBox=!showCommentBox"> <img src="img/reply-icon.png" alt="comment"></li>
 						<li class="like-comment">{{activity.comments.length}}</li>
-						<!-- <li class="like-comment" ><a href="javascript:"><img src="img/heart-icon.png"  ng-class="{active: isActive(activity)}" ng-click="addVote(activity)" alt="like"></a></li> -->
-						<!-- <p>{{activity.comments}}</p> -->
-						
 						
 						<li ng-if="activity.likes.indexOf(user.id) == -1" class="like-comment" ng-click="likeActivity(activity)"><a href="javascript:"><img src="img/heart-icon.png"></a></li>
 
@@ -30,13 +27,6 @@
 						<li class="like-comment">{{activity.likes.length}}</li>
 
 						<li class="like-comment" ng-if="user.id == activity.user.id" ng-click="ActivityDelete(activity,activity.id)"><img class="activity-delete-icon"src="img/delete.png">Delete</li>
-
-						<!-- <li ng-if="activity.attachment" data-toggle="modal" data-target="#view-image-modal">Attachment:{{activity.attachment}}</li> -->
-						
-						
-
-						<!-- <a href="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/avatar/{{activity.attachment}}" download><li ng-if="activity.attachment">{{activity.attachment}}</li></a> 
- -->
 					</ul>
 
 					<SPAN class="attachment-link" ng-if="activity.attachment">Attachment:<a   href="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/attachments/{{activity.attachment}}" download>{{activity.attachment}}</a></SPAN>
@@ -53,7 +43,7 @@
 					<!-- <img src="img/img-5.png" alt="profile-pic"> -->
 					<img ng-if="user.avatar" class="pro-pic-small ng-scope" src="{{comment.userInfo.avatar}}">
 				</div>
-				<div class="acts-discription" >
+				 <div class="acts-discription" >
 					<p>
 						<a href="#/profile/{{activity.userInfo.id}}"><span>{{comment.userInfo.name}} </span></a>{{comment.comment}}
 					</p>
@@ -68,7 +58,7 @@
 					</ul>
 					
 					
-				</div><!--end acts-discription-->
+				</div><!--end acts-discription -->
 			</div><!--end acts-sub-->
 		</div>
 		
