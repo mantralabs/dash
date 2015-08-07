@@ -27,6 +27,10 @@ module.exports = {
 			model: 'Workspace'
 		},
 
+		task: {
+			model: 'Task',
+		},
+
 		user: {
 			// required : true,
 			model: 'User',
@@ -62,7 +66,7 @@ module.exports = {
 			if(input.workspaceId)
 				conditions['workspace'] = input.workspaceId;
 			
-			if(conditions.project || conditions.workspace){
+			if(conditions.project){
 				Activity.findActivities(conditions, function(err, response){
 					if(!err){
 						return callback(null, response);
@@ -70,8 +74,33 @@ module.exports = {
 						return callback(err);
 					}
 				});
+			} else if (conditions.workspace){
+				Workspace.findOne({id:input.workspaceId}).populate('projects').exec(function(err, workspace){
+					if(!err){
+						// console.log('projects',workspace.projects);
+						var projects = [];
+						var projectsOfUser = user.projects;
+						var projectsOfWorkspace = workspace.projects;
+						// console.log('projectsOfUser',projectsOfUser);
+						// console.log('projectsOfWorkspaces',projectsOfWorkspace);
+						_.each(projectsOfWorkspace,function(projectOfWorkspace){
+							_.each(projectsOfUser,function(projectOfUser){
+								if (projectOfUser.id == projectOfWorkspace.id){
+									projects.push(projectOfUser);
+									
+								}
+							})
+						})
+						console.log('projects',projects);
+						fetchActivities(projects);
+					}
+				})
 			} else {
 				var projects = user.projects;
+				fetchActivities(projects);			
+			}
+
+			var fetchActivities = function  (projects) {
 				if(projects.length == 0)
 					return callback(null, []);
 				

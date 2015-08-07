@@ -43,6 +43,11 @@ module.exports = {
 		status : {
 			type: 'string',
 			enum: ['Not started', 'In progress', 'Completed']
+		},
+
+		activity :{
+			collection : 'Activity',
+			via : 'task'
 		}
 
 	},
@@ -163,7 +168,18 @@ module.exports = {
     			callback(err);
     		}
     	});
+    },
+
+    taskDetails: function(taskId, callback){
+    	Task.findOne({id: taskId}).populateAll().exec(function (err, taskDetail){
+    		if(!err){
+    			return callback(null,taskDetails)
+    		} else {
+    			callback(err);
+    		}
+    	});
     }
+
     
 };
 
