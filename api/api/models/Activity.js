@@ -60,6 +60,38 @@ module.exports = {
 			if(err){
 				return callback(err);
 			}
+			var fetchActivities = function (projects) {
+				if(projects.length == 0)
+					return callback(null, []);
+				
+				async.map(projects, function(project, cb){
+					Activity.findActivities({project: project.id}, function(err, activitiesForProject){
+						if(err){
+							sails.log.error(err);
+							return cb(err);
+						}else{
+							project.activities = activitiesForProject;
+							return cb(null, project);
+						}
+					});
+				}, function(err, projects){
+					if(!err){
+						var activities = [];
+						_.each(projects, function(project){
+							activities = _.union(project.activities, activities);
+						});
+						activities.sort(function(act1, act2){
+							return act1.createdAt < act2.createdAt;
+						});
+						return callback(null, activities);
+					}else{
+						sails.log.error(err);
+						return callback(err);
+					}
+					
+				});
+			}
+
 			var conditions = {};
 			if(input.projectId)
 				conditions['project'] = input.projectId;
@@ -91,46 +123,15 @@ module.exports = {
 								}
 							})
 						})
-						console.log('projects',projects);
 						fetchActivities(projects);
 					}
 				})
 			} else {
 				var projects = user.projects;
-				fetchActivities(projects);			
+				fetchActivities(projects);	
 			}
 
-			var fetchActivities = function  (projects) {
-				if(projects.length == 0)
-					return callback(null, []);
-				
-				async.map(projects, function(project, cb){
-					Activity.findActivities({project: project.id}, function(err, activitiesForProject){
-						if(err){
-							sails.log.error(err);
-							return cb(err);
-						}else{
-							project.activities = activitiesForProject;
-							return cb(null, project);
-						}
-					});
-				}, function(err, projects){
-					if(!err){
-						var activities = [];
-						_.each(projects, function(project){
-							activities = _.union(project.activities, activities);
-						});
-						activities.sort(function(act1, act2){
-							return act1.createdAt < act2.createdAt;
-						});
-						return callback(null, activities);
-					}else{
-						sails.log.error(err);
-						return callback(err);
-					}
-					
-				});
-			}
+			
 		});
 	},
 
@@ -274,7 +275,7 @@ module.exports = {
 				delete data['ext'];
 				Attachment.create(data, function(err, imageData){
 					if(err) {
-						sails.log.debug(err)
+						// sails.log.debug(err)
 						callback(err);
 					} else {
 						callback(null, imageData);
@@ -294,8 +295,8 @@ module.exports = {
  
 				if(_.contains(doc.likes, data.userId)){
 					_.each(doc.likes, function(uid, idx){
-						sails.log.debug("uid",uid);
-						sails.log.debug("idx",idx);
+						// sails.log.debug("uid",uid);
+						// sails.log.debug("idx",idx);
 						if(uid != data.userId){
 							existedLikes.push(uid);
 						}
