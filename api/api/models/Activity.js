@@ -111,17 +111,14 @@ module.exports = {
 					if(!err){
 						// console.log('projects',workspace.projects);
 						var projects = [];
-						var projectsOfUser = user.projects;
+						user.projects = _.map(user.projects, function(project){
+							return project.id;
+						});
 						var projectsOfWorkspace = workspace.projects;
-						// console.log('projectsOfUser',projectsOfUser);
-						// console.log('projectsOfWorkspaces',projectsOfWorkspace);
 						_.each(projectsOfWorkspace,function(projectOfWorkspace){
-							_.each(projectsOfUser,function(projectOfUser){
-								if (projectOfUser.id == projectOfWorkspace.id){
-									projects.push(projectOfUser);
-									
-								}
-							})
+							if(_.contains(user.projects, projectOfWorkspace.id)){
+								projects.push(projectOfWorkspace);
+							}
 						})
 						fetchActivities(projects);
 					}
