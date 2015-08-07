@@ -27,11 +27,15 @@
 
         <my-contacts></my-contacts><!-- my-contacts is a directive -->
 
-        <my-projects projects="projects" ></my-projects>
+        <my-workspaces></my-workspaces>
+
+        <my-projects projects="projects" ></my-projects>  
 
         <div ng-if = "user.role == 'admin'">
         <projects-admin></projects-admin>
         </div>
+       
+
         <div id="tasks">
           <my-tasks></my-tasks>
         </div><!--end tasks-->
