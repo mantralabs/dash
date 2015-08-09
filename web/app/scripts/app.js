@@ -98,6 +98,12 @@ angular
         resolve : resolve
       })
 
+      .when('/task-details',{
+         templateUrl:'views/task-details.html',
+         controller:'taskPageCtrl',
+         resolve : resolve
+      })
+
       .when('/account-settings',{
         templateUrl:'views/account-settings.html',
         controller:'userController',
@@ -189,7 +195,7 @@ angular
         templateUrl:'views/email-notifcation.html',
         controller:'resetPasswordCtrl'
       })
-
+      
       .otherwise({
         redirectTo: '/'
       });
