@@ -13,7 +13,6 @@ angular.module('pmtoolApp')
 			},
 
 	      	link: function(scope, element, attrs) {
-	      		console.log('attrs',attrs);
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
