@@ -89,7 +89,7 @@ module.exports.routes = {
   'PUT /task/edit/:id'              : 'TasksController.edit',
   'DELETE /task/:id'                : 'TasksController.delete',
   'GET /task/assignedTask'          : 'TasksController.assignedTask',
-  'GET /task/taskDetails'           : 'TasksController.taskDetails'
+  'GET /task/taskDetails/:id'       : 'TasksController.taskDetails'
 
   // '/test' : {
   //   view:'testing'

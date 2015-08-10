@@ -97,8 +97,10 @@ module.exports = {
 				conditions['project'] = input.projectId;
 			if(input.workspaceId)
 				conditions['workspace'] = input.workspaceId;
-			
-			if(conditions.project){
+			if(input.taskId)
+				conditions['task'] = input.taskId;
+
+			if(conditions.project || conditions.task){
 				Activity.findActivities(conditions, function(err, response){
 					if(!err){
 						return callback(null, response);

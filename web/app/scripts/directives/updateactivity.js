@@ -13,7 +13,7 @@ angular.module('pmtoolApp')
 			},
 
 	      	link: function(scope, element, attrs) {
-	      		
+	      		console.log('attrs',attrs);
 	      		//for displaying popup on seect of button
 	      		scope.updateActivity = function(){
 	      			$(element).find('.list-projects').toggleClass('show');
@@ -129,10 +129,30 @@ angular.module('pmtoolApp')
 	      				project: projectId,
 	      				likes : []
 	      			}
-
 	      			Activity.addActivity(activityData)
 	      			.then(function(response){
 	      				console.log('inside updateInProject',response);
+	      				scope.activities1.unshift(response);
+	      				scope.activity.description = "";
+	      				scope.attach_name = "";
+	      				scope.imageData = "";
+	      			}).catch(function(err){
+	  					console.log(err);
+	      			})
+	      		}
+
+	      		scope.updateInTask = function(description){
+	      			var taskId = $routeParams.id;
+	      			console.log('description',description);
+	      			var activityData = {
+	      				description: description,
+	      				task: taskId,
+	      				project: attrs.project,
+	      				likes : []
+	      			}
+	      			Activity.addActivity(activityData)
+	      			.then(function(response){
+	      				console.log('inside updateInTask',response);
 	      				scope.activities1.unshift(response);
 	      				scope.activity.description = "";
 	      				scope.attach_name = "";

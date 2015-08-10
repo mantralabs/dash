@@ -83,9 +83,6 @@ angular.module('pmtoolApp')
 		}
 	}
 
-	
-
-
 	$scope.myTask = function ($event) {
 		$scope.alltasks = true;
 		$scope.noTasks = false;
@@ -119,9 +116,6 @@ angular.module('pmtoolApp')
 		}).catch(function(err){
 			$scope.error = err.message;
 		});
-
-		
-
 
 	}
 
@@ -244,4 +238,46 @@ angular.module('pmtoolApp')
 		});
 	}
 
+		
+
+	// var path = $location.path();
+	// if(path.indexOf('task-details') > 0){
+	// 	var taskId = $routeParams.id;
+	// 	console.log('taskId',taskId);
+	// 	Task.fetchTaskDetails(taskId)
+	// 	.then(function(response){
+	// 		console.log('response',response);
+	// 	}).catch(function(err){
+	// 		$scope.error = err.message;
+	// 	})
+
+	// }
+
+})
+
+.controller('taskdetailsCtrl', function ($scope ,$location, Task, $rootScope, $routeParams, Activity) {
+	var taskId = $routeParams.id;
+	// console.log('taskId',taskId);
+	Task.fetchTaskDetails(taskId)
+	.then(function(response){
+		console.log('response',response);
+		$scope.task = response;
+	}).catch(function(err){
+		$scope.error = err.message;
+	})
+
+	$scope.addCommenttoTask = function (activity){
+		var data ={
+			task : $scope.task.id,
+			description : activity.comment,
+			project : $scope.task.project.id
+		}
+		console.log('data',data);
+		Activity.addActivity(data)
+		.then(function(response){
+			console.log('add actrespaonse',response);
+		}).catch(function(err){
+			$scope.error = err.message;
+		})
+	}
 })

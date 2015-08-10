@@ -94,13 +94,13 @@ angular
 
       .when('/task-page',{
         templateUrl:'views/task-page.html',
-        // controller:'taskPageCtrl',
+        controller:'taskPageCtrl',
         resolve : resolve
       })
 
-      .when('/task-details',{
+      .when('/task-details/:id',{
          templateUrl:'views/task-details.html',
-         controller:'taskPageCtrl',
+         controller:'taskdetailsCtrl',
          resolve : resolve
       })
 

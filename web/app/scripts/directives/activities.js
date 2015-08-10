@@ -19,7 +19,8 @@ angular.module('pmtoolApp')
             condition.projectId = $routeParams.id;
           else if(attrs.type == 'workspace')
             condition.workspaceId = $routeParams.id;
-          
+          else if(attrs.type == 'task')
+            condition.taskId = $routeParams.id;
           Activity.fetch(condition)
           .then(function(response){
             scope.activities1 = response;

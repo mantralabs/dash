@@ -173,7 +173,7 @@ module.exports = {
     taskDetails: function(taskId, callback){
     	Task.findOne({id: taskId}).populateAll().exec(function (err, taskDetail){
     		if(!err){
-    			return callback(null,taskDetails)
+    			return callback(null,taskDetail)    			
     		} else {
     			callback(err);
     		}

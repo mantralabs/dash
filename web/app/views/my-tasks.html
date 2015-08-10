@@ -6,9 +6,9 @@
 	<div id="taskscroll">
 		<div id="project-1" ng-repeat = "task in tasks" >
 			<div class="col-md-7 tasks-repeat">
-				<p ng-if="task.status == 'Completed' " class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-				<p ng-if="task.status == 'In progress' " class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
-				<p ng-if="task.status == 'Not started'" class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p>
+				<a href="#/task-details/{{task.id}}"><p ng-if="task.status == 'Completed' " class="left-column"><img src="img/completed-icon.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p></a>
+				<a href="#/task-details/{{task.id}}"><p ng-if="task.status == 'In progress' " class="left-column"><img src="img/in-progress.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p></a>
+				<a href="#/task-details/{{task.id}}"><p ng-if="task.status == 'Not started'" class="left-column"><img src="img/not-completed.png" alt="completed">&nbsp;&nbsp;{{task.name}}</p></a>
 			</div>
 			<div class="col-md-5 tasks-repeat">
 				<p class="right-column">{{task.duedate | date}} </p>

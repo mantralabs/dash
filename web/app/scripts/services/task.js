@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .service('Task', function Task($http, $q, $resource, $routeParams) {
+  .service('Task', function ($http, $q, $resource, $routeParams) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.addTask = function (task) {
       	var deferred = $q.defer()
@@ -31,6 +31,20 @@ angular.module('pmtoolApp')
 		
 		return deferred.promise;
   	}
+
+	this.fetchTaskDetails = function(taskId){
+		var deferred = $q.defer();
+		
+		$http.get('/api/task/taskDetails/'+taskId)
+		.success(function(data){
+			deferred.resolve(data);
+		})
+		.error(function(err){
+			deferred.reject(err);
+		});
+		
+		return deferred.promise;
+  	}  	
 
   	this.statusUpdate = function (taskid, data) {
 		var deferred = $q.defer();

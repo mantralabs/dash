@@ -94,7 +94,7 @@ module.exports = {
         var taskId = req.param('id');
         Task.taskDetails(taskId,function (err, taskDetails){
             if(!err){
-                res.json(tasks);
+                res.json(taskDetails);
             } else {
                 res.negotiate(err);
             }

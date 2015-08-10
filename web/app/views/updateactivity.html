@@ -42,6 +42,7 @@
         </p> 
         <button type="submit" id="home-page-btn" ng-if="path.indexOf('home')>0" ng-disabled="updateForm.description.$error.required || processing" class="btn update-btn updateBtn" ng-click="updateActivity()">Update</button>
         <button type="submit" id="project-page-btn" ng-if="path.indexOf('project')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateInProject(activity.description)"> Update</button>
+        <button type="submit" id="task-page-btn" ng-if="path.indexOf('task-details')>0" ng-disabled="updateForm.description.$error.required" class="btn update-btn updateBtn" ng-click="updateInTask(activity.description)"> Update</button>
 
         <div class="list-projects hide">
           <ul>

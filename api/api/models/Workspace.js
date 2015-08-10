@@ -97,7 +97,6 @@ module.exports = {
 			});
 			
 		}, function(err, workspacesL){
-			sails.log.debug(workspaces);
 			if(err)
 				return callback(err);
 			var workspaces = [];
