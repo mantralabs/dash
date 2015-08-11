@@ -9,7 +9,6 @@ angular.module('pmtoolApp')
 	if((path.indexOf('project')  > 0) || (path.indexOf('workspaces')  > 0) || (path.indexOf('home')  > 0)){
 		Workspace.fetch().then(function(response){
 			$scope.workspaces = response;
-			console.log("workspaces",$scope.workspaces);
 		}).catch(function(err){
 			$scope.error = err.message;
 		});

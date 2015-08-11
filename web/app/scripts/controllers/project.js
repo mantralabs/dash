@@ -20,12 +20,10 @@ angular.module('pmtoolApp')
 
 	$scope.addNewProject = function (data) {
 		$scope.creatingProject = true; 
-		console.log("addNewProject",data);
 		if(data){
 			var userId = $scope.user.id;
 			data.users = [userId];
 			Project.add(data).then(function(response){
-				console.log(response)
 				$scope.projects.push(response);
 				$scope.creatingProject = false;
 				Project.fetch().then(function(response){
@@ -100,7 +98,6 @@ angular.module('pmtoolApp')
 					$scope.projectUsersList.push($scope.project.users[j].id)
 					// $scope.existedprojectMembers.push($scope.project.users[j].email)
 					$scope.projectUsersEmailOld.push($scope.project.users[j].email)
-					console.log("$scope.projectUsersEmailOld",$scope.projectUsersEmailOld)
 				}
 			}).catch(function(err){
 				console.log(err);

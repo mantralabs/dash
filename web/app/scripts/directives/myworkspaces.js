@@ -9,7 +9,6 @@ angular.module('pmtoolApp')
       link: function(scope, element, attrs) {
 		Workspace.fetchMyWorkspace()
 		.then(function(response){
-			console.log(response);
 			scope.myWorkspaces = response;
 		})
 		.catch(function(err){

@@ -70,7 +70,6 @@ angular.module('pmtoolApp')
 
 		.success(function(data){
 			deferred.resolve(data);
-			console.log("success");
 		})
 		.error(function(err){
 			deferred.reject(err);

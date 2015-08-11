@@ -140,7 +140,6 @@ angular.module('pmtoolApp')
 		// $scope.tasks = [];
 		
 		Task.fetchTasksAssigned().then(function(response){
-			console.log(response);
 			$scope.tasks = response;
 			if($scope.tasks.length == 0){
 				$scope.noTasksAssigned = true;
@@ -150,10 +149,6 @@ angular.module('pmtoolApp')
 		}).catch(function(err){
 			$scope.error = err.message;
 		});
-		console.log($scope.tasks);
-
-		
-
 	}
 
 	$scope.inProgressShow = false;
@@ -183,8 +178,6 @@ angular.module('pmtoolApp')
 		}else{
 			$scope.inProgressShow = false;
 		}
-
-		console.log($scope.inProgressTasks);
 	}
 
 
