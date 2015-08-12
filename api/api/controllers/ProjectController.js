@@ -29,6 +29,15 @@ module.exports = {
 				res.negotiate(err);
 			}
 		});
+		// ProjectUser.add(req.body, function (err, project) {
+		// 	if (!err) {
+		// 		res.json(project);
+		// 		var userData = req.session.user;
+		// 		userData.projects.push(project);
+		// 	} else {
+		// 		res.negotiate(err);
+		// 	}
+		// });
 	},
 
 	//Edit the project details
@@ -37,9 +46,12 @@ module.exports = {
 		
 		// var removedMembers = req.body.removedMembers;
 		var projectId = req.param('id');
+		// console.log('req.body',req.body);
 		Project.edit(projectId, req.body, function (err, project) {
 			if (!err) {
+				// console.log(project);
 				res.json(project);
+				// sails.log.debug("projectMember",project)
 				
 			} else {
 				res.negotiate(err);

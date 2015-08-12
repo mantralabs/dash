@@ -217,8 +217,19 @@
     
         <div class="modal-body">
           <div class="border-bottom-grey project-update" ng-repeat = "contact in contacts" id="{{contact.id}}">
-            <p>
-            <input  type="checkbox" value="{{contact.id}}" ng-change="sync(bool, contact)" ng-model="bool" id="{{contact.id}}" ng-checked="isChecked(contact.id)"> {{contact.name}}</p>
+            <div class="pro-mem-list" style="overflow:hidden;">
+                <div class="p-list-check" style="float:left;">
+                    <p>
+                       <input  type="checkbox" value="{{contact.id}}" ng-change="sync(bool, contact)" ng-model="bool" id="{{contact.id}}" ng-checked="isChecked(contact.id)"> {{contact.name}}
+                    </p>
+                </div>
+                <div class="p-list-pm-select" style="float:right; padding-right:10px;">
+                    <select ng-model="">
+                        <option value="member">Developer</option>
+                        <option value="pm">ProjectManager</option>
+                    </select>
+                </div>
+            </div>
           </div>
         </div>
 

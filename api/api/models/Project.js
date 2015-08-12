@@ -50,7 +50,8 @@ module.exports = {
 					callback(err);
 				}
 			});
-		} else {
+		}
+		else {
 			User.findOne({id: user.id}).populate('projects').exec(function (err, user) {
 				if (!err) {
 					callback(null, user.projects);
@@ -89,13 +90,40 @@ module.exports = {
 				if (data.length == 0) {
 					callback({status: 402, message: "Project not found"});
 				} else {
+					_.each(req.users,function(userId) {
+						var userData ={
+							project : projectId,
+							user : userId,
+						}
+						Projectuser.add(userData, function(err, result){
+							if(!err){
+								// console.log('inserted in projectuser');
+							} else {
+								// console.log('err');
+							}
+						});
+					});
+
+					var removedUsers = req.removedMembers;
+					if (removedUsers.length != 0){
+						Projectuser.delete(removedUsers, projectId, function(err, result){
+							if(!err){
+								// console.log('inserted in projectuser');
+							} else {
+								// console.log('err');
+							}
+						});
+					}
+
 					// Task.destroy({project : projectId , assignedTo : req.removedMembers}).exec(function (errors, response){
 					// 	// sails.log.debug("response",response);
 					// 	if(!errors){
 					// 		// console.log('Tasks associated with the '+projectId+' are deleted');
 					// 	}
 					// });
-					
+
+					console.log('req.body',req);
+
 					callback(null, data);
 				}
 			} else {
