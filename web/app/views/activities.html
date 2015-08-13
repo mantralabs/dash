@@ -11,7 +11,7 @@
 					<img ng-if="user.avatar" class="pro-pic-small ng-scope" src="{{activity.user.avatar}}">
 				</div>
 				<div class="acts-discription col-md-11" >
-					<p>
+					<p >
 						<a href="#/profile/{{activity.user.id}}"><span>{{activity.user.name}} </span></a>{{activity.description}}
 					</p>
 					<ul class="clearfix">
@@ -27,6 +27,8 @@
 						<li class="like-comment">{{activity.likes.length}}</li>
 
 						<li class="like-comment" ng-if="user.id == activity.user.id" ng-click="ActivityDelete(activity,activity.id)"><img class="activity-delete-icon"src="img/delete.png">Delete</li>
+						<li class="like-comment" ng-if="user.id == activity.user.id" ng-click = "editActivity(activity)"><i class="fa fa-pencil"> Edit</i></li>
+
 					</ul>
 
 					<SPAN class="attachment-link" ng-if="activity.attachment">Attachment:<a   href="https://s3-ap-southeast-1.amazonaws.com/mantra-dash/attachments/{{activity.attachment}}" download>{{activity.attachment}}</a></SPAN>
@@ -60,6 +62,7 @@
 					
 				</div><!--end acts-discription -->
 			</div><!--end acts-sub-->
+			
 		</div>
 		
 		<div id="comment-box" class="clearfix" ng-show="showCommentBox">
@@ -75,5 +78,30 @@
 	<div class="activity-filter">
 		<p class="filter-notification" ng-if="(activities1 | filter:name).length == 0 && activities1.length !== 0">No Results Found!</p>
 	</div>
+    
+     <!-- edit activity modal -->
+          <div class="modal fade common-modal" id="edit-activity-modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form action="">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title assign-task-heading">Edit Activity</h4>
+                  </div>
+              
+                  <div class="modal-body">
+                    <input class="modal-input"type="text" placeholder="{{currentActivity.description}}" ng-model="currentActivity.description" >
+                    {{activity}}
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn-green" ng-click="editActivityModal(currentActivity)">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div><!-- modal--> 
+ 
+
 </div><!--end acts-->
 

@@ -108,7 +108,20 @@ angular.module('pmtoolApp')
 
       return deferred.promise;
     };
+   
+   this.edit = function (data,activityId) {
+      	var deferred = $q.defer();
 
+      	$http.put('/api/activity/'+activityId, data)
+      	.success(function(response){
+        	deferred.resolve('jgfjfhfjh',response);
+     	 })
+      	.error(function(err) {
+        	deferred.reject(err);
+      	});
+
+      return deferred.promise;
+    };
 
   });
 	

@@ -123,7 +123,7 @@ angular.module('pmtoolApp')
 
         }
 
-        scope.ActivityDelete =  function (activity,id) {
+        scope.ActivityDelete = function (activity,id) {
           console.log(id);
           var data = {"activityId":id}
           Activity.deleteActivity(data)
@@ -141,7 +141,29 @@ angular.module('pmtoolApp')
             scope.error = err.message;
           });
         }
+       
+        scope.editActivity = function(activity) {
+          console.log(activity);
+          $("#edit-activity-modal").modal();
+          scope.currentActivity = activity;
+        }  
 
+        scope.editActivityModal = function(currentActivity){
+
+          var data = {
+            "description" : currentActivity.description,
+          };
+          console.log(data);
+          Activity.edit(data, currentActivity.id)
+          .then(function(response){
+            $("#edit-activity-modal").modal('hide');
+            console.log(response);
+          })
+          .catch(function(err){
+            scope.error = err.message;
+          });
+          
+        }
         
         scope.addComment = function (activity) {
 

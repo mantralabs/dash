@@ -224,11 +224,12 @@ module.exports = {
 
 	edit: function (activityId, req, callback) {
 		Activity.update({id : activityId}, req, function (err, data) {
+			sails.log.debug(data);
 			if (!err) {
 				if (data.length == 0) {
 					callback({status: 400, message: "activity not found"});
 				} else {
-					callback(null, data);
+					callback(null,data);
 				}
 			} else {
 				callback(err);
