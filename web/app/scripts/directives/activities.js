@@ -41,8 +41,8 @@ angular.module('pmtoolApp')
         }
 
         if(scope.user.role == "admin"){
-            $('#activities').css({'height': '686px' });
-            $('#acts').css({'height': '636px'});
+            $('#activities').css({'height': '871px' });
+            $('#acts').css({'height': '821px'});
           }else{
             $('#activities').css({'height': '463px' });
             $('#acts').css({'height': '409px'});

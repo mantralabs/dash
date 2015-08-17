@@ -29,7 +29,7 @@ angular.module('pmtoolApp')
 
 	$scope.noTasks = false;
 	var path = $location.path();
-	if((path.indexOf('home')  > 0) || (path.indexOf('task-page')  > 0)){ 
+	if((path.indexOf('home')  > 0) || (path.indexOf('task-page')  > 0) || (path.indexOf('project') > 0)){ 
 
 		Task.fetchTasks().then(function(response){
 			$scope.tasks = response;

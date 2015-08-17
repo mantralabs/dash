@@ -13,7 +13,8 @@
     "jquery-ui" : "*",
     "bootstrap": "*",
     "bootstrap-datepicker" : "*",
-    "jquery.nicescroll" : "3.6.0"
+    "jquery.nicescroll" : "3.6.0",
+    "components-font-awesome" : "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",
