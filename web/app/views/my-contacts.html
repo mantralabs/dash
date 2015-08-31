@@ -14,7 +14,7 @@
 	<div class="profile-pics clearfix">
 
 		<ul class="clearfix contacts-li">
-			<li  ng-repeat="contact in contacts | limitTo : 9" ng-if="user.id !== contact.id">
+			<li  ng-repeat="contact in contacts" ng-if="user.id !== contact.id">
 				
 				<a href="#/profile/{{contact.id}}">
 		      		<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}" title ="{{contact.name}}">

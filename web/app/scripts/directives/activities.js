@@ -40,13 +40,13 @@ angular.module('pmtoolApp')
           });
         }
 
-        if(scope.user.role == "admin"){
-            $('#activities').css({'height': '871px' });
-            $('#acts').css({'height': '821px'});
-          }else{
-            $('#activities').css({'height': '463px' });
-            $('#acts').css({'height': '409px'});
-          }
+        // if(scope.user.role == "admin"){
+        //     $('#activities').css({'height': '871px' });
+        //     $('#acts').css({'height': '821px'});
+        //   }else{
+        //     $('#activities').css({'height': '463px' });
+        //     $('#acts').css({'height': '409px'});
+        //   }
        
         $(document).ready(function(){
           $("html").niceScroll({cursorwidth: '10px', autohidemode: false, zindex: 999 });

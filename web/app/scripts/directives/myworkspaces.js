@@ -1,19 +1,20 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .directive('myWorkspaces', function (Workspace) {
+  .directive('myWorkspaces', function (Workspace,$rootScope) {
     return {
       templateUrl: 'views/my-workspaces.html',
       restrict: 'E',
       
       link: function(scope, element, attrs) {
-		Workspace.fetchMyWorkspace()
-		.then(function(response){
-			scope.myWorkspaces = response;
-		})
-		.catch(function(err){
-			scope.error = err.message;
-		});
-      }
-    };
+        scope.user = $rootScope.user;
+  		Workspace.fetchMyWorkspace()
+  		.then(function(response){
+  			scope.myWorkspaces = response;
+  		})
+  		.catch(function(err){
+  			scope.error = err.message;
+  		});
+        }
+      };
   });
