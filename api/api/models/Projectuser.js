@@ -77,9 +77,18 @@ module.exports = {
                 cb(err);
             }
         });
-    }
+    },
     
-
+    getRoleInProject : function(userId, projectId, cb){
+        Projectuser.findOne({project:projectId, user:userId}).exec(function(err,response){
+            if(!err){
+                cb(null,response);
+            }
+            else{
+                cb(err);
+            }
+        })
+    }
   
 };
 
