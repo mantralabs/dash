@@ -20,6 +20,10 @@ module.exports = {
 			required : true,
 		},
 
+		usersRole :{
+			type:"json"
+		},
+
 		workspace: {
 			required : true,
 			model: 'Workspace'
@@ -85,12 +89,12 @@ module.exports = {
 
 	edit: function (projectId, req, callback) {
 
-		_.each(req.users,function(user) {
-			console.log('inside each',user);
+		_.each(req.usersRole,function(userRole) {
+			console.log('inside each',userRole);
 			var userData ={
 				project : projectId,
-				user : user.id,
-				role : user.role
+				user : userRole.user,
+				role : userRole.role
 			}
 			Projectuser.add(userData, function(err, result){
 				if(!err){
@@ -131,14 +135,15 @@ module.exports = {
 				}
 			});
 		}
-		async.map(req.users,function(user,cb){
-			var id = '';
-			id += user.id;
-			cb(null, id);
-		}, function(err, results){
-			req.users = results;
-			updateProject(projectId,req);
-		});
+		updateProject(projectId, req);
+		// async.map(req.users,function(user,cb){
+		// 	var id = '';
+		// 	id += user.id;
+		// 	cb(null, id);
+		// }, function(err, results){
+		// 	req.users = results;
+		// 	updateProject(projectId,req);
+		// });
 			
 	},
 

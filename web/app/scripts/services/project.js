@@ -123,5 +123,19 @@ angular.module('pmtoolApp')
 		return deferred.promise;
 	}
 
+	this.getRole = function () {
+      	var deferred = $q.defer(),
+            id=$routeParams.id;
+      	$http.get('/api/project/'+id)
+      	.success(function(response){
+        	deferred.resolve(response);
+     	 })
+      	.error(function(err) {
+        	deferred.reject(err);
+      	});
+
+      return deferred.promise;
+    };
+
 
 });
