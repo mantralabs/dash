@@ -79,6 +79,7 @@ angular.module('pmtoolApp')
 
 	$scope.user = $rootScope.user;
 	$scope.userIds = [];
+	$scope.usersWithRole = [];
 	$scope.projectUsersList = [];
 	$scope.loggedUser =  $scope.user.id;
 	$scope.removedMembers = [];
@@ -93,7 +94,7 @@ angular.module('pmtoolApp')
 		Project.fetchProject($routeParams.id )
 			.then(function(response){
 				$scope.project = response;
-				
+				console.log('$scope.project',$scope.project);
 				for(var j=0 ; j < $scope.project.users.length; j++){
 					$scope.projectUsersList.push($scope.project.users[j].id)
 					// $scope.existedprojectMembers.push($scope.project.users[j].email)
@@ -104,12 +105,46 @@ angular.module('pmtoolApp')
 				$scope.error = err.message;
 			});
 	// }
+    
+    Project.getRole($routeParams.id)
+    	.then(function(response){
+			$scope.myRole = response.role;    	
+		}).catch(function(err){
+			console.log(err);
+			$scope.error = err.message;
+		});
 
-	$scope.sync = function (bool, item) {
+    $scope.positions = [
+    	{
+    		name : "member"
+    	},
+    	{
+    		name : "Manager"
+    	}
+    ];
+    // $scope.roleInProject = $scope.positions[0];
+    $scope.updateroll = function(contact,roleInProject){
+    	console.log("shd",$scope.usersWithRole.length);
+    	var obj = {user:contact.id,role:roleInProject.name}
+    	if($scope.usersWithRole.length == 0){
+    		$scope.usersWithRole.push(obj);
+	        console.log("$scope.usersWithRole",$scope.usersWithRole);
+    	} else for(var i=0 ; i < $scope.usersWithRole.length; i++) {
+	        if($scope.usersWithRole[i].user == contact.id){
+	        	console.log('inside update roll for loop');
+	          $scope.usersWithRole[i].role = roleInProject;
+	          console.log("$scope.usersWithRole",$scope.usersWithRole);
+	         }
+	  	} 
+    }
+	$scope.sync = function (bool, roleInProject, item, index) {
+		console.log('mshjfgs',roleInProject);
 
 		if(bool){
-	      // add item
 	      $scope.userIds.push(item.id);
+	      var obj = {user:item.id,role:roleInProject}
+	      $scope.usersWithRole.push(obj);
+	      console.log("$scope.usersWithRole",$scope.usersWithRole);
 	      console.log("$scope.userIds",$scope.userIds);
 	     	for(var j=0 ; j < $scope.removedMembers.length; j++) {
 		        if($scope.removedMembers[j] == item.id){
@@ -126,14 +161,27 @@ angular.module('pmtoolApp')
 	          console.log("$scope.userIds",$scope.userIds);
 	         }
 		  } 
+		  for(var k=0 ; k < $scope.usersWithRole.length; k++) {
+	        if($scope.usersWithRole[k].user == item.id){
+	          $scope.usersWithRole.splice(k,1);
+	          console.log("$scope.usersWithRole",$scope.usersWithRole);
+	         }
+		  } 
 
 		}
   	};
 
 	$scope.itemsPush = function () {
   		for(var i=0 ; i < $scope.project.users.length; i++){
-			 $scope.userIds.push($scope.project.users[i].id)
+			$scope.userIds.push($scope.project.users[i].id);
 		}
+  	};
+
+  	$scope.usersPush = function () {
+  		for(var i=0 ; i < $scope.project.usersRole.length; i++){
+			 $scope.usersWithRole.push($scope.project.usersRole[i]);;
+		}
+		console.log('$scope.usersWithRole',$scope.usersWithRole);
   	};
 
   	$scope.isChecked = function (id) {
@@ -153,6 +201,7 @@ angular.module('pmtoolApp')
 		$scope.projectId = $routeParams.id;
 		var data = {
 			"users" : $scope.userIds,
+			"usersRole" : $scope.usersWithRole,
 			"removedMembers" : $scope.removedMembers,
 			"projectName":$scope.project.name,
 			"description":$scope.project.description,
@@ -205,6 +254,7 @@ angular.module('pmtoolApp')
 			$scope.emailIds = [];
 			$scope.projectUsersEmailLatest = [];
 			$scope.userIds = [];
+			$scope.usersWithRole = [];
 
 
 	};
