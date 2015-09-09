@@ -9,7 +9,7 @@ angular.module('pmtoolApp')
 
 	Contact.fetch().then(function(response){
 		$scope.contacts = response;
-		// console.log("contacts",$scope.contacts)
+		console.log("contacts",$scope.contacts);
 	}).catch(function(err){
 		$scope.error = err.message;
 	});

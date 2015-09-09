@@ -20,6 +20,10 @@ module.exports = {
 			required : true,
 		},
 
+		usersRole :{
+			type:"json"
+		},
+
 		workspace: {
 			required : true,
 			model: 'Workspace'
@@ -50,7 +54,8 @@ module.exports = {
 					callback(err);
 				}
 			});
-		} else {
+		}
+		else {
 			User.findOne({id: user.id}).populate('projects').exec(function (err, user) {
 				if (!err) {
 					callback(null, user.projects);
@@ -83,25 +88,63 @@ module.exports = {
 	},
 
 	edit: function (projectId, req, callback) {
-		// sails.log.debug("insidemodel",req);
-		Project.update({id : projectId}, req, function (err, data) {
-			if (!err) {
-				if (data.length == 0) {
-					callback({status: 402, message: "Project not found"});
-				} else {
-					// Task.destroy({project : projectId , assignedTo : req.removedMembers}).exec(function (errors, response){
-					// 	// sails.log.debug("response",response);
-					// 	if(!errors){
-					// 		// console.log('Tasks associated with the '+projectId+' are deleted');
-					// 	}
-					// });
-					
-					callback(null, data);
-				}
-			} else {
-				callback(err);
+
+		_.each(req.usersRole,function(userRole) {
+			console.log('inside each',userRole);
+			var userData ={
+				project : projectId,
+				user : userRole.user,
+				role : userRole.role
 			}
+			Projectuser.add(userData, function(err, result){
+				if(!err){
+					// console.log('inserted in projectuser');
+				} else {
+					// console.log('err');
+				}
+			});
 		});
+		var updateProject = function(projectId,req){
+			Project.update({id : projectId}, req, function (err, data) {
+				if (!err) {
+					if (data.length == 0) {
+						callback({status: 402, message: "Project not found"});
+					} else {
+						var removedUsers = req.removedMembers;
+						if (removedUsers.length != 0){
+							Projectuser.delete(removedUsers, projectId, function(err, result){
+								if(!err){
+									// console.log('inserted in projectuser');
+								} else {
+									// console.log('err');
+								}
+							});
+						}
+
+						// Task.destroy({project : projectId , assignedTo : req.removedMembers}).exec(function (errors, response){
+						// 	// sails.log.debug("response",response);
+						// 	if(!errors){
+						// 		// console.log('Tasks associated with the '+projectId+' are deleted');
+						// 	}
+						// });
+
+						callback(null, data);
+					}
+				} else {
+					callback(err);
+				}
+			});
+		}
+		updateProject(projectId, req);
+		// async.map(req.users,function(user,cb){
+		// 	var id = '';
+		// 	id += user.id;
+		// 	cb(null, id);
+		// }, function(err, results){
+		// 	req.users = results;
+		// 	updateProject(projectId,req);
+		// });
+			
 	},
 
 	delete: function (projectId, callback) {

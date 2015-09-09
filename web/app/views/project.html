@@ -10,7 +10,7 @@
     		<div class="project-list">
 
 				<h4 class="modal-title">{{project.name}}
-					<button ng-if="user.role == 'admin'" class="btn-green pull-right" title="Edit this workspace" data-toggle="modal" data-target="#edit-project-modal">Edit</button></h4>
+					<button ng-if="user.role == 'admin' || myRole == 'manager' " class="btn-green pull-right" title="Edit this workspace" data-toggle="modal" data-target="#edit-project-modal">Edit</button></h4>
 					<p class="project-description">{{project.description}}</p>
 					
     			<!-- <div class="project-dropdown">
@@ -26,7 +26,7 @@
 						<h2>Project members
 							<span class="number">{{project.users.length}}</span>
 							<!-- <span ng-if="user.role == 'admin' " class="pull-right plusbutton" -->
-							<span ng-if="user.role == 'admin' " class="pull-right plusbutton"
+							<span ng-if="user.role == 'admin' || myRole == 'manager' " class="pull-right plusbutton"
 							 data-toggle="modal" data-target="#contact-list-modal" ng-click = "itemsPush()" title="Add and remove project members"><img class="contacts-icons"src="img/addicon2.png"></span>
 						</h2>
 						<div id="project-1" ng-repeat = "member in project.users | limitTo : 5"> 

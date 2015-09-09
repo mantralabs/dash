@@ -217,9 +217,37 @@
         </div>
     
         <div class="modal-body">
+          <!-- <div class="border-bottom-grey project-update" ng-repeat = "contact in contacts" id="{{contact.id}}">
+            <div class="pro-mem-list" style="overflow:hidden;">
+                <div class="p-list-check" style="float:left;">
+                    <p>
+                       <input  type="checkbox" value="{{contact.id}}" ng-change="sync(bool, contact)" ng-model="bool" id="{{contact.id}}" ng-checked="isChecked(contact.id)"> {{contact.name}}
+                    </p>
+                </div>
+                <div class="p-list-pm-select" style="float:right; padding-right:10px;">
+                    <select>
+                        <option value="member">Developer</option>
+                        <option value="pm">ProjectManager</option>
+                    </select>
+                </div>
+            </div>
+          </div> -->
           <div class="border-bottom-grey project-update" ng-repeat = "contact in contacts" id="{{contact.id}}">
-            <p>
-            <input  type="checkbox" value="{{contact.id}}" ng-change="sync(bool, contact)" ng-model="bool" id="{{contact.id}}" ng-checked="isChecked(contact.id)"> {{contact.name}}</p>
+            <div class="pro-mem-list" style="overflow:hidden;">
+                <div class="p-list-check" style="float:left;">
+                    <p>
+                       <input  type="checkbox" value="{{contact.id}}" ng-change="sync(bool, roleInProject.name, contact, $index)" ng-model="bool" id="{{contact.id}}" ng-checked="isChecked(contact.id)"> {{contact.name}}
+                    </p>
+                </div>
+                <div class="p-list-pm-select" style="float:right; padding-right:10px;" ng-if="myRole == 'manager' || user.role == 'admin'">
+                    <!-- <select ng-model="roleInProject" ng-change="updateRoll(roleInproject,contact, $index)">
+                        <option value="member">Developer</option>
+                        <option value="pm">ProjectManager</option>
+                    </select> -->
+                    <select ng-model="roleInProject" ng-options="pos as pos.name for pos in positions" ng-change="updateroll(contact,roleInProject.name)">
+                    </select>
+                </div>
+            </div>
           </div>
         </div>
 
