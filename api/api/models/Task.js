@@ -48,6 +48,10 @@ module.exports = {
 		activity :{
 			collection : 'Activity',
 			via : 'task'
+		},
+
+		backlog : {
+			model : 'BacklogItem'
 		}
 
 	},
