@@ -1,0 +1,15 @@
+<div id="my-projects">
+	<h2>
+		<span class="blue-head">Backlogs</span>
+		<span class="number">{{backlogs.length}}</span>
+		<span class="pull-right plusbutton" data-toggle="modal" data-toggle="modal" data-target="#create-backlog-modal" title="create new backlog"><img class="contacts-icons"src="img/addicon2.png"></span>
+	</h2>
+	<div class="clearfix project-1" ng-repeat = "backlog in backlogs">
+		<p>
+			<a class="home-projects" href="#/backlog/{{backlog.id}}">{{backlog.name}}</a>
+		</p>
+	</div>
+
+	<div ng-include="'views/sprint-modals.html'"></div>
+</div>
+

@@ -195,6 +195,16 @@ angular
         templateUrl:'views/email-notifcation.html',
         controller:'resetPasswordCtrl'
       })
+
+      .when('/backlog/:id',{
+        templateUrl:'views/backlog.html',
+        controller:'backlogCtrl'
+      })
+
+      .when('/sprint/:id',{
+        templateUrl:'views/sprint.html',
+        controller:'sprintCtrl'
+      })
       
       .otherwise({
         redirectTo: '/'

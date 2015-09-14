@@ -9,9 +9,10 @@ module.exports = {
 
 	index : function(req,res){
 		var user = req.session.user;
-		if(!req.body || !req.body.project){
+		if(!req.body || (!req.body.project && !req.body.sprint)){
             res.status(400).json( {status: 400 , message: "ProjectId is missing" });
         }else{
+        	sails.log.debug("inside backlog ctrl");
 			BacklogItem.index(user, req.body, function (err, backlogs){
 				if(!err){
 					res.json(backlogs);
@@ -38,7 +39,7 @@ module.exports = {
 	},
 
 	edit : function(req, res){
-		if(!req.body || !req.body.backlog || !req.body.name ){
+		if(!req.body || !req.body.description || !req.body.name ){
             res.status(400).json( {status: 400 , message: "some field(s) are missing" });
         }else{
         	var backlogId = req.param('id');
@@ -61,6 +62,17 @@ module.exports = {
                 res.negotiate(err);
             }
         })
+    },
+
+    getBacklogDetails : function(req,res) {
+    	var backlogId = req.param('id');
+    	BacklogItem.getBacklogDetails(backlogId, function (err, backlog){
+    		if(!err) {
+				res.json(backlog);
+    		} else {
+    			res.negotiate(err);
+    		}
+    	})
     }
 	
 };

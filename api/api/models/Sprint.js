@@ -20,6 +20,14 @@ module.exports = {
 
 		project :{
 			model : 'Project'
+		},
+
+		startDate : {
+			type : 'date'
+		},
+
+		endDate : {
+			type : 'date'
 		}
 
 	},
@@ -66,6 +74,16 @@ module.exports = {
 				return callback(err);
 			}
 		});
+    },
+
+    getSprintDetails : function (sprintId, req, callback){
+    	Sprint.findOne({id:sprintId}).populateAll().exec(function(err,sprint){
+    		if(!err){
+    			callback(null, sprint);
+    		} else {
+    			callback(err);
+    		}
+    	})
     }
 
 };

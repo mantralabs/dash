@@ -92,15 +92,17 @@ module.exports.routes = {
   'GET /task/assignedTask'          : 'TasksController.assignedTask',
   'GET /task/taskDetails/:id'       : 'TasksController.taskDetails',
 
-  'GET /backlog'                    : 'BacklogItemController.index',
+  'POST /backlog'                   : 'BacklogItemController.index',
   'POST /backlog/create'            : 'BacklogItemController.add',
   'PUT /backlog/edit/:id'           : 'BacklogItemController.edit',
   'DELETE /backlog/:id'             : 'BacklogItemController.delete',
+  'GET /backlog/:id'                : 'BacklogItemController.getBacklogDetails',
 
-  'GET /sprint'                     : 'SprintController.index',
+  'POST /sprint'                    : 'SprintController.index',
   'POST /sprint/create'             : 'SprintController.add',
   'PUT /sprint/edit/:id'            : 'SprintController.edit',
-  'DELETE /sprint/:id'              : 'SprintController.delete'
+  'DELETE /sprint/:id'              : 'SprintController.delete',
+  'GET /sprint/:id'                 : 'SprintController.getSprintDetails'
 
   // '/test' : {
   //   view:'testing'

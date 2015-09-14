@@ -12,7 +12,7 @@ module.exports = {
 		if(!req.body || !req.body.project){
             res.status(400).json( {status: 400 , message: "ProjectId is missing" });
         }else{
-			BacklogItem.index(user, req.body.project, function (err, sprints){
+			Sprint.index(user, req.body.project, function (err, sprints){
 				if(!err){
 					res.json(sprints);
 				} else {
@@ -59,18 +59,16 @@ module.exports = {
         })
     },
 
-    delete: function (sprintId, callback) {
-		Sprint.destroy({id : sprintId}).exec( function (err, data) {
-			if (!err) {
-				if (data.length == 0) {
-					return callback({status: 402, message: "sprint not found"});
-				} else {
-					return callback(null, data.id);
-				}
-			} else {
-				return callback(err);
-			}
-		});
+
+    getSprintDetails : function (req, res){
+    	var sprintId = req.param('id');
+    	Sprint.getSprintDetails(sprintId,req.body,function (err,sprint){
+    		if(!err){
+    			res.json(sprint)
+    		} else {
+    			res.negotiate(err);
+    		}
+    	})
     }
 	
 };

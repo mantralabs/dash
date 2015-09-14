@@ -349,6 +349,17 @@
   padding-top: 9px;
   text-align: center;
 }
+#create-sprint-modal .modal-input .calender-box {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+.sprint-page #left #tasks {
+  margin-top: 0 ;
+}
+#backlog-task {
+  width: 200px !important;
+}
 .workspacelist {
   background-color: white;
   height: 45px;
@@ -693,6 +704,9 @@ ul#menu li:hover ul.sub-menu {
 div#project-1 p {
   padding: 9px 9px;
   margin-bottom: 0px;
+}
+#tasks {
+  margin-top: 10px;
 }
 #left #my-contacts,
 #left #my-projects,

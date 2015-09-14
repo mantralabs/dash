@@ -34,8 +34,13 @@ module.exports = {
 
   	},
 
-	index : function(user, projectId, callback){
-		BacklogItem.find({project:projectId},{sort: 'createdAt DESC'}).populateAll().exec(function(err,backlogs){
+	index : function(user, input, callback){
+		var conditions = {};
+		if(input.project)
+			conditions['project'] = input.project;
+		if(input.sprint)
+			conditions['sprint'] = input.sprint;
+		BacklogItem.find({where:conditions, sort: 'createdAt DESC'}).populateAll().exec(function(err,backlogs){
 			if(!err){
 				callback(null,backlogs)
 			} else {
@@ -81,6 +86,33 @@ module.exports = {
 				return callback(err);
 			}
 		});
+    },
+
+    getBacklogDetails : function(backlogId, callback){
+    	BacklogItem.findOne({id:backlogId}).populateAll().exec(function (err, backlog){
+    		if(!err){
+    			async.map(backlog.project.usersRole,function(user,cb){
+					User.findOne({id:user.user}).exec(function(error,userData){
+						if(!err){
+							user.name = userData.name;
+							return cb (null,user);
+						} else {
+							return cb(err);
+						}
+					});
+				},function(err,users){
+					if(!err){
+						backlog.project.usersRole = users;
+						return callback (null,backlog);
+					} else {
+						return callback(err);
+					}
+				});
+    			// callback(null, backlog)
+    		} else {
+    			callback(err)
+    		} 
+    	});
     }
 };
 
