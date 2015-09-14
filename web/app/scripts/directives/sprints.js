@@ -31,10 +31,12 @@ angular.module('pmtoolApp')
 			Sprint.fetchSprints(data)
 			.then(function(response){
 				scope.sprints = response;
-				// console.log(scope.sprints);
+				Sprint.storeSprints = response;
+				console.log(scope.sprints);
 			}).catch(function(err){
 				scope.error = err.message;
 			});
+
 
 			scope.createSprint = function(sprint){
 				var data = {

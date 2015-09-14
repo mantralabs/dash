@@ -73,4 +73,6 @@ angular.module('pmtoolApp')
 		return deferred.promise;
 	}
 
+	this.storeSprints = "";
+
   });

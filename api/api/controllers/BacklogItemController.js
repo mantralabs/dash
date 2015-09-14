@@ -39,7 +39,7 @@ module.exports = {
 	},
 
 	edit : function(req, res){
-		if(!req.body || !req.body.description || !req.body.name ){
+		if(!req.body){
             res.status(400).json( {status: 400 , message: "some field(s) are missing" });
         }else{
         	var backlogId = req.param('id');

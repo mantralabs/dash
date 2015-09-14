@@ -5,8 +5,18 @@
 		<span class="pull-right plusbutton" data-toggle="modal" data-toggle="modal" data-target="#create-backlog-modal" title="create new backlog"><img class="contacts-icons"src="img/addicon2.png"></span>
 	</h2>
 	<div class="clearfix project-1" ng-repeat = "backlog in backlogs">
-		<p>
+		<p class="pull-left">
 			<a class="home-projects" href="#/backlog/{{backlog.id}}">{{backlog.name}}</a>
+			<span>{{backlog.sprint.name}}</span>
+		</p>
+		<p class="pull-right">
+			<select name="" id="" ng-change="changeSprint(sprintId,backlog)" ng-model="sprintId">
+				<option value="">{{backlog.sprint.name}}</option>
+				<option ng-repeat="sprint in sprints" value="{{sprint.id}}">{{sprint.name}}</option>
+			</select>
+
+			<!-- <select ng-init="MyName = sprints[{{backlog.specialId}}]" ng-model="MyName" ng-options="sprint.name for sprint in sprints"></select> -->
+
 		</p>
 	</div>
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .directive('backlogs', function ($location, $routeParams, Backlog, $rootScope) {
+  .directive('backlogs', function ($location, $routeParams, $rootScope, Backlog, Sprint) {
     return {
 		templateUrl:'views/backlogs.html',
 		restrict: 'E',
@@ -9,18 +9,36 @@ angular.module('pmtoolApp')
 		// 	sprint :'='
 		// },
 		link: function(scope, element, attrs) {
+
+			setTimeout(function(){
+			scope.sprints = Sprint.storeSprints;
+			
+			// scope.MyName = scope.sprints[2];
+			// angular.forEach(scope.backlogs, function(val, key){
+			// 	angular.forEach(scope.sprints, function(kal, pey){
+			// 		if (val.sprint) {
+			// 			if (val.sprint.name == kal.name) {
+			// 				val.specialId = pey;
+			// 			}
+			// 		}else{
+			// 			val.specialId = "0";
+			// 		}
+					
+			// 	})
+			// });
+			console.log('scope.sprints',scope.sprints);
+			},200)
+
+
+			
 			var fetchBacklogs = function(data){
 				Backlog.fetchBacklogs(data)
 				.then(function(response){
-					console.log(response);
 					scope.backlogs = response;
 					console.log('scope.backlogs',scope.backlogs);
 				}).catch(function(err){
 					scope.error = err.message;
 				});
-			}
-			if(attrs.type == 'sprintPage') {
-				console.log('inside sprint page',$rootScope.sprint);
 			}
 			if (attrs.type == 'projectPage'){
 				var data = {
@@ -59,6 +77,22 @@ angular.module('pmtoolApp')
 				}).catch(function(err){
 					scope.error = err.message;
 				});
+			}
+
+			scope.changeSprint = function(sprintId,backlog){
+				// console.log('changeSprint sprint-->',sprint);
+				console.log('changeSprint backlog-->',backlog);
+				var backllogId = backlog.id;
+				var data = {
+					sprint : sprintId
+				}
+				console.log('data',data);
+				Backlog.editBacklog(backllogId,data)
+				.then(function(response){
+					console.log('changeSprint resp',response);
+				}).catch(function(err){
+					scope.error = err.message;
+				})
 			}
 		}
     };
