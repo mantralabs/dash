@@ -91,24 +91,27 @@ module.exports = {
     getBacklogDetails : function(backlogId, callback){
     	BacklogItem.findOne({id:backlogId}).populateAll().exec(function (err, backlog){
     		if(!err){
-    			async.map(backlog.project.usersRole,function(user,cb){
-					User.findOne({id:user.user}).exec(function(error,userData){
+    			if (backlog.project.usersRole.length == 0){
+    				callback (null,backlog)
+    			} else {
+	    			async.map(backlog.project.usersRole,function(user,cb){
+						User.findOne({id:user.user}).exec(function(error,userData){
+							if(!err){
+								user.name = userData.name;
+								return cb (null,user);
+							} else {
+								return cb(err);
+							}
+						});
+					},function(err,users){
 						if(!err){
-							user.name = userData.name;
-							return cb (null,user);
+							backlog.project.usersRole = users;
+							return callback (null,backlog);
 						} else {
-							return cb(err);
+							return callback(err);
 						}
 					});
-				},function(err,users){
-					if(!err){
-						backlog.project.usersRole = users;
-						return callback (null,backlog);
-					} else {
-						return callback(err);
-					}
-				});
-    			// callback(null, backlog)
+	    		}
     		} else {
     			callback(err)
     		} 
