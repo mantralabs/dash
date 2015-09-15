@@ -65,8 +65,10 @@ module.exports = {
                         }
                     });
                 } else {
+                    console.log('no project user');
                     Projectuser.create(data, function(err, result){
                         if(!err){
+                            console.log('Projectuser created',result);
                             cb(null, result);
                         }else{
                             cb(err);

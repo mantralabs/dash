@@ -4,11 +4,15 @@ angular.module('pmtoolApp')
   .controller('projectController', function ($scope, $cookieStore,Task, Project, Contact,$location, $rootScope, $routeParams) {
 	
 	$scope.user = $rootScope.user;
+	$scope.projects =[];
 	
 	var path = $location.path();
   	if((path.indexOf('home')  > 0) || $routeParams.id || (path.indexOf('projects')  > 0)){
 		Project.fetch().then(function(response){
-			$scope.projects = response;
+			// $scope.projects = response;
+			angular.forEach(response, function(project){
+				$scope.projects.push(project);
+			})
 			// console.log($scope.projects);
 		}).catch(function(err){
 			$scope.error = err.message;
@@ -26,12 +30,12 @@ angular.module('pmtoolApp')
 			Project.add(data).then(function(response){
 				$scope.projects.push(response);
 				$scope.creatingProject = false;
-				Project.fetch().then(function(response){
-					$scope.projects = response;
-					// console.log($scope.projects);
-					}).catch(function(err){
-					$scope.error = err.message;
-				});
+				// Project.fetch().then(function(response){
+				// 	$scope.projects = response;
+				// 	// console.log($scope.projects);
+				// 	}).catch(function(err){
+				// 	$scope.error = err.message;
+				// });
 			}).catch(function(err){
 				$scope.error = err.message;
 			});

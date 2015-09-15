@@ -12,7 +12,6 @@ module.exports = {
 		if(!req.body || (!req.body.project && !req.body.sprint)){
             res.status(400).json( {status: 400 , message: "ProjectId is missing" });
         }else{
-        	sails.log.debug("inside backlog ctrl");
 			BacklogItem.index(user, req.body, function (err, backlogs){
 				if(!err){
 					res.json(backlogs);

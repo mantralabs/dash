@@ -98,7 +98,7 @@ module.exports = {
 			}
 			Projectuser.add(userData, function(err, result){
 				if(!err){
-					// console.log('inserted in projectuser');
+					console.log('inserted in projectuser');
 				} else {
 					// console.log('err');
 				}

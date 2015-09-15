@@ -69,7 +69,6 @@ exports.taskAlert = function (data, cb) {
 };
 
 exports.projectAlertAdded = function (data, cb) {
-	sails.log.debug("alertadded",data);
 	
 	var mail = {
 		from: 'Dash <noreply@dash.com>',
