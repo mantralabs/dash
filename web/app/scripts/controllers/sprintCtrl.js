@@ -17,4 +17,16 @@ angular.module('pmtoolApp')
   	}
   	getSprint();
 
+  	$scope.deleteSprint = function (sprint) {
+		if (window.confirm('Delete!! Are You Sure?')){
+			var projectId = sprint.project.id;
+			Sprint.deleteSprint(sprint.id).then(function(response){
+					$location.path('/project/'+projectId);
+					console.log('after delete',response);
+			}).catch(function(err){
+				$scope.error = err.message;
+			});
+		}
+	}
+
 });

@@ -46,9 +46,10 @@ angular.module('pmtoolApp')
 	}
 
 	this.deleteBacklog = function(backlogId){
+		console.log('inside delete service');
 		var deferred = $q.defer();
 
-		$http.delete('/api/backlog/delete/'+backlogId)
+		$http.delete('/api/backlog/'+backlogId)
 		.success(function(backlog){
 			deferred.resolve(backlog);
 		})

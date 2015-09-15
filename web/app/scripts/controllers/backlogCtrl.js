@@ -60,4 +60,18 @@ angular.module('pmtoolApp')
 		});
   	}
 
+    $scope.removeBacklog = function (backlog) {
+        console.log('delete backlog',backlog);
+        if (window.confirm('Delete!! Are You Sure?')){
+            var projectId = backlog.project.id;
+            Backlog.deleteBacklog(backlog.id)
+            .then(function(response){
+                $location.path('/project/'+projectId);
+                console.log('after delete',response);
+            }).catch(function(err){
+              $scope.error = err.message;
+            });
+        }
+    }
+
 });

@@ -9,6 +9,7 @@
 		<section id="container" class="clearfix">
     		<div class="project-list">
 				<h4 class="modal-title">{{sprint.name}}
+					<a href=""><button class="delete-btn btn-sprint-delete pull-right" title="delete this Project" ng-click="deleteSprint(sprint)">Delete</button></a>
 					<button class="btn-green pull-right" title="Edit this sprint" data-toggle="modal" data-target="#edit-sprint-modal">Edit</button>
 				</h4>
 				<p class="project-description">{{sprint.description}}</p>

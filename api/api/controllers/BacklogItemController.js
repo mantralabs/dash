@@ -53,7 +53,7 @@ module.exports = {
 	},
 
 	delete: function (req, res) {
-        var backlogId = req.body.id;
+        var backlogId = req.param('id');
         BacklogItem.delete(backlogId, function (err, backlog) {
             if (!err) {
                 res.json("Deleted Successfully");

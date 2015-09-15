@@ -48,7 +48,7 @@ angular.module('pmtoolApp')
 	this.deleteSprint = function(sprintId){
 		var deferred = $q.defer();
 
-		$http.delete('/api/sprint/delete/'+sprintId)
+		$http.delete('/api/sprint/'+sprintId)
 		.success(function(sprint){
 			deferred.resolve(sprint);
 		})
