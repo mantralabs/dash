@@ -9,6 +9,8 @@ angular.module('pmtoolApp')
 		// 	sprint :'='
 		// },
 		link: function(scope, element, attrs) {
+
+			scope.user = $rootScope.user;
 			var path = $location.path();
 			setTimeout(function(){
 			scope.sprints = Sprint.storeSprints;

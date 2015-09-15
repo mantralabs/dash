@@ -108,7 +108,9 @@ angular.module('pmtoolApp')
     
     Project.getRole($routeParams.id)
     	.then(function(response){
-			$scope.myRole = response.role;    	
+			$scope.myRole = response.role;
+			// console.log('response getrole',response);
+			// Project.storeRole =  response; 	
 		}).catch(function(err){
 			console.log(err);
 			$scope.error = err.message;
