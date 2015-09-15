@@ -13,11 +13,11 @@
 						<option value="name">Name</option>
 					</select>
 					<!-- <button ng-if= "user.role == 'admin' " class="btn-green pull-right" data-toggle="modal" data-target="#contacts-modal">Add Contact</button> -->
-					<input class="search-list" type="text" ng-model="name" placeholder="Search contact">
+					<input class="search-list" type="text" ng-model="search.name" placeholder="Search contact">
 				</div>
 
 				<div class="col-md-12">
-					<div ng-repeat="contact in contacts | orderBy : sort | filter : name | filter : project" ng-if="user.id !== contact.id" class="contactslist clearfix">
+					<div ng-repeat="contact in contacts | orderBy : sort | filter : search | filter : project" ng-if="user.id !== contact.id" class="contactslist clearfix">
 						<div class="col-md-1 home-page3-left">
 							<p>     
 								<img ng-if="contact.avatar != null" class="pro-pic" src="{{contact.avatar}}">
