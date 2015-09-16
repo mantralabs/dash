@@ -11,7 +11,7 @@ module.exports = {
 		var userId = req.session.user.id;
 		var projectId = req.param('id');
 		// var projectId = req.body.projectId;
-		Projectwithrole.getRoleInProject(userId, projectId, function (err, RoleinProject) {
+		Projectuser.getRoleInProject(userId, projectId, function (err, RoleinProject) {
 			if (!err) {
 				res.json(RoleinProject);
 			} else {
