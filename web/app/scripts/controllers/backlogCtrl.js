@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .controller('backlogCtrl', function ($scope,$routeParams,$location, Backlog, Task) {
+  .controller('backlogCtrl', function ($scope,$routeParams,$location, Backlog, Task, $rootScope) {
   	
+    $scope.user = $rootScope.user;
+
   	var getBacklog = function(){
   		Backlog.getBacklogDetails($routeParams.id)
 	  	.then(function(response){

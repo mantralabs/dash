@@ -3,6 +3,8 @@
 angular.module('pmtoolApp')
 	.controller('sprintCtrl', function ($scope, $routeParams, $location, Sprint, $rootScope) {
 
+	$scope.user = $rootScope.user;
+		
 	var getSprint = function(){
   		Sprint.getSprintDetails($routeParams.id)
 	  	.then(function(response){
