@@ -7,7 +7,6 @@
 	<div class="clearfix project-1" ng-repeat = "backlog in backlogs">
 		<p class="pull-left">
 			<a class="home-projects" href="#/backlog/{{backlog.id}}">{{backlog.name}}</a>
-			<span>{{backlog.sprint.name}}</span>
 		</p>
 		<p class="pull-right" ng-if="path.indexOf('project') > 0">
 			<select name="" id="" ng-change="changeSprint(sprintId,backlog)" ng-model="sprintId">

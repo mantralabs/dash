@@ -96,9 +96,9 @@ module.exports = {
 				user : userRole.user,
 				role : userRole.role
 			}
-			Projectuser.add(userData, function(err, result){
+			Projectwithrole.add(userData, function(err, result){
 				if(!err){
-					console.log('inserted in projectuser');
+					console.log('inserted in Projectwithrole');
 				} else {
 					// console.log('err');
 				}
@@ -112,9 +112,9 @@ module.exports = {
 					} else {
 						var removedUsers = req.removedMembers;
 						if (removedUsers.length != 0){
-							Projectuser.delete(removedUsers, projectId, function(err, result){
+							Projectwithrole.delete(removedUsers, projectId, function(err, result){
 								if(!err){
-									// console.log('inserted in projectuser');
+									// console.log('inserted in Projectwithrole');
 								} else {
 									// console.log('err');
 								}
