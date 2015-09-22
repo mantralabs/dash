@@ -9,8 +9,8 @@
 		<section id="container" class="clearfix">
     		<div class="project-list">
 				<h4 class="modal-title">{{backlog.name}}
-					 <a href=""><button class="delete-btn btn-sprint-delete pull-right" title="delete this Project" ng-click="removeBacklog(backlog)">Delete</button></a>
-					<button class="btn-green pull-right" title="Edit this backlog" data-toggle="modal" data-target="#edit-backlog-modal">Edit</button>
+					 <a href=""><button ng-if="user.role == 'admin' || myRole == 'manager'" class="delete-btn btn-sprint-delete pull-right" title="delete this Project" ng-click="removeBacklog(backlog)">Delete</button></a>
+					<button ng-if="user.role == 'admin' || myRole == 'manager'" class="btn-green pull-right" title="Edit this backlog" data-toggle="modal" data-target="#edit-backlog-modal">Edit</button>
 				</h4>
 				<p class="project-description">{{backlog.description}}</p>
 					

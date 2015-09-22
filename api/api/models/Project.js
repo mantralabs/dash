@@ -88,21 +88,26 @@ module.exports = {
 	},
 
 	edit: function (projectId, req, callback) {
-
+		console.log('req.usersRole',req.usersRole);
 		_.each(req.usersRole,function(userRole) {
 			console.log('inside each',userRole);
-			var userData ={
-				project : projectId,
-				user : userRole.user,
-				role : userRole.role
-			}
-			Projectuser.add(userData, function(err, result){
-				if(!err){
-					console.log('inserted in projectuser');
-				} else {
-					// console.log('err');
-				}
-			});
+			
+			(function(userRole){
+					var userData ={
+						project : projectId,
+						user : userRole.user,
+						role : userRole.role
+					}
+				Projectuser.add(userData, function(err, result){
+					if(!err){
+						console.log('inserted in projectuser');
+						callback
+					} else {
+						console.log('err-->',err);
+					}
+				});
+			})(userRole);
+
 		});
 		var updateProject = function(projectId,req){
 			Project.update({id : projectId}, req, function (err, data) {

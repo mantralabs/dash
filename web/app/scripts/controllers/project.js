@@ -93,6 +93,17 @@ angular.module('pmtoolApp')
 	$scope.removedEmailIds = [];
 	$scope.memberAdded = false;
 	
+	Project.getRole($routeParams.id)
+	.then(function(response){
+		$rootScope.myRole = response.role;
+		$scope.myRole = response.role;
+		console.log('response getrole',$rootScope.myRole);
+		// Project.storeRole =  response; 	
+	}).catch(function(err){
+		console.log(err);
+		$scope.error = err.message;
+	});
+
 	var path = $location.path();
 	// if((path.indexOf('home')  > 0) || $routeParams.id){ 
 		Project.fetchProject($routeParams.id )
@@ -110,22 +121,13 @@ angular.module('pmtoolApp')
 			});
 	// }
     
-    Project.getRole($routeParams.id)
-    	.then(function(response){
-			$scope.myRole = response.role;
-			// console.log('response getrole',response);
-			// Project.storeRole =  response; 	
-		}).catch(function(err){
-			console.log(err);
-			$scope.error = err.message;
-		});
-
+  
     $scope.positions = [
     	{
     		name : "member"
     	},
     	{
-    		name : "Manager"
+    		name : "manager"
     	}
     ];
     // $scope.roleInProject = $scope.positions[0];
