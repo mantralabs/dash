@@ -11,7 +11,7 @@ module.exports = {
   attributes: {
   	role :{
   		type : 'string',
-  		enum: ['member', 'pm']
+  		enum: ['member', 'manager']
   	},
   	user : {
   		model : 'User'
@@ -35,6 +35,7 @@ module.exports = {
     },
 
     add: function(data, cb){
+        console.log('data',data);
         var projectId = data.project;
         var flag = false;
         
@@ -66,12 +67,14 @@ module.exports = {
                     });
                 } else {
                     console.log('no project user');
+                    console.log(data);
                     Projectuser.create(data, function(err, result){
                         if(!err){
                             console.log('Projectuser created',result);
                             cb(null, result);
                         }else{
                             cb(err);
+                            console.log('inside err',err);
                         }
                     });
                 }

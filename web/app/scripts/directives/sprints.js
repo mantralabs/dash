@@ -14,17 +14,15 @@ angular.module('pmtoolApp')
 
 			// setTimeout(function(){scope.myRole = Project.storeRole.role;},200);
 
-			console.log('myRole',scope.myRole);
-			Project.getRole($routeParams.id)
-		    	.then(function(response){
-					scope.myRole = response.role;
+			// Project.getRole($routeParams.id)
+		 //    	.then(function(response){
+			// 		scope.myRole = response.role;
 
-					console.log('response getrole',response);
-					// Project.storeRole =  response; 	
-				}).catch(function(err){
-					console.log(err);
-					$scope.error = err.message;
-				});
+			// 		console.log('rootscope getrole',scope.myRole);
+			// 	}).catch(function(err){
+			// 		console.log(err);
+			// 		$scope.error = err.message;
+			// 	});
 			setTimeout(function(){$("#datepicker-sprint-start").datepicker({ 
 				autoclose: true, 
 				todayHighlight: true,

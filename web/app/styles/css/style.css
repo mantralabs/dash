@@ -38,16 +38,6 @@
   padding: 5px 10px;
   margin-right: 20px;
 }
-.btn-sprint-delete{
-  margin-right: 22px;
-  float: right;
-  background-color: #959494;
-  color: white;
-  border-radius: 5px;
-  border: 0px;
-  font-size: 14px;
-  padding: 5px 10px;
-}
 .modal-select {
   box-shadow: none;
   height: 30px;
@@ -727,6 +717,7 @@ div#project-1 p {
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
+  margin-top: 10px;
 }
 #taskscroll {
   overflow: auto;

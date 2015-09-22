@@ -123,9 +123,9 @@ angular.module('pmtoolApp')
 		return deferred.promise;
 	}
 
-	this.getRole = function () {
-      	var deferred = $q.defer(),
-            id=$routeParams.id;
+	this.getRole = function (id) {
+      	var deferred = $q.defer();
+            // id=$routeParams.id;
       	$http.get('/api/project/getRole/'+id)
       	.success(function(response){
         	deferred.resolve(response);

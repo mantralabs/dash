@@ -2,7 +2,8 @@
 	<h2>
 		<span class="blue-head">Backlogs</span>
 		<span class="number">{{backlogs.length}}</span>
-		<span class="pull-right plusbutton" data-toggle="modal" data-toggle="modal" data-target="#create-backlog-modal" title="create new backlog"><img class="contacts-icons"src="img/addicon2.png"></span>
+		<span>role:{{myRole}}</span>
+		<span ng-if="user.role == 'admin' || myRole == 'manager'" class="pull-right plusbutton" data-toggle="modal" data-toggle="modal" data-target="#create-backlog-modal" title="create new backlog"><img class="contacts-icons"src="img/addicon2.png"></span>
 	</h2>
 	<div class="clearfix project-1" ng-repeat = "backlog in backlogs">
 		<p class="pull-left">

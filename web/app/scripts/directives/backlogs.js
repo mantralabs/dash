@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pmtoolApp')
-  .directive('backlogs', function ($location, $routeParams, $rootScope, Backlog, Sprint) {
+  .directive('backlogs', function ($location, $routeParams, $rootScope, Backlog, Sprint, Project) {
     return {
 		templateUrl:'views/backlogs.html',
 		restrict: 'E',
@@ -12,27 +12,31 @@ angular.module('pmtoolApp')
 
 			scope.user = $rootScope.user;
 			var path = $location.path();
-			setTimeout(function(){
-			scope.sprints = Sprint.storeSprints;
-			
-			// scope.MyName = scope.sprints[2];
-			// angular.forEach(scope.backlogs, function(val, key){
-			// 	angular.forEach(scope.sprints, function(kal, pey){
-			// 		if (val.sprint) {
-			// 			if (val.sprint.name == kal.name) {
-			// 				val.specialId = pey;
-			// 			}
-			// 		}else{
-			// 			val.specialId = "0";
-			// 		}
-					
-			// 	})
-			// });
-			console.log('scope.sprints',scope.sprints);
-			},200)
+			// setTimeout(function(){
+			// scope.sprints = Sprint.storeSprints;
+			// console.log('scope.sprints',scope.sprints);
+			// },200)
+			// console.log('rootscope getrole',$rootScope.myRole);
+			// console.log('$rootScope.sprint',$rootScope.sprint);
 
+			if (attrs.type == 'sprintPage'){
+				setTimeout(function(){
+					var projectId = $rootScope.sprint.project.id;
+					console.log('asdadf',projectId);
+					Project.getRole(projectId)
+					.then(function(response){
+						console.log('response',response);
+						$rootScope.myRole = response.role;
+						console.log('response getrole',$rootScope.myRole);
+					}).catch(function(err){
+						console.log(err);
+						scope.error = err.message;
+					});
+				},100)
+			}
 
 			
+
 			var fetchBacklogs = function(data){
 				Backlog.fetchBacklogs(data)
 				.then(function(response){

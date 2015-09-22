@@ -78,7 +78,7 @@ exports.projectAlertAdded = function (data, cb) {
 		template: 'projectAdded',
 		context: data
 	}
-	sails.log.debug(data.toString());
+	// sails.log.debug(data.toString());
 
 	transporter.sendMail(mail, function(err, res ){
 		if (err) { 
@@ -99,7 +99,7 @@ exports.projectAlertRemoved = function (data, cb) {
 		template: 'projectRemoved',
 		context: data
 	}
-	sails.log.debug(data.toString());
+	// sails.log.debug(data.toString());
 
 	transporter.sendMail(mail, function(err, res){
 
