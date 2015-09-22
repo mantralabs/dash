@@ -662,6 +662,7 @@ img.login-image {
   list-style-type: none;
   display: inline-block;
   float: right;
+  cursor: pointer;
   padding: 0 35px;
   margin: 0;
 }
