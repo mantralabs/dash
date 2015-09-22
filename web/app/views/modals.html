@@ -56,12 +56,12 @@
             <div class="clearfix border-bottom-grey" style="display: inline-flex;">
               <!-- <span class="select-project">Select Project : </span> -->
            <!--  <div class="select-style"> -->
-           <div class="project-select">
-              <select class="modal-select taskproject" ng-model="task.project" ng-change = "fetchUsers(task.project)">
-                  <option value="">Project</option>
-                  <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
-              </select>
-              </div>
+            <div class="project-select" ng-if="!(pageUrl.indexOf('project')>0)">
+                  <select class="modal-select taskproject" ng-model="task.project" ng-change = "fetchUsers(task.project)">
+                      <option value="">Project</option>
+                      <option ng-repeat="project in projects" id ="{{project.id}}" value="{{project.id}}" >{{project.name}}</option>
+                  </select>
+            </div>
            
             <!-- </div> -->
             <span ng-if="project.users.length == 0" class="signup-page nopeople">No Members</span>
