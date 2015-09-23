@@ -57,6 +57,10 @@
 						<li ng-if="comment.likes.indexOf(user.id) >-1" class="like-comment" ng-click="likeComment(activity,comment.id,comment)"><a href="javascript:"><img src="img/heart-icon-green2.png"></a></li>
 					
 						<li class="like-comment">{{comment.likes.length}}</li>
+
+						<li class="like-comment"  ng-if="user.id == comment.userInfo.id" ng-click="deleteComment(comment.id)" ><img class="activity-delete-icon"src="img/delete.png">Delete</li>
+						<li class="like-comment"  ng-if="user.id == comment.userInfo.id" ng-click="editComment(comment)" ><img class="activity-delete-icon" src="img/edit-icon.png">Edit</li>
+
 					</ul>
 					
 					
@@ -96,6 +100,28 @@
 
                   <div class="modal-footer">
                     <button type="submit" class="btn-green" ng-click="editActivityModal(currentActivity)">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div><!-- modal--> 
+
+          <div class="modal fade common-modal" id="edit-comment-modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form action="">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title assign-task-heading">Edit Comment</h4>
+                  </div>
+              
+                  <div class="modal-body">
+                    <input class="modal-input"type="text" placeholder="{{currentComment.comment}}" ng-model="currentComment.comment" >
+                    {{comment}}
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn-green" ng-click="editCommentModal(currentComment)">Update</button>
                   </div>
                 </form>
               </div>
