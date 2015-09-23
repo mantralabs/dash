@@ -125,23 +125,46 @@ angular.module('pmtoolApp')
 
         scope.ActivityDelete = function (activity,id) {
           console.log(id);
-          var data = {"activityId":id}
-          Activity.deleteActivity(data)
-          .then(function(response){
-              Activity.fetch($routeParams.id)
+          var actDelete = confirm("Are you Sure ?");
+          if(actDelete==true){
+            var data = {"activityId":id}
+            Activity.deleteActivity(data)
               .then(function(response){
-                scope.activities1 = response;
+                Activity.fetch($routeParams.id)
+                .then(function(response){
+                  scope.activities1 = response;
+                })
+                .catch(function(err){
+                  scope.error = err.message;
+                });
               })
-              .catch(function(err){
-                scope.error = err.message;
-              });
-        
-          })
-          .catch(function(err){
-            scope.error = err.message;
-          });
+          }else{}
         }
+
        
+       scope.deleteComment = function(commentId){
+        var a=confirm("are you sure ?");
+        if(a==true){
+          var data = {"activityId":commentId}
+          Activity.deleteActivity(data)
+            .then(function(response){
+                Activity.fetch($routeParams.id)
+                .then(function(response){
+                  scope.activities1 = response;
+                })
+                .catch(function(err){
+                  scope.error = err.message;
+
+                });
+          
+            })
+            .catch(function(err){
+              scope.error = err.message;
+            });
+        }else{}
+        
+       }
+
         scope.editActivity = function(activity) {
           console.log(activity);
           $("#edit-activity-modal").modal();
@@ -164,6 +187,29 @@ angular.module('pmtoolApp')
           });
           
         }
+
+        scope.editComment = function(comment){
+          $("#edit-comment-modal").modal();
+          scope.currentComment = comment;
+        }
+
+        scope.editCommentModal = function(currentComment){
+
+          var data = {
+            "comment" : currentComment.comment,
+          };
+          console.log(data);
+          Activity.edit(data, currentComment.id)
+          .then(function(response){
+            $("#edit-comment-modal").modal('hide');
+            console.log(response);
+          })
+          .catch(function(err){
+            scope.error = err.message;
+          });
+          
+        }
+
         
         scope.addComment = function (activity) {
 

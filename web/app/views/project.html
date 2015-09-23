@@ -29,7 +29,7 @@
 							<span ng-if="user.role == 'admin' || myRole == 'manager' " class="pull-right plusbutton"
 							 data-toggle="modal" data-target="#contact-list-modal" ng-click = "itemsPush()" title="Add and remove project members"><img class="contacts-icons"src="img/addicon2.png"></span>
 						</h2>
-						<div id="project-1" ng-repeat = "member in project.users | limitTo : 5"> 
+						<div id="project-1" ng-repeat = "member in project.users | orderBy:'name'"> <!-- for order by -->
 							<p class="left-column">
 								{{member.name}}
 							</p>
