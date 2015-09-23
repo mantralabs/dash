@@ -26,6 +26,9 @@
   font-size: 16px;
   width: 100%;
 }
+.margin-top-ten {
+  margin-top: 10px;
+}
 ::-webkit-input-placeholder {
   font-size: 10pt;
   color: lightgrey;
@@ -349,6 +352,20 @@
   padding-top: 9px;
   text-align: center;
 }
+#create-sprint-modal .modal-input .calender-box {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+.sprint-page #left #tasks {
+  margin-top: 0 ;
+}
+#backlog-task {
+  width: 200px !important;
+}
+.backlogs-sprint .margin-top-ten {
+  margin-top: 0;
+}
 .workspacelist {
   background-color: white;
   height: 45px;
@@ -481,7 +498,7 @@ h4 {
   padding: 10px 5px;
   font-weight: normal;
   font-family: Roboto;
-  margin-top: 10px;
+  margin-top: 0;
 }
 a {
   font-family: Roboto;
@@ -641,6 +658,7 @@ img.login-image {
   list-style-type: none;
   display: inline-block;
   float: right;
+  cursor: pointer;
   padding: 0 35px;
   margin: 0;
 }
@@ -802,7 +820,7 @@ div#project-1 p {
   /*width: 805px;*/
 
   height: 213px;
-  margin-bottom: 11px;
+  margin-bottom: 10px;
   background-color: #fff;
   text-align: center;
   border-radius: 2px;
