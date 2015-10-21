@@ -13,6 +13,9 @@
   font-size: 14px;
   margin-right: 20px;
 }
+.btn-green:hover{
+  cursor: pointer;
+}
 .border-bottom-grey {
   border-bottom: 1px solid #eee;
 }
