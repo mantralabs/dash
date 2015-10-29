@@ -68,6 +68,7 @@ angular
         resolve : resolve
       })
 
+
       .when('/workspaces/:id',{
         templateUrl:'views/workspace-home.html',
         controller:'getWorkspaceController',

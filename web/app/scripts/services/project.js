@@ -8,6 +8,7 @@ angular.module('pmtoolApp')
 		
 		$http.get('/api/project')
 		.success(function(data){
+			// console.log('hahahahaha',data);
 			deferred.resolve(data);
 		})
 		.error(function(err){

@@ -24,6 +24,17 @@ angular.module('pmtoolApp')
 
 	$scope.emailError = false;
 
+
+// $scope.updateroll = function (contact,roleContact) {
+// Contact.add(contact).then(function(response){
+// 	response.roleCon = roleContact;
+// 				$scope.contacts.push(response);
+// 				$('.roleCon').val('');
+// 			}).catch(function(err){
+// 				$scope.error = err.message;
+// 			});
+// 	}
+
 	$scope.addNewContact = function (data) {
 
 		var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;

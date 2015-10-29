@@ -7,15 +7,15 @@
 	    <div class="home-page3">
 			<div class="home-page3-head clearfix">
 				<span class="blue-head">List of Workspaces</span>
-				<button ng-if="user.role == 'admin'" class="btn-green pull-right" data-toggle="modal" data-target="#workspace-modal">Create Workspce</button>
+				<button ng-if="user.role == 'admin'" class="btn-green pull-right" data-toggle="modal" data-target="#workspace-modal">Create Workspace</button>
 				<input class="search-list" type="text" ng-model="name" placeholder="search here">
 			</div>
 
 			<div class="home-page3-profile clearfix" >
-				<!-- <p class="project-name" ng-repeat = "workspace in workspaces | filter:name track by $index">
+				<!--<p class="project-name" ng-repeat = "workspace in workspaces | filter:name track by $index">
 					<button ng-if="user.role == 'admin'" class="close-btn" title="delete this workspace" ng-click="deleteWorkspace(workspace.id)">x</button>
 					<a href="#/workspaces/{{workspace.id}}">{{workspace.name}}</a>
-				</p> -->
+				</p>-->
 				<ul class="project-name" ng-if="user.role == 'admin'">
 					<li  ng-repeat ="workspace in workspaces | filter:name track by $index">
 						<a  href="#/workspaces/{{workspace.id}}">{{workspace.name}}</a>

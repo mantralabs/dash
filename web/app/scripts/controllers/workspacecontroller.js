@@ -18,6 +18,7 @@ angular.module('pmtoolApp')
 		Workspace.add(data).then(function(response){
 			$scope.workspaces.push(response);
 		}).catch(function(err){
+			console.log(err.message);
 			$scope.error = err.message;
 		});
 		$(".workspacename").val("");

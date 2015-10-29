@@ -132,19 +132,43 @@ angular.module('pmtoolApp')
     ];
     // $scope.roleInProject = $scope.positions[0];
     $scope.updateroll = function(contact,roleInProject){
-    	console.log("shd",$scope.usersWithRole.length);
-    	var obj = {user:contact.id,role:roleInProject.name}
+    	var obj = {user:contact.id,role:roleInProject}
+    	var flag = false;
     	if($scope.usersWithRole.length == 0){
     		$scope.usersWithRole.push(obj);
-	        console.log("$scope.usersWithRole",$scope.usersWithRole);
-    	} else for(var i=0 ; i < $scope.usersWithRole.length; i++) {
-	        if($scope.usersWithRole[i].user == contact.id){
-	        	console.log('inside update roll for loop');
-	          $scope.usersWithRole[i].role = roleInProject;
-	          console.log("$scope.usersWithRole",$scope.usersWithRole);
-	         }
-	  	} 
+    	} else {
+    		for(var i=0 ; i < $scope.usersWithRole.length; i++) {
+		        if($scope.usersWithRole[i].user == contact.id){
+		        	  // $scope.usersWithRole[i].user = contact.id;
+			          $scope.usersWithRole[i].role = roleInProject;
+			          flag = true
+			          // $scope.usersWithRole.push({user:contact.id, role:roleInProject});
+		        }
+		    }
+		    if(!flag)
+		    	$scope.usersWithRole.push(obj);	
+	  	}
     }
+
+    $scope.contactRole = function (id) {
+  	  var contRole = null;
+  	  var role = {}
+  	 // console.log($scope.project)
+  	  if($scope.project.usersRole){
+	      for(var i=0 ; i < $scope.project.usersRole.length; i++) {
+	        if($scope.project.usersRole[i].user == id){
+	        	if($scope.project.usersRole[i].role)
+	          		contRole = $scope.project.usersRole[i].role;
+	          	//console.log($scope.project.usersRole[i].role);
+	        }
+	      }
+	  }
+	  
+	  role.name = contRole;
+	  role.user = id;
+	  console.log(role);
+      return role;
+  	};
 	$scope.sync = function (bool, roleInProject, item, index) {
 		console.log('mshjfgs',roleInProject);
 
@@ -159,7 +183,7 @@ angular.module('pmtoolApp')
 		        	 $scope.removedMembers.splice(j,1);
 		        }
 		    }
-		   
+	
 	    } else {
 	      // remove item
 		$scope.removedMembers.push(item.id);
@@ -204,6 +228,8 @@ angular.module('pmtoolApp')
       return match;
   	};
 
+
+
 	$scope.updateProjectMembers = function () {
 		$scope.memberAdded = true;
 		$scope.projectId = $routeParams.id;
@@ -214,7 +240,7 @@ angular.module('pmtoolApp')
 			"projectName":$scope.project.name,
 			"description":$scope.project.description,
 		};
-		// console.log(data);
+		// console.log("role",$scope.usersWithRole);
 
 		Project.addProjectMember ($scope.projectId,data)
 		.then(function(response){

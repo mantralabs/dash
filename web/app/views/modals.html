@@ -159,7 +159,7 @@
 </div><!-- modal -->
 
 <!-- create new workspace -->
-<div class="modal fade" id="workspace-modal">
+<div class="modal fade" id="workspace-modal" ng-controller="workspaceCtrl">
   <div class="modal-dialog">
     <div class="modal-content">
       <form action="" name="workspaceForm">
@@ -173,9 +173,9 @@
             <input class="modal-input workspacename" name="workspaceName" id="workspaceName" type="text" placeholder="Enter Workspace Name" ng-model='workspace.name' required>
           </div>
         </div>
-
+            {{workspace}}
         <div class="modal-footer">
-          <button type="button" ng-disabled="workspaceForm.workspaceName.$error.required" class="btn-green" ng-click="addNewWorkspace(workspace)">Create Workspace</button>
+          <button type="button" class="btn-green" ng-click="addNewWorkspace(workspace)">Create Workspace</button>
         </div>
       </form>
     </div>
@@ -244,9 +244,15 @@
                         <option value="member">Developer</option>
                         <option value="pm">ProjectManager</option>
                     </select> -->
-                    <select ng-model="roleInProject" ng-options="pos as pos.name for pos in positions" ng-change="updateroll(contact,roleInProject.name)">
+                    <select  ng-model="input2" ng-init="input2 = contactRole(contact.id)"  ng-options="pos.name for pos in positions"   ng-change="updateroll(contact,input2.name)">
+                      <!-- <option value="">{{input2.name}}</option> -->
+                    </select>{{input2.name}}
+                    <!-- <select ng-init="input2 = contactRole(contact.id)" ng-model="input2" ng-options="pos.name for pos in positions" ng-change="updateroll(contact,input2.name)" ng-selected="input2" value="{{positions.name}}==">
                     </select>
-                </div>
+ -->                </div>
+                
+                      
+
             </div>
           </div>
         </div>
