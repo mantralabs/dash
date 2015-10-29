@@ -207,6 +207,13 @@ angular.module('pmtoolApp')
   		for(var i=0 ; i < $scope.project.users.length; i++){
 			$scope.userIds.push($scope.project.users[i].id);
 		}
+		console.log($scope.project.usersRole);
+		if($scope.project.usersRole.length>0){
+			for(var j=0;j<$scope.project.usersRole.length;j++){
+				$scope.usersWithRole.push($scope.project.usersRole[j]);
+			}
+		}
+		console.log($scope.usersWithRole);
   	};
 
   	$scope.usersPush = function () {
@@ -240,7 +247,7 @@ angular.module('pmtoolApp')
 			"projectName":$scope.project.name,
 			"description":$scope.project.description,
 		};
-		// console.log("role",$scope.usersWithRole);
+		console.log("role",$scope.usersWithRole);
 
 		Project.addProjectMember ($scope.projectId,data)
 		.then(function(response){
@@ -360,5 +367,9 @@ angular.module('pmtoolApp')
 		}
 		
 	};
+
+	// $('.contacts-icons').click(function(e){
+	// 	console.log($scope.usersWithRole);
+	// });
 });
 
