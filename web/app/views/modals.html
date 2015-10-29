@@ -245,8 +245,8 @@
                         <option value="pm">ProjectManager</option>
                     </select> -->
                     <select  ng-model="input2" ng-init="input2 = contactRole(contact.id)"  ng-options="pos.name for pos in positions"   ng-change="updateroll(contact,input2.name)">
-                      <!-- <option value="">{{input2.name}}</option> -->
-                    </select>{{input2.name}}
+                      <option value="">{{input2.name}}</option>
+                    </select>
                     <!-- <select ng-init="input2 = contactRole(contact.id)" ng-model="input2" ng-options="pos.name for pos in positions" ng-change="updateroll(contact,input2.name)" ng-selected="input2" value="{{positions.name}}==">
                     </select>
  -->                </div>
