@@ -166,7 +166,7 @@ angular.module('pmtoolApp')
 	  
 	  role.name = contRole;
 	  role.user = id;
-	  console.log(role);
+	  // console.log(role);
       return role;
   	};
 	$scope.sync = function (bool, roleInProject, item, index) {
@@ -207,13 +207,11 @@ angular.module('pmtoolApp')
   		for(var i=0 ; i < $scope.project.users.length; i++){
 			$scope.userIds.push($scope.project.users[i].id);
 		}
-		console.log($scope.project.usersRole);
 		if($scope.project.usersRole.length>0){
 			for(var j=0;j<$scope.project.usersRole.length;j++){
 				$scope.usersWithRole.push($scope.project.usersRole[j]);
 			}
 		}
-		console.log($scope.usersWithRole);
   	};
 
   	$scope.usersPush = function () {
