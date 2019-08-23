@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "title": "Fully Executed Lease M8300",
+      "title": "Lease Documents",
       "paragraphs": [
         {
           "context": "Lessor Name Gary Lewis Jungwirth and Elizabeth Anne Jungwirth. ABN 21 717 960 278. Address 740 Mt Ridley Road, Mickleham Vic 3064. Telephone 0417 335 940. Email jungwirth@netspace.net.au.",
@@ -220,6 +220,1241 @@
               ],
               "question": "What is the Act ?",
               "id": "5733a6424776f41900660f52"
+            }
+          ]
+        },
+        {
+          "context": "Name Tablelands Regional Council. ABN 77 642 342 175. Address: 45 Mabel Street Atherton QLD 4883. Telephone: 1300 362 242. Email: AmandaH@trc.qld.gov.au. Attention: Amanda Henderson",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "Tablelands Regional Council"
+                }
+              ],
+              "question": "What is the name ?",
+              "id": "5733b6424776f41900660f01"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 38,
+                  "text": "77 642 342 175"
+                }
+              ],
+              "question": "What is the ABN ?",
+              "id": "5733b6424776f41900660f02"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 63,
+                  "text": "45 Mabel Street Atherton QLD 4883"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f03"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 110,
+                  "text": "1300 362 242"
+                }
+              ],
+              "question": "what is the Telephone Number ?",
+              "id": "5733b6424776f41900660f04"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 131,
+                  "text": "AmandaH@trc.qld.gov.au"
+                }
+              ],
+              "question": "What is the Email ?",
+              "id": "5733b6424776f41900660f05"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 166,
+                  "text": "Amanda Henderson"
+                }
+              ],
+              "question": "Who is in Attention ?",
+              "id": "5733b6424776f41900660f11"
+            }
+          ]
+        },
+        {
+          "context": "Name Optus Mobile Pty Limited. ACN 054 365 696. Address: 1 Lyonpark Road, Macquarie Park NSW 2113 PO Box 888, North Ryde NSW 1670. Telephone: (02) 8113 5128. Email: mdsspropertyissues@optus.com.au. Attention: National Site Acquisition Co-ordinator.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "What is the name ?",
+              "id": "5733b6424776f41900660f06"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f07"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f08"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 142,
+                  "text": "(02) 8113 5128"
+                }
+              ],
+              "question": "what is the Telephone Number ?",
+              "id": "5733b6424776f41900660f09"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 165,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is the Email ?",
+              "id": "5733b6424776f41900660f10"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 209,
+                  "text": "National Site Acquisition Co-ordinator"
+                }
+              ],
+              "question": "Who is in Attention ?",
+              "id": "5733b6424776f41900660f12"
+            }
+          ]
+        },
+        {
+          "context": "Date of Commencement 27 November 2018. Date of Expiration 26 November 2028. Term 10 years. Site Code: B1552. Premises: Lease B on SP300808 in Lot 484 on CP NR6334.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "What is the Date of Commencement ?",
+              "id": "5733b6424776f41900660f13"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "26 November 2028"
+                }
+              ],
+              "question": "What is the Date of Expiry ?",
+              "id": "5733b6424776f41900660f14"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 81,
+                  "text": "10 years"
+                }
+              ],
+              "question": "what is the Term ?",
+              "id": "5733b6424776f41900660f15"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 102,
+                  "text": "B1552"
+                }
+              ],
+              "question": "what is the Site Code ?",
+              "id": "5733b6424776f41900660f16"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 119,
+                  "text": "Lease B on SP300808 in Lot 484 on CP NR6334"
+                }
+              ],
+              "question": "What is Premises ?",
+              "id": "5733b6424776f41900660f17"
+            }
+          ]
+        },
+        {
+          "context": "Rent: $6,000 (plus GST, if any) per annum, increased by 3% on each anniversary of the Commencement Date throughout the Term. Account Name: Tablelands Regional Council. BSB: 084-512. Account No: 753387641.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 6,
+                  "text": "$6,000 (plus GST, if any) per annum "
+                }
+              ],
+              "question": "How much is the Rent ?",
+              "id": "5733b6424776f41900660f18"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 43,
+                  "text": "increased by 3% on each anniversary of the Commencement Date"
+                }
+              ],
+              "question": "How much is increase in Rent ?",
+              "id": "5733b6424776f41900660f19"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 139,
+                  "text": "Tablelands Regional Council"
+                }
+              ],
+              "question": "what is the name of the Account ?",
+              "id": "5733b6424776f41900660f20"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 173,
+                  "text": "084-512"
+                }
+              ],
+              "question": "what is BSB ?",
+              "id": "5733b6424776f41900660f21"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 194,
+                  "text": "753387641"
+                }
+              ],
+              "question": "What is the Account No",
+              "id": "5733b6424776f41900660f22"
+            }
+          ]
+        },
+        {
+          "context": "Name Gary Dean Siebert and Kerrin Darrell Siebert. ABN 88 371 472 673. Address: PO Box 107, Lock SA 5633. Telephone: (08) 8687 3006.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "Gary Dean Siebert and Kerrin Darrell Siebert"
+                }
+              ],
+              "question": "what is the name ?",
+              "id": "5733b6424776f41900660f23"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 55,
+                  "text": "88 371 472 673"
+                }
+              ],
+              "question": "What is the ABN ?",
+              "id": "5733b6424776f41900660f24"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 80,
+                  "text": "PO Box 107, Lock SA 5633"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f25"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 117,
+                  "text": "(08) 8687 3006"
+                }
+              ],
+              "question": "what is the Telephone Number ?",
+              "id": "5733b6424776f41900660f26"
+            }
+          ]
+        },
+        {
+          "context": "Name Optus Mobile Pty Limited. ACN 054 365 696. Address: 1 Lyonpark Road, Macquarie Park NSW 2113 Telephone: (02) 8082 1620. Attention: Manager- Lease Administration Optus Mobile Pty Limited",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "what is the name ?",
+              "id": "5733b6424776f41900660f27"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f28"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f29"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 109,
+                  "text": "(02) 8082 1620"
+                }
+              ],
+              "question": "what is the Telephone Number ?",
+              "id": "5733b6424776f41900660f30"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 136,
+                  "text": "Manager- Lease Administration Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "who is in Attention ?",
+              "id": "5733b6424776f41900660f31"
+            }
+          ]
+        },
+        {
+          "context": "Commencing on the 8 day of March 2011. Expiring on the 7 day of March 2016. Term 10 years. Site Code: A8147. Premises: the area cross hatched on the plan forming Schedule 1 hereto being part of the property known as Tooligie Hill Road, Tooligie SA 5607. The whole of the land comprised in Certificate of Title Register Book Volume 5605 Folio 505",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 18,
+                  "text": "8 day of March 2011"
+                }
+              ],
+              "question": "what is the Date of commencement ?",
+              "id": "5733b6424776f41900660f32"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 55,
+                  "text": "7 day of March 2016"
+                }
+              ],
+              "question": "What is Date of Expiry ?",
+              "id": "5733b6424776f41900660f33"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 81,
+                  "text": "10 years"
+                }
+              ],
+              "question": "what is the Term ?",
+              "id": "5733b6424776f41900660f34"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 102,
+                  "text": "A8147"
+                }
+              ],
+              "question": "what is the Site Code ?",
+              "id": "5733b6424776f41900660f35"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 216,
+                  "text": "Tooligie Hill Road, Tooligie SA 5607"
+                }
+              ],
+              "question": "what is property known as ?",
+              "id": "5733b6424776f41900660f36"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 310,
+                  "text": "Register Book Volume 5605 Folio 505"
+                }
+              ],
+              "question": "what is the Certificate of Title?",
+              "id": "5733b6424776f41900660f37"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 310,
+                  "text": "Register Book Volume 5605 Folio 505"
+                }
+              ],
+              "question": "what is the Certificate of Title?",
+              "id": "5733b6424776f41900660f38"
+            }
+          ]
+        },
+        {
+          "context": "Rent and manner of payment (or other consideration) four thousand dollars ($4,000.00)(GST exclusive) during the first year of the Term, and increased by 3% compounding annually thereafter for the balance of the Term.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 74,
+                  "text": "($4,000.00)(GST exclusive) during the first year of the Term"
+                }
+              ],
+              "question": "How much is the Rent ?",
+              "id": "5733b6424776f41900660f39"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 140,
+                  "text": "increased by 3% compounding annually thereafter for the balance of the Term."
+                }
+              ],
+              "question": "How much is increase in Rent ?",
+              "id": "5733b6424776f41900660f40"
+            }
+          ]
+        },
+        {
+          "context": "Name Scentre Management Limited. ACN 001 670 579. Address 85 Castlereagh Street SYDNEY NSW 2000 And SAS Trustee Corporation 83 Clarence Street SYDNEY NSW 2000.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "Scentre Management Limited"
+                }
+              ],
+              "question": "What is the name ?",
+              "id": "5733b6424776f41900660f41"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 37,
+                  "text": "001 670 579"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f42"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "85 Castlereagh Street SYDNEY NSW 2000"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f43"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 100,
+                  "text": "SAS Trustee Corporation 83 Clarence Street SYDNEY NSW 2000."
+                }
+              ],
+              "question": "what is the another Address ?",
+              "id": "5733b6424776f41900660f44"
+            }
+          ]
+        },
+        {
+          "context": "Name OPTUS RETAILCO PTY LIMITED ACN 092 221 406. Address: \"Building C\", Level 4, 1- 7 Lyonpark Road, Macquarie Park, New South Wales, 2113.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "OPTUS RETAILCO PTY LIMITED"
+                }
+              ],
+              "question": "What is the name ?",
+              "id": "5733b6424776f41900660f45"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 36,
+                  "text": "092 221 406"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f46"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "\"Building C\", Level 4, 1- 7 Lyonpark Road, Macquarie Park, New South Wales, 2113"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f47"
+            }
+          ]
+        },
+        {
+          "context": "Commencement Date of Lease 23 August 2017. Expiry Date of Lease 22 August 2022. Minimum Rent Per Annum THREE HUNDRED AND FIFTEEN THOUSAND DOLLARS ($315,000.00). Premises Shop 2062, Westfield Knox.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 27,
+                  "text": "23 August 2017"
+                }
+              ],
+              "question": "what is the Date of commencement ?",
+              "id": "5733b6424776f41900660f48"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 64,
+                  "text": "22 August 2022"
+                }
+              ],
+              "question": "What is Date of Expiry ?",
+              "id": "5733b6424776f41900660f49"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 147,
+                  "text": "$315,000.00"
+                }
+              ],
+              "question": "what is the Rent ?",
+              "id": "5733b6424776f41900660f50"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 170,
+                  "text": "Shop 2062, Westfield Knox."
+                }
+              ],
+              "question": "where is the Premises ?",
+              "id": "5733b6424776f41900660f51"
+            }
+          ]
+        },
+        {
+          "context": "Land: All that land situate at and known as Westfield Knox, Corner Burwood Highway and Stud Road, Wantirna South, Victoria and being the land more particularly described in Certificates of Title Volume 10795 Folios 739 and 740 and Volume 10333 Folio 987.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 6,
+                  "text": "All that land situate at and known as Westfield Knox, Corner Burwood Highway and Stud Road, Wantirna South, Victoria"
+                }
+              ],
+              "question": "where is the Land ?",
+              "id": "5733b6424776f41900660f52"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 173,
+                  "text": "Certificates of Title Volume 10795 Folios 739 and 740 and Volume 10333 Folio 987."
+                }
+              ],
+              "question": "What is the Certificate of title Volume ?",
+              "id": "5733b6424776f41900660f53"
+            }
+          ]
+        },
+        {
+          "context": "Land: Lot 50 DP1109955, Lot 1 DP1116493 and Lot 1 DP1087128",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 6,
+                  "text": "Lot 50 DP1109955, Lot 1 DP1116493 and Lot 1 DP1087128"
+                }
+              ],
+              "question": "where is the Land ?",
+              "id": "5733b6424776f41900660f54"
+            }
+          ]
+        },
+        {
+          "context": "OPTUS ADMINISTRATION PTY LIMITED. ABN 79 055 136 804. TERM: 14 YEARS and 15 days. COMMENCING DATE 15 JUNE 2007. TERMINATING DATE 30 jUNE 2021.  Rent $7,570,500.00",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "OPTUS ADMINISTRATION PTY LIMITED"
+                }
+              ],
+              "question": "what is the name ?",
+              "id": "5733b6424776f41900660f55"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 46,
+                  "text": "79 055 136 804"
+                }
+              ],
+              "question": "What is the ABN ?",
+              "id": "5733b6424776f41900660f56"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 68,
+                  "text": "14 Years and 15 days"
+                }
+              ],
+              "question": "what is the Term?",
+              "id": "5733b6424776f41900660f57"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 106,
+                  "text": "15 JUNE 2007"
+                }
+              ],
+              "question": "what is the Commencement Date ?",
+              "id": "5733b6424776f41900660f58"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 137,
+                  "text": "30 jUNE 2021"
+                }
+              ],
+              "question": "what is the TERMINATING Date ?",
+              "id": "5733b6424776f41900660f59"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 157,
+                  "text": "$7,570,500.00"
+                }
+              ],
+              "question": "How much is the Rent ?",
+              "id": "5733b6424776f41900660f60"
+            }
+          ]
+        },
+        {
+          "context": "LESSOR: TRUST COMPANY LIMITED. ABN 59 004 027 749",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "TRUST COMPANY LIMITED"
+                }
+              ],
+              "question": "where is the name of LESSOR ?",
+              "id": "5733b6424776f41900660f61"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "59 004 027 749"
+                }
+              ],
+              "question": "what is the ABN Number ?",
+              "id": "5733b6424776f41900660f62"
+            }
+          ]
+        },
+        {
+          "context": "Premises Building A and Building B including the loading dock as shown on the Lease Plan\nFOLIO OF THE REGISTER: Part of Lot 50 in Deposited Plan 1109955, being Building A and Building B, 1-5 Lyonpark Road Macquarie Park NSW.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 23,
+                  "text": "Part of Lot 50 in Deposited Plan 1109955, being Building A and Building B, 1-5 Lyonpark Road Macquarie Park NSW."
+                }
+              ],
+              "question": "where is the Folio of Register ?",
+              "id": "5733b6424776f41900660f63"
+            }
+          ]
+        },
+        {
+          "context": "Lessor: Perpetual Nominees Limited ACN 000 733 700. Address d- The Centre Manager. Centre Management Office, Orion Springfield Central, 1 Main Street, Springfield Central OLD 4300.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "Perpetual Nominees Limited"
+                }
+              ],
+              "question": "Who is Lessor ?",
+              "id": "5733b6424776f41900660f64"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "000 733 700"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f65"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 60,
+                  "text": "d- The Centre Manager. Centre Management Office, Orion Springfield Central, 1 Main Street, Springfield Central OLD 4300"
+                }
+              ],
+              "question": "where is the Address ?",
+              "id": "5733b6424776f41900660f66"
+            }
+          ]
+        },
+        {
+          "context": "Lessee: Optus Retailco Pty Limited ACN 092 221 406. Address Building C, Level 4,1-7 Lyonpark Road, Macquarie Park NSW 2113.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 7,
+                  "text": "Optus Retailco Pty Limited"
+                }
+              ],
+              "question": "Who is Lessee ?",
+              "id": "5733b6424776f41900660f67"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 38,
+                  "text": "092 221 406"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f68"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 59,
+                  "text": "Building C, Level 4,1-7 Lyonpark Road, Macquarie Park NSW 2113."
+                }
+              ],
+              "question": "where is the Address ?",
+              "id": "5733b6424776f41900660f69"
+            }
+          ]
+        },
+        {
+          "context": "Term : Five (5) years. COMMENCING DATE 15 March 2017. TERMINATING DATE 14 March 2022. Rent: Year 1: $ 98,300.00 per annum, Year2: $104,200.00 per annum, Year 3: $111,000.00 per annum, Year 4: $116,500.00 per annum, Years: $122,377.50 per annum.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 7,
+                  "text": "Five (5) years"
+                }
+              ],
+              "question": "What is the Term ?",
+              "id": "5733b6424776f41900660f70"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "15 MARCH 2017"
+                }
+              ],
+              "question": "What is the Commencing Date ?",
+              "id": "5733b6424776f41900660f71"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 71,
+                  "text": "14 March 2022"
+                }
+              ],
+              "question": "what is the Terminating Date ?",
+              "id": "5733b6424776f41900660f72"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 100,
+                  "text": "$ 98,300.00 per annum"
+                }
+              ],
+              "question": "what is the Rent for Year 1 ?",
+              "id": "5733b6424776f41900660f73"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 130,
+                  "text": "$104,200.00 per annum"
+                }
+              ],
+              "question": "what is the Rent for Year 2 ?",
+              "id": "5733b6424776f41900660f74"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 161,
+                  "text": "$111,000.00 per annum"
+                }
+              ],
+              "question": "what is the Rent for Year 3 ?",
+              "id": "5733b6424776f41900660f75"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 192,
+                  "text": "$116,500.00 per annum"
+                }
+              ],
+              "question": "what is the Rent for Year 4 ?",
+              "id": "5733b6424776f41900660f76"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 223,
+                  "text": "$122,377.50 per annum"
+                }
+              ],
+              "question": "what is the Rent for Year 5 ?",
+              "id": "5733b6424776f41900660f77"
+            }
+          ]
+        },
+        {
+          "context": "LAND: Certificate of Title Reference 51025933. PREMISES: Shop 30, Orion Springfield Central, 1 Main Street, Springfield Central Old 4300.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 6,
+                  "text": "Certificate of Title Reference 51025933"
+                }
+              ],
+              "question": "What is the Certificate of Title ?",
+              "id": "5733b6424776f41900660f78"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 57,
+                  "text": "Shop 30, Orion Springfield Central, 1 Main Street, Springfield Central Old 4300."
+                }
+              ],
+              "question": "What is the PREMISES ?",
+              "id": "5733b6424776f41900660f79"
+            }
+          ]
+        },
+        {
+          "context": "Term 10 years. COMMENCING DATE 30 August 2017. TERMINATING DATE 29 August 2027.  Rent $7,975.000 per annum(plus GST)",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "10 years"
+                }
+              ],
+              "question": "What is the Term ?",
+              "id": "5733b6424776f41900660f78"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 31,
+                  "text": "30 August 2017"
+                }
+              ],
+              "question": "What is the Commencing Date ?",
+              "id": "5733b6424776f41900660f79"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 64,
+                  "text": "29 August 2027"
+                }
+              ],
+              "question": "what is the Terminating Date ?",
+              "id": "5733b6424776f41900660f80"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 86,
+                  "text": "$7,975.00 per annum(plus GST)"
+                }
+              ],
+              "question": "what is the Rent ?",
+              "id": "5733b6424776f41900660f81"
+            }
+          ]
+        },
+        {
+          "context": "Landlord (Lessor) : TAP Sydney CBD Pty Limited (ACN 125 864 173)",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 20,
+                  "text": "TAP Sydney CBD Pty Limited"
+                }
+              ],
+              "question": "Who is Lessor ?",
+              "id": "5733b6424776f41900660f82"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 52,
+                  "text": "125 864 173"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f83"
+            }
+          ]
+        },
+        {
+          "context": "Tenant: Optus Retailco Pty Limited . ACM 092 221 406;",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "Optus Retailco Pty Limited"
+                }
+              ],
+              "question": "Who is Tenant ?",
+              "id": "5733b6424776f41900660f84"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 41,
+                  "text": "092 221 406"
+                }
+              ],
+              "question": "What is the ACM ?",
+              "id": "5733b6424776f41900660f85"
+            }
+          ]
+        },
+        {
+          "context": "Land: The land in Certificate of Titie 1/1223808. Part being, Shop G1 in the Building erected on the Land being, 383 George Street, Sydney",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 50,
+                  "text": "Part being, Shop G1 in the Building erected on the Land being, 383 George Street, Sydney"
+                }
+              ],
+              "question": "what is the Part ?",
+              "id": "5733b6424776f41900660f86"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 18,
+                  "text": "Certificate of Titie 1/1223808."
+                }
+              ],
+              "question": "What is the Certificate of title Volume ?",
+              "id": "5733b6424776f41900660f87"
+            }
+          ]
+        },
+        {
+          "context": "Premises: That part of the Land comprising Shop G1 in the Buiiding and all property in it other than items owned by the Tenant.",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 10,
+                  "text": "That part of the Land comprising Shop G1 in the Buiiding and all property in it other than items owned by the Tenant."
+                }
+              ],
+              "question": "where is the Premises ?",
+              "id": "5733b6424776f41900660f88"
+            }
+          ]
+        },
+        {
+          "context": "Lessor: KENT STREET PTY LIMITED ACN 006 794 654, company duly incorporated in Victoria having its registered office in New South Wales at Level 22, AMP Sydney Cove Building, 33 Alfred Street, Sydney",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "KENT STREET PTY LIMITED"
+                }
+              ],
+              "question": "Who is Lessor ?",
+              "id": "5733b6424776f41900660f89"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 36,
+                  "text": "006 794 654"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f90"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 49,
+                  "text": "company duly incorporated in Victoria having its registered office in New South Wales at Level 22, AMP Sydney Cove Building, 33 Alfred Street, Sydney"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f91"
+            }
+          ]
+        },
+        {
+          "context": "Lessor: P.T. LIMITED ACN 004 454 666, a company duly incorporated in Victoria having its registered office in New South Wales at Level 12, 123 Pitt Street, Sydney",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "P.T. LIMITED"
+                }
+              ],
+              "question": "Who is Lessor ?",
+              "id": "5733b6424776f41900660f92"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 25,
+                  "text": "004 454 666"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f93"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 38,
+                  "text": "a company duly incorporated in Victoria having its registered office in New South Wales at Level 12, 123 Pitt Street, Sydney"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f94"
+            }
+          ]
+        },
+        {
+          "context": "Lessor: RE1 LIMITED ACN 145 743 862 a company duly incorporated in Victoria having its registered office in New South Waies at Level 30, B5 Castlereagh Street, Sydney",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "RE1 LIMITED"
+                }
+              ],
+              "question": "Who is Lessor ?",
+              "id": "5733b6424776f41900660f95"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 24,
+                  "text": "145 743 862"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f96"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 38,
+                  "text": "company duly incorporated in Victoria having its registered office in New South Wales at Level 30, B5 Castlereagh Street, Sydney"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f97"
+            }
+          ]
+        },
+        {
+          "context": "Lessee: OPTUS RETAIL CO PTY LIMITED ACN 092 221 406 a company duly incorporated in New South Wales having its registered office in that State at Building C, Level 4, 1-7 Lyonpark Road, Macquarie Park",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 8,
+                  "text": "OPTUS RETAIL CO PTY LIMITED"
+                }
+              ],
+              "question": "Who is Lessee ?",
+              "id": "5733b6424776f41900660f98"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "092 221 406"
+                }
+              ],
+              "question": "What is the ACN ?",
+              "id": "5733b6424776f41900660f99"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 38,
+                  "text": "a company duly incorporated in New South Wales having its registered office in that State at Building C, Level 4, 1-7 Lyonpark Road, Macquarie Park"
+                }
+              ],
+              "question": "what is the Address ?",
+              "id": "5733b6424776f41900660f100"
+            }
+          ]
+        },
+        {
+          "context": "Term Five (5) years. Commencement Date 30 July 2018. Expiry Date 29 July 2023. Minimum Rent per annum $511,000.00",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 5,
+                  "text": "Five (5) years"
+                }
+              ],
+              "question": "What is the Term ?",
+              "id": "5733b6424776f41900660f101"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "30 July 2018"
+                }
+              ],
+              "question": "What is the Commencement Date ?",
+              "id": "5733b6424776f41900660f102"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 65,
+                  "text": "29 July 2023"
+                }
+              ],
+              "question": "what is the Expiry Date ?",
+              "id": "5733b6424776f41900660f103"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 102,
+                  "text": "$511,000.00"
+                }
+              ],
+              "question": "what is the Rent ?",
+              "id": "5733b6424776f41900660f104"
+            }
+          ]
+        },
+        {
+          "context": "Land: Volume 8645 Folio 74, Volume 8645 Folio 75. Premises: Shop 1033, Shop 1034, Westfield Liverpool",
+          "qas": [
+            {
+              "answers": [
+                {
+                  "answer_start": 6,
+                  "text": "Volume 8645 Folio 74, Volume 8645 Folio 75"
+                }
+              ],
+              "question": "what is the Part ?",
+              "id": "5733b6424776f41900660f105"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 60,
+                  "text": "Shop 1033, Shop 1034, Westfield Liverpool"
+                }
+              ],
+              "question": "What is the Premises ?",
+              "id": "5733b6424776f41900660f106"
             }
           ]
         }
