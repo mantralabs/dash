@@ -925,6 +925,26 @@
               ],
               "question": "where is the Premises ?",
               "id": "5733b6424776f41900660f51"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 170,
+                  "text": "Shop 2062, Westfield Knox."
+                }
+              ],
+              "question": "what is the address of the Premise ?",
+              "id": "5733b6424776f41900660f51"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 170,
+                  "text": "Shop 2062, Westfield Knox."
+                }
+              ],
+              "question": "what is the address of Premise ?",
+              "id": "5733b6424776f41900660f51"
             }
           ]
         },
