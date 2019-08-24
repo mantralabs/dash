@@ -74,11 +74,31 @@
             {
               "answers": [
                 {
+                  "answer_start": 12,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "what is the Lessee name ?",
+              "id": "5733bf84d058e614000b61bef"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 43,
                   "text": "65 054 365 696"
                 }
               ],
               "question": "What is the ABN of Lessee ?",
+              "id": "5733bf84d058e614000b61bf"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 43,
+                  "text": "65 054 365 696"
+                }
+              ],
+              "question": "What is Lessee's ABN ?",
               "id": "5733bf84d058e614000b61bf"
             },
             {
@@ -94,6 +114,16 @@
             {
               "answers": [
                 {
+                  "answer_start": 66,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is Lessee's address ?",
+              "id": "5733bf84d058e614000b61c0"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 189,
                   "text": "mdsspropertyissues@optus.com.au"
                 }
@@ -104,11 +134,41 @@
             {
               "answers": [
                 {
+                  "answer_start": 189,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is Lessee's email?",
+              "id": "5733bf84d058e614000b61bd"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 167,
                   "text": "(02) 8113 5128"
                 }
               ],
               "question": "what is Lessee's Telephone Number ?",
+              "id": "5733bf84d058e614000b61c1"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 167,
+                  "text": "(02) 8113 5128"
+                }
+              ],
+              "question": "what is Lessee Telephone Number ?",
+              "id": "5733bf84d058e614000b61c1"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 167,
+                  "text": "(02) 8113 5128"
+                }
+              ],
+              "question": "what is telephone number of Lessee ?",
               "id": "5733bf84d058e614000b61c1"
             }
           ]
@@ -1013,8 +1073,38 @@
                   "text": "Five (5) years"
                 }
               ],
+              "question": "What is term ?",
+              "id": "5733b6424776f41900660f701"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 7,
+                  "text": "Five (5) years"
+                }
+              ],
               "question": "What is the Term ?",
               "id": "5733b6424776f41900660f70"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "15 MARCH 2017"
+                }
+              ],
+              "question": "What is Commencing Date ?",
+              "id": "5733b6424776f41900660f712"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "15 MARCH 2017"
+                }
+              ],
+              "question": "What is Commencement Date ?",
+              "id": "5733b6424776f41900660f713"
             },
             {
               "answers": [
@@ -1035,6 +1125,26 @@
               ],
               "question": "what is the Terminating Date ?",
               "id": "5733b6424776f41900660f72"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 71,
+                  "text": "14 March 2022"
+                }
+              ],
+              "question": "what is Terminating Date ?",
+              "id": "5733b6424776f41900660f721"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 71,
+                  "text": "14 March 2022"
+                }
+              ],
+              "question": "what is Termination Date ?",
+              "id": "5733b6424776f41900660f72135"
             },
             {
               "answers": [
