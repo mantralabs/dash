@@ -19,11 +19,31 @@
             {
               "answers": [
                 {
+                  "answer_start": 12,
+                  "text": "Gary Lewis Jungwirth and Elizabeth Anne Jungwirth"
+                }
+              ],
+              "question": "who is the Lessor ?",
+              "id": "5733be284776f41900661182"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 67,
                   "text": "21 717 960 278"
                 }
               ],
               "question": "What is the ABN of Lessor ?",
+              "id": "5733be284776f4190066117f"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 67,
+                  "text": "21 717 960 278"
+                }
+              ],
+              "question": "What is the Lessor's ABN ?",
               "id": "5733be284776f4190066117f"
             },
             {
@@ -39,11 +59,31 @@
             {
               "answers": [
                 {
+                  "answer_start": 91,
+                  "text": "740 Mt Ridley Road, Mickleham Vic 3064"
+                }
+              ],
+              "question": "what is Lessor's address ?",
+              "id": "5733be284776f41900661180"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 161,
                   "text": "jungwirth@netspace.net.au"
                 }
               ],
               "question": "What is the Email of Lessor?",
+              "id": "5733be284776f41900661181"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 161,
+                  "text": "jungwirth@netspace.net.au"
+                }
+              ],
+              "question": "What is the Lessor's email?",
               "id": "5733be284776f41900661181"
             },
             {
@@ -69,6 +109,16 @@
                 }
               ],
               "question": "what is the Lessee's name ?",
+              "id": "5733bf84d058e614000b61be"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 12,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "who is the Lessee ?",
               "id": "5733bf84d058e614000b61be"
             },
             {
@@ -219,11 +269,41 @@
             {
               "answers": [
                 {
+                  "answer_start": 250,
+                  "text": "3 December 2018"
+                }
+              ],
+              "question": "What is contract commencement Date ?",
+              "id": "5733bed24776f4190066118b"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 250,
+                  "text": "3 December 2018"
+                }
+              ],
+              "question": "When did contract commenced ?",
+              "id": "5733bed24776f4190066118b"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 285,
                   "text": "2 October 2036"
                 }
               ],
               "question": "What is contract Expiry Date ?",
+              "id": "5733bed24776f4190066118c"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 285,
+                  "text": "2 October 2036"
+                }
+              ],
+              "question": "What is contract expiring ?",
               "id": "5733bed24776f4190066118c"
             }
           ]
