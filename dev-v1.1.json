@@ -239,12 +239,32 @@
             {
               "answers": [
                 {
+                  "answer_start": 5,
+                  "text": "Tablelands Regional Council"
+                }
+              ],
+              "question": "What is name ?",
+              "id": "5733b6424776f41900660f107"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 38,
                   "text": "77 642 342 175"
                 }
               ],
               "question": "What is the ABN ?",
               "id": "5733b6424776f41900660f02"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 38,
+                  "text": "77 642 342 175"
+                }
+              ],
+              "question": "What is the ABN Number ?",
+              "id": "5733b6424776f41900660f108"
             },
             {
               "answers": [
@@ -259,12 +279,42 @@
             {
               "answers": [
                 {
+                  "answer_start": 63,
+                  "text": "45 Mabel Street Atherton QLD 4883"
+                }
+              ],
+              "question": "what is the contact address ?",
+              "id": "5733b6424776f41900660f109"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 63,
+                  "text": "45 Mabel Street Atherton QLD 4883"
+                }
+              ],
+              "question": "what is the address ?",
+              "id": "5733b6424776f41900660f110"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 110,
                   "text": "1300 362 242"
                 }
               ],
               "question": "what is the Telephone Number ?",
               "id": "5733b6424776f41900660f04"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 110,
+                  "text": "1300 362 242"
+                }
+              ],
+              "question": "what is the contact number ?",
+              "id": "5733b6424776f41900660f111"
             },
             {
               "answers": [
@@ -279,12 +329,42 @@
             {
               "answers": [
                 {
+                  "answer_start": 131,
+                  "text": "AmandaH@trc.qld.gov.au"
+                }
+              ],
+              "question": "What is the E-mail address ?",
+              "id": "5733b6424776f41900660f112"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 131,
+                  "text": "AmandaH@trc.qld.gov.au"
+                }
+              ],
+              "question": "What is the Email address ?",
+              "id": "5733b6424776f41900660f113"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 166,
                   "text": "Amanda Henderson"
                 }
               ],
               "question": "Who is in Attention ?",
               "id": "5733b6424776f41900660f11"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 166,
+                  "text": "Amanda Henderson"
+                }
+              ],
+              "question": "Who is in the Attention ?",
+              "id": "5733b6424776f41900660f114"
             }
           ]
         },
@@ -304,12 +384,42 @@
             {
               "answers": [
                 {
+                  "answer_start": 5,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "What is name ?",
+              "id": "5733b6424776f41900660f115"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 35,
                   "text": "054 365 696"
                 }
               ],
               "question": "What is the ACN ?",
               "id": "5733b6424776f41900660f07"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is the ACN number?",
+              "id": "5733b6424776f41900660f116"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is ACN number?",
+              "id": "5733b6424776f41900660f117"
             },
             {
               "answers": [
@@ -324,6 +434,36 @@
             {
               "answers": [
                 {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is the address ?",
+              "id": "5733b6424776f41900660f118"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is the contact Address ?",
+              "id": "5733b6424776f41900660f119"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is the contact address ?",
+              "id": "5733b6424776f41900660f120"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 142,
                   "text": "(02) 8113 5128"
                 }
@@ -334,12 +474,82 @@
             {
               "answers": [
                 {
+                  "answer_start": 142,
+                  "text": "(02) 8113 5128"
+                }
+              ],
+              "question": "what is the contact Number ?",
+              "id": "5733b6424776f41900660f121"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 165,
                   "text": "mdsspropertyissues@optus.com.au"
                 }
               ],
               "question": "What is the Email ?",
               "id": "5733b6424776f41900660f10"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 165,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is the E-mail ?",
+              "id": "5733b6424776f41900660f122"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 165,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is the E-mail address ?",
+              "id": "5733b6424776f41900660f123"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 165,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is an E-mail address ?",
+              "id": "5733b6424776f41900660f124"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 165,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is E-mail address ?",
+              "id": "5733b6424776f41900660f125"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 165,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is Email ?",
+              "id": "5733b6424776f41900660f126"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 165,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is an Email address ?",
+              "id": "5733b6424776f41900660f127"
             },
             {
               "answers": [
@@ -369,12 +579,132 @@
             {
               "answers": [
                 {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "What is the Commencement Date ?",
+              "id": "5733b6424776f41900660f128"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "When is the Date of Commencement ?",
+              "id": "5733b6424776f41900660f129"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "When is the Commencement Date ?",
+              "id": "5733b6424776f41900660f130"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "When is Date of Commencement ?",
+              "id": "5733b6424776f41900660f131"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "When is Commencement Date ?",
+              "id": "5733b6424776f41900660f132"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "What is the start Date ?",
+              "id": "5733b6424776f41900660f133"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "When is the start Date ?",
+              "id": "5733b6424776f41900660f134"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 21,
+                  "text": "27 November 2018"
+                }
+              ],
+              "question": "When is start Date ?",
+              "id": "5733b6424776f41900660f135"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 58,
                   "text": "26 November 2028"
                 }
               ],
               "question": "What is the Date of Expiry ?",
               "id": "5733b6424776f41900660f14"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "26 November 2028"
+                }
+              ],
+              "question": "What is Date of Expiry ?",
+              "id": "5733b6424776f41900660f136"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "26 November 2028"
+                }
+              ],
+              "question": "When is the Date of Expiry ?",
+              "id": "5733b6424776f41900660f137"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "26 November 2028"
+                }
+              ],
+              "question": "When is Date of Expiry ?",
+              "id": "5733b6424776f41900660f138"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "26 November 2028"
+                }
+              ],
+              "question": "When is Expiry Date ?",
+              "id": "5733b6424776f41900660f139"
             },
             {
               "answers": [
@@ -389,12 +719,32 @@
             {
               "answers": [
                 {
+                  "answer_start": 81,
+                  "text": "10 years"
+                }
+              ],
+              "question": "what is Term ?",
+              "id": "5733b6424776f41900660f140"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 102,
                   "text": "B1552"
                 }
               ],
               "question": "what is the Site Code ?",
               "id": "5733b6424776f41900660f16"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 102,
+                  "text": "B1552"
+                }
+              ],
+              "question": "what is Site Code ?",
+              "id": "5733b6424776f41900660f141"
             },
             {
               "answers": [
@@ -424,12 +774,62 @@
             {
               "answers": [
                 {
+                  "answer_start": 6,
+                  "text": "$6,000 (plus GST, if any) per annum "
+                }
+              ],
+              "question": "How much is Rent ?",
+              "id": "5733b6424776f41900660f142"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 6,
+                  "text": "$6,000 (plus GST, if any) per annum "
+                }
+              ],
+              "question": "How much is Rent amount ?",
+              "id": "5733b6424776f41900660f146"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 6,
+                  "text": "$6,000 (plus GST, if any) per annum "
+                }
+              ],
+              "question": "what is the Rent amount ?",
+              "id": "5733b6424776f41900660f143"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 43,
                   "text": "increased by 3% on each anniversary of the Commencement Date"
                 }
               ],
-              "question": "How much is increase in Rent ?",
+              "question": "what is the increase in Rent ?",
               "id": "5733b6424776f41900660f19"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 43,
+                  "text": "increased by 3% on each anniversary of the Commencement Date"
+                }
+              ],
+              "question": "how much is the increase in Rent ?",
+              "id": "5733b6424776f41900660f144"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 43,
+                  "text": "increased by 3% on each anniversary of the Commencement Date"
+                }
+              ],
+              "question": "how much is the increase in Rent amount ?",
+              "id": "5733b6424776f41900660f145"
             },
             {
               "answers": [
@@ -444,6 +844,26 @@
             {
               "answers": [
                 {
+                  "answer_start": 139,
+                  "text": "Tablelands Regional Council"
+                }
+              ],
+              "question": "what is name of an Account ?",
+              "id": "5733b6424776f41900660f147"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 139,
+                  "text": "Tablelands Regional Council"
+                }
+              ],
+              "question": "what is the name of an Account ?",
+              "id": "5733b6424776f41900660f148"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 173,
                   "text": "084-512"
                 }
@@ -454,12 +874,42 @@
             {
               "answers": [
                 {
+                  "answer_start": 173,
+                  "text": "084-512"
+                }
+              ],
+              "question": "what is BSB Number ?",
+              "id": "5733b6424776f41900660f149"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 194,
                   "text": "753387641"
                 }
               ],
-              "question": "What is the Account No",
+              "question": "What is the Account Number",
               "id": "5733b6424776f41900660f22"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 194,
+                  "text": "753387641"
+                }
+              ],
+              "question": "What is an Account Number",
+              "id": "5733b6424776f41900660f150"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 194,
+                  "text": "753387641"
+                }
+              ],
+              "question": "What is Account Number",
+              "id": "5733b6424776f41900660f151"
             }
           ]
         },
@@ -479,12 +929,42 @@
             {
               "answers": [
                 {
+                  "answer_start": 5,
+                  "text": "Gary Dean Siebert and Kerrin Darrell Siebert"
+                }
+              ],
+              "question": "what is name ?",
+              "id": "5733b6424776f41900660f152"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 55,
                   "text": "88 371 472 673"
                 }
               ],
               "question": "What is the ABN ?",
               "id": "5733b6424776f41900660f24"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 55,
+                  "text": "88 371 472 673"
+                }
+              ],
+              "question": "What is ABN number ?",
+              "id": "5733b6424776f41900660f153"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 55,
+                  "text": "88 371 472 673"
+                }
+              ],
+              "question": "What is ABN ?",
+              "id": "5733b6424776f41900660f154"
             },
             {
               "answers": [
@@ -499,12 +979,62 @@
             {
               "answers": [
                 {
+                  "answer_start": 80,
+                  "text": "PO Box 107, Lock SA 5633"
+                }
+              ],
+              "question": "what is Address ?",
+              "id": "5733b6424776f41900660f155"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 80,
+                  "text": "PO Box 107, Lock SA 5633"
+                }
+              ],
+              "question": "where is the Address ?",
+              "id": "5733b6424776f41900660f156"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 80,
+                  "text": "PO Box 107, Lock SA 5633"
+                }
+              ],
+              "question": "where is Address ?",
+              "id": "5733b6424776f41900660f157"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 117,
                   "text": "(08) 8687 3006"
                 }
               ],
               "question": "what is the Telephone Number ?",
               "id": "5733b6424776f41900660f26"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 117,
+                  "text": "(08) 8687 3006"
+                }
+              ],
+              "question": "what is Telephone Number ?",
+              "id": "5733b6424776f41900660f158"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 117,
+                  "text": "(08) 8687 3006"
+                }
+              ],
+              "question": "what is the contact number ?",
+              "id": "5733b6424776f41900660f159"
             }
           ]
         },
@@ -524,12 +1054,72 @@
             {
               "answers": [
                 {
+                  "answer_start": 5,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "what is name ?",
+              "id": "5733b6424776f41900660f160"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 35,
                   "text": "054 365 696"
                 }
               ],
               "question": "What is the ACN ?",
               "id": "5733b6424776f41900660f28"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is the ACN Number ?",
+              "id": "5733b6424776f41900660f161"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is ACN Number ?",
+              "id": "5733b6424776f41900660f162"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is ACN ?",
+              "id": "5733b6424776f41900660f163"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is an ACN ?",
+              "id": "5733b6424776f41900660f164"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 35,
+                  "text": "054 365 696"
+                }
+              ],
+              "question": "What is an ACN number ?",
+              "id": "5733b6424776f41900660f165"
             },
             {
               "answers": [
@@ -544,6 +1134,36 @@
             {
               "answers": [
                 {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is the contact address ?",
+              "id": "5733b6424776f41900660f166"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is contact address ?",
+              "id": "5733b6424776f41900660f167"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 57,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "where is the address ?",
+              "id": "5733b6424776f41900660f168"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 109,
                   "text": "(02) 8082 1620"
                 }
@@ -554,12 +1174,42 @@
             {
               "answers": [
                 {
+                  "answer_start": 109,
+                  "text": "(02) 8082 1620"
+                }
+              ],
+              "question": "what is Telephone Number ?",
+              "id": "5733b6424776f41900660f169"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 109,
+                  "text": "(02) 8082 1620"
+                }
+              ],
+              "question": "what is contact Number ?",
+              "id": "5733b6424776f41900660f170"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 136,
                   "text": "Manager- Lease Administration Optus Mobile Pty Limited"
                 }
               ],
               "question": "who is in Attention ?",
               "id": "5733b6424776f41900660f31"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 136,
+                  "text": "Manager- Lease Administration Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "who is in the Attention ?",
+              "id": "5733b6424776f41900660f171"
             }
           ]
         },
@@ -579,12 +1229,82 @@
             {
               "answers": [
                 {
+                  "answer_start": 18,
+                  "text": "8 day of March 2011"
+                }
+              ],
+              "question": "what is Date of commencement ?",
+              "id": "5733b6424776f41900660f172"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 18,
+                  "text": "8 day of March 2011"
+                }
+              ],
+              "question": "what is the Start Date ?",
+              "id": "5733b6424776f41900660f173"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 18,
+                  "text": "8 day of March 2011"
+                }
+              ],
+              "question": "what is commencement date ?",
+              "id": "5733b6424776f41900660f174"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 18,
+                  "text": "8 day of March 2011"
+                }
+              ],
+              "question": "what is commencement date ?",
+              "id": "5733b6424776f41900660f175"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 55,
                   "text": "7 day of March 2016"
                 }
               ],
               "question": "What is Date of Expiry ?",
               "id": "5733b6424776f41900660f33"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 55,
+                  "text": "7 day of March 2016"
+                }
+              ],
+              "question": "What is the Date of Expiry ?",
+              "id": "5733b6424776f41900660f176"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 55,
+                  "text": "7 day of March 2016"
+                }
+              ],
+              "question": "What is the Expiry date ?",
+              "id": "5733b6424776f41900660f177"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 55,
+                  "text": "7 day of March 2016"
+                }
+              ],
+              "question": "What is an end date ?",
+              "id": "5733b6424776f41900660f178"
             },
             {
               "answers": [
@@ -599,6 +1319,36 @@
             {
               "answers": [
                 {
+                  "answer_start": 81,
+                  "text": "10 years"
+                }
+              ],
+              "question": "what is Term ?",
+              "id": "5733b6424776f41900660f179"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 81,
+                  "text": "10 years"
+                }
+              ],
+              "question": "what is Tenure of the Term ?",
+              "id": "5733b6424776f41900660f180"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 81,
+                  "text": "10 years"
+                }
+              ],
+              "question": "what is Tenure of Term ?",
+              "id": "5733b6424776f41900660f181"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 102,
                   "text": "A8147"
                 }
@@ -609,12 +1359,32 @@
             {
               "answers": [
                 {
+                  "answer_start": 102,
+                  "text": "A8147"
+                }
+              ],
+              "question": "what is Site Code ?",
+              "id": "5733b6424776f41900660f183"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 216,
                   "text": "Tooligie Hill Road, Tooligie SA 5607"
                 }
               ],
               "question": "what is property known as ?",
               "id": "5733b6424776f41900660f36"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 216,
+                  "text": "Tooligie Hill Road, Tooligie SA 5607"
+                }
+              ],
+              "question": "what is the property known as ?",
+              "id": "5733b6424776f41900660f182"
             },
             {
               "answers": [
@@ -633,7 +1403,7 @@
                   "text": "Register Book Volume 5605 Folio 505"
                 }
               ],
-              "question": "what is the Certificate of Title?",
+              "question": "what is Certificate of Title?",
               "id": "5733b6424776f41900660f38"
             }
           ]
@@ -654,12 +1424,92 @@
             {
               "answers": [
                 {
+                  "answer_start": 74,
+                  "text": "($4,000.00)(GST exclusive) during the first year of the Term"
+                }
+              ],
+              "question": "How much is the Rent amount ?",
+              "id": "5733b6424776f41900660f183"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 74,
+                  "text": "($4,000.00)(GST exclusive) during the first year of the Term"
+                }
+              ],
+              "question": "How much is Rent amount ?",
+              "id": "5733b6424776f41900660f184"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 74,
+                  "text": "($4,000.00)(GST exclusive) during the first year of the Term"
+                }
+              ],
+              "question": "what is the Rent amount ?",
+              "id": "5733b6424776f41900660f185"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 74,
+                  "text": "($4,000.00)(GST exclusive) during the first year of the Term"
+                }
+              ],
+              "question": "what is Rent amount ?",
+              "id": "5733b6424776f41900660f186"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 140,
                   "text": "increased by 3% compounding annually thereafter for the balance of the Term."
                 }
               ],
               "question": "How much is increase in Rent ?",
               "id": "5733b6424776f41900660f40"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 140,
+                  "text": "increased by 3% compounding annually thereafter for the balance of the Term."
+                }
+              ],
+              "question": "How much is the increase in Rent ?",
+              "id": "5733b6424776f41900660f187"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 140,
+                  "text": "increased by 3% compounding annually thereafter for the balance of the Term."
+                }
+              ],
+              "question": "How much is an increase in Rent ?",
+              "id": "5733b6424776f41900660f188"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 140,
+                  "text": "increased by 3% compounding annually thereafter for the balance of the Term."
+                }
+              ],
+              "question": "what is the increase in Rent ?",
+              "id": "5733b6424776f41900660f189"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 140,
+                  "text": "increased by 3% compounding annually thereafter for the balance of the Term."
+                }
+              ],
+              "question": "what is an increase in Rent ?",
+              "id": "5733b6424776f41900660f190"
             }
           ]
         },
@@ -679,12 +1529,62 @@
             {
               "answers": [
                 {
+                  "answer_start": 5,
+                  "text": "Scentre Management Limited"
+                }
+              ],
+              "question": "What is name ?",
+              "id": "5733b6424776f41900660f191"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 37,
                   "text": "001 670 579"
                 }
               ],
               "question": "What is the ACN ?",
               "id": "5733b6424776f41900660f42"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 37,
+                  "text": "001 670 579"
+                }
+              ],
+              "question": "What is the ACN number ?",
+              "id": "5733b6424776f41900660f193"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 37,
+                  "text": "001 670 579"
+                }
+              ],
+              "question": "What is an ACN number ?",
+              "id": "5733b6424776f41900660f194"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 37,
+                  "text": "001 670 579"
+                }
+              ],
+              "question": "What is ACN ?",
+              "id": "5733b6424776f41900660f195"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 37,
+                  "text": "001 670 579"
+                }
+              ],
+              "question": "What is ACN number ?",
+              "id": "5733b6424776f41900660f196"
             },
             {
               "answers": [
@@ -699,12 +1599,52 @@
             {
               "answers": [
                 {
+                  "answer_start": 58,
+                  "text": "85 Castlereagh Street SYDNEY NSW 2000"
+                }
+              ],
+              "question": "what is Address ?",
+              "id": "5733b6424776f41900660f197"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 58,
+                  "text": "85 Castlereagh Street SYDNEY NSW 2000"
+                }
+              ],
+              "question": "where is the Address ?",
+              "id": "5733b6424776f41900660f198"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 100,
                   "text": "SAS Trustee Corporation 83 Clarence Street SYDNEY NSW 2000."
                 }
               ],
               "question": "what is the another Address ?",
               "id": "5733b6424776f41900660f44"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 100,
+                  "text": "SAS Trustee Corporation 83 Clarence Street SYDNEY NSW 2000."
+                }
+              ],
+              "question": "what is another Address ?",
+              "id": "5733b6424776f41900660f199"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 100,
+                  "text": "SAS Trustee Corporation 83 Clarence Street SYDNEY NSW 2000."
+                }
+              ],
+              "question": "what is an another Address ?",
+              "id": "5733b6424776f41900660f200"
             }
           ]
         },
