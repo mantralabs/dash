@@ -19,11 +19,31 @@
             {
               "answers": [
                 {
+                  "answer_start": 12,
+                  "text": "Gary Lewis Jungwirth and Elizabeth Anne Jungwirth"
+                }
+              ],
+              "question": "who is the Lessor ?",
+              "id": "5733be284776f41900661182"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 67,
                   "text": "21 717 960 278"
                 }
               ],
               "question": "What is the ABN of Lessor ?",
+              "id": "5733be284776f4190066117f"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 67,
+                  "text": "21 717 960 278"
+                }
+              ],
+              "question": "What is the Lessor's ABN ?",
               "id": "5733be284776f4190066117f"
             },
             {
@@ -39,11 +59,31 @@
             {
               "answers": [
                 {
+                  "answer_start": 91,
+                  "text": "740 Mt Ridley Road, Mickleham Vic 3064"
+                }
+              ],
+              "question": "what is Lessor's address ?",
+              "id": "5733be284776f41900661180"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 161,
                   "text": "jungwirth@netspace.net.au"
                 }
               ],
               "question": "What is the Email of Lessor?",
+              "id": "5733be284776f41900661181"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 161,
+                  "text": "jungwirth@netspace.net.au"
+                }
+              ],
+              "question": "What is the Lessor's email?",
               "id": "5733be284776f41900661181"
             },
             {
@@ -74,11 +114,41 @@
             {
               "answers": [
                 {
+                  "answer_start": 12,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "who is the Lessee ?",
+              "id": "5733bf84d058e614000b61be"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 12,
+                  "text": "Optus Mobile Pty Limited"
+                }
+              ],
+              "question": "what is the Lessee name ?",
+              "id": "5733bf84d058e614000b61bef"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 43,
                   "text": "65 054 365 696"
                 }
               ],
               "question": "What is the ABN of Lessee ?",
+              "id": "5733bf84d058e614000b61bf"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 43,
+                  "text": "65 054 365 696"
+                }
+              ],
+              "question": "What is Lessee's ABN ?",
               "id": "5733bf84d058e614000b61bf"
             },
             {
@@ -94,6 +164,16 @@
             {
               "answers": [
                 {
+                  "answer_start": 66,
+                  "text": "1 Lyonpark Road, Macquarie Park NSW 2113"
+                }
+              ],
+              "question": "what is Lessee's address ?",
+              "id": "5733bf84d058e614000b61c0"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 189,
                   "text": "mdsspropertyissues@optus.com.au"
                 }
@@ -104,11 +184,41 @@
             {
               "answers": [
                 {
+                  "answer_start": 189,
+                  "text": "mdsspropertyissues@optus.com.au"
+                }
+              ],
+              "question": "What is Lessee's email?",
+              "id": "5733bf84d058e614000b61bd"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 167,
                   "text": "(02) 8113 5128"
                 }
               ],
               "question": "what is Lessee's Telephone Number ?",
+              "id": "5733bf84d058e614000b61c1"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 167,
+                  "text": "(02) 8113 5128"
+                }
+              ],
+              "question": "what is Lessee Telephone Number ?",
+              "id": "5733bf84d058e614000b61c1"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 167,
+                  "text": "(02) 8113 5128"
+                }
+              ],
+              "question": "what is telephone number of Lessee ?",
               "id": "5733bf84d058e614000b61c1"
             }
           ]
@@ -159,11 +269,41 @@
             {
               "answers": [
                 {
+                  "answer_start": 250,
+                  "text": "3 December 2018"
+                }
+              ],
+              "question": "What is contract commencement Date ?",
+              "id": "5733bed24776f4190066118b"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 250,
+                  "text": "3 December 2018"
+                }
+              ],
+              "question": "When did contract commenced ?",
+              "id": "5733bed24776f4190066118b"
+            },
+            {
+              "answers": [
+                {
                   "answer_start": 285,
                   "text": "2 October 2036"
                 }
               ],
               "question": "What is contract Expiry Date ?",
+              "id": "5733bed24776f4190066118c"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 285,
+                  "text": "2 October 2036"
+                }
+              ],
+              "question": "What is contract expiring ?",
               "id": "5733bed24776f4190066118c"
             }
           ]
@@ -1725,6 +1865,26 @@
               ],
               "question": "where is the Premises ?",
               "id": "5733b6424776f41900660f51"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 170,
+                  "text": "Shop 2062, Westfield Knox."
+                }
+              ],
+              "question": "what is the address of the Premise ?",
+              "id": "5733b6424776f41900660f51"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 170,
+                  "text": "Shop 2062, Westfield Knox."
+                }
+              ],
+              "question": "what is the address of Premise ?",
+              "id": "5733b6424776f41900660f51"
             }
           ]
         },
@@ -1953,8 +2113,38 @@
                   "text": "Five (5) years"
                 }
               ],
+              "question": "What is term ?",
+              "id": "5733b6424776f41900660f701"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 7,
+                  "text": "Five (5) years"
+                }
+              ],
               "question": "What is the Term ?",
               "id": "5733b6424776f41900660f70"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "15 MARCH 2017"
+                }
+              ],
+              "question": "What is Commencing Date ?",
+              "id": "5733b6424776f41900660f712"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 39,
+                  "text": "15 MARCH 2017"
+                }
+              ],
+              "question": "What is Commencement Date ?",
+              "id": "5733b6424776f41900660f713"
             },
             {
               "answers": [
@@ -1975,6 +2165,26 @@
               ],
               "question": "what is the Terminating Date ?",
               "id": "5733b6424776f41900660f72"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 71,
+                  "text": "14 March 2022"
+                }
+              ],
+              "question": "what is Terminating Date ?",
+              "id": "5733b6424776f41900660f721"
+            },
+            {
+              "answers": [
+                {
+                  "answer_start": 71,
+                  "text": "14 March 2022"
+                }
+              ],
+              "question": "what is Termination Date ?",
+              "id": "5733b6424776f41900660f72135"
             },
             {
               "answers": [
